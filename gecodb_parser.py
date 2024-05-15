@@ -1,5 +1,13 @@
 import re
 from dataclasses import dataclass
+import random
+
+
+# ober~_Land_+es_Gericht
+# ein~_Familie_+n_Haus
+# nicht~_Regierung_+s_Organisation
+# Arbeit_+s_un~_Fähigkeit
+# Stute_+n_Milch_trinken_#en_Kur
 
 
 DE = '[a-zäöüß]+'
@@ -8,6 +16,9 @@ LINK_TYPES = {
     # are not matched prematurely;
     # e.g., _(x)_+xx_ should come before _+xx_ because otherwise
     # _(x)_+xx_ type links will be defined as _+xx_ ones
+    # this one is not a link, but will be added here for further processing
+    "infix": f'({DE}~_)',                                    # Arbeit_+s_un~_Fähigkeit = Arbeits(un)fähigkeit
+    # links
     "addition_with_expansion": f'(_\({DE}\)_\+{DE}_)',    # Bau_(t)_+en_Schutz = Bautenschutz
     "addition_with_umlaut": f'(_\+={DE}_)',               # Gast_+=e_Buch = Gästebuch
     "replacement": f'(_\-{DE}_\+{DE}_)',                  # Hilfe_-e_+s_Mittel = Hilfsmittel
@@ -74,7 +85,11 @@ class Compound:
 
     def _get_link_objs(self, component):
         for link_type, pattern in LINK_TYPES.items():
-            match = re.match(pattern.replace(DE, f'({DE})'), component) # add parenthesis to pattern to capture links
+            match = re.match(
+                pattern.replace(DE, f'({DE})'), # add parenthesis to pattern to capture links
+                component,
+                flags=re.I
+            )
             if match:
                 match link_type:
                     case "addition_with_expansion":
@@ -149,6 +164,23 @@ class Compound:
                             )
                         ]
                         break
+                    # Infixes are optional and do not convey much useful information:
+                    # ein~_Familie_+n_Haus is the same for us as Familie_+n_Haus;
+                    # however, if we completely ignore them, we might accidentally train the model
+                    # to not detect them as a normal part of a compound but rather as an anomaly
+                    # (because they'd have never seen those) so we might get inadequate analysis
+                    # of compounds with such infixes. To prevent that, we will
+                    # eliminate them in 60% cases and merge them into the stem otherwise  
+                    case "infix":
+                        component = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
+                        links = [
+                            Link(
+                                component=component,
+                                index=self.i,
+                                type="infix"
+                            )
+                        ]
+                        break
                     case _: # "umlaut", "concatenation"
                         links = [
                             Link(
@@ -164,10 +196,10 @@ class Compound:
     def _fuse_links(self, links):
         for link in links:
             match link.type:
-                case "expansion" | "addition":
+                case "expansion" | "addition" | "infix":
                     self.lemma += link.component
                 case "deletion":
-                    self.lemma = re.sub(f'{link.component}$', '', self.lemma, count=1)
+                    self.lemma = re.sub(f'{link.component}$', '', self.lemma, count=1, flags=re.I)
                 case "hyphen":
                     self.lemma += '-'
                 case "umlaut":
@@ -178,9 +210,15 @@ class Compound:
                         suffix_after_umlaut = re.sub(
                             umlaut,
                             UMLAUTS[umlaut],
-                            suffix_before_umlaut
+                            suffix_before_umlaut,
+                            flags=re.I
                         )
-                        self.lemma = re.sub(f'{suffix_before_umlaut}$', suffix_after_umlaut, self.lemma)
+                        self.lemma = re.sub(
+                            f'{suffix_before_umlaut}$',
+                            suffix_after_umlaut,
+                            self.lemma,
+                            flags=re.I
+                        )
                 case _: # "concatenation"
                     pass
 
@@ -193,12 +231,13 @@ class Compound:
             if not component: continue  # None from capturing group
             if not '_' in component:    # stem
                 stem = self._get_stem_obj(component)
-                self.stems.append(stem)
                 self.lemma += component # accumulative fusion into the original lemma
+                self.stems.append(stem)
             else:
                 links = self._get_link_objs(component)
-                self.links += links
                 self._fuse_links(links) # accumulative fusion into the original lemma
+                if not (len(links) == 1 and links[0].type == "infix" and not links[0].component): # if not eliminated infix
+                    self.links += links
             self.i += 1
         del self.i
         self.components = sorted(self.stems + self.links, key=lambda c: c.index)
@@ -206,10 +245,6 @@ class Compound:
 
     def __repr__(self) -> str:
         return f'{self.lemma} <-- {self.raw}'
-
-# Stute_+n_Milch_trinken_#en_Kur        6406505
-
-
 
 
 # def read_data(gecodb_path, min_freq=None):
