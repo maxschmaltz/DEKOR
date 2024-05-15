@@ -3,13 +3,6 @@ from dataclasses import dataclass
 import random
 
 
-# ober~_Land_+es_Gericht
-# ein~_Familie_+n_Haus
-# nicht~_Regierung_+s_Organisation
-# Arbeit_+s_un~_Fähigkeit
-# Stute_+n_Milch_trinken_#en_Kur
-
-
 DE = '[a-zäöüß]+'
 LINK_TYPES = {
     # more complex types come first so that types that use subpatterns
@@ -77,10 +70,11 @@ class Compound:
 
     def _get_stem_obj(self, component):
         stem = Stem(
-            component=component.lower(),
+            component=(self.infix + component).lower(), # add cumulative infix if applicable
             index=self.i,
             is_noun=component[0].isupper()
         )
+        self.infix = ""
         return stem
 
     def _get_link_objs(self, component):
@@ -172,14 +166,15 @@ class Compound:
                     # of compounds with such infixes. To prevent that, we will
                     # eliminate them in 60% cases and merge them into the stem otherwise  
                     case "infix":
-                        component = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
-                        links = [
-                            Link(
-                                component=component,
-                                index=self.i,
-                                type="infix"
-                            )
-                        ]
+                        # component = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
+                        # links = [
+                        #     Link(
+                        #         component=component,
+                        #         index=self.i,
+                        #         type="infix"
+                        #     )
+                        # ]
+                        links = []
                         break
                     case _: # "umlaut", "concatenation"
                         links = [
@@ -224,14 +219,27 @@ class Compound:
 
     def _analyze(self, gecodb_compound):
         self.i = 0  # global scope of index
+        self.infix = "" # global scope of infix
         self.stems, self.links = [], []
         components = re.split(LINK, gecodb_compound, flags=re.I)
         self.lemma = ""
+        # infix = ""
         for component in components:
             if not component: continue  # None from capturing group
+            if "~" in component:
+                match = re.match(
+                    LINK_TYPES["infix"].replace(DE, f'({DE})'), # add parenthesis to pattern to capture infix
+                    component,
+                    flags=re.I
+                )
+                self.infix = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
+                if not self.infix:
+                    self.raw = self.raw.replace(component, "", 1)
+                self.i -= 1 # the element will be either omitted or merged so won't be independent
             if not '_' in component:    # stem
                 stem = self._get_stem_obj(component)
-                self.lemma += component # accumulative fusion into the original lemma
+                # component = infix + component; infix = ""   # add cumulative infix if applicable
+                self.lemma += stem.component # accumulative fusion into the original lemma
                 self.stems.append(stem)
             else:
                 links = self._get_link_objs(component)
@@ -239,13 +247,38 @@ class Compound:
                 if not (len(links) == 1 and links[0].type == "infix" and not links[0].component): # if not eliminated infix
                     self.links += links
             self.i += 1
-        del self.i
+        del self.i; del self.infix
         self.components = sorted(self.stems + self.links, key=lambda c: c.index)
         self.lemma = self.lemma.capitalize()
 
     def __repr__(self) -> str:
         return f'{self.lemma} <-- {self.raw}'
 
+
+
+gecodb_entry = "ober~_Land_+es_Gericht"
+compound = Compound(gecodb_entry)
+# compare components and their properties
+expected_components = [
+    ...,
+    Link("es", index=1, type="addition"),
+    Stem("gericht", index=2, is_noun=True)
+]
+actual_components = compound.components
+# detect true list
+elim = Stem("land", index=0, is_noun=True)
+not_elim = Stem("oberland", index=0, is_noun=True)
+assert(
+    actual_components[0] == elim or
+    actual_components[0] == not_elim
+)
+eliminated = actual_components[0] == elim
+expected_components[0] = elim if eliminated else not_elim
+# self.assertListEqual(expected_components, actual_components)
+# # compare pretty form
+# expected_pretty = "Landesgericht" if eliminated else "Oberlandesgericht"
+# actual_pretty = compound.lemma
+# self.assertEqual(expected_pretty, actual_pretty)
 
 # def read_data(gecodb_path, min_freq=None):
 #     gecodb = pandas.read_csv(

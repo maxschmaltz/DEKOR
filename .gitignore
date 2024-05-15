@@ -1,5 +1,7 @@
 /.venv
 /.vscode
-/__pycache__
-/.DS_Store
-/COW
+**/__pycache__
+**/.DS_Store
+/dekor/COW
+/build
+**.egg-info
