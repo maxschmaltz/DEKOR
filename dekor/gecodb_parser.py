@@ -1,6 +1,7 @@
 import re
 from dataclasses import dataclass
 import random
+from typing import Tuple
 
 
 DE = '[a-zäöüß]+'
@@ -41,7 +42,8 @@ def get_span(string, range):
 class Stem:
 
     component: str
-    index: int
+    realization: str
+    span: Tuple[int]
     is_noun: bool
     # further features
 
@@ -53,7 +55,7 @@ class Stem:
 class Link:
 
     component: str
-    index: int
+    span: Tuple[int]
     type: str
     # further features
 
@@ -66,15 +68,19 @@ class Compound:
 
     def __init__(self, gecodb_entry):
         self.raw = gecodb_entry
-        self._analyze(gecodb_entry) # adds .stems, .links, .components
+        self._analyze(gecodb_entry) # adds .stems, .links, .components, .lemma
 
     def _get_stem_obj(self, component):
+        is_noun = component[0].isupper()
+        component = self.infix + component  # add cumulative infix if applicable
         stem = Stem(
-            component=(self.infix + component).lower(), # add cumulative infix if applicable
-            index=self.i,
-            is_noun=component[0].isupper()
+            component=component.lower(),
+            realization=component.lower(),
+            span=(self.i, self.i + len(component)),
+            is_noun=is_noun
         )
         self.infix = ""
+        self.i += len(component)
         return stem
 
     def _get_link_objs(self, component):
@@ -87,64 +93,74 @@ class Compound:
             if match:
                 match link_type:
                     case "addition_with_expansion":
+                        exp_component = get_span(component, match.regs[-2])
+                        add_component = get_span(component, match.regs[-1])
                         links = [
                             Link(
-                                component=get_span(component, match.regs[-2]), # expansion part
-                                index=self.i,
+                                component=exp_component,    # expansion part
+                                span=(self.i, self.i + len(exp_component)),
                                 type="expansion"    # "addition"?
                             ),
                             Link(
-                                component=get_span(component, match.regs[-1]), # addition part
-                                index=self.i + 1,
+                                component=add_component,    # addition part
+                                span=(self.i + len(exp_component), self.i + len(exp_component) + len(add_component)),
                                 type="addition"
                             )   
                         ]
-                        self.i += 1
+                        self.i += (len(exp_component) + len(add_component))
                         break
                     case "addition_with_umlaut":
+                        add_component = get_span(component, match.regs[-1])
                         links = [
                             Link(
                                 component="",   # umlaut part
-                                index=self.i,
+                                span=(self.i, self.i),  # length of 0
                                 type="umlaut"
                             ),
                             Link(
-                                component=get_span(component, match.regs[-1]), # addition part
-                                index=self.i + 1,
+                                component=add_component, # addition part
+                                span=(self.i, self.i + len(add_component)),
                                 type="addition"
                             )   
                         ]
-                        self.i += 1
+                        self.i += len(add_component)
                         break
                     case "replacement":
+                        del_component = get_span(component, match.regs[-2])
+                        add_component = get_span(component, match.regs[-1])
+                        self.i -= len(del_component)    # will be subtracted from previous stem in fusion
                         links = [
                             Link(
-                                component=get_span(component, match.regs[-2]), # deletion part
-                                index=self.i,
+                                component=del_component, # deletion part
+                                span=(self.i, self.i),  # length of 0
                                 type="deletion"
                             ),
                             Link(
-                                component=get_span(component, match.regs[-1]), # addition part
-                                index=self.i + 1,
+                                component=add_component, # addition part
+                                span=(self.i, self.i + len(add_component)),
                                 type="addition"
                             )   
                         ]
-                        self.i += 1
+                        self.i += len(add_component)
                         break
                     case "addition":
+                        add_component = get_span(component, match.regs[-1])
                         links = [
                             Link(
-                                component=get_span(component, match.regs[-1]),
-                                index=self.i,
+                                component=add_component,
+                                span=(self.i, self.i + len(add_component)),
                                 type="addition"
                             )
                         ]
+                        self.i += len(add_component)
                         break
                     case "deletion_nom" | "deletion_non_nom":
+                        del_component = get_span(component, match.regs[-1])
+                        self.i -= len(del_component)    # will be subtracted from previous stem in fusion
                         links = [
                             Link(
-                                component=get_span(component, match.regs[-1]),
-                                index=self.i,
+                                component=del_component,
+                                span=(self.i, self.i),  # length of 0
                                 type="deletion"
                             )
                         ]
@@ -153,34 +169,21 @@ class Compound:
                         links = [
                             Link(
                                 component="-",
-                                index=self.i,
+                                span=(self.i, self.i + 1),  # length of 1
                                 type="hyphen"
                             )
                         ]
+                        self.i += 1
                         break
-                    # Infixes are optional and do not convey much useful information:
-                    # ein~_Familie_+n_Haus is the same for us as Familie_+n_Haus;
-                    # however, if we completely ignore them, we might accidentally train the model
-                    # to not detect them as a normal part of a compound but rather as an anomaly
-                    # (because they'd have never seen those) so we might get inadequate analysis
-                    # of compounds with such infixes. To prevent that, we will
-                    # eliminate them in 60% cases and merge them into the stem otherwise  
+                    # will be processed in fusion
                     case "infix":
-                        # component = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
-                        # links = [
-                        #     Link(
-                        #         component=component,
-                        #         index=self.i,
-                        #         type="infix"
-                        #     )
-                        # ]
                         links = []
                         break
                     case _: # "umlaut", "concatenation"
                         links = [
                             Link(
                                 component="",
-                                index=self.i,
+                                span=(self.i, self.i),  # length of 0
                                 type=link_type
                             )
                         ]
@@ -189,12 +192,16 @@ class Compound:
         return links  
 
     def _fuse_links(self, links):
+        if self.stems: last_stem = self.stems[-1]
         for link in links:
             match link.type:
                 case "expansion" | "addition" | "infix":
                     self.lemma += link.component
                 case "deletion":
                     self.lemma = re.sub(f'{link.component}$', '', self.lemma, count=1, flags=re.I)
+                    if last_stem: 
+                        last_stem.realization = re.sub(f'{link.component}$', '', last_stem.component, count=1, flags=re.I)
+                        last_stem.span = (last_stem.span[0], last_stem.span[1] - len(link.component) )
                 case "hyphen":
                     self.lemma += '-'
                 case "umlaut":
@@ -214,6 +221,13 @@ class Compound:
                             self.lemma,
                             flags=re.I
                         )
+                        if last_stem:
+                            last_stem.realization = re.sub(
+                                f'{suffix_before_umlaut}$',
+                                suffix_after_umlaut,
+                                last_stem.component,
+                                flags=re.I
+                            )
                 case _: # "concatenation"
                     pass
 
@@ -232,13 +246,18 @@ class Compound:
                     component,
                     flags=re.I
                 )
+                # Infixes are optional and do not convey much useful information:
+                # ein~_Familie_+n_Haus is the same for us as Familie_+n_Haus;
+                # however, if we completely ignore them, we might accidentally train the model
+                # to not detect them as a normal part of a compound but rather as an anomaly
+                # (because they'd have never seen those) so we might get inadequate analysis
+                # of compounds with such infixes. To prevent that, we will
+                # eliminate them in 60% cases and merge them into the stem otherwise  
                 self.infix = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
                 if not self.infix:
                     self.raw = self.raw.replace(component, "", 1)
-                self.i -= 1 # the element will be either omitted or merged so won't be independent
             if not '_' in component:    # stem
                 stem = self._get_stem_obj(component)
-                # component = infix + component; infix = ""   # add cumulative infix if applicable
                 self.lemma += stem.component # accumulative fusion into the original lemma
                 self.stems.append(stem)
             else:
@@ -246,47 +265,9 @@ class Compound:
                 self._fuse_links(links) # accumulative fusion into the original lemma
                 if not (len(links) == 1 and links[0].type == "infix" and not links[0].component): # if not eliminated infix
                     self.links += links
-            self.i += 1
         del self.i; del self.infix
-        self.components = sorted(self.stems + self.links, key=lambda c: c.index)
+        self.components = sorted(self.stems + self.links, key=lambda c: c.span)
         self.lemma = self.lemma.capitalize()
 
     def __repr__(self) -> str:
         return f'{self.lemma} <-- {self.raw}'
-
-
-
-gecodb_entry = "ober~_Land_+es_Gericht"
-compound = Compound(gecodb_entry)
-# compare components and their properties
-expected_components = [
-    ...,
-    Link("es", index=1, type="addition"),
-    Stem("gericht", index=2, is_noun=True)
-]
-actual_components = compound.components
-# detect true list
-elim = Stem("land", index=0, is_noun=True)
-not_elim = Stem("oberland", index=0, is_noun=True)
-assert(
-    actual_components[0] == elim or
-    actual_components[0] == not_elim
-)
-eliminated = actual_components[0] == elim
-expected_components[0] = elim if eliminated else not_elim
-# self.assertListEqual(expected_components, actual_components)
-# # compare pretty form
-# expected_pretty = "Landesgericht" if eliminated else "Oberlandesgericht"
-# actual_pretty = compound.lemma
-# self.assertEqual(expected_pretty, actual_pretty)
-
-# def read_data(gecodb_path, min_freq=None):
-#     gecodb = pandas.read_csv(
-#         gecodb_path,
-#         sep='\t',
-#         names=['comp', 'freq'],
-#         encoding='utf-8'
-#     )
-#     if min_freq is not None:
-#         gecodb[gecodb['freq'] >= min_freq]
-#    return gecodb
