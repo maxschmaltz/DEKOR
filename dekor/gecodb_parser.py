@@ -30,6 +30,7 @@ UMLAUTS = {
     'o': 'ö',
     'u': 'ü'
 }
+UMLAUTS_REVERSED = {v: k for k, v in UMLAUTS.items()}
 
 
 def get_span(string, range):
@@ -58,6 +59,11 @@ class Link:
     span: Tuple[int]
     type: str
     # further features
+
+    @classmethod
+    def empty(self):
+        self.__init__("", (-1, -1), "")
+        return self
 
     def __repr__(self) -> str:
         return self.component
@@ -205,10 +211,10 @@ class Compound:
                 case "hyphen":
                     self.lemma += '-'
                 case "umlaut":
-                    last_suffix_with_umlaut = re.search('(au|a|o|u)[^aou]+$', self.lemma, flags=re.I)
-                    if last_suffix_with_umlaut:
-                        suffix_before_umlaut = get_span(self.lemma, last_suffix_with_umlaut.regs[0])
-                        umlaut = get_span(self.lemma, last_suffix_with_umlaut.regs[1])
+                    match = re.search('(au|a|o|u)[^aou]+$', self.lemma, flags=re.I)
+                    if match:
+                        suffix_before_umlaut = get_span(self.lemma, match.regs[0])
+                        umlaut = get_span(self.lemma, match.regs[1])
                         suffix_after_umlaut = re.sub(
                             umlaut,
                             UMLAUTS[umlaut],
