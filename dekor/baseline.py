@@ -1,21 +1,17 @@
 import re
-import pandas as pd
+from itertools import product
+import random
 import numpy as np
+from sklearn.model_selection import train_test_split
 from typing import List
 
-from dekor.gecodb_parser import Compound, Link, UMLAUTS_REVERSED, get_span
-
-
-def parse_gecodb(gecodb_path, min_freq=25):
-    gecodb = pd.read_csv(
-        gecodb_path,
-        sep='\t',
-        names=['raw', 'freq'],
-        encoding='utf-8'
-    )
-    if min_freq: gecodb = gecodb[gecodb['freq'] >= min_freq]
-    gecodb['compound'] = gecodb['raw'].apply(Compound)
-    return gecodb
+from dekor.gecodb_parser import (
+    Compound,
+    Link,
+    get_span,
+    parse_gecodb,
+    UMLAUTS_REVERSED
+)
 
 
 class StringVocab:
@@ -24,11 +20,11 @@ class StringVocab:
         self._vocab = {"<unk>": 0}   # unk
         self._vocab_reversed = {0: "unk"}
 
-    def add(self, ngram):
-        if not ngram in self._vocab:
-            id = len(self._vocab)
-            self._vocab[ngram] = id
-            self._vocab_reversed[id] = ngram
+    def add(self, string):
+        if not string in self._vocab:
+            id = len(self)
+            self._vocab[string] = id
+            self._vocab_reversed[id] = string
 
     def encode(self, ngram):
         return self._vocab.get(ngram, 0)
@@ -44,15 +40,17 @@ class NGramsSplitter:
 
     _empty_link = Link.empty()
 
-    def __init__(self, n=3, special_symbols=True):
+    def __init__(self, n=3, accumulative=True, special_symbols=True):
         self.n = n
+        self.accumulative = accumulative
+        self.max_step = self.n if self.accumulative else 1
         self.special_symbols = special_symbols
         self.vocab_ngrams = StringVocab()
         self.vocab_links = StringVocab()
         self.vocab_types = StringVocab()
 
     def _forward(self, compound):
-        lemma = compound.lemma.lower()
+        lemma = compound.lemma
         c = 0   # correction for special symbols
         if self.special_symbols:
             lemma = f'>{lemma}<'
@@ -63,22 +61,24 @@ class NGramsSplitter:
             # next expected link; _empty link to unify the workflow
             coming_link = compound.links[coming_link_idx] if coming_link_idx < len(compound.links) else self._empty_link
             # define context
-            start = lemma[max(0, i): i + self.n]    # correction for the first 1-, 2- ... n-1-grams
-            end = lemma[i + self.n: i + self.n + self.n]
-            # define if there is a link incoming at this index
-            if i + self.n == coming_link.span[0] + c:
-                link = coming_link
-                # increment
-                coming_link_idx += 1
-            else:
-                link = self._empty_link
-            # add ngrams
-            self.vocab_ngrams.add(start)
-            self.vocab_ngrams.add(end)
-            self.vocab_links.add(link.component)
-            self.vocab_types.add(link.type)
-            # add non-empty links
-            masks.append((start, end, link))
+            for s_s, s_e in product(range(self.max_step), range(self.max_step)):
+                # TODO: if accumulative, masks at the beginning and in the end are duplicated
+                start = lemma[max(0, i + s_s): i + self.n]    # correction for the first 1-, 2- ... n-1-grams
+                end = lemma[i + self.n: i + self.n + self.n - (s_e)]
+                # define if there is a link incoming at this index
+                if i + self.n == coming_link.span[0] + c:
+                    link = coming_link
+                    # increment
+                    coming_link_idx += 1
+                else:
+                    link = self._empty_link
+                # add ngrams
+                self.vocab_ngrams.add(start)
+                self.vocab_ngrams.add(end)
+                self.vocab_links.add(link.component)
+                self.vocab_types.add(link.type)
+                # add mask
+                masks.append((start, end, link))
         return masks
 
     def fit(self, compounds: List[Compound]):
@@ -87,10 +87,10 @@ class NGramsSplitter:
             masks = self._forward(compound)
             all_masks += masks
         # at this point, all the vocabs are populated
-        freq_links = np.zeros(  # add-1 smoothing?
+        freq_links = np.zeros(  # TODO: add-1 smoothing?
             shape=(len(self.vocab_ngrams), len(self.vocab_ngrams), len(self.vocab_links))
         )
-        freq_types = np.zeros(  # add-1 smoothing?
+        freq_types = np.zeros(  # TODO: add-1 smoothing?
             shape=(len(self.vocab_links), len(self.vocab_types))
         )
         for start, end, link in all_masks:
@@ -111,14 +111,18 @@ class NGramsSplitter:
         self.probs_types = np.nan_to_num(self.probs_types, 0)
         return self
 
-    def _unfuse(self, raw, component, type):
+    def _unfuse(self, raw, component, type: str):
         match type:
             case "addition":
+                raw = re.sub(f'{component}$', '', raw, flags=re.I)
                 raw += f'_+{component}_'
-            case "addition":
+            case "expansion":
+                raw = re.sub(f'{component}$', '', raw, flags=re.I)
                 raw += f'_({component})_'
-            case "deletion":
+            case "deletion_nom":
                 raw += f'{component}_-{component}_'
+            case "deletion_non_nom":
+                raw += f'{component}_#{component}_'
             case "hyphen":
                 raw += '_--_'
             case "umlaut":
@@ -145,13 +149,12 @@ class NGramsSplitter:
                 pass
         return raw
     
-    def refine(self, raw):
-        # the only case a complex link cannot be restores by removing _ duplicates is addition with umlaut
-        raw = re.sub('_+=__+', '', raw)
+    def _refine(self, raw):
+        # the only case a complex link cannot be restores by removing _-duplicates is addition with umlaut
+        raw = re.sub('_+=__+', '_+=', raw)
         raw = re.sub('__', '_', raw)
         return raw
 
-        
     def _predict(self, compound):
         raw = ""
         lemma = compound.lemma.lower()
@@ -160,33 +163,43 @@ class NGramsSplitter:
             lemma = f'>{lemma}<'
             c = 1
         for i in range(1 - self.n, (len(lemma) - self.n)):
+            link_ids, link_probs = [], []
             # define context
-            start = lemma[max(0, i): i + self.n]    # correction for the first 1-, 2- ... n-1-grams 
-            end = lemma[i + self.n: i + self.n + self.n]
-            # most probable link
-            link_candidates = self.probs_links[
-                self.vocab_ngrams.encode(start),
-                self.vocab_ngrams.encode(end)
-            ]
-            if link_candidates.sum():
-                # not argmax because argmax returns left-most values
-                # so if two equal probs are in the candidates, the left-most is always returned
-                link_id = np.random.choice(
-                    np.flatnonzero(link_candidates == link_candidates.max())
-                )
-                type_candidates = self.probs_types[link_id]
-                type_id = np.random.choice(
-                    np.flatnonzero(type_candidates == type_candidates.max())
-                )
-                component = self.vocab_links.decode(link_id)
-                type = self.vocab_types.decode(type_id)
-            else:   # no links in observation between contexts
+            for s_s, s_e in product(range(self.max_step), range(self.max_step)):
+                # TODO: if accumulative, masks at the beginning and in the end are duplicated
+                start = lemma[max(0, i + s_s): i + self.n]    # correction for the first 1-, 2- ... n-1-grams
+                end = lemma[i + self.n: i + self.n + self.n - (s_e)]
+                # most probable link
+                link_candidates = self.probs_links[
+                    self.vocab_ngrams.encode(start),
+                    self.vocab_ngrams.encode(end)
+                ]
+                if link_candidates.sum():
+                    # not argmax because argmax returns left-most values
+                    # so if two equal probs are in the candidates, the left-most is always returned
+                    best_link_ids = np.where(link_candidates == link_candidates.max())[0]
+                    link_ids.append(best_link_ids)
+                    link_probs.append(link_candidates.max())
+
+            if link_probs:
+                link_probs = np.array(link_probs)
+                max_link_probs = np.where(link_probs == link_probs.max())[0]
+                best_link_ids = link_ids[random.choice(max_link_probs)] # not argmax once again
+                best_link_id = random.choice(best_link_ids)
+                type_candidates = self.probs_types[best_link_id]
+                best_type_ids = np.where(type_candidates == type_candidates.max())[0]
+                best_type_id = random.choice(best_type_ids)
+                component = self.vocab_links.decode(best_link_id)
+                type = self.vocab_types.decode(best_type_id)
+            else:
                 component = ""
-                type = ""
+                type = "none"
             # restore raw
             # because of the first 1-, 2-, ..., n-1-grams, first ends will start at the beginning of the word
-            if i < (len(lemma) - self.n): raw += end[0]
+            if i < (len(lemma) - (self.n + c)): # c for special symbol
+                raw += end[0]
             raw = self._unfuse(raw, component, type)
+        raw = self._refine(raw)
         return raw
 
     def predict(self, compounds):
@@ -195,16 +208,31 @@ class NGramsSplitter:
             pred = self._predict(compound)
             preds.append(pred)
         return preds
-            
 
 
-
+def run_baseline(
+    gecodb_path,
+    min_freq=100000,
+    train_split=0.85,
+    shuffle=True,
+    ngrams=3,
+    accumulative=True,
+    special_symbols=True
+):
+    gecodb = parse_gecodb(gecodb_path, min_freq=min_freq)
+    train_data, test_data = train_test_split(gecodb, train_size=train_split, shuffle=shuffle)
+    train_compounds = train_data["compound"].values
+    test_compounds = test_data["compound"].values
+    splitter = NGramsSplitter(
+        n=ngrams,
+        accumulative=accumulative,
+        special_symbols=special_symbols
+    ).fit(train_compounds)
+    preds = splitter.predict(test_compounds)
+    return preds
 
 
 if __name__ == '__main__':
-    path = './dekor/COW/gecodb_v01.tsv'
-    gecodb = parse_gecodb(path, min_freq=1000)
-    compounds = gecodb.compound.values.tolist()[:5000]
-    splitter = NGramsSplitter(n=2).fit(compounds)
-    preds = splitter.predict(gecodb.compound.values.tolist()[5000: 5003])
+    path = './dekor/COW/gecodb/gecodb_v01.tsv'
+    preds = run_baseline(path)
     pass
