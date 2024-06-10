@@ -1,6 +1,7 @@
 import re
 from dataclasses import dataclass
 import random
+import pandas as pd
 from typing import Tuple
 
 
@@ -61,9 +62,8 @@ class Link:
     # further features
 
     @classmethod
-    def empty(self):
-        self.__init__("", (-1, -1), "")
-        return self
+    def empty(cls):
+        return cls("", (-1, -1), "none")
 
     def __repr__(self) -> str:
         return self.component
@@ -105,7 +105,7 @@ class Compound:
                             Link(
                                 component=exp_component,    # expansion part
                                 span=(self.i, self.i + len(exp_component)),
-                                type="expansion"    # "addition"?
+                                type="expansion"    # TODO: "addition"?
                             ),
                             Link(
                                 component=add_component,    # addition part
@@ -160,14 +160,15 @@ class Compound:
                         ]
                         self.i += len(add_component)
                         break
-                    case "deletion_nom" | "deletion_non_nom":
+                    case r"deletion.+":
                         del_component = get_span(component, match.regs[-1])
                         self.i -= len(del_component)    # will be subtracted from previous stem in fusion
                         links = [
                             Link(
                                 component=del_component,
                                 span=(self.i, self.i),  # length of 0
-                                type="deletion"
+                                # type="deletion"
+                                type=link_type
                             )
                         ]
                         break
@@ -196,14 +197,14 @@ class Compound:
                         break
         else: links = []
         return links  
-
+    
     def _fuse_links(self, links):
         if self.stems: last_stem = self.stems[-1]
         for link in links:
             match link.type:
                 case "expansion" | "addition" | "infix":
                     self.lemma += link.component
-                case "deletion":
+                case r"deletion.+":
                     self.lemma = re.sub(f'{link.component}$', '', self.lemma, count=1, flags=re.I)
                     if last_stem: 
                         last_stem.realization = re.sub(f'{link.component}$', '', last_stem.component, count=1, flags=re.I)
@@ -277,3 +278,15 @@ class Compound:
 
     def __repr__(self) -> str:
         return f'{self.lemma} <-- {self.raw}'
+    
+
+def parse_gecodb(gecodb_path, min_freq=25):
+    gecodb = pd.read_csv(
+        gecodb_path,
+        sep='\t',
+        names=['raw', 'freq'],
+        encoding='utf-8'
+    )
+    if min_freq: gecodb = gecodb[gecodb['freq'] >= min_freq]
+    gecodb['compound'] = gecodb['raw'].apply(Compound)
+    return gecodb
