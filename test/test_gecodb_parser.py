@@ -13,9 +13,9 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("frage", "frage", span=(0, 5), is_noun=True),
+            Stem("frage", span=(0, 5), is_noun=True),
             Link("", span=(5, 5), type="concatenation"),
-            Stem("stellung", "stellung", span=(5, 13), is_noun=True)
+            Stem("stellung", span=(5, 13), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -30,9 +30,9 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("viel", "viel", span=(0, 4), is_noun=False),
+            Stem("viel", span=(0, 4), is_noun=False),
             Link("", span=(4, 4), type="concatenation"),
-            Stem("zahl", "zahl", span=(4, 8), is_noun=True)
+            Stem("zahl", span=(4, 8), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -47,11 +47,11 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("selbst", "selbst", span=(0, 6), is_noun=False),
+            Stem("selbst", span=(0, 6), is_noun=False),
             Link("", span=(6, 6), type="concatenation"),
-            Stem("wert", "wert", span=(6, 10), is_noun=True),
+            Stem("wert", span=(6, 10), is_noun=True),
             Link("", span=(10, 10), type="concatenation"),
-            Stem("gefühl", "gefühl", span=(10, 16), is_noun=True)
+            Stem("gefühl", span=(10, 16), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -66,9 +66,9 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("online", "online", span=(0, 6), is_noun=True),
+            Stem("online", span=(0, 6), is_noun=True),
             Link("-", span=(6, 7), type="hyphen"),
-            Stem("shop", "shop", span=(7, 11), is_noun=True)
+            Stem("shop", span=(7, 11), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -83,11 +83,11 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("e", "e", span=(0, 1), is_noun=True),
+            Stem("e", span=(0, 1), is_noun=True),
             Link("-", span=(1, 2), type="hyphen"),
-            Stem("mail", "mail", span=(2, 6), is_noun=True),
+            Stem("mail", span=(2, 6), is_noun=True),
             Link("-", span=(6, 7), type="hyphen"),
-            Stem("adresse", "adresse", span=(7, 14), is_noun=True)
+            Stem("adresse", span=(7, 14), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -102,11 +102,11 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("max", "max", span=(0, 3), is_noun=True),
+            Stem("max", span=(0, 3), is_noun=True),
             Link("-", span=(3, 4), type="hyphen"),
-            Stem("planck", "planck", span=(4, 10), is_noun=True),
+            Stem("planck", span=(4, 10), is_noun=True),
             Link("-", span=(10, 11), type="hyphen"),
-            Stem("institut", "institut", span=(11, 19), is_noun=True)
+            Stem("institut", span=(11, 19), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -140,7 +140,7 @@ class TestGecoDBParser(unittest.TestCase):
         expected_components = [
             Stem("mutter", "mütter", span=(0, 6), is_noun=True),
             Link("", span=(6, 6), type="umlaut"),
-            Stem("zentrum", "zentrum", span=(6, 13), is_noun=True)
+            Stem("zentrum", span=(6, 13), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -157,7 +157,7 @@ class TestGecoDBParser(unittest.TestCase):
         expected_components = [
             Stem("nagel", "nägel", span=(0, 5), is_noun=True),
             Link("", span=(5, 5), type="umlaut"),
-            Stem("kauen", "kauen", span=(5, 10), is_noun=False)
+            Stem("kauen", span=(5, 10), is_noun=False)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -176,9 +176,9 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("rente", "rente", span=(0, 5), is_noun=True),
+            Stem("rente", span=(0, 5), is_noun=True),
             Link("n", span=(5, 6), type="addition"),
-            Stem("versicherung", "versicherung", span=(6, 18), is_noun=True)
+            Stem("versicherung", span=(6, 18), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -193,7 +193,7 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("sehen", "sehen", span=(0, 5), is_noun=False),
+            Stem("sehen", span=(0, 5), is_noun=False),
             Link("s", span=(5, 6), type="addition"),
             Stem("würdigkeit", "würdigkeit", span=(6, 16), is_noun=True)
         ]
@@ -210,11 +210,11 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("bund", "bund", span=(0, 4), is_noun=True),
+            Stem("bund", span=(0, 4), is_noun=True),
             Link("es", span=(4, 6), type="addition"),
-            Stem("verfassung", "verfassung", span=(6, 16), is_noun=True),
+            Stem("verfassung", span=(6, 16), is_noun=True),
             Link("s", span=(16, 17), type="addition"),
-            Stem("gericht", "gericht", span=(17, 24), is_noun=True)
+            Stem("gericht", span=(17, 24), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -230,8 +230,8 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("schule", "schul", span=(0, 5), is_noun=True),
-            Link("e", span=(5, 5), type="deletion"),
-            Stem("jahr", "jahr", span=(5, 9), is_noun=True)
+            Link("e", span=(5, 5), type="deletion_nom"),
+            Stem("jahr", span=(5, 9), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -247,8 +247,8 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("erde", "erd", span=(0, 3), is_noun=True),
-            Link("e", span=(3, 3), type="deletion"),
-            Stem("geschoss", "geschoss", span=(3, 11), is_noun=True)
+            Link("e", span=(3, 3), type="deletion_nom"),
+            Stem("geschoss", span=(3, 11), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -264,8 +264,8 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("ende", "end", span=(0, 3), is_noun=True),
-            Link("e", span=(3, 3), type="deletion"),
-            Stem("stufe", "stufe", span=(3, 8), is_noun=True)
+            Link("e", span=(3, 3), type="deletion_nom"),
+            Stem("stufe", span=(3, 8), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -281,8 +281,8 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("suchen", "such", span=(0, 4), is_noun=False),
-            Link("en", span=(4, 4), type="deletion"),
-            Stem("maschine", "maschine", span=(4, 12), is_noun=True)
+            Link("en", span=(4, 4), type="deletion_non_nom"),
+            Stem("maschine", span=(4, 12), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -298,8 +298,8 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("warten", "warte", span=(0, 5), is_noun=False),
-            Link("n", span=(5, 5), type="deletion"),
-            Stem("zeit", "zeit", span=(5, 9), is_noun=True)
+            Link("n", span=(5, 5), type="deletion_non_nom"),
+            Stem("zeit", span=(5, 9), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -315,8 +315,8 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("wohnen", "wohn", span=(0, 4), is_noun=False),
-            Link("en", span=(4, 4), type="deletion"),
-            Stem("haus", "haus", span=(4, 8), is_noun=True)
+            Link("en", span=(4, 4), type="deletion_non_nom"),
+            Stem("haus", span=(4, 8), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -336,9 +336,9 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("datum", "dat", span=(0, 3), is_noun=True),
-            Link("um", span=(3, 3), type="deletion"),
+            Link("um", span=(3, 3), type="deletion_nom"),
             Link("en", span=(3, 5), type="addition"),
-            Stem("satz", "satz", span=(5, 9), is_noun=True)
+            Stem("satz", span=(5, 9), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -354,9 +354,9 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("thema", "them", span=(0, 4), is_noun=True),
-            Link("a", span=(4, 4), type="deletion"),
+            Link("a", span=(4, 4), type="deletion_nom"),
             Link("en", span=(4, 6), type="addition"),
-            Stem("bereich", "bereich", span=(6, 13), is_noun=True)
+            Stem("bereich", span=(6, 13), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -372,9 +372,9 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("hilfe", "hilf", span=(0, 4), is_noun=True),
-            Link("e", span=(4, 4), type="deletion"),
+            Link("e", span=(4, 4), type="deletion_nom"),
             Link("s", span=(4, 5), type="addition"),
-            Stem("mittel", "mittel", span=(5, 11), is_noun=True)
+            Stem("mittel", span=(5, 11), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -392,7 +392,7 @@ class TestGecoDBParser(unittest.TestCase):
             Stem("gast", "gäst", span=(0, 4), is_noun=True),
             Link("", span=(4, 4), type="umlaut"),
             Link("e", span=(4, 5), type="addition"),
-            Stem("buch", "buch", span=(5, 9), is_noun=True)
+            Stem("buch", span=(5, 9), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -410,7 +410,7 @@ class TestGecoDBParser(unittest.TestCase):
             Stem("fachkraft", "fachkräft", span=(0, 9), is_noun=True),
             Link("", span=(9, 9), type="umlaut"),
             Link("e", span=(9, 10), type="addition"),
-            Stem("mangel", "mangel", span=(10, 16), is_noun=True)
+            Stem("mangel", span=(10, 16), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -428,7 +428,7 @@ class TestGecoDBParser(unittest.TestCase):
             Stem("gut", "güt", span=(0, 3), is_noun=True),
             Link("", span=(3, 3), type="umlaut"),
             Link("er", span=(3, 5), type="addition"),
-            Stem("wagen", "wagen", span=(5, 10), is_noun=True)
+            Stem("wagen", span=(5, 10), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -443,10 +443,10 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("bau", "bau", span=(0, 3), is_noun=True),
+            Stem("bau", span=(0, 3), is_noun=True),
             Link("t", span=(3, 4), type="expansion"),
             Link("en", span=(4, 6), type="addition"),
-            Stem("schutz", "schutz", span=(6, 12), is_noun=True)
+            Stem("schutz", span=(6, 12), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -461,10 +461,10 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("mineral", "mineral", span=(0, 7), is_noun=True),
+            Stem("mineral", span=(0, 7), is_noun=True),
             Link("i", span=(7, 8), type="expansion"),
             Link("en", span=(8, 10), type="addition"),
-            Stem("sammlung", "sammlung", span=(10, 18), is_noun=True)
+            Stem("sammlung", span=(10, 18), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -479,10 +479,10 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("embryo", "embryo", span=(0, 6), is_noun=True),
+            Stem("embryo", span=(0, 6), is_noun=True),
             Link("n", span=(6, 7), type="expansion"),
             Link("en", span=(7, 9), type="addition"),
-            Stem("forschung", "forschung", span=(9, 18), is_noun=True)
+            Stem("forschung", span=(9, 18), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -501,8 +501,8 @@ class TestGecoDBParser(unittest.TestCase):
         gecodb_entry = "ober~_Land_+es_Gericht"
         compound = Compound(gecodb_entry)        
         # detect producted list
-        elim = Stem("land", "land", span=(0, 4), is_noun=True)
-        not_elim = Stem("oberland", "oberland", span=(0, 8), is_noun=True)
+        elim = Stem("land", span=(0, 4), is_noun=True)
+        not_elim = Stem("oberland", span=(0, 8), is_noun=True)
         actual_components = compound.components
         self.assertTrue(
             actual_components[0] == elim or
@@ -512,16 +512,16 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         if eliminated:
             expected_components = [
-                Stem("land", "land", span=(0, 4), is_noun=True),
+                Stem("land", span=(0, 4), is_noun=True),
                 Link("es", span=(4, 6), type="addition"),
-                Stem("gericht", "gericht", span=(6, 13), is_noun=True)
+                Stem("gericht", span=(6, 13), is_noun=True)
             ]
             expected_pretty = "Landesgericht"
         else:
             expected_components = [
-                Stem("oberland", "oberland", span=(0, 8), is_noun=True),
+                Stem("oberland", span=(0, 8), is_noun=True),
                 Link("es", span=(8, 10), type="addition"),
-                Stem("gericht", "gericht", span=(10, 17), is_noun=True)
+                Stem("gericht", span=(10, 17), is_noun=True)
             ]
             expected_pretty = "Oberlandesgericht"
         self.assertListEqual(expected_components, actual_components)
@@ -535,8 +535,8 @@ class TestGecoDBParser(unittest.TestCase):
         gecodb_entry = "nicht~_Regierung_+s_Organisation"
         compound = Compound(gecodb_entry)
         # detect producted list
-        elim = Stem("regierung", "regierung", span=(0, 9), is_noun=True)
-        not_elim = Stem("nichtregierung", "nichtregierung", span=(0, 14), is_noun=True)
+        elim = Stem("regierung", span=(0, 9), is_noun=True)
+        not_elim = Stem("nichtregierung", span=(0, 14), is_noun=True)
         actual_components = compound.components
         self.assertTrue(
             actual_components[0] == elim or
@@ -546,16 +546,16 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         if eliminated:
             expected_components = [
-                Stem("regierung", "regierung", span=(0, 9), is_noun=True),
+                Stem("regierung", span=(0, 9), is_noun=True),
                 Link("s", span=(9, 10), type="addition"),
-                Stem("organisation", "organisation", span=(10, 22), is_noun=True)
+                Stem("organisation", span=(10, 22), is_noun=True)
             ]
             expected_pretty = "Regierungsorganisation"
         else:
             expected_components = [
-                Stem("nichtregierung", "nichtregierung", span=(0, 14), is_noun=True),
+                Stem("nichtregierung", span=(0, 14), is_noun=True),
                 Link("s", span=(14, 15), type="addition"),
-                Stem("organisation", "organisation", span=(15, 27), is_noun=True)
+                Stem("organisation", span=(15, 27), is_noun=True)
             ]
             expected_pretty = "Nichtregierungsorganisation"
         self.assertListEqual(expected_components, actual_components)
@@ -580,14 +580,14 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         if eliminated:
             expected_components = [
-                Stem("arbeit", "arbeit", span=(0, 6), is_noun=True),
+                Stem("arbeit", span=(0, 6), is_noun=True),
                 Link("s", span=(6, 7), type="addition"),
                 Stem("fähigkeit", "fähigkeit", span=(7, 16), is_noun=True)
             ]
             expected_pretty = "Arbeitsfähigkeit"
         else:
             expected_components = [
-                Stem("arbeit", "arbeit", span=(0, 6), is_noun=True),
+                Stem("arbeit", span=(0, 6), is_noun=True),
                 Link("s", span=(6, 7), type="addition"),
                 Stem("unfähigkeit", "unfähigkeit", span=(7, 18), is_noun=True)
             ]
@@ -605,13 +605,13 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("stute", "stute", span=(0, 5), is_noun=True),
+            Stem("stute", span=(0, 5), is_noun=True),
             Link("n", span=(5, 6), type="addition"),
-            Stem("milch", "milch", span=(6, 11), is_noun=True),
+            Stem("milch", span=(6, 11), is_noun=True),
             Link("", span=(11, 11), type="concatenation"),
             Stem("trinken", "trink", span=(11, 16), is_noun=False),
-            Link("en", span=(16, 16), type="deletion"),
-            Stem("kur", "kur", span=(16, 19), is_noun=True)
+            Link("en", span=(16, 16), type="deletion_non_nom"),
+            Stem("kur", span=(16, 19), is_noun=True)
 
         ]
         actual_components = compound.components
@@ -627,13 +627,13 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("lang", "lang", span=(0, 4), is_noun=False),
+            Stem("lang", span=(0, 4), is_noun=False),
             Link("", span=(4, 4), type="concatenation"),
-            Stem("frist", "frist", span=(4, 9), is_noun=True),
+            Stem("frist", span=(4, 9), is_noun=True),
             Link("", span=(9, 9), type="concatenation"),
             Stem("fördern", "förder", span=(9, 15), is_noun=False),
-            Link("n", span=(15, 15), type="deletion"),
-            Stem("programm", "programm", span=(15, 23), is_noun=True)
+            Link("n", span=(15, 15), type="deletion_non_nom"),
+            Stem("programm", span=(15, 23), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -648,17 +648,17 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("verwaltung", "verwaltung", span=(0, 10), is_noun=True),
+            Stem("verwaltung", span=(0, 10), is_noun=True),
             Link("s", span=(10, 11), type="addition"),
-            Stem("rechts", "rechts", span=(11, 17), is_noun=False),
+            Stem("rechts", span=(11, 17), is_noun=False),
             Link("", span=(17, 17), type="concatenation"),
-            Stem("pflege", "pflege", span=(17, 23), is_noun=True),
+            Stem("pflege", span=(17, 23), is_noun=True),
             Link("", span=(23, 23), type="concatenation"),
-            Stem("rechts", "rechts", span=(23, 29), is_noun=False),
+            Stem("rechts", span=(23, 29), is_noun=False),
             Link("", span=(29, 29), type="concatenation"),
             Stem("pflegen", "pflege", span=(29, 35), is_noun=False),
-            Link("n", span=(35, 35), type="deletion"),
-            Stem("gesetz", "gesetz", span=(35, 41), is_noun=True)
+            Link("n", span=(35, 35), type="deletion_non_nom"),
+            Stem("gesetz", span=(35, 41), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -674,15 +674,15 @@ class TestGecoDBParser(unittest.TestCase):
         # compare components and their properties
         expected_components = [
             Stem("datum", "dat", span=(0, 3), is_noun=True),
-            Link("um", span=(3, 3), type="deletion"),
+            Link("um", span=(3, 3), type="deletion_nom"),
             Link("en", span=(3, 5), type="addition"),
-            Stem("zugriff", "zugriff", span=(5, 12), is_noun=True),
+            Stem("zugriff", span=(5, 12), is_noun=True),
             Link("en", span=(12, 14), type="addition"),
-            Stem("zug", "zug", span=(14, 17), is_noun=True),
+            Stem("zug", span=(14, 17), is_noun=True),
             Link("", span=(17, 17), type="concatenation"),
-            Stem("riff", "riff", span=(17, 21), is_noun=True),
+            Stem("riff", span=(17, 21), is_noun=True),
             Link("s", span=(21, 22), type="addition"),
-            Stem("recht", "recht", span=(22, 27), is_noun=True)
+            Stem("recht", span=(22, 27), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
@@ -697,18 +697,18 @@ class TestGecoDBParser(unittest.TestCase):
         compound = Compound(gecodb_entry)
         # compare components and their properties
         expected_components = [
-            Stem("kind", "kind", span=(0, 4), is_noun=True),
+            Stem("kind", span=(0, 4), is_noun=True),
             Link("er", span=(4, 6), type="addition"),
-            Stem("tag", "tag", span=(6, 9), is_noun=True),
+            Stem("tag", span=(6, 9), is_noun=True),
             Link("es", span=(9, 11), type="addition"),
-            Stem("pflege", "pflege", span=(11, 17), is_noun=True),
+            Stem("pflege", span=(11, 17), is_noun=True),
             Link("", span=(17, 17), type="concatenation"),
-            Stem("tag", "tag", span=(17, 20), is_noun=True),
+            Stem("tag", span=(17, 20), is_noun=True),
             Link("e", span=(20, 21), type="expansion"),
             Link("s", span=(21, 22), type="addition"),
             Stem("pflegen", "pflege", span=(22, 28), is_noun=False),
-            Link("n", span=(28, 28), type="deletion"),
-            Stem("person", "person", span=(28, 34), is_noun=True)
+            Link("n", span=(28, 28), type="deletion_non_nom"),
+            Stem("person", span=(28, 34), is_noun=True)
         ]
         actual_components = compound.components
         self.assertListEqual(expected_components, actual_components)
