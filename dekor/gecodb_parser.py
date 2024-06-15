@@ -1,8 +1,8 @@
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import random
 import pandas as pd
-from typing import Tuple
+from typing import Tuple, List
 
 
 DE = '[a-zäöüß]+'
@@ -43,11 +43,15 @@ def get_span(string, range):
 @dataclass
 class Stem:
 
-    component: str
-    realization: str
-    span: Tuple[int]
-    is_noun: bool
+    component: str = field(compare=True)
+    realization: str = field(compare=False, default=None)
+    span: Tuple[int] = field(compare=False, kw_only=True)
+    is_noun: bool = field(compare=False, kw_only=True)
     # further features
+
+    def __posst_init__(self):
+        if not self.realization:
+            self.realization = self.component
 
     def __repr__(self) -> str:
         return self.component
@@ -56,14 +60,14 @@ class Stem:
 @dataclass
 class Link:
 
-    component: str
-    span: Tuple[int]
-    type: str
+    component: str = field(compare=True)
+    span: Tuple[int] = field(compare=False, kw_only=True)
+    type: str = field(compare=True, kw_only=True)
     # further features
 
     @classmethod
     def empty(cls):
-        return cls("", (-1, -1), "none")
+        return cls("", span=(-1, -1), type="none")
 
     def __repr__(self) -> str:
         return self.component
@@ -72,16 +76,20 @@ class Link:
 @dataclass
 class Compound:
 
-    def __init__(self, gecodb_entry):
-        self.raw = gecodb_entry
-        self._analyze(gecodb_entry) # adds .stems, .links, .components, .lemma
+    raw: str = field(compare=False)
+    lemma: str = field(compare=True, init=False)
+    stems: List[Stem] = field(compare=False, init=False)
+    links: List[Link] = field(compare=False, init=False)
+    components: List[Stem | Link] = field(compare=True, init=False)
+
+    def __post_init__(self):
+        self._analyze(self.raw) # defines .stems, .links, .components, .lemma
 
     def _get_stem_obj(self, component):
         is_noun = component[0].isupper()
         component = self.infix + component  # add cumulative infix if applicable
         stem = Stem(
             component=component.lower(),
-            realization=component.lower(),
             span=(self.i, self.i + len(component)),
             is_noun=is_noun
         )
@@ -139,7 +147,7 @@ class Compound:
                             Link(
                                 component=del_component, # deletion part
                                 span=(self.i, self.i),  # length of 0
-                                type="deletion"
+                                type="deletion_nom"
                             ),
                             Link(
                                 component=add_component, # addition part
@@ -160,7 +168,7 @@ class Compound:
                         ]
                         self.i += len(add_component)
                         break
-                    case r"deletion.+":
+                    case s if "deletion" in s:
                         del_component = get_span(component, match.regs[-1])
                         self.i -= len(del_component)    # will be subtracted from previous stem in fusion
                         links = [
@@ -204,11 +212,11 @@ class Compound:
             match link.type:
                 case "expansion" | "addition" | "infix":
                     self.lemma += link.component
-                case r"deletion.+":
+                case s if "deletion" in s:
                     self.lemma = re.sub(f'{link.component}$', '', self.lemma, count=1, flags=re.I)
                     if last_stem: 
                         last_stem.realization = re.sub(f'{link.component}$', '', last_stem.component, count=1, flags=re.I)
-                        last_stem.span = (last_stem.span[0], last_stem.span[1] - len(link.component) )
+                        last_stem.span = (last_stem.span[0], last_stem.span[1] - len(link.component))
                 case "hyphen":
                     self.lemma += '-'
                 case "umlaut":
@@ -249,7 +257,7 @@ class Compound:
             if not component: continue  # None from capturing group
             if "~" in component:
                 match = re.match(
-                    LINK_TYPES["infix"].replace(DE, f'({DE})'), # add parenthesis to pattern to capture infix
+                    LINK_TYPES['infix'].replace(DE, f'({DE})'), # add parenthesis to pattern to capture infix
                     component,
                     flags=re.I
                 )
