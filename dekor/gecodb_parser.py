@@ -6,7 +6,7 @@ import re
 from dataclasses import dataclass, field
 import random
 import pandas as pd
-from typing import Tuple, List, Optional
+from typing import Tuple, List, Optional, Union
 
 
 DE = '[a-zäöüß]+'   # German alphabet
@@ -159,7 +159,7 @@ class Compound:
     links : `List[Link]`
         list of the links of the compound
         
-    components : `List[Stem | Link]`
+    components : `List[Union[Stem, Link]]`
         list of the stems and the links of the compound, sorted by span
 
     Example
@@ -177,7 +177,7 @@ class Compound:
     lemma: str = field(compare=True, init=False)
     stems: List[Stem] = field(compare=False, init=False)
     links: List[Link] = field(compare=False, init=False)
-    components: List[Stem | Link] = field(compare=True, init=False)
+    components: List[Union[Stem, Link]] = field(compare=True, init=False)
 
     def __post_init__(self) -> None:
         self._analyze(self.raw) # defines .stems, .links, .components, .lemma
@@ -415,7 +415,7 @@ def parse_gecodb(gecodb_path: str, min_count: Optional[int]=25) -> pd.DataFrame:
     Parameters
     ----------
     gecodb_path : `str`
-        path to the TSV dataset
+        path to the TSV COW dataset
 
     min_count : `int`, optional, defaults to 25
         minimal count of compounds to keep; all compounds occurring less will be dropped

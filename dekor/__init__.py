@@ -1,0 +1,3 @@
+"""
+Module implementing compound splitters.
+"""

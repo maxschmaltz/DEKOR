@@ -1,6 +1,12 @@
+"""
+Module implementing metrics for evaluation of compound splitters.
+"""
+
 from copy import deepcopy
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+from typing import Union
 
+from dekor.gecodb_parser import Compound, Link, Stem
 from dekor.eval.base import BaseMetric
 
 chencherry = SmoothingFunction(epsilon=0.01)
@@ -8,17 +14,28 @@ chencherry = SmoothingFunction(epsilon=0.01)
 
 class CompoundMacroAccuracy(BaseMetric):
 
+    """
+    Implements macro accuracy: indicator if gold and prediction are equal.
+    Returns 0 or 1.
+    """
+
     name = "macro_accuracy"
 
-    def _calculate(self, gold, pred):
+    def _calculate(self, gold: Compound, pred: Compound) -> float:
         return float(gold == pred)
     
 
 class CompoundMicroAccuracy(BaseMetric):
 
+    """
+    Implements micro accuracy: accuracy of compound components.
+    Does not consider alignment but punishes extra/missing components in prediction.
+    Returns a float in the interval 0 to 1.
+    """
+
     name = "micro_accuracy" # does not consider alignment but punishes extra preds
 
-    def _calculate(self, gold, pred):
+    def _calculate(self, gold: Compound, pred: Compound) -> float:
         gold_comps = deepcopy(gold.components)
         pred_comps = deepcopy(pred.components)
         n_matches = 0
@@ -37,20 +54,26 @@ class CompoundMicroAccuracy(BaseMetric):
 
 class CompoundBLEU(BaseMetric):
 
+    """
+    Implements BLEU over compound components.
+    Returns a float in the interval 0 to 1.
+    """
+
     name = "bleu"
 
-    def _join_comparable(self, obj):
+    def _join_comparable(self, component: Union[Link, Stem]) -> str:
+        # make a string out of comparable fields of a component
         comparable_keys = [
-            key for key, value in obj.__dataclass_fields__.items()
+            key for key, value in component.__dataclass_fields__.items()
             if value.compare
         ]
         comparable_values = [
-            str(getattr(obj, key))
+            str(getattr(component, key))
             for key in comparable_keys
         ]
         return "|".join(comparable_values)
 
-    def _calculate(self, gold, pred):
+    def _calculate(self, gold: Compound, pred: Compound) -> float:
         reference = [
             self._join_comparable(obj)
             for obj in gold.components
