@@ -95,3 +95,10 @@ class CompoundBLEU(BaseMetric):
             weights,
             smoothing_function=chencherry.method1   # add epsilon to 0 counts
         )
+    
+
+_all_metrics = {
+    CompoundMacroAccuracy.name: CompoundMacroAccuracy,
+    CompoundMicroAccuracy.name: CompoundMicroAccuracy,
+    CompoundBLEU.name: CompoundBLEU
+}

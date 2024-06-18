@@ -7,11 +7,7 @@ import pandas as pd
 from typing import Dict, List, Optional
 
 from dekor.gecodb_parser import Compound
-from dekor.eval.metrics import (
-    CompoundMacroAccuracy,
-    CompoundMicroAccuracy,
-    CompoundBLEU
-)
+from dekor.eval.metrics import _all_metrics
 
 class EvaluationResult(dict):
 
@@ -55,24 +51,18 @@ class CompoundEvaluator:
         look up names with `CompoundEvaluator.list_metric_names()`
     """
 
-    _all_metrics = {
-        CompoundMacroAccuracy.name: CompoundMacroAccuracy,
-        CompoundMicroAccuracy.name: CompoundMicroAccuracy,
-        CompoundBLEU.name: CompoundBLEU
-    }
-
     def __init__(self, metric_names: Optional[List[str]]=None) -> None:
         self.metrics = []
         if not metric_names:
             metric_names = self.list_metric_names()
         assert len(metric_names) == len(set(metric_names)), "No duplicates allowed"
         for metric_name in metric_names:
-            assert metric_name in self._all_metrics, f"Unknown metric: {metric_name}"
-            metric = self._all_metrics[metric_name]()
+            assert metric_name in _all_metrics, f"Unknown metric: {metric_name}"
+            metric = _all_metrics[metric_name]()
             self.metrics.append(metric)
 
     @staticmethod
-    def list_metric_names(self) -> List[str]:
+    def list_metric_names() -> List[str]:
 
         """
         List all available metric names.
@@ -83,7 +73,7 @@ class CompoundEvaluator:
             metric names
         """
 
-        return list(self._all_metrics.keys())
+        return list(_all_metrics.keys())
 
     def _run(self, golds: List[Compound], preds: List[Compound]) -> EvaluationResult:
         results = {}
