@@ -523,8 +523,6 @@ def run_baseline(
         'pred': preds
     }
 
-    del splitter; gc.collect()
-
     return output
 
 
@@ -567,8 +565,6 @@ if __name__ == '__main__':
         )
 
         outputs.append(output)
-
-        del output; gc.collect()
 
     def _sum_scores(scores):
         return sum(scores.values())
