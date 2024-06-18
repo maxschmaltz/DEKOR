@@ -2,11 +2,14 @@
 N-gram model for splitting German compounds based on the COW data.
 """
 
+import os
 import re
 import json
+import gc
 import time
 from itertools import product
 import random
+import pandas as pd
 import numpy as np
 import sparse
 from sklearn.model_selection import train_test_split
@@ -130,8 +133,8 @@ class NGramsSplitter:
 
     def __init__(
             self,
-            n: Optional[int]=3,
-            accumulative: Optional[bool]=True,
+            n: Optional[int]=2,
+            accumulative: Optional[bool]=False,
             special_symbols: Optional[bool]=True,
             verbose: Optional[bool]=True
         ) -> None:
@@ -227,7 +230,7 @@ class NGramsSplitter:
         if self.verbose:
             self.progress_bar = tqdm(
                 total=len(compounds),
-                leave=True,
+                # leave=True,
                 desc="Fitting compounds"
             )
 
@@ -444,7 +447,7 @@ class NGramsSplitter:
         if self.verbose:
             self.progress_bar = tqdm(
                 total=len(compounds),
-                leave=True,
+                # leave=True,
                 desc="Predicting compounds"
             )
         preds = []
@@ -461,7 +464,7 @@ def run_baseline(
     min_count: Optional[int]=25,
     train_split: Optional[float]=0.85,
     shuffle: Optional[bool]=True,
-    **kwargs
+    **params
 ) -> dict:
     
     """
@@ -499,13 +502,15 @@ def run_baseline(
 
     train_data, test_data = train_test_split(gecodb, train_size=train_split, shuffle=shuffle)
     train_compounds = train_data["compound"].values
-    test_compounds = [
-        compound.lemma for compound in test_data["compound"].values
+    test_compounds = test_data["compound"].values
+    test_lemmas = [
+        compound.lemma for compound in test_compounds
     ]
 
-    splitter = NGramsSplitter(**kwargs).fit(train_compounds)
+    splitter = NGramsSplitter(**params).fit(train_compounds)
+    evaluator = CompoundEvaluator()
 
-    preds = splitter.predict(test_compounds)
+    preds = splitter.predict(test_lemmas)
     test_data["pred"] = preds
 
     scores = evaluator.evaluate(test_compounds, preds)
@@ -513,8 +518,12 @@ def run_baseline(
         'params': params,
         'train_size': len(train_data),
         'density': splitter.freqs_links_sparse.density,
-        'scores': scores
+        'scores': scores,
+        'gold': test_compounds,
+        'pred': preds
     }
+
+    del splitter; gc.collect()
 
     return output
 
@@ -525,11 +534,10 @@ if __name__ == '__main__':
 
     # benchmarking
     in_path = './dekor/COW/gecodb/gecodb_v01.tsv'
-    out_path = './benchmarking/ngrams.json'
-    evaluator = CompoundEvaluator()
+    out_dir = './benchmarking/'
 
     # param grid
-    min_counts = [5000, 1000, 100, 50]  # by 25 already out of memory
+    min_counts = [5000, 1000, 100, 35]  # by 50 already out of memory
     shuffles = [True, False]
     ngramss = [2, 3, 4]
     accumulatives = [True, False]
@@ -544,7 +552,7 @@ if __name__ == '__main__':
         params = {
             'min_count': min_count,
             'shuffle': shuffle,
-            'ngrams': ngrams,
+            'n': ngrams,
             'accumulative': accumulative,
             'special_symbols': special_symbols,
         }
@@ -560,13 +568,34 @@ if __name__ == '__main__':
 
         outputs.append(output)
 
+        del output; gc.collect()
+
     def _sum_scores(scores):
         return sum(scores.values())
 
     outputs = sorted(outputs, key=lambda entry: _sum_scores(entry['scores']), reverse=True)
-    with open(out_path, 'w') as out:
-        json.dump(outputs, out, indent=4)
+    with open(os.path.join(out_dir, 'ngrams.json'), 'w') as out:
+        json.dump(outputs, out, indent=4, skipkeys=True)    # will skip 'golds' and 'preds'
+
+    golds = outputs[0]['gold']
+    best_preds = outputs[0]['pred']
+
+    pairs = pd.DataFrame(
+        data={
+            'gold': [compound.raw for compound in golds],
+            'pred': [compound.raw for compound in best_preds]
+        }
+    )
+    pairs.to_csv(
+        os.path.join(out_dir, 'ngrams_preds.tsv'),
+        sep='\t',
+        index=False
+    )
 
     end = time.time()
 
-    print(f"Execution time: {(end - start).round(2)} s")
+    print(f"Execution time: {round(end - start, 2)} s") # about 3-3.5h
+
+
+if __name__ == '__main__':
+    pass

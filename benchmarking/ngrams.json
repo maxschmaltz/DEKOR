@@ -1,0 +1,1154 @@
+[
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.04248507232529047,
+        "scores": {
+            "macro_accuracy": 0.2901599443671766,
+            "micro_accuracy": 0.32994628087682676,
+            "bleu": 0.29375568013599296
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.04239515294503612,
+        "scores": {
+            "macro_accuracy": 0.26580319888734355,
+            "micro_accuracy": 0.3029452081877326,
+            "bleu": 0.2687873618969069
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.05190143672021185,
+        "scores": {
+            "macro_accuracy": 0.25704102920723226,
+            "micro_accuracy": 0.2750119503622633,
+            "bleu": 0.25853214706623906
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.0023214625244816598,
+        "scores": {
+            "macro_accuracy": 0.22769471488178025,
+            "micro_accuracy": 0.27118462832562273,
+            "bleu": 0.23086165241840229
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.0023365201896346803,
+        "scores": {
+            "macro_accuracy": 0.22204450625869263,
+            "micro_accuracy": 0.26530582561658717,
+            "bleu": 0.22540107437175533
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.052379759076400634,
+        "scores": {
+            "macro_accuracy": 0.22835535465924894,
+            "micro_accuracy": 0.2436313169618976,
+            "bleu": 0.22944125080387984
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.03472074609416516,
+        "scores": {
+            "macro_accuracy": 0.2153928955866523,
+            "micro_accuracy": 0.25045722487057254,
+            "bleu": 0.21736798271422558
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.034905103969754256,
+        "scores": {
+            "macro_accuracy": 0.20559741657696448,
+            "micro_accuracy": 0.2434045825003844,
+            "bleu": 0.2077138833393553
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.004805213378347672,
+        "scores": {
+            "macro_accuracy": 0.20210361613351877,
+            "micro_accuracy": 0.23050463845187416,
+            "bleu": 0.20391239821363683
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.022634199694299494,
+        "scores": {
+            "macro_accuracy": 0.20069547938400398,
+            "micro_accuracy": 0.23133915265062807,
+            "bleu": 0.20236246678813807
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.004792653178091465,
+        "scores": {
+            "macro_accuracy": 0.20222531293463145,
+            "micro_accuracy": 0.22795507681547314,
+            "bleu": 0.2037310921591968
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.022749922642190896,
+        "scores": {
+            "macro_accuracy": 0.18728266269249877,
+            "micro_accuracy": 0.22867196555721142,
+            "bleu": 0.18989246297570353
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.03354417754669996,
+        "scores": {
+            "macro_accuracy": 0.18827620466964728,
+            "micro_accuracy": 0.2156660279611099,
+            "bleu": 0.18952710038290416
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.03337992508195321,
+        "scores": {
+            "macro_accuracy": 0.18827620466964728,
+            "micro_accuracy": 0.20875144891538336,
+            "bleu": 0.1893404922598941
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.04637630886020342,
+        "scores": {
+            "macro_accuracy": 0.183745963401507,
+            "micro_accuracy": 0.1989822645958276,
+            "bleu": 0.18446818198350196
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.04629338117351384,
+        "scores": {
+            "macro_accuracy": 0.17933261571582346,
+            "micro_accuracy": 0.1970021528525296,
+            "bleu": 0.18016689354779894
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.0036860571593276626,
+        "scores": {
+            "macro_accuracy": 0.1752421959095802,
+            "micro_accuracy": 0.20098928699574556,
+            "bleu": 0.17653713127567144
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.0014760296098148252,
+        "scores": {
+            "macro_accuracy": 0.16942949407965555,
+            "micro_accuracy": 0.20337895330360348,
+            "bleu": 0.1712071163863321
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.0014840977038265487,
+        "scores": {
+            "macro_accuracy": 0.16340150699677072,
+            "micro_accuracy": 0.19546235070992876,
+            "bleu": 0.1651762744366086
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.0037013781923768254,
+        "scores": {
+            "macro_accuracy": 0.15683530678148547,
+            "micro_accuracy": 0.18247783074478446,
+            "bleu": 0.15805578376634266
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.00013906294973450699,
+        "scores": {
+            "macro_accuracy": 0.15549374130737134,
+            "micro_accuracy": 0.1817666873769099,
+            "bleu": 0.15748524065846561
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.0011188057925014879,
+        "scores": {
+            "macro_accuracy": 0.14654744162940883,
+            "micro_accuracy": 0.16765192912733898,
+            "bleu": 0.14756902264714525
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.00048193148740377663,
+        "scores": {
+            "macro_accuracy": 0.14361961057023645,
+            "micro_accuracy": 0.1609653652347498,
+            "bleu": 0.14458474761592321
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.00014108329376114273,
+        "scores": {
+            "macro_accuracy": 0.1375173852573018,
+            "micro_accuracy": 0.1651861291621375,
+            "bleu": 0.1397518634105752
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.003228602531632,
+        "scores": {
+            "macro_accuracy": 0.14008941877794337,
+            "micro_accuracy": 0.15969531379367444,
+            "bleu": 0.14101165574109345
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.0011432116197648303,
+        "scores": {
+            "macro_accuracy": 0.13909587680079483,
+            "micro_accuracy": 0.15967875476072196,
+            "bleu": 0.14007539794469887
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 325942,
+        "density": 0.0004878126862429943,
+        "scores": {
+            "macro_accuracy": 0.13131084840055632,
+            "micro_accuracy": 0.15169978235911824,
+            "bleu": 0.13254367377051018
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.0031955889501514147,
+        "scores": {
+            "macro_accuracy": 0.12816691505216096,
+            "micro_accuracy": 0.14996096799375486,
+            "bleu": 0.12926208056179805
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.00013394867120824044,
+        "scores": {
+            "macro_accuracy": 0.10032292787944026,
+            "micro_accuracy": 0.11405146342713618,
+            "bleu": 0.10127107101120997
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.0005091963590312672,
+        "scores": {
+            "macro_accuracy": 0.1007534983853606,
+            "micro_accuracy": 0.11101389102465528,
+            "bleu": 0.10124703864329986
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.00013663001144206783,
+        "scores": {
+            "macro_accuracy": 0.09773950484391819,
+            "micro_accuracy": 0.111854784971039,
+            "bleu": 0.09863090043879452
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 52643,
+        "density": 0.0005170471049154603,
+        "scores": {
+            "macro_accuracy": 0.09590958019375673,
+            "micro_accuracy": 0.10771566969091188,
+            "bleu": 0.09648035112677107
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.04227181575109382,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.22367177053938178,
+            "bleu": 0.02517712136149712
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.04250725709429256,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.2038585687994589,
+            "bleu": 0.02075688652442381
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.00016756739901598267,
+        "scores": {
+            "macro_accuracy": 0.07203179334326876,
+            "micro_accuracy": 0.07955787382016889,
+            "bleu": 0.07241735318081527
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.05319524929313289,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.18478888934817306,
+            "bleu": 0.0222368057161378
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.0006417211042457162,
+        "scores": {
+            "macro_accuracy": 0.06358668653750621,
+            "micro_accuracy": 0.07007901024294468,
+            "bleu": 0.06388967588733097
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.0023131800383506596,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.18103281589373388,
+            "bleu": 0.01562320982419553
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.002317376166549376,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.17980620103316558,
+            "bleu": 0.01640551095799231
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.00017184750192202495,
+        "scores": {
+            "macro_accuracy": 0.05911574764033781,
+            "micro_accuracy": 0.06644311972180825,
+            "bleu": 0.05947269413670921
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.05325175930113398,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.16338844979969808,
+            "bleu": 0.0181394282678643
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": true
+        },
+        "train_size": 11404,
+        "density": 0.000652801472133564,
+        "scores": {
+            "macro_accuracy": 0.057625434674615006,
+            "micro_accuracy": 0.06419109124027157,
+            "bleu": 0.05794263278179943
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.03466876557785649,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.16592777692347122,
+            "bleu": 0.01105997968149811
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.03460115456057497,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.16270939053770053,
+            "bleu": 0.01201421388665341
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.004999985725888527,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.15493434141773849,
+            "bleu": 0.01413535462525963
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.022715869274652252,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.15731081304851796,
+            "bleu": 0.009741591421991654
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.00498277844335738,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1527694338095068,
+            "bleu": 0.013266684057948118
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0222853385930309,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.15206159960258323,
+            "bleu": 0.009520411782016456
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.048374611572496486,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1362435286278128,
+            "bleu": 0.010076021886940087
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0345610888667883,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1370508362311641,
+            "bleu": 0.008879607437965197
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0014483498479292123,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1343705469270593,
+            "bleu": 0.008831191517136634
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.03483809765772263,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.13422515553663095,
+            "bleu": 0.007835787152065385
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 2,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.048196248196248195,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1311943205699933,
+            "bleu": 0.009955742790206303
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0014606965019466531,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1295521297862525,
+            "bleu": 0.008967793804057218
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0037519587255246158,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.12428930237326363,
+            "bleu": 0.007420982243443782
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.000137379377177597,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.12127290438660396,
+            "bleu": 0.009449268926763715
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0037904601596159626,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1213064483059101,
+            "bleu": 0.007957258282281457
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.0001392538121559038,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.1127420457092745,
+            "bleu": 0.0097576776864845
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.00048342098077135706,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.10949317729481152,
+            "bleu": 0.008359943482766792
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.003217778687717757,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.10896789913183355,
+            "bleu": 0.006428017609084671
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0010869283091888367,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.10776382087857496,
+            "bleu": 0.005694502588924402
+        }
+    },
+    {
+        "params": {
+            "min_count": 100,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 325942,
+        "density": 0.0004876920950109623,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.10384481415470637,
+            "bleu": 0.008437650484802913
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0032913806049723214,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.10551415797317436,
+            "bleu": 0.006271334162882071
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 3,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0011094546150765792,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.10500082795164763,
+            "bleu": 0.006251041887007453
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0001306792243966628,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.07825131990363421,
+            "bleu": 0.005520288480955271
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.00013318820388551764,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.07526090522323031,
+            "bleu": 0.005439353287227419
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0005147699566175447,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.07241273258496078,
+            "bleu": 0.004691039874296445
+        }
+    },
+    {
+        "params": {
+            "min_count": 1000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 52643,
+        "density": 0.0005064368069094908,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.07166025936747142,
+            "bleu": 0.004836549359203266
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.000644426664675139,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.04643152839874151,
+            "bleu": 0.0031983994289621186
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": true,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0001598617262718607,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.04568637191588011,
+            "bleu": 0.0028237614510807866
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": false,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.00016410449098366254,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.04482530220235138,
+            "bleu": 0.0024136851256359396
+        }
+    },
+    {
+        "params": {
+            "min_count": 5000,
+            "shuffle": false,
+            "n": 4,
+            "accumulative": true,
+            "special_symbols": false
+        },
+        "train_size": 11404,
+        "density": 0.0006584163113806612,
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.04315283987415135,
+            "bleu": 0.002332108661433179
+        }
+    }
+]
