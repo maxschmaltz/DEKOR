@@ -532,10 +532,10 @@ if __name__ == '__main__':
 
     # benchmarking
     in_path = './dekor/COW/gecodb/gecodb_v01.tsv'
-    out_dir = './benchmarking/'
+    out_dir = './benchmarking/ngrams'
 
     # param grid
-    min_counts = [5000, 1000, 100, 35]  # by 50 already out of memory
+    min_counts = [5000, 1000, 100]  # by 50 already out of memory
     shuffles = [True, False]
     ngramss = [2, 3, 4]
     accumulatives = [True, False]
@@ -570,8 +570,8 @@ if __name__ == '__main__':
         return sum(scores.values())
 
     outputs = sorted(outputs, key=lambda entry: _sum_scores(entry['scores']), reverse=True)
-    with open(os.path.join(out_dir, 'ngrams.json'), 'w') as out:
-        json.dump(outputs, out, indent=4, skipkeys=True)    # will skip 'golds' and 'preds'
+    with open(os.path.join(out_dir, 'ngrams_25.json'), 'w') as out:
+        json.dump(outputs, out, indent=4, default="not_serializable")
 
     golds = outputs[0]['gold']
     best_preds = outputs[0]['pred']
@@ -583,7 +583,7 @@ if __name__ == '__main__':
         }
     )
     pairs.to_csv(
-        os.path.join(out_dir, 'ngrams_preds.tsv'),
+        os.path.join(out_dir, 'ngrams_preds_25.tsv'),
         sep='\t',
         index=False
     )
