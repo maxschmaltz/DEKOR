@@ -16,7 +16,7 @@ LINK_TYPES = {
     # e.g., _(x)_+xx_ should come before _+xx_ because otherwise
     # _(x)_+xx_ type links will be defined as _+xx_ ones
     # this one is not a link, but will be added here for further processing
-    "infix": f'(_?{DE}~_?)',                              # Arbeit_+s_un~_Fähigkeit = Arbeits(un)fähigkeit
+    "infix": f'_(?{DE}~_?)',                              # Arbeit_+s_un~_Fähigkeit = Arbeits(un)fähigkeit
     # links
     "addition_with_expansion": f'(_\({DE}\)_\+{DE}_)',    # Bau_(t)_+en_Schutz = Bautenschutz
     "addition_with_umlaut": f'(_\+={DE}_)',               # Gast_+=e_Buch = Gästebuch
