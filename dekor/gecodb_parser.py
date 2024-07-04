@@ -1,32 +1,21 @@
 """
-Module for parsing the COW compounds dataset.
+Module for parsing the DECOW16 compounds dataset.
 """
 
 import re
 from dataclasses import dataclass, field
-import random
 import pandas as pd
 from typing import Tuple, List, Optional, Union
 
 
-DE = '[a-zäöüß]+'   # German alphabet
+DE = '[a-zäöüß]*'   # German alphabet
 LINK_TYPES = {
-    # more complex types come first so that types that use subpatterns
-    # are not matched prematurely;
-    # e.g., _(x)_+xx_ should come before _+xx_ because otherwise
-    # _(x)_+xx_ type links will be defined as _+xx_ ones
-    # this one is not a link, but will be added here for further processing
-    "infix": f'_(?{DE}~_?)',                              # Arbeit_+s_un~_Fähigkeit = Arbeits(un)fähigkeit
-    # links
-    "addition_with_expansion": f'(_\({DE}\)_\+{DE}_)',    # Bau_(t)_+en_Schutz = Bautenschutz
-    "addition_with_umlaut": f'(_\+={DE}_)',               # Gast_+=e_Buch = Gästebuch
-    "replacement": f'(_\-{DE}_\+{DE}_)',                  # Hilfe_-e_+s_Mittel = Hilfsmittel
-    "addition": f'(_\+{DE}_)',                            # Bund_+es_Land = Bundesland
-    "deletion_nom": f'(_\-{DE}_)',                        # Schule_-e_Jahr = Schuljahr
-    "deletion_non_nom": f'(_#{DE}_)',                     # suchen_#en_Maschine = Suchmaschine
-    "umlaut": '(_\+=_)',                                  # Mutter_+=_Rente = Mütterrente
-    "hyphen": '(_--_)',                                   # Online_--_Shop = Online-shop
-    "concatenation": '(_)'                                # Zeit_Punkt = Zeitpunkt
+    # links are in parentheses so that when the
+    # raw compound is split, links are returns as well
+    "addition_umlaut": f'(_\+={DE}_)',                    # gast_+=e_buch = Gästebuch, mutter_+=_rente = Mütterrente
+    "addition": f'(_\+{DE}_)',                            # bund_+es_land = Bundesland
+    "deletion": f'(_\-{DE}_)',                            # schule_-e_jahr = Schuljahr
+    "concatenation": '(_)'                                # zeit_punkt = Zeitpunkt
 }
 LINK = '|'.join(LINK_TYPES.values())    # any link
 UMLAUTS = {
@@ -38,12 +27,6 @@ UMLAUTS = {
 UMLAUTS_REVERSED = {v: k for k, v in UMLAUTS.items()}
 
 
-def get_span(string: str, range: Tuple[int]) -> str:    # get a span of a match
-    start, end = range
-    span = string[start: end]
-    return span
-
-
 @dataclass
 class Stem:
 
@@ -53,7 +36,7 @@ class Stem:
     Attributes
     ----------
     component : `str`
-        abstract representation of the component
+        morpheme representation of the component
 
     realization : `str`, optional
         concrete realization of the component; if not given, equals to `component`
@@ -61,12 +44,9 @@ class Stem:
     span : `Tuple[int]`
         span of the component realization in the `Compound` lemma
 
-    is_noun : `bool`
-        whether the component is a nominal stem
-
     Example
     -------
-    >>> compound = Compound("Schule_-e_Jahr")
+    >>> compound = Compound("schule_-e_jahr")
     >>> compound.components[0].component
     "schule"
     >>> compound.components[0].realization
@@ -78,9 +58,8 @@ class Stem:
     """
 
     component: str = field(compare=True)
-    realization: Optional[str] = field(compare=False, default=None)
-    span: Tuple[int] = field(compare=False, kw_only=True)
-    is_noun: bool = field(compare=False, kw_only=True)
+    realization: Optional[str] = field(compare=True, default=None)
+    span: Tuple[int] = field(compare=True, kw_only=True)
     # further features
 
     def __post_init__(self) -> None:
@@ -100,7 +79,10 @@ class Link:
     Attributes
     ----------
     component : `str`
-        abstract representation of the component
+        decodb representation of the component, e.g. "_+er_"
+
+    realization : `str`, optional
+        concrete realization of the component, e.g. "er"; if not given, equals to an empty string
 
     span : `Tuple[int]`
         span of the component in the `Compound` lemma
@@ -110,28 +92,35 @@ class Link:
 
     Example
     -------
-    >>> compound = Compound("Schule_-e_Jahr")
+    >>> compound = Compound("schule_-e_jahr")
     >>> compound.components[1].component
-    "e"
-    >>> compound.components[0].span
+    "_-e_"
+    >>> compound.components[1].realization
+    ""
+    >>> compound.components[1].span
     (5, 5)
-    >>> compound.components[0].type
-    "deletion_nom"
+    >>> compound.components[1].type
+    "deletion"
     """
 
     component: str = field(compare=True)
-    span: Tuple[int] = field(compare=False, kw_only=True)
+    realization: Optional[str] = field(compare=True, default=None)
+    span: Tuple[int] = field(compare=True, kw_only=True)
     type: str = field(compare=True, kw_only=True)
     # further features
 
-    @classmethod
-    def empty(cls):
+    def __post_init__(self) -> None:
+        if not self.realization:
+            self.realization = ""
 
-        """
-        Creates an empty link.
-        """
+    # @classmethod
+    # def empty(cls):
 
-        return cls("", span=(-1, -1), type="none")
+    #     """
+    #     Creates an empty link.
+    #     """
+
+    #     return cls("<unk>", span=(-1, -1), type="<unk>")
 
     def __repr__(self) -> str:
         return self.component
@@ -164,16 +153,16 @@ class Compound:
 
     Example
     -------
-    >>> compound = Compound("Schule_-e_Jahr")
+    >>> compound = Compound("schule_-e_jahr")
     >>> compound.raw
     "Schule_-e_Jahr"
     >>> compound.lemma
-    "Schuljahr"
+    "schuljahr"
     >>> compound.components
-    ["schule", "e", "jahr"]
+    ["schule", "", "jahr"]
     """
 
-    raw: str = field(compare=False)
+    raw: str = field(compare=True)
     lemma: str = field(compare=True, init=False)
     stems: List[Stem] = field(compare=False, init=False)
     links: List[Link] = field(compare=False, init=False)
@@ -183,225 +172,210 @@ class Compound:
         self._analyze(self.raw) # defines .stems, .links, .components, .lemma
 
     def _get_stem_obj(self, component: str) -> Stem:
-        is_noun = component[0].isupper()
-        component = self.infix + component  # add cumulative infix if applicable
         stem = Stem(
-            component=component.lower(),
-            # realization as the component at first, will be modified later if needed
-            span=(self.i, self.i + len(component)),
-            is_noun=is_noun
+            component=component,
+            # realization is just as the component at first, will be modified later if needed
+            span=(self.j, self.j + len(component)),
         )
-        self.infix = "" # reset infix
-        self.i += len(component)
+        self.j += len(component)
         return stem
-
-    def _get_link_objs(self, component: str) -> List[Link]:
-        # for simpler processing, some of the complex link types will be split into
-        # the components, e.g. "replacement" is actually "deletion_nom" followed by "addition"
+    
+    @staticmethod
+    def eliminate_allomorphy(link: str) -> str:
+        # TODO: formulate better
+        # # it turned out the Ngram implementation does not benefit from eliminating allomorphy;
+        # # that is easily explainable: the model depend on the concrete ngrams it sees,
+        # # and it cannot abstract things; that is why, for example, if you train it that
+        # # there is only _+s_ both in -s- and -es- cases,
+        # # it will be able to generate _+s_ when it sees XXesXX
+        # # but will not be able to deduct -es- from _+s_ because
+        # # it can for example refer to -esX- or to -e- when deciding
+        # # there is an _+s_ there
+        # if link == "_+es_": link = "_+s_" # -es vs -s
+        # elif link == "_+en_": link = "_+n_" # -en vs -n
+        # elif link == "_+ens_": link = "_+ns_" # -ens vs -ns
+        return link
+    
+    @staticmethod
+    def get_link_info(component: str) -> Link:
         for link_type, pattern in LINK_TYPES.items():
             match = re.match(
-                pattern.replace(DE, f'({DE})'), # add parenthesis to pattern to capture links
-                component,
-                flags=re.I
+                pattern.replace(DE, f'(?P<r>{DE})'), # add parenthesis to pattern to capture links under name "r"
+                component
             )
             if match:
-                match link_type:
-                    case "addition_with_expansion":
-                        # using capturing groups in patterns to retrieve links
-                        exp_component = get_span(component, match.regs[-2])
-                        add_component = get_span(component, match.regs[-1])
-                        links = [
-                            Link(
-                                component=exp_component,    # expansion part
-                                span=(self.i, self.i + len(exp_component)),
-                                type="expansion"    # TODO: "addition"?
-                            ),
-                            Link(
-                                component=add_component,    # addition part
-                                span=(self.i + len(exp_component), self.i + len(exp_component) + len(add_component)),
-                                type="addition"
-                            )   
-                        ]
-                        # skip links in lemma
-                        self.i += (len(exp_component) + len(add_component))
-                        break
-                    case "addition_with_umlaut":
-                        add_component = get_span(component, match.regs[-1])
-                        links = [
-                            Link(
-                                component="",   # umlaut part
-                                span=(self.i, self.i),  # length of 0
-                                type="umlaut"
-                            ),
-                            Link(
-                                component=add_component, # addition part
-                                span=(self.i, self.i + len(add_component)),
-                                type="addition"
-                            )   
-                        ]
-                        self.i += len(add_component)
-                        break
-                    case "replacement":
-                        del_component = get_span(component, match.regs[-2])
-                        add_component = get_span(component, match.regs[-1])
-                        self.i -= len(del_component)    # link will be subtracted from previous stem in fusion
-                        links = [
-                            Link(
-                                component=del_component, # deletion part
-                                span=(self.i, self.i),  # length of 0
-                                type="deletion_nom"
-                            ),
-                            Link(
-                                component=add_component, # addition part
-                                span=(self.i, self.i + len(add_component)),
-                                type="addition"
-                            )   
-                        ]
-                        self.i += len(add_component)
-                        break
-                    case "addition":
-                        add_component = get_span(component, match.regs[-1])
-                        links = [
-                            Link(
-                                component=add_component,
-                                span=(self.i, self.i + len(add_component)),
-                                type="addition"
-                            )
-                        ]
-                        self.i += len(add_component)
-                        break
-                    case s if "deletion" in s:  # "deletion_nom" | "deletion_non_nom"
-                        del_component = get_span(component, match.regs[-1])
-                        self.i -= len(del_component)    # link will be subtracted from previous stem in fusion
-                        links = [
-                            Link(
-                                component=del_component,
-                                span=(self.i, self.i),  # length of 0
-                                type=link_type
-                            )
-                        ]
-                        break
-                    case "hyphen":
-                        links = [
-                            Link(
-                                component="-",
-                                span=(self.i, self.i + 1),  # length of 1
-                                type="hyphen"
-                            )
-                        ]
-                        self.i += 1
-                        break
-                    # will be processed in fusion
-                    case "infix":
-                        links = []
-                        break
-                    case _: # "umlaut", "concatenation"
-                        links = [
-                            Link(
-                                component="",
-                                span=(self.i, self.i),  # length of 0
-                                type=link_type
-                            )
-                        ]
-                        break
-        else: links = []
-        return links  
-    
-    def _fuse_links(self, links: List[Link]):
-        # build the lemma by fusing currently processed part with incoming links;
-        # that includes, for example, umlaut and deletion processing, concatenation and so on
-        if self.stems: last_stem = self.stems[-1]
-        for link in links:
-            match link.type:
-                case "expansion" | "addition" | "infix":
-                    self.lemma += link.component
-                case s if "deletion" in s:
-                    self.lemma = re.sub(f'{link.component}$', '', self.lemma, count=1, flags=re.I)
-                    if last_stem:
-                        # adjust realization: clip the deleted part
-                        last_stem.realization = re.sub(
-                            f'{link.component}$',
-                            '',
-                            last_stem.component,
-                            count=1,
-                            flags=re.I
-                        )
-                        # adjust span accordingly
-                        last_stem.span = (last_stem.span[0], last_stem.span[1] - len(link.component))
-                case "hyphen":
-                    self.lemma += '-'
-                case "umlaut":
-                    # search for the closest to the link "umlautable" vowel
-                    match = re.search('(au|a|o|u)[^aou]+$', self.lemma, flags=re.I)
-                    if match:
-                        # the whole suffix containing the vowel
-                        suffix_before_umlaut = get_span(self.lemma, match.regs[0])
-                        # the vowel itself
-                        umlaut = get_span(self.lemma, match.regs[1])
-                        # perform umlaut in the suffix
-                        suffix_after_umlaut = re.sub(
-                            umlaut,
-                            UMLAUTS[umlaut],
-                            suffix_before_umlaut,
-                            flags=re.I
-                        )
-                        # replace suffix before umlaut with converted suffix
-                        self.lemma = re.sub(
-                            f'{suffix_before_umlaut}$',
-                            suffix_after_umlaut,
-                            self.lemma,
-                            count=1,
-                            flags=re.I
-                        )
-                        # adjust realization: perform umlaut
-                        if last_stem:
-                            last_stem.realization = re.sub(
-                                f'{suffix_before_umlaut}$',
-                                suffix_after_umlaut,
-                                last_stem.component,
-                                count=1,
-                                flags=re.I
-                            )
-                case _: # "concatenation"
-                    pass
+                # match will return 3 spans: the span of the whole match,
+                # the span of the first capturing group that we use to return
+                # the links when splitting a raw compound (same as the whole match),
+                # and the last span is the realization of the component
+                # that we capture in (DE)
+                realization = match.groupdict().get("r", "")  # in concatenation, there is no group "r"
+                if link_type == "deletion":
+                    realization = ""
+                # eliminate allophones
+                # if component == "_+es_": component = "_+s_" # -es vs -s
+                # elif component == "_+en_": component = "_+n_" # -en vs -n
+                # elif component == "_+ens_": component = "_+ns_" # -ens vs -ns
+                component = Compound.eliminate_allomorphy(component)
+                return component, realization, link_type
 
-    def _analyze(self, gecodb_compound: str) -> None:
-        self.i = 0  # global scope of index to be available from anywhere in the class
-        self.infix = "" # global scope of infix to be available from anywhere in the class
-        self.stems, self.links = [], []
-        components = re.split(LINK, gecodb_compound, flags=re.I)    # split by links; capturing groups will store the links
-        self.lemma = ""
+    def _get_link_obj(self, component: str) -> Link:
+        component, realization, link_type = self.get_link_info(component)
+        # if link_type == "deletion":
+        #     self.j -= len(realization)    # link will be subtracted from previous stem in fusion
+        # for link_type, pattern in LINK_TYPES.items():
+        #     match = re.match(
+        #         pattern.replace(DE, f'(?P<r>{DE})'), # add parenthesis to pattern to capture links under name "r"
+        #         component
+        #     )
+        #     if match:
+        #         # match will return 3 spans: the span of the whole match,
+        #         # the span of the first capturing group that we use to return
+        #         # the links when splitting a raw compound (same as the whole match),
+        #         # and the last span is the realization of the component
+        #         # that we capture in (DE)
+        #         realization = match.groupdict.get("r", "")  # in concatenation, there is no group "r"
+                # if link_type == "deletion":
+                #     self.j -= len(realization)    # link will be subtracted from previous stem in fusion
+                #     realization = ""
+                # # eliminate allophones
+                # # if component == "_+es_": component = "_+s_" # -es vs -s
+                # # elif component == "_+en_": component = "_+n_" # -en vs -n
+                # # elif component == "_+ens_": component = "_+ns_" # -ens vs -ns
+                # component = self.eliminate_allomorphy(component)
+                # link = Link(
+                #     component=component,
+                #     realization=realization,
+                #     span=(self.j, self.j + len(realization)),
+                #     type=link_type
+                # )
+                # self.j += len(realization)
+                # break
+        link = Link(
+                component=component,
+                realization=realization,
+                span=(self.j, self.j + len(realization)),
+                type=link_type
+            )
+        self.j += len(realization)
+        return link
+    
+    @staticmethod
+    def get_deletion(deletion_link: str):
+        to_delete = re.match(
+            LINK_TYPES["deletion"].replace(DE, f'(?P<r>{DE})'),
+            deletion_link
+        ).group("r")   # capturing groups as is in `_get_link_obj()`
+        return to_delete
+    
+    @staticmethod
+    def perform_umlaut(string):
+        match = re.search('(au|a|o|u)[^aou]+$', string)
+        if match:
+            # the whole suffix containing the vowel
+            suffix_before_umlaut = match.group(0)
+            # the vowel itself
+            umlaut = match.group(1)
+            # perform umlaut in the suffix
+            suffix_after_umlaut = re.sub(
+                umlaut,
+                UMLAUTS[umlaut],
+                suffix_before_umlaut
+            )
+            # adjust realization: perform umlaut
+            string = re.sub(
+                f'{suffix_before_umlaut}$',
+                suffix_after_umlaut,
+                string
+            )
+        return string
+
+    @staticmethod
+    def reverse_umlaut(string):
+        match = re.search('(äu|ä|ö|ü)[^äöü]+$', string)
+        if match:
+            # the whole suffix containing the vowel
+            suffix_after_umlaut = match.group(0)
+            # the vowel itself
+            umlaut = match.group(1)
+            # perform umlaut in the suffix
+            suffix_before_umlaut = re.sub(
+                umlaut,
+                UMLAUTS_REVERSED[umlaut],
+                suffix_after_umlaut
+            )
+            # adjust realization: perform umlaut
+            string = re.sub(
+                f'{suffix_after_umlaut}$',
+                suffix_before_umlaut,
+                string
+            )
+        return string
+    
+    def _fuse_link(self, link: Link):
+        # build the lemma by fusing currently processed part with incoming links;
+        # that includes, for example, umlaut and deletion processing, concatenation and so on;
+        # adjust previous stem
+        previous_stem = self.stems[-1]
+        if link.type == "deletion":
+            to_delete = self.get_deletion(link.component)
+            ld = len(to_delete)
+            # to_delete = re.match(
+            #     LINK_TYPES["deletion"].replace(DE, f'(?P<r>{DE})'),
+            #     link.component
+            # ).group("r")   # capturing groups as is in `_get_link_obj()`
+            # adjust realization: clip the deleted part
+            previous_stem.realization = re.sub(
+                f'{to_delete}$',
+                '',
+                previous_stem.component
+            )
+            # adjust spans accordingly
+            self.j -= ld
+            previous_stem.span = (previous_stem.span[0], previous_stem.span[1] - ld)
+            link.span = (link.span[0] - ld, link.span[1] - ld)
+        elif link.type == "addition_umlaut":
+            # search for the closest to the link "umlautable" vowel;
+            # will return 2 matches (if finds anything):
+            # the whole suffix with umlaut, and the vowel itself (in the capturing group)
+            previous_stem.realization = self.perform_umlaut(previous_stem.component)
+            # match = re.search('(au|a|o|u)[^aou]+$', previous_stem.component)
+            # if match:
+            #     # the whole suffix containing the vowel
+            #     suffix_before_umlaut = match.group(0)
+            #     # the vowel itself
+            #     umlaut = match.group(1)
+            #     # perform umlaut in the suffix
+            #     suffix_after_umlaut = re.sub(
+            #         umlaut,
+            #         UMLAUTS[umlaut],
+            #         suffix_before_umlaut
+            #     )
+            #     # adjust realization: perform umlaut
+            #     previous_stem.realization = re.sub(
+            #         f'{suffix_before_umlaut}$',
+            #         suffix_after_umlaut,
+            #         previous_stem.component
+            #     )
+
+    def _analyze(self, raw: str) -> None:
+        raw = raw.lower()
+        self.stems = []
+        self.links = []
+        self.j = 0  # global scope of index to be available from anywhere in the class
+        components = re.split(LINK, raw)    # split by links; capturing groups will store the links
         for component in components:
             if not component: continue  # `None` from capturing group occasionally occurs
-            if "~" in component:
-                match = re.match(
-                    LINK_TYPES['infix'].replace(DE, f'({DE})'), # add parenthesis to pattern to capture infix
-                    component,
-                    flags=re.I
-                )
-                # Infixes are optional and do not convey much useful information:
-                # ein~_Familie_+n_Haus is the same for us as Familie_+n_Haus;
-                # however, if we completely ignore them, we might accidentally train the model
-                # to not detect them as a normal part of a compound but rather as an anomaly
-                # (because they'd have never seen those) so we might get inadequate analysis
-                # of compounds with such infixes. To prevent that, we will
-                # eliminate them in 60% cases and merge them into the stem otherwise  
-                self.infix = "" if random.random() >= 0.4 else get_span(component, match.regs[-1])
-                if not self.infix:
-                    # remove from raw
-                    self.raw = self.raw.replace(component, "", 1)
             if not '_' in component:    # stem
                 stem = self._get_stem_obj(component)
-                self.lemma += stem.component # accumulative fusion into the original lemma
                 self.stems.append(stem)
             else:
-                links = self._get_link_objs(component)
-                self._fuse_links(links) # accumulative fusion into the original lemma
-                if not (len(links) == 1 and links[0].type == "infix" and not links[0].component): # if not eliminated infix
-                    self.links += links
-        del self.i; del self.infix
+                link = self._get_link_obj(component)
+                self._fuse_link(link) # adjust previous stem if needed
+                self.links.append(link)
+        del self.j
         self.components = sorted(self.stems + self.links, key=lambda c: c.span) # sort by span => order of appearance
-        self.lemma = self.lemma.capitalize()
+        self.lemma = ''.join([component.realization for component in self.components])
 
     def __repr__(self) -> str:
         return f'{self.lemma} <-- {self.raw}'

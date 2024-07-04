@@ -1,11 +1,10 @@
 """
-N-gram model for splitting German compounds based on the COW data.
+N-gram model for splitting German compounds based on the DECOW16 data.
 """
 
 import os
 import re
 import json
-import gc
 import time
 from itertools import product
 import random
@@ -14,15 +13,14 @@ import numpy as np
 import sparse
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-from typing import Iterable, Optional, List, Tuple
+from typing import Iterable, Optional, List, Tuple, Union
 
 from dekor.gecodb_parser import (
     Compound,
     Link,
-    get_span,
     parse_gecodb,
     UMLAUTS_REVERSED,
-    Compound
+    LINK_TYPES
 )
 from dekor.eval.evaluate import CompoundEvaluator
 
@@ -34,27 +32,46 @@ class StringVocab:
     """
 
     def __init__(self) -> None:
-        self._vocab = {"<unk>": 0}
-        self._vocab_reversed = {0: "<unk>"}
+        self._vocab = {self.unk: self.unk_id}
+        self._vocab_reversed = {self.unk_id: self.unk}
 
-    def add(self, string: str) -> int:
+    @property
+    def unk(self):
+        return "<unk>"
+
+    @property
+    def unk_id(self):
+        return 0
+
+    def add(self, seq: Union[str, Iterable[str]]) -> int:
         
         """
-        Adds a string to vocabulary and assigns it a unique id.
+        Adds a sequence to vocabulary and assigns it a unique id.
+        The sequence is either a single string or an iterable of those.
 
         Parameters
         ----------
-        string : `str`
-            String to add
+        seq : `Union[str, Iterable[str]]`
+            Sequence to add
 
         Returns
         -------
         `int`
-            either the assigned to the newly added string id
+            either the assigned to the newly added sequence id
             in case the added string was not existent in the vocabulary,
-            or the id of the string in case it already existed
+            or the id of the sequence in case it already existed
+        
+        Note
+        ----
+        Not a string but an iterable of those is given, 
+        the sequence will be concatenated using a "!:!" separator and transformed into a single string
+        in the vocabulary. However, this is an internal process and you don't have 
+        to do that manually to decode / encode a sequence. You can do that
+        with the usual `encode()` and `decode()` methods. 
         """
 
+        if isinstance(seq, str): seq = [seq]
+        string = '!:!'.join(seq)
         if not string in self._vocab:
             id = len(self)
             self._vocab[string] = id
@@ -63,29 +80,33 @@ class StringVocab:
             id = self.encode(string)
         return id
 
-    def encode(self, ngram: str) -> int:
+    def encode(self, seq: Union[str, Iterable[str]]) -> int:
 
         """
-        Get the code of a vocabulary entry
+        Get the code of a vocabulary entry.
+        The entry is either a single string or an iterable of those.
 
         Parameters
         ----------
-        ngram : `str`
+        seq : `Union[str, Iterable[str]]`
             target entry
 
         Returns
         -------
         `int`
-            id of the target entry; returns 0 (code for "<unk>")
+            id of the target entry; returns unknown id
             in case the entry is not present in the vocabulary 
         """
 
-        return self._vocab.get(ngram, 0)
+        if isinstance(seq, str): seq = [seq]
+        string = '!:!'.join(map(str, seq))
+        return self._vocab.get(string, self.unk_id)
     
-    def decode(self, id: int) -> str:
+    def decode(self, id: int) -> Union[str, Tuple[str]]:
 
         """
-        Get the vocabulary entry by its code
+        Get the vocabulary entry by its code. If entry is an encoded an iterable of those,
+        method will be split it and return as `Tuple[str]`, otherwise `str`
 
         Parameters
         ----------
@@ -94,12 +115,14 @@ class StringVocab:
 
         Returns
         -------
-        `str`
-            entry of the vocabulary encoded under the target id; returns "<unk>"
+        `Union[str, Tuple[str]]`
+            entry of the vocabulary encoded under the target id; returns unknown token
             in case the id is unknown to the vocabulary 
         """
 
-        return self._vocab_reversed.get(id, "<unk>")
+        seq = self._vocab_reversed.get(id, self.unk)
+        if '!:!' in seq: seq = seq.split('!:!')
+        return seq
     
     def __len__(self) -> int:
         return len(self._vocab)
@@ -113,99 +136,102 @@ class NGramsSplitter:
 
     Parameters
     ----------
-    n : `int`, optional, defaults to `3`
+    n : `int`, optional, defaults to `2`
         maximum n-grams length
 
-    accumulative : `bool`, optional, defaults to `True`
-        if `True`, will consider n-grams of length `1` to `n`
-        inclusively when fitting and predicting compounds,
-        e.g. 1-grams, 2-grams, and 3-grams given `n=3`;
-        otherwise, will only use n-grams of length `n`
-
-    special_symbols : `bool`, optional, defaults to `True`
-        whether to add BOS (">") and EOS ("<") to raw compounds
+    record_none_links : `bool`, optional, defaults to `False`
+        whether to record contexts between which no links occur;
+        hint: that could lead to a strong bias towards no link choice
 
     verbose : `bool`, optional, defaults to `True`
         whether to show progress bar when fitting and predicting compounds
     """
 
-    _empty_link = Link.empty()
-
     def __init__(
             self,
             n: Optional[int]=2,
-            accumulative: Optional[bool]=False,
-            special_symbols: Optional[bool]=True,
+            record_none_links: Optional[bool]=False,
             verbose: Optional[bool]=True
         ) -> None:
         self.n = n
-        self.accumulative = accumulative
-        self.max_step = self.n if self.accumulative else 1
-        self.special_symbols = special_symbols
+        self.record_none_links = record_none_links
         self.verbose = verbose
-        self.vocab_ngrams = StringVocab()
         self.vocab_links = StringVocab()
-        self.vocab_types = StringVocab()
+        self.vocab_positions = StringVocab()
+        self._elink = Link(
+            self.vocab_links.unk,
+            span=(-1, -1),
+            type=self.vocab_links.unk
+        )
 
     def _forward(self, compound: Compound) -> List[Tuple[int]]:
 
         # Analyze a single compound; performed as a sliding window
+        # with a sliding window inside
         # over the compound lemma, where for each position it is stored,
-        # which left and right context in n-grams there is and
-        # whether there is a link it between and, if, yes, which one.
-        # Later, uniques context-link pairs will be counted
-        # and this counts information will be used in prediction
-        lemma = compound.lemma
-        c = 0   # indexing correction for special symbols
-        if self.special_symbols:
-            lemma = f'>{lemma}<'
-            c = 1
+        # which left and right context in n-grams there is and what is in between and
+        # whether that "in between" is and, if, yes, which one.
+        # Example:
+        #   "bundestag" with 2-grams
+        #   ">b", "un", "" --> no link
+        #   ">b", "nd", "u" --> no link
+        #   ">b", "de", "un" --> no link
+        #   ...
+        #   "nd", "es", "" --> no link
+        #   "nd", "st", "e" --> no link
+        #   "nd", "ta", "es" --> link "_+s_"
+        #   ...
+        # Later, uniques context-link triples will be counted
+        # and this counts information will be used in prediction.
+        lemma = f'>{compound.lemma}<'    # BOS and EOS
+        n = self.n
+        l = len(lemma) - 1  # -1 because indexing starts at 0
 
-        # as we know which links to expect, we can track them 
-        coming_link_idx = 0
-        # masks will be of a form (c_l, c_r, l, t), where
+        # as we know which links to expect, we will track them 
+        next_link_idx = 0
+        # masks will be of a form (c_l, c_r, c_m, l), where
         #   * c_l is the left n-gram
         #   * c_r is the right n-gram
-        #   * l is the link ("none" if none)
-        #   * t is the link type according to the COW dataset
+        #   * c_m is the middle n-gram
+        #   * l is the link ("<unk>" if none)
         masks = []
         # Make sliding window; however, we want to start not directly with
         # n-grams, but first come from 1-grams to n-grams at the left of the compound
-        # and then slide this n-grams; same with the end: not the last n-gram,
+        # and then slide by n-grams; same with the end: not the last n-gram,
         # but n-gram to 1-gram. To be more clear: having 'Bundestag' and 3-grams, we don't want contexts
         # to be directly (("bun", "des"), ("und", "est"), ..., ("des", "tag")), 
         # but we rather want (("b", "und"), ("bu", "nde"), ("bun", "des"), ..., ("des", "tag"), ("est", "ag"), ("sta", "g")).
         # As we process compounds unidirectionally and move left to right,
         # we want subtract max n-gram length to achieve this effect; thus, with a window of length
-        # max n-gram length, we will begin with 1-grams, ..., and end with ..., 1-grams
-        for i in range(1 - self.n, (len(lemma) - self.n)):
-            # next expected link; we use `_empty_link` to unify the workflow below
-            coming_link = compound.links[coming_link_idx] if coming_link_idx < len(compound.links) else self._empty_link
-            # Our models can be accumulative or not. If no, only n-grams of length `n` are considered (see example above);
-            # otherwise, the same 1-gram to n-gram gain applies not only for the beginning and the end,
-            # but for each step, from both ends, for example:
-            # (..., ("b", "u"), ("b", "un"), ("b", "und"), ("bu", "u"), ("bu", "nd"), ("bu", "nde"), ("bun", "d"), ...).
-            # The workflow in unified with `max_step`: if the model is accumulative,
-            # left and right context are windowed additionally to the main window within the inner loop,
-            # otherwise `max_step` is `1` so the inner loop runs once with no effect on the main window
-            for s_s, s_e in product(range(self.max_step), range(self.max_step)):
-                # TODO: if accumulative, masks at the beginning and in the end are duplicated first `n` times
-                start = lemma[max(0, i + s_s): i + self.n]    # `s_s` is correction for the first 1-, 2- ... n-1-grams
-                end = lemma[i + self.n: i + self.n + self.n - (s_e)] # `s_s` is correction for the last n-1, ..., 2-, 1-grams
+        # max n-gram length, we will begin with 1-grams, ..., reach n-grams, ..., and end with ..., 1-grams
+        for i in range(1 - n + 1, l - n):  # 1 from both sides because there can not be a link right after BOS
+            # next expected link; we use empty link in case there are no links anymore to unify the workflow below
+            next_link = compound.links[next_link_idx] if next_link_idx < len(compound.links) else self._elink
+            s = max(0, i)   # start of left
+            m = i + n   # end of left = start of mid
+            # break cycle if case left forces the right to be the single EOS
+            # which it makes no sense to record because link can not appear there or any further
+            if m > l - 1: break # -1 for special symbols
+            for r in range(4):  # max length of a link representation is 3 as in -ens-
+                e = m + r   # end of mid = start of right
+                f = m + r + n   # end of right
+                # break cycle if case right context is going to be the single EOS
+                if e > l - 1: break   # -1 for special symbols
+                left = lemma[s: m]
+                mid = lemma[m: e]
+                right = lemma[e: f]
                 # define if there is a link incoming at this index;
-                # `i + self.n`: end of the `start` substring; `c` is correction for special symbols
-                if i + self.n == coming_link.span[0] + c:
-                    link = coming_link
+                if (m - 1, m + r - 1) == next_link.span:    # -1 is correction because of special symbols
+                    link = next_link
                     # increment
-                    coming_link_idx += 1
+                    next_link_idx += 1
                 else:
-                    link = self._empty_link
+                    if self.record_none_links:
+                        link = self._elink
+                    else: continue
                 # add the mask
-                start_id = self.vocab_ngrams.add(start)
-                end_id = self.vocab_ngrams.add(end)
                 link_id = self.vocab_links.add(link.component)
-                type_id = self.vocab_types.add(link.type)
-                masks.append((start_id, end_id, link_id, type_id))
+                masks.append((left, right, mid, link_id))
 
         return masks
 
@@ -241,185 +267,153 @@ class NGramsSplitter:
             all_masks += masks
             if self.verbose: self.progress_bar.update()
         all_masks = np.array(all_masks)
-        n_ngrams, n_links, n_types = len(self.vocab_ngrams), len(self.vocab_links), len(self.vocab_types)
 
         # at this point, all the vocabs are populated, so we can process masks
         # 1. process link counts
-        # a mask has a form (c_l, c_r, l, t), where
+        # a mask has a form (c_l, c_r, c_m, l), where
         #   * c_l is the left n-gram
         #   * c_r is the right n-gram
-        #   * l is the link ("none" if none)
-        #   * t is the link type according to the COW dataset
-        # we want to get a mapping from <c_l, c_r> to l, so we need first three columns
-        masks_links = all_masks[:, :3]
-        # count masks
-        _, unique_indices, counts = np.unique(masks_links, return_index=True, return_counts=True, axis=0)
+        #   * c_m is the mid n-gram
+        #   * l is the link ("<unk>" if none)
+        # We want to get a mapping from <c_l, c_r, c_m> of contexts C = (c1, c2, ...)
+        # to distribution of links L = (l1, l2, ...).
+        # If we do that with matrices, they become too large to operate over because they become extremely sparse
+        # and take up the whole memory (they are also 4D matrices which makes it worse);
+        # that is why we need a more compact way to encode positions.
+        # What we can do is to encode positions <c_l, c_r, c_m> separately as strings and thus reduce
+        # the 4D matrix of shape (|C|, |C|, |C|, |L|) to a 2D matrix of shape (|P|, |L|),
+        # where P is the set of encoded positions. Moreover, we will this significantly
+        # reduce the sparseness of the matrix because there will be no unknowns contexts
+        # so no zeros between n-grams, only zeros on L distribution when a link never occurs in a position.
+        _, unique_indices, counts = np.unique(all_masks, return_index=True, return_counts=True, axis=0)
         # `np.unique()` sorts masks so the original order is not preserved;
         # to recreate it, the method returns indices of masks in the original dataset
         # in order of their counts; for example, `unique_indices[5]` contains
         # the index of that mask in `masks_links` whose count is under `counts[5]`
-        unique_masks_links = masks_links[unique_indices]
-        # make `np`-compatible indices: all 0th, all 1st, and then all 2nd dimension indices
-        unique_masks_links = unique_masks_links.T
-        firsts, seconds, thirds = unique_masks_links   
-        # sparse array because the density is too low, usually about 0.5%;
-        # we will only consider present links; if upon predicting, no counts
-        # at all are present, no link is stated
-        counts_links_sparse = sparse.COO(
-            [firsts, seconds, thirds],
-            counts.astype(np.float32),
-            # <c_l, c_r> to l
-            shape=(n_ngrams, n_ngrams, n_links)
+        unique_masks_links = all_masks[unique_indices]
+        positions = unique_masks_links[:, :3]
+        # add_to_vocab = lambda seq: self.vocab_positions.add(seq)
+        positions_ids = np.apply_along_axis(
+            self.vocab_positions.add,
+            arr=positions,
+            axis=1
         )
-        # counts to frequencies;
-        # the simplest way to do that is to divide the whole thing
-        # and then assume that nan values mean no present links were between those contexts
-        with np.errstate(divide="ignore", invalid="ignore"):    # ignore divide by zero warning
-            counts_links_sparse /= counts_links_sparse.sum(axis=2, dtype=np.float32).reshape(
-                (n_ngrams, n_ngrams, 1)
-            )
-        self.freqs_links_sparse = counts_links_sparse
+        link_ids = unique_masks_links[:, 3].astype(np.int32)
+        # heuristically force <unk> link from <unk> context;
+        # add them here because sparse arrays don't allow item assignment
+        positions_ids = np.append(positions_ids, self.vocab_positions.unk_id)
+        link_ids = np.append(link_ids, self.vocab_links.unk_id)
+        counts = np.append(counts, 1)
 
-        # 2. same for types
-        # mapping from l to t, so last two columns
-        type_links = all_masks[:, 2:4]
-        _, unique_indices, counts = np.unique(type_links, return_index=True, return_counts=True, axis=0)
-        unique_masks_types = type_links[unique_indices]
-        unique_masks_types = unique_masks_types.T
-        firsts, seconds = unique_masks_types
-        counts_types_sparse = sparse.COO(
-            [firsts, seconds],
-            counts.astype(np.float32),
-            # l to t
-            shape=(n_links, n_types)
+        n_pos, n_links = len(self.vocab_positions), len(self.vocab_links)
+        counts_links = np.zeros((n_pos, n_links), dtype=np.float32)  #f or further division
+        counts_links[positions_ids, link_ids] = counts
+
+        # counts to frequencies; since all positions point at least to <unk>,
+        # no zero division will be encountered
+        counts_links /= counts_links.sum(axis=1, dtype=np.float32).reshape(
+            (n_pos, 1)
         )
-        with np.errstate(divide="ignore", invalid="ignore"):    # ignore divide by zero warning
-            counts_types_sparse /= counts_types_sparse.sum(axis=1, dtype=np.float32).reshape(
-                (n_links, 1)
-            )
-        self.freqs_types_sparse = counts_types_sparse
+        self.freqs_links = counts_links
 
         return self
 
-    def _unfuse(self, raw: str, next_char: str, component: str, type: str) -> str:
-        # iteratively unfuse currently decoded compound part from the incoming link,
-        # recreating the COW format
-        match type:
-            case "addition":
-                raw = re.sub(f'{component}$', '', raw, flags=re.I)
-                raw += f'_+{component}_'
-            case "expansion":
-                raw = re.sub(f'{component}$', '', raw, flags=re.I)
-                raw += f'_({component})_'
-            case "deletion_nom":
-                raw += f'{component}_-{component}_'
-            case "deletion_non_nom":
-                raw += f'{component}_#{component}_'
-            case "hyphen":
-                raw += '_--_'
-            case "umlaut":
-                match = re.search('(äu|ä|ö|ü)[^äöü]+$', raw, flags=re.I)
-                if match:
-                    suffix_after_umlaut = get_span(raw, match.regs[0])
-                    umlaut = get_span(raw, match.regs[1])
-                    suffix_after_umlaut = re.sub(
-                        umlaut,
-                        UMLAUTS_REVERSED[umlaut],
-                        suffix_after_umlaut,
-                        flags=re.I
-                    )
-                    raw = re.sub(
-                        f'{suffix_after_umlaut}$',
-                        suffix_after_umlaut,
-                        raw,
-                        flags=re.I
-                    )
-                    raw += '_+=_'
-            case "concatenation":
-                raw += f'_{next_char}'
-            case _:
-                raw += next_char
-        return raw
+    # def _reverse_umlaut(self, raw: str, link: str) -> str:
+    #     if re.match(LINK_TYPES["addition_umlaut"]):
+    #         match = re.search('(äu|ä|ö|ü)[^äöü]+$', raw)
+    #         if match:
+    #             # the whole suffix containing the vowel
+    #             suffix_after_umlaut = match.group(0)
+    #             # the vowel itself
+    #             umlaut = match.group(1)
+    #             # perform umlaut in the suffix
+    #             suffix_before_umlaut = re.sub(
+    #                 umlaut,
+    #                 UMLAUTS_REVERSED[umlaut],
+    #                 suffix_after_umlaut
+    #             )
+    #             # adjust realization: perform umlaut
+    #             raw = re.sub(
+    #                 f'{suffix_after_umlaut}$',
+    #                 suffix_before_umlaut,
+    #                 raw
+    #             )
+    #     return raw
     
-    def _refine(self, raw):
-        # fuse double links, e.g. _+xx__-xx_ to _+xx_-xx_ for replacement;
-        # the only case a complex link cannot be restores by removing _-duplicates is addition with umlaut,
-        # so it comes first
-        raw = re.sub('_+=__+', '_+=', raw)
-        raw = re.sub('__', '_', raw)
-        # remove special symbols
-        if self.special_symbols: raw = re.sub('[<>]', '', raw)
-        return raw
-
     def _predict(self, lemma: str) -> Compound:
 
-        # predict a single lemma and return a COW-format `Compound`
-        raw = ""    # will iteratively restore COW-format compound
-        lemma = lemma.lower()
-        if self.special_symbols:
-            lemma = f'>{lemma}<'
+        # predict a single lemma and return a DECOW16-format `Compound`
+        raw = ""    # will iteratively restore DECOW16-format raw compound
+        # j = 1   # 1 for BOS
+        lemma = f'>{lemma.lower()}<'        # BOS and EOS
+        n = self.n
+        l = len(lemma) - 1  # -1 because indexing starts at 0
+        c = 0   # correction to skip links (see below)
 
         # same sliding window
-        for i in range(1 - self.n, (len(lemma) - self.n)):
+        for i in range(1 - n + 1, l - n):  # 1 from both sides because there can not be a link right after BOS
+            s = max(0, i + c)   # start of left
+            m = i + n + c   # end of left = start of mid
+            # break cycle if case left forces the right to be the single EOS
+            # which it makes no sense to record because link can not appear there or any further
+            if m > l - 1: break # -1 for special symbols
+            link_candidates = []
+            for r in range(4):  # max length of a link representation is 3 as in -ens-
+                e = m + r   # end of mid = start of right
+                f = m + r + n   # end of right
+                # break cycle if case right context is going to be the single EOS
+                if e > l - 1: break   # -1 for special symbols
+                left = lemma[s: m]
+                mid = lemma[m: e]
+                right = lemma[e: f]
+                # will return unknown id if unknown
+                position_id = self.vocab_positions.encode([left, right, mid])
+                candidates = self.freqs_links[position_id]
+                link_candidates.append(candidates)
+            # not argmax because argmax returns left-most values
+            # so if equal probs are in the candidates (e.g 0.5 and 0.5), the left-most is always returned
+            link_candidates = np.stack(link_candidates)
+            max_freq = link_candidates.max()
+            # rows are just observations and are irrelevant;
+            # the column index is what we need
+            _, best_link_ids = np.where(link_candidates == max_freq)
+            best_link_id = random.choice(best_link_ids)
 
-            # for all of the contexts at a certain position (1 if not accumulative),
-            # we will store all the freqs and connected links, and will take the most probable one
-            link_ids, link_probs = [], []
+            # top up the raw
+            raw += lemma[s + 1] # 1 for BOS
 
-            # define context
-            # This time, we will reverse the slicing so that we retrieve
-            # all 1-, 2-, ..., n-grams. We do that because, when we slide the window
-            # during fitting, all larger contexts consequently include smaller ones.
-            # That's why, if smaller contexts has no connected links, neither will the larger ones,
-            # so we can abort the loop earlier
-            for s_s, s_e in product(range(self.max_step - 1, -1, -1), range(self.max_step - 1, -1, -1)):
+            # if there is no link, then unknown id is returned
+            if best_link_id != self.vocab_links.unk_id:
+                best_link = self.vocab_links.decode(best_link_id)
+                component, realization, link_type = Compound.get_link_info(best_link)
+                if link_type == "addition_umlaut":
+                    raw = Compound.reverse_umlaut(raw)
+                elif link_type == "deletion":
+                    to_delete = Compound.get_deletion(component)
+                    raw += to_delete
+                raw += component
+                # When we encounter a link, we know for sure that there can not
+                # be another link after it (at least in v4 implementation).
+                # That is why we want to skip the link after we found it.
+                # For example, if we have "bundestag" and the model decided that after "nd",
+                # there is an "es", there is no sense for us to add "es" and
+                # start further with "de"; we want to continue straight to "ta".
+                # However, we cannot just assign a higher `i` because it
+                # will reset to its anticipated value in the new iteration,
+                # so we have to maintain a correction to add to `i`
+                # in order to be sure we are skipping the link. 
+                c += len(realization)
+                # j += len(realization)
+                # skip the link
 
-                # TODO: if accumulative, masks at the beginning and in the end are duplicated
-                start = lemma[max(0, i + s_s): i + self.n]
-                end = lemma[i + self.n: i + self.n + self.n - (s_e)]
-                # link frequencies between the contexts
-                link_candidates = self.freqs_links_sparse[
-                    self.vocab_ngrams.encode(start),
-                    self.vocab_ngrams.encode(end)
-                ]
+            # j += 1
+            # else:
+            #     j += 1
+            # else:
+            #     raw += lemma[j]
+            #     j += 1
+        raw += right[0] # complete raw when the window has sled
 
-                # abort if never occurred
-                if not link_candidates.nnz:
-                    link_probs = []
-                    break
-
-                # not argmax because argmax returns left-most values
-                # so if equal probs are in the candidates (e.g 0.5 and 0.5), the left-most is always returned
-                link_candidates = link_candidates.todense()
-                max_freq = link_candidates.max()
-                best_link_ids, = np.where(link_candidates == max_freq)
-                link_ids.append(best_link_ids.tolist())
-                link_probs.append(max_freq)
-
-            if link_probs:
-
-                # define the most probable link
-                link_probs = np.array(link_probs)
-                max_link_probs, = np.where(link_probs == link_probs.max())
-                best_link_ids = link_ids[random.choice(max_link_probs)] # not argmax once again
-                best_link_id = random.choice(best_link_ids)
-                # the most probable type
-                type_candidates = self.freqs_types_sparse[best_link_id].todense()
-                best_type_ids, = np.where(type_candidates == type_candidates.max())
-                best_type_id = random.choice(best_type_ids)
-
-                component = self.vocab_links.decode(best_link_id)
-                type = self.vocab_types.decode(best_type_id)
-
-            else:   # aborted
-
-                component = ""
-                type = "none"
-
-            # restore raw
-            raw = self._unfuse(raw, end[0], component, type)
-
-        raw = self._refine(raw)
         pred = Compound(raw)
 
         return pred
@@ -427,7 +421,7 @@ class NGramsSplitter:
     def predict(self, compounds: List[str]) -> List[Compound]:
 
         """
-        Make prediction from lemmas to COW-format `Compound`s
+        Make prediction from lemmas to DECOW16-format `Compound`s
 
         Parameters
         ----------
@@ -462,8 +456,6 @@ class NGramsSplitter:
 def run_baseline(
     gecodb_path: str,
     min_count: Optional[int]=25,
-    train_split: Optional[float]=0.85,
-    shuffle: Optional[bool]=True,
     **params
 ) -> dict:
     
@@ -500,7 +492,7 @@ def run_baseline(
     
     gecodb = parse_gecodb(gecodb_path, min_count=min_count)
 
-    train_data, test_data = train_test_split(gecodb, train_size=train_split, shuffle=shuffle)
+    train_data, test_data = train_test_split(gecodb, train_size=0.75, shuffle=True)
     train_compounds = train_data["compound"].values
     test_compounds = test_data["compound"].values
     test_lemmas = [
@@ -510,17 +502,17 @@ def run_baseline(
     splitter = NGramsSplitter(**params).fit(train_compounds)
     evaluator = CompoundEvaluator()
 
-    preds = splitter.predict(test_lemmas)
-    test_data["pred"] = preds
+    pred_compounds = np.array(splitter.predict(test_lemmas))
+    test_data["pred"] = pred_compounds
 
-    scores = evaluator.evaluate(test_compounds, preds)
+    scores = evaluator.evaluate(test_compounds, pred_compounds)
     output = {
         'params': params,
+        'min_count': min_count,
         'train_size': len(train_data),
-        'density': splitter.freqs_links_sparse.density,
         'scores': scores,
         'gold': test_compounds,
-        'pred': preds
+        'pred': pred_compounds
     }
 
     return output
@@ -531,35 +523,31 @@ if __name__ == '__main__':
     start = time.time()
 
     # benchmarking
-    in_path = './dekor/COW/gecodb/gecodb_v01.tsv'
+    in_path = './resources/gecodb_v04.tsv'
     out_dir = './benchmarking/ngrams'
 
     # param grid
-    min_counts = [5000, 1000, 100]  # by 50 already out of memory
-    shuffles = [True, False]
+    min_counts = [1000, 100, 20]  # by 10 already out of memory
+    # shuffles = [True, False]
     ngramss = [2, 3, 4]
-    accumulatives = [True, False]
-    special_symbolss = [True, False]
+    record_none_linkss = [True, False]
 
-    # testing
+    # benchmarking
     outputs = []
-    for min_count, shuffle, ngrams, accumulative, special_symbols in product(
-        min_counts, shuffles, ngramss, accumulatives, special_symbolss
+    for min_count, ngrams, record_none_links in product(
+        min_counts, ngramss, record_none_linkss
     ):
         
         params = {
             'min_count': min_count,
-            'shuffle': shuffle,
             'n': ngrams,
-            'accumulative': accumulative,
-            'special_symbols': special_symbols,
+            'record_none_links': record_none_links,
         }
         
         # print out params
         print('\n', ', '.join(f'{key}: {value}' for key, value in params.items()))
         output = run_baseline(
             in_path,
-            train_split=0.85,
             verbose=True,
             **params
         )
@@ -570,8 +558,8 @@ if __name__ == '__main__':
         return sum(scores.values())
 
     outputs = sorted(outputs, key=lambda entry: _sum_scores(entry['scores']), reverse=True)
-    with open(os.path.join(out_dir, 'ngrams_25.json'), 'w') as out:
-        json.dump(outputs, out, indent=4, default="not_serializable")
+    with open(os.path.join(out_dir, 'ngrams.json'), 'w') as out:
+        json.dump(outputs, out, indent=4, default=lambda x: "not serializable")
 
     golds = outputs[0]['gold']
     best_preds = outputs[0]['pred']
@@ -583,15 +571,20 @@ if __name__ == '__main__':
         }
     )
     pairs.to_csv(
-        os.path.join(out_dir, 'ngrams_preds_25.tsv'),
+        os.path.join(out_dir, 'ngrams_preds.tsv'),
         sep='\t',
-        index=False
+        index=False,
+        header=False
     )
 
     end = time.time()
 
-    print(f"Execution time: {round(end - start, 2)} s") # about 3-3.5h
+    print(f"Execution time: {round(end - start, 2)} s") # ~1300s
 
-
-if __name__ == '__main__':
-    pass
+    # run_baseline(
+    #     "./resources/gecodb_v04.tsv",
+    #     min_count=10000,
+    #     shuffle=False,
+    #     n=2,
+    #     record_none_links=False
+    # )
