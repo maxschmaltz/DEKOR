@@ -1,16 +1,14 @@
 """
-N-gram model for splitting German compounds based on the DECOW16 data.
+N-gram model for splitting German compounds based on the DECOW16 compound data.
 """
 
 import os
-import re
 import json
 import time
 from itertools import product
 import random
 import pandas as pd
 import numpy as np
-import sparse
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 from typing import Iterable, Optional, List, Tuple, Union
@@ -18,9 +16,7 @@ from typing import Iterable, Optional, List, Tuple, Union
 from dekor.gecodb_parser import (
     Compound,
     Link,
-    parse_gecodb,
-    UMLAUTS_REVERSED,
-    LINK_TYPES
+    parse_gecodb
 )
 from dekor.eval.evaluate import CompoundEvaluator
 
@@ -317,34 +313,11 @@ class NGramsSplitter:
         self.freqs_links = counts_links
 
         return self
-
-    # def _reverse_umlaut(self, raw: str, link: str) -> str:
-    #     if re.match(LINK_TYPES["addition_umlaut"]):
-    #         match = re.search('(äu|ä|ö|ü)[^äöü]+$', raw)
-    #         if match:
-    #             # the whole suffix containing the vowel
-    #             suffix_after_umlaut = match.group(0)
-    #             # the vowel itself
-    #             umlaut = match.group(1)
-    #             # perform umlaut in the suffix
-    #             suffix_before_umlaut = re.sub(
-    #                 umlaut,
-    #                 UMLAUTS_REVERSED[umlaut],
-    #                 suffix_after_umlaut
-    #             )
-    #             # adjust realization: perform umlaut
-    #             raw = re.sub(
-    #                 f'{suffix_after_umlaut}$',
-    #                 suffix_before_umlaut,
-    #                 raw
-    #             )
-    #     return raw
     
     def _predict(self, lemma: str) -> Compound:
 
         # predict a single lemma and return a DECOW16-format `Compound`
         raw = ""    # will iteratively restore DECOW16-format raw compound
-        # j = 1   # 1 for BOS
         lemma = f'>{lemma.lower()}<'        # BOS and EOS
         n = self.n
         l = len(lemma) - 1  # -1 because indexing starts at 0
@@ -385,7 +358,16 @@ class NGramsSplitter:
             # if there is no link, then unknown id is returned
             if best_link_id != self.vocab_links.unk_id:
                 best_link = self.vocab_links.decode(best_link_id)
-                component, realization, link_type = Compound.get_link_info(best_link)
+                # TODO: formulate better
+                # # it turned out the Ngram implementation does not benefit from eliminating allomorphy;
+                # # that is easily explainable: the model depend on the concrete ngrams it sees,
+                # # and it cannot abstract things; that is why, for example, if you train it that
+                # # there is only _+s_ both in -s- and -es- cases,
+                # # it will be able to generate _+s_ when it sees XXesXX
+                # # but will not be able to deduct -es- from _+s_ because
+                # # it can for example refer to -esX- or to -e- when deciding
+                # # there is an _+s_ there
+                component, realization, link_type = Compound.get_link_info(best_link, eliminate_allomophy=False)
                 if link_type == "addition_umlaut":
                     raw = Compound.reverse_umlaut(raw)
                 elif link_type == "deletion":
@@ -403,15 +385,8 @@ class NGramsSplitter:
                 # so we have to maintain a correction to add to `i`
                 # in order to be sure we are skipping the link. 
                 c += len(realization)
-                # j += len(realization)
                 # skip the link
 
-            # j += 1
-            # else:
-            #     j += 1
-            # else:
-            #     raw += lemma[j]
-            #     j += 1
         raw += right[0] # complete raw when the window has sled
 
         pred = Compound(raw)
@@ -528,7 +503,6 @@ if __name__ == '__main__':
 
     # param grid
     min_counts = [1000, 100, 20]  # by 10 already out of memory
-    # shuffles = [True, False]
     ngramss = [2, 3, 4]
     record_none_linkss = [True, False]
 
@@ -580,11 +554,3 @@ if __name__ == '__main__':
     end = time.time()
 
     print(f"Execution time: {round(end - start, 2)} s") # ~1300s
-
-    # run_baseline(
-    #     "./resources/gecodb_v04.tsv",
-    #     min_count=10000,
-    #     shuffle=False,
-    #     n=2,
-    #     record_none_links=False
-    # )

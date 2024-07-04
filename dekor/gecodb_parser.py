@@ -1,5 +1,5 @@
 """
-Module for parsing the DECOW16 compounds dataset.
+Module for parsing the DECOW16 compound dataset.
 """
 
 import re
@@ -113,15 +113,6 @@ class Link:
         if not self.realization:
             self.realization = ""
 
-    # @classmethod
-    # def empty(cls):
-
-    #     """
-    #     Creates an empty link.
-    #     """
-
-    #     return cls("<unk>", span=(-1, -1), type="<unk>")
-
     def __repr__(self) -> str:
         return self.component
 
@@ -182,26 +173,51 @@ class Compound:
     
     @staticmethod
     def eliminate_allomorphy(link: str) -> str:
-        # TODO: formulate better
-        # # it turned out the Ngram implementation does not benefit from eliminating allomorphy;
-        # # that is easily explainable: the model depend on the concrete ngrams it sees,
-        # # and it cannot abstract things; that is why, for example, if you train it that
-        # # there is only _+s_ both in -s- and -es- cases,
-        # # it will be able to generate _+s_ when it sees XXesXX
-        # # but will not be able to deduct -es- from _+s_ because
-        # # it can for example refer to -esX- or to -e- when deciding
-        # # there is an _+s_ there
-        # if link == "_+es_": link = "_+s_" # -es vs -s
-        # elif link == "_+en_": link = "_+n_" # -en vs -n
-        # elif link == "_+ens_": link = "_+ns_" # -ens vs -ns
+
+        """
+        Eliminate allomorphy of a linking element, e.g. _+es_ to _+s_.
+
+        Parameters
+        ----------
+        component : `str`
+            link for elimination
+
+        Returns
+        -------
+        `str`
+            link wit eliminated allomorphy (input link if not applicable)
+        """
+
+        if link == "_+es_": link = "_+s_" # -es vs -s
+        elif link == "_+en_": link = "_+n_" # -en vs -n
+        elif link == "_+ens_": link = "_+ns_" # -ens vs -ns
         return link
     
     @staticmethod
-    def get_link_info(component: str) -> Link:
+    def get_link_info(link: str, eliminate_allomophy: Optional[bool]=True) -> Tuple[str]:
+
+        """
+        Determines realization and type of the link.
+
+        Parameters
+        ----------
+        link : `str`
+            string to analyze
+
+        eliminate_allomophy : `bool`, optional, defaults to `True`
+            whether to eliminate allomophy of the input link, e.g. _+es_ to _+s_
+
+        Returns
+        -------
+        `Tuple[str]`
+            the link itself (with eliminated allomorphy if `eliminate_allomophy` is `True`),
+            it's realization, and it's type
+        """
+
         for link_type, pattern in LINK_TYPES.items():
             match = re.match(
                 pattern.replace(DE, f'(?P<r>{DE})'), # add parenthesis to pattern to capture links under name "r"
-                component
+                link
             )
             if match:
                 # match will return 3 spans: the span of the whole match,
@@ -213,44 +229,11 @@ class Compound:
                 if link_type == "deletion":
                     realization = ""
                 # eliminate allophones
-                # if component == "_+es_": component = "_+s_" # -es vs -s
-                # elif component == "_+en_": component = "_+n_" # -en vs -n
-                # elif component == "_+ens_": component = "_+ns_" # -ens vs -ns
-                component = Compound.eliminate_allomorphy(component)
-                return component, realization, link_type
+                if eliminate_allomophy: link = Compound.eliminate_allomorphy(link)
+                return link, realization, link_type
 
     def _get_link_obj(self, component: str) -> Link:
         component, realization, link_type = self.get_link_info(component)
-        # if link_type == "deletion":
-        #     self.j -= len(realization)    # link will be subtracted from previous stem in fusion
-        # for link_type, pattern in LINK_TYPES.items():
-        #     match = re.match(
-        #         pattern.replace(DE, f'(?P<r>{DE})'), # add parenthesis to pattern to capture links under name "r"
-        #         component
-        #     )
-        #     if match:
-        #         # match will return 3 spans: the span of the whole match,
-        #         # the span of the first capturing group that we use to return
-        #         # the links when splitting a raw compound (same as the whole match),
-        #         # and the last span is the realization of the component
-        #         # that we capture in (DE)
-        #         realization = match.groupdict.get("r", "")  # in concatenation, there is no group "r"
-                # if link_type == "deletion":
-                #     self.j -= len(realization)    # link will be subtracted from previous stem in fusion
-                #     realization = ""
-                # # eliminate allophones
-                # # if component == "_+es_": component = "_+s_" # -es vs -s
-                # # elif component == "_+en_": component = "_+n_" # -en vs -n
-                # # elif component == "_+ens_": component = "_+ns_" # -ens vs -ns
-                # component = self.eliminate_allomorphy(component)
-                # link = Link(
-                #     component=component,
-                #     realization=realization,
-                #     span=(self.j, self.j + len(realization)),
-                #     type=link_type
-                # )
-                # self.j += len(realization)
-                # break
         link = Link(
                 component=component,
                 realization=realization,
@@ -261,7 +244,22 @@ class Compound:
         return link
     
     @staticmethod
-    def get_deletion(deletion_link: str):
+    def get_deletion(deletion_link: str) -> str:
+
+        """
+        In a deletion link like _-e_, determines the deletion substring: "e" in this example.
+
+        Parameters
+        ----------
+        deletion_link : `str`
+            link to analyze
+
+        Returns
+        -------
+        `str`
+            deletion substring
+        """
+
         to_delete = re.match(
             LINK_TYPES["deletion"].replace(DE, f'(?P<r>{DE})'),
             deletion_link
@@ -269,7 +267,22 @@ class Compound:
         return to_delete
     
     @staticmethod
-    def perform_umlaut(string):
+    def perform_umlaut(string: str) -> str:
+
+        """
+        Performs rightmost (!) umlaut, like "altstadt" --> "altstädt".
+
+        Parameters
+        ----------
+        string : `str`
+            string to perform umlaut over
+
+        Returns
+        -------
+        `str`
+            string after performing umlaut (input string if not applicable)
+        """
+
         match = re.search('(au|a|o|u)[^aou]+$', string)
         if match:
             # the whole suffix containing the vowel
@@ -291,7 +304,22 @@ class Compound:
         return string
 
     @staticmethod
-    def reverse_umlaut(string):
+    def reverse_umlaut(string: str) -> str:
+
+        """
+        Reverse rightmost (!) umlaut, like "altstädt" --> "altstadt".
+
+        Parameters
+        ----------
+        string : `str`
+            string to reverse umlaut in
+
+        Returns
+        -------
+        `str`
+            string after reversing umlaut (input string if not applicable)
+        """
+
         match = re.search('(äu|ä|ö|ü)[^äöü]+$', string)
         if match:
             # the whole suffix containing the vowel
@@ -320,11 +348,6 @@ class Compound:
         if link.type == "deletion":
             to_delete = self.get_deletion(link.component)
             ld = len(to_delete)
-            # to_delete = re.match(
-            #     LINK_TYPES["deletion"].replace(DE, f'(?P<r>{DE})'),
-            #     link.component
-            # ).group("r")   # capturing groups as is in `_get_link_obj()`
-            # adjust realization: clip the deleted part
             previous_stem.realization = re.sub(
                 f'{to_delete}$',
                 '',
@@ -339,24 +362,6 @@ class Compound:
             # will return 2 matches (if finds anything):
             # the whole suffix with umlaut, and the vowel itself (in the capturing group)
             previous_stem.realization = self.perform_umlaut(previous_stem.component)
-            # match = re.search('(au|a|o|u)[^aou]+$', previous_stem.component)
-            # if match:
-            #     # the whole suffix containing the vowel
-            #     suffix_before_umlaut = match.group(0)
-            #     # the vowel itself
-            #     umlaut = match.group(1)
-            #     # perform umlaut in the suffix
-            #     suffix_after_umlaut = re.sub(
-            #         umlaut,
-            #         UMLAUTS[umlaut],
-            #         suffix_before_umlaut
-            #     )
-            #     # adjust realization: perform umlaut
-            #     previous_stem.realization = re.sub(
-            #         f'{suffix_before_umlaut}$',
-            #         suffix_after_umlaut,
-            #         previous_stem.component
-            #     )
 
     def _analyze(self, raw: str) -> None:
         raw = raw.lower()
@@ -384,12 +389,12 @@ class Compound:
 def parse_gecodb(gecodb_path: str, min_count: Optional[int]=25) -> pd.DataFrame:
 
     """
-    Parse the COW dataset.
+    Parse the DECOW16-format compounds dataset.
 
     Parameters
     ----------
     gecodb_path : `str`
-        path to the TSV COW dataset
+        path to the TSV DECOW16-format compounds dataset
 
     min_count : `int`, optional, defaults to 25
         minimal count of compounds to keep; all compounds occurring less will be dropped
@@ -398,7 +403,7 @@ def parse_gecodb(gecodb_path: str, min_count: Optional[int]=25) -> pd.DataFrame:
     -------
     `pandas.DataFrame`
         dataframe with three columns:
-        * "raw": `str`: COW dataset entry
+        * "raw": `str`: DECOW16-format compound entry
         * "count": `int`: number of occurrences
         * "compound": `Compound`: processed compounds
     """
