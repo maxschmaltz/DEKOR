@@ -5,7 +5,7 @@ Module for base metric model.
 from abc import ABC, abstractmethod
 from typing import List
 
-from dekor.gecodb_parser import Compound
+from dekor.utils.gecodb_parser import Compound
 
 
 class BaseMetric(ABC):
