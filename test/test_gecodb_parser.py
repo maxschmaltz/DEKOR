@@ -1,6 +1,6 @@
 import unittest
 
-from dekor.gecodb_parser import Compound, Stem, Link
+from dekor.utils.gecodb_parser import Compound, Stem, Link
 
 
 class TestGecoDBParser(unittest.TestCase):
@@ -99,6 +99,42 @@ class TestGecoDBParser(unittest.TestCase):
         expected_components = [
             Stem("bund", span=(0, 4)),
             Link("_+s_", realization="es", span=(4, 6), type="addition"),
+            Stem("verfassung", span=(6, 16)),
+            Link("_+s_", realization="s", span=(16, 17), type="addition"),
+            Stem("gericht", span=(17, 24))
+        ]
+        actual_components = compound.components
+        self.assertListEqual(expected_components, actual_components)
+        # compare pretty form
+        expected_lemma = "bundesverfassungsgericht"
+        actual_lemma = compound.lemma
+        self.assertEqual(expected_lemma, actual_lemma)
+
+    def test_addition_3(self):
+        # parse compound
+        raw = "nerv_+en_system"
+        compound = Compound(raw, eliminate_allomorphy=False)
+        # compare components and their properties
+        expected_components = [
+            Stem("nerv", span=(0, 4)),
+            Link("_+en_", realization="en", span=(4, 6), type="addition"),
+            Stem("system", span=(6, 12))
+        ]
+        actual_components = compound.components
+        self.assertListEqual(expected_components, actual_components)
+        # compare pretty form
+        expected_lemma = "nervensystem"
+        actual_lemma = compound.lemma
+        self.assertEqual(expected_lemma, actual_lemma)
+
+    def test_addition_4(self):
+        # parse compound
+        raw = "bund_+es_verfassung_+s_gericht"
+        compound = Compound(raw, eliminate_allomorphy=False)
+        # compare components and their properties
+        expected_components = [
+            Stem("bund", span=(0, 4)),
+            Link("_+es_", realization="es", span=(4, 6), type="addition"),
             Stem("verfassung", span=(6, 16)),
             Link("_+s_", realization="s", span=(16, 17), type="addition"),
             Stem("gericht", span=(17, 24))
@@ -263,6 +299,25 @@ class TestGecoDBParser(unittest.TestCase):
         expected_components = [
             Stem("bund", span=(0, 4)),
             Link("_+s_", realization="es", span=(4, 6), type="addition"),
+            Stem("arzt", realization="ärzt", span=(6, 10)),
+            Link("_+=e_", realization="e", span=(10, 11), type="addition_umlaut"),
+            Stem("kammer", span=(11, 17))
+        ]
+        actual_components = compound.components
+        self.assertListEqual(expected_components, actual_components)
+        # compare pretty form
+        expected_lemma = "bundesärztekammer"
+        actual_lemma = compound.lemma
+        self.assertEqual(expected_lemma, actual_lemma)
+
+    def test_complex_compound_3(self):
+        # parse compound
+        raw = "bund_+es_arzt_+=e_kammer"
+        compound = Compound(raw, eliminate_allomorphy=False)
+        # compare components and their properties
+        expected_components = [
+            Stem("bund", span=(0, 4)),
+            Link("_+es_", realization="es", span=(4, 6), type="addition"),
             Stem("arzt", realization="ärzt", span=(6, 10)),
             Link("_+=e_", realization="e", span=(10, 11), type="addition_umlaut"),
             Stem("kammer", span=(11, 17))
