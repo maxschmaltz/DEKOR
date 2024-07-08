@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from typing import Dict, List, Optional
 
-from dekor.gecodb_parser import Compound
+from dekor.utils.gecodb_parser import Compound
 from dekor.eval.metrics import _all_metrics
 
 class EvaluationResult(dict):
@@ -37,6 +37,9 @@ class EvaluationResult(dict):
         results['golds'] = golds
         results['preds'] = preds
         self.df = pd.DataFrame(results)
+
+    def mean(self):
+        return sum(self.values()) / len(self)
         
 
 class CompoundEvaluator:
