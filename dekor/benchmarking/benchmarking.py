@@ -48,6 +48,7 @@ def benchmark_splitter(
     best_score = -1
     best_pairs = None
     eliminate_allomorphys = [True, False]
+    n_iter = 1
     for min_count, eliminate_allomorphy in product(min_counts, eliminate_allomorphys):
         gecodb = parse_gecodb(
             gecodb_path,
@@ -64,7 +65,8 @@ def benchmark_splitter(
                 verbose=verbose
             )
             if verbose: # print out params
-                print('\n', ', '.join(f'{key}: {value}' for key, value in splitter_params.items()))
+                print('\n', f"{splitter_cls.name}: iter {n_iter}/{len(all_splitter_params * len(min_counts) * 2)}")
+                print(', '.join(f"{key}: {value}" for key, value in splitter_params.items()), f"min_count: {min_count}")
             scores, pred_compounds = eval_splitter(
                 unfit_splitter=unfit_splitter,
                 train_compounds=train_compounds,
@@ -83,6 +85,7 @@ def benchmark_splitter(
             if mean_score > best_score:
                 best_score = mean_score
                 best_pairs = (test_compounds, pred_compounds)
+            n_iter += 1
     outputs = sorted(outputs, key=lambda entry: entry["mean_score"], reverse=True)
     return outputs, best_pairs
 
