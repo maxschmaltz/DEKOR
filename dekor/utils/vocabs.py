@@ -1,4 +1,8 @@
-from typing import Union, Iterable, Tuple
+"""
+Module with vocabularies for encoding different information.
+"""
+
+from collections import defaultdict
 
 
 class StringVocab:
@@ -10,6 +14,7 @@ class StringVocab:
     def __init__(self) -> None:
         self._vocab = {self.unk: self.unk_id}
         self._vocab_reversed = {self.unk_id: self.unk}
+        self.counts = defaultdict(int)
 
     @property
     def unk(self):
@@ -43,6 +48,7 @@ class StringVocab:
             self._vocab_reversed[id] = string
         else:
             id = self.encode(string)
+        self.counts[id] += 1
         return id
 
     def encode(self, string: str) -> int:
