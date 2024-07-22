@@ -1,11 +1,21 @@
+"""
+Base model for splitting German compounds based on the DECOW16 compound data.
+"""
+
 from abc import ABC, abstractmethod
-from tqdm import tqdm
+import torch
 from typing import Any, Iterable, List, Self
 
 from dekor.utils.gecodb_parser import Compound
 
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
 
 class BaseSplitter(ABC):
+
+    """
+    Base class for splitters.
+    """
 
     name: str
 
@@ -14,38 +24,20 @@ class BaseSplitter(ABC):
         pass
 
     @abstractmethod
-    def _forward(self, compound: Compound) -> Any:
+    def _forward(self, compound: Compound, *args, **kwargs) -> Any:
         pass
 
     @abstractmethod
-    def fit(self, compounds: Iterable[Compound]) -> Self:
+    def fit(self, compounds: Iterable[Compound], *args, **kwargs) -> Self:
         pass
 
     @abstractmethod
-    def _predict(self, lemma: str) -> Compound:
+    def _predict(self, lemma: str, *args, **kwargs) -> Compound:
         pass
 
-    def predict(self, compounds: List[str]) -> List[Compound]:
-
-        """
-        Make prediction from lemmas to DECOW16-format `Compound`s
-
-        Parameters
-        ----------
-        compounds : `List[str]`
-            lemmas to predict
-
-        Returns
-        -------
-        `List[Compound]`
-            preds in DECOW16 compound format
-        """
-
-        progress_bar = tqdm(compounds, desc="Predicting") if self.verbose else compounds
-        return [
-            self._predict(compound)
-            for compound in progress_bar
-        ]
+    @abstractmethod
+    def predict(self, lemmas: List[str], *args, **kwargs) -> List[Compound]:
+        pass
 
     def __repr__(self) -> str:
         return str(self._metadata())
