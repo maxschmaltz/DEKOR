@@ -2,25 +2,12 @@
 FFN model for splitting German compounds based on the DECOW16 compound data.
 """
 
-import re
-import random
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
-import matplotlib.pyplot as plt
-from io import BytesIO
-from tqdm import tqdm
-from typing import Optional, Iterable, Optional, List, Tuple, Literal, Dict
+from typing import Optional, Optional, Literal
 
-from dekor.splitters.base import BaseSplitter, DEVICE
+from dekor.splitters.base import DEVICE
 from dekor.splitters.nns.base import BaseNN, BaseNNSplitter
-from dekor.utils.gecodb_parser import (
-    Compound,
-    Link,
-    UMLAUTS_REVERSED
-)
-from dekor.utils.vocabs import StringVocab
-from dekor.utils.datasets import XYDataset
 
 
 class FFN(BaseNN):
@@ -110,31 +97,3 @@ class FFNSplitter(BaseNNSplitter):
             output = output.detach()
 
         return output
-    
-
-if __name__ == "__main__":
-
-    from dekor.utils.gecodb_parser import parse_gecodb
-    from sklearn.model_selection import train_test_split
-    from dekor.benchmarking.benchmarking import eval_splitter
-
-    gecodb_path = "./resources/gecodb_v04.tsv"
-    gecodb = parse_gecodb(gecodb_path, eliminate_allomorphy=True, min_count=10000)
-    train_data, test_data = train_test_split(gecodb, train_size=0.75, shuffle=True)
-    train_compounds = train_data["compound"].values
-    test_compounds = test_data["compound"].values
-    test_lemmas = [
-        compound.lemma for compound in test_compounds
-    ]
-    splitter = FFNSplitter(
-        n=3,
-        eliminate_allomorphy=True,
-        batch_size=4096,
-        verbose=True,
-        criterion="margin"
-    ).fit(train_compounds)
-    _, pred_compounds = eval_splitter(
-        splitter=splitter,
-        test_compounds=test_compounds
-    )
-    pass

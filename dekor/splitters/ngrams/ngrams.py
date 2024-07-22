@@ -364,28 +364,3 @@ class NGramsSplitter(BaseSplitter):
             self._predict(lemma)
             for lemma in progress_bar
         ]
-    
-
-if __name__ == "__main__":
-
-    from dekor.utils.gecodb_parser import parse_gecodb
-    from sklearn.model_selection import train_test_split
-    from dekor.benchmarking.benchmarking import eval_splitter
-
-    gecodb_path = "./resources/gecodb_v04.tsv"
-    gecodb = parse_gecodb(gecodb_path, eliminate_allomorphy=True, min_count=1000)
-    train_data, test_data = train_test_split(gecodb, train_size=0.75, shuffle=True)
-    train_compounds = train_data["compound"].values
-    test_compounds = test_data["compound"].values
-    test_lemmas = [
-        compound.lemma for compound in test_compounds
-    ]
-    splitter = NGramsSplitter(
-        n=3,
-        eliminate_allomorphy=False,
-    ).fit(train_compounds)
-    _, pred_compounds = eval_splitter(
-        splitter=splitter,
-        test_compounds=test_compounds
-    )
-    pass
