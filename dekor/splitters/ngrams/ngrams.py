@@ -2,15 +2,9 @@
 N-gram model for splitting German compounds based on the DECOW16 compound data.
 """
 
-import os
 import re
-import json
-import time
-from itertools import product
 import random
-import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 from typing import Iterable, Optional, List, Tuple, Self
 
@@ -18,10 +12,9 @@ from dekor.splitters.base import BaseSplitter
 from dekor.utils.gecodb_parser import (
     Compound,
     Link,
-    parse_gecodb
+    UMLAUTS_REVERSED
 )
 from dekor.utils.vocabs import StringVocab
-from dekor.eval.evaluator import CompoundEvaluator
 
 
 class NGramsSplitter(BaseSplitter):
@@ -254,198 +247,145 @@ class NGramsSplitter(BaseSplitter):
                 # keep track of link candidate strings
                 realizations.append(mid)
             link_candidates = np.stack(link_candidates)
-            # you can consider the whole thing as observations and their values,
-            # where realizations are the observations and link ids are values;
-            # so `link_candidates` tell us: at row r (= at realization r)
-            # there is a distribution D with the most probable id l;
-            # that is why we want to concatenate those into pairs and select a pair;
-            # not argmax because argmax returns left-most values
-            best_link_ids = np.stack(
-                np.where(link_candidates == link_candidates.max()),
-                axis=1
-            )
-            best_realization_idx, best_link_id = random.choice(best_link_ids)
-            best_realization = realizations[best_realization_idx]
 
             # top up the raw
             raw += lemma[i - (1 - n) + c] # discard the diff in the loop declaration + add skip step
 
-            # if there is no link, then unknown id is returned
-            if best_link_id != self.vocab_links.unk_id:
-                best_link = self.vocab_links.decode(best_link_id)
-                component, realization, link_type = Compound.get_link_info(
-                    best_link,
-                    eliminate_allomorphy=self.eliminate_allomorphy
+            # There is a set of heuristics that have to be filtered out in place
+            # in order to get cleaner result; for example, there can not be an umlaut link
+            # in case there is no umlaut before it. This can mostly be checked once a link with
+            # its representation is parsed; however, it is highly inefficient to do that
+            # will all links whose probability is more that 0. Instead, we will treat the
+            # probabilities as a stack with probs ordered from highest to lowest;
+            # thus, at each iteration, we will check if the current max probable link
+            # passes the filter and if yes, we'll break the cycle, if no, zero this prob
+            # and take the next highest probable one. Thus, at the end we will output
+            # the most probable link of all that passed the filter.  
+            while True:
+
+                # it cannot exceed because even if all non-zero links will appear invalid,
+                # the zero link will at some point become the most probable one and will break the loop
+
+                # you can consider the whole thing as observations and their values,
+                # where realizations are the observations and link ids are values;
+                # so `link_candidates` tell us: at row r (= at realization r)
+                # there is a distribution D with the most probable id l;
+                # that is why we want to concatenate those into pairs and select a pair;
+                # not argmax because argmax returns left-most values
+                best_link_ids = np.stack(
+                    np.where(link_candidates == link_candidates.max()),
+                    axis=1
                 )
-                if link_type == "addition_umlaut":
-                    raw = Compound.reverse_umlaut(raw)
-                elif link_type == "deletion":
-                    to_delete = Compound.get_deletion(component)
-                    raw += to_delete
-                # NOTE: reconstruct from components?
-                # If allomorphy is eliminated, we can predict cases like
-                # tag_+s_ticket correctly and know that the realization is -es-;
-                # however, since we dont reconstruct the compound from components,
-                # if we pass tag_+s_ticket to `Compound`, it will think that the
-                # realization is -s- even though we know it is not the case.
-                # That is why, if eliminated allomorphy encountered,
-                # we must reconstruct the link as if allomorphy does not get eliminated,
-                # and then `Compound` will still parse the link with elimination
-                # but will receive the correct realization we predicted.
-                if best_realization != realization:
-                    component = re.sub(realization, best_realization, component)
-                raw += component
+                best_realization_idx, best_link_id = random.choice(best_link_ids)
+                best_realization = realizations[best_realization_idx]
 
-                # When we encounter a link, we know for sure that there can not
-                # be another link after it (at least in v4 implementation).
-                # That is why we want to skip the link after we found it.
-                # For example, if we have "bundestag" and the model decided that after "nd",
-                # there is an "es", there is no sense for us to add "es" and
-                # start further with "de"; we want to continue straight to "ta".
-                # However, we cannot just assign a higher `i` because it
-                # will reset to its anticipated value in the new iteration,
-                # so we have to maintain a correction to add to `i`
-                # in order to be sure we are skipping the link. 
-                c += len(best_realization)
+                # if there is no link, then unknown id is returned
+                if best_link_id != self.vocab_links.unk_id:
 
-        raw += right[0] # complete raw when the window has sled
+                    best_link = self.vocab_links.decode(best_link_id)
+                    component, realization, link_type = Compound.get_link_info(
+                        best_link,
+                        eliminate_allomorphy=self.eliminate_allomorphy
+                    )
+
+                    # heuristically filter out predictions that cannot be correct
+                    if (    # use if so that no further checks are performed once one has failed
+                        # umlaut link where there is no umlaut before; test only last stem, i.e. part after the last "_"
+                        ("umlaut" in link_type and not re.search('|'.join(UMLAUTS_REVERSED.keys()), raw.split("_")[-1]))
+                        # there are no other cases because it is deterministic after which contexts which links can 
+                        # and cannot be predicted so no cases where there cannot be the predicted link can be encountered
+                    ):
+                        # zero this impossible link prob
+                        link_candidates[best_realization_idx, best_link_id] = 0
+                        continue
+
+
+                    if link_type == "addition_umlaut":
+                        raw = Compound.reverse_umlaut(raw)
+                    elif link_type == "deletion":
+                        to_delete = Compound.get_deletion(component)
+                        raw += to_delete
+
+                    # NOTE: reconstruct from components?
+                    # If allomorphy is eliminated, we can predict cases like
+                    # tag_+s_ticket correctly and know that the realization is -es-;
+                    # however, since we dont reconstruct the compound from components,
+                    # if we pass tag_+s_ticket to `Compound`, it will think that the
+                    # realization is -s- even though we know it is not the case.
+                    # That is why, if eliminated allomorphy encountered,
+                    # we must reconstruct the link as if allomorphy does not get eliminated,
+                    # and then `Compound` will still parse the link with elimination
+                    # but will receive the correct realization we predicted.
+                    if best_realization != realization:
+                        component = re.sub(realization, best_realization, component)
+                    raw += component
+
+                    # When we encounter a link, we know for sure that there can not
+                    # be another link after it (at least in v4 implementation).
+                    # That is why we want to skip the link after we found it.
+                    # For example, if we have "bundestag" and the model decided that after "nd",
+                    # there is an "es", there is no sense for us to add "es" and
+                    # start further with "de"; we want to continue straight to "ta".
+                    # However, we cannot just assign a higher `i` because it
+                    # will reset to its anticipated value in the new iteration,
+                    # so we have to maintain a correction to add to `i`
+                    # in order to be sure we are skipping the link. 
+                    c += len(best_realization)
+
+                    break
+
+                else: break
+
+        raw += lemma[-2] # complete raw when the window has sled, -1 for EOS
 
         pred = Compound(raw, eliminate_allomorphy=self.eliminate_allomorphy)
 
         return pred
-
-
-def run(
-    gecodb_path: str,
-    min_count: Optional[int]=25,
-    verbose: Optional[bool]=True,
-    **params
-) -> dict:
     
-    """
-    Read COW dataset, split it into train and test splits, fit the train split to the n-gram model,
-    predict on the test split, evaluate the prediction, and return alongside additional information.
+    def predict(self, lemmas: List[str]) -> List[Compound]:
 
-    Parameters
-    ----------
-    gecodb_path : `str`
-        path to the TSV dataset
+        """
+        Make prediction from lemmas to DECOW16-format `Compound`s
 
-    min_count : `int`, optional, defaults to 25
-        minimal count of compounds to keep; all compounds occurring less will be dropped
+        Parameters
+        ----------
+        lemmas : `List[str]`
+            lemmas to predict
 
-    train_split : `float`, optional, defaults to 0.85
-        size of the train split
+        Returns
+        -------
+        `List[Compound]`
+            preds in DECOW16 compound format
+        """
 
-    shuffle : `bool`, optional, defaults to `True`
-        whether to shuffle data before splitting
-
-    **kwargs
-        parameters to pass to `NGramsSplitter`
-
-    Returns
-    -------
-    `dict`
-        dictionary with the following fields
-        * "params": `dict`: passed parameters (for tracking)
-        * "train_size": `int`: number of train compounds
-        * "density": `float`: density of the compound mask matrix
-        * "scores": `dekor.eval.evaluation.EvaluationResult`: metric scores
-    """
+        progress_bar = tqdm(lemmas, desc="Predicting") if self.verbose else lemmas
+        # note: async run is not efficient as one iteration is too fast
+        return [
+            self._predict(lemma)
+            for lemma in progress_bar
+        ]
     
-    gecodb = parse_gecodb(gecodb_path, eliminate_allomorphy=params['eliminate_allomorphy'], min_count=min_count)
 
+if __name__ == "__main__":
+
+    from dekor.utils.gecodb_parser import parse_gecodb
+    from sklearn.model_selection import train_test_split
+    from dekor.benchmarking.benchmarking import eval_splitter
+
+    gecodb_path = "./resources/gecodb_v04.tsv"
+    gecodb = parse_gecodb(gecodb_path, eliminate_allomorphy=True, min_count=1000)
     train_data, test_data = train_test_split(gecodb, train_size=0.75, shuffle=True)
     train_compounds = train_data["compound"].values
     test_compounds = test_data["compound"].values
     test_lemmas = [
         compound.lemma for compound in test_compounds
     ]
-
-    splitter = NGramsSplitter(verbose=verbose, **params).fit(train_compounds)
-    evaluator = CompoundEvaluator()
-
-    pred_compounds = np.array(splitter.predict(test_lemmas))
-    # test_data["pred"] = pred_compounds
-
-    scores = evaluator.evaluate(test_compounds, pred_compounds)
-    output = {
-        'params': params,
-        'min_count': min_count,
-        'train_size': len(train_data),
-        'support': len(test_data),
-        'scores': scores,
-        'gold': test_compounds,
-        'pred': pred_compounds
-    }
-
-    return output
-
-
-if __name__ == '__main__':
-
-    start = time.time()
-
-    # benchmarking
-    in_path = './resources/gecodb_v04.tsv'
-    out_dir = './model_runs/scores/ngrams'
-
-    # param grid
-    # min_counts = [1000, 100, 20]  # by 10 already out of memory if recording zero links
-    # ngramss = [2, 3, 4]
-    # record_none_linkss = [True, False]
-    # eliminate_allomorphys = [True, False]
-    min_counts = [500]  # by 10 already out of memory if recording zero links
-    ngramss = [2, 3, 4]
-    record_none_linkss = [False]
-    eliminate_allomorphys = [True]
-
-    # benchmarking
-    outputs = []
-    for min_count, ngrams, record_none_links, eliminate_allomorphy in product(
-        min_counts, ngramss, record_none_linkss, eliminate_allomorphys
-    ):
-        
-        params = {
-            'min_count': min_count,
-            'n': ngrams,
-            'record_none_links': record_none_links,
-            'eliminate_allomorphy': eliminate_allomorphy
-        }
-        
-        # print out params
-        print('\n', ', '.join(f'{key}: {value}' for key, value in params.items()))
-        output = run(
-            in_path,
-            verbose=True,
-            **params
-        )
-
-        outputs.append(output)
-
-    def _sum_scores(scores):
-        return sum(scores.values())
-
-    outputs = sorted(outputs, key=lambda entry: _sum_scores(entry['scores']), reverse=True)
-    with open(os.path.join(out_dir, 'ngrams.json'), 'w') as out:
-        json.dump(outputs, out, indent=4, default=lambda _: "skipped")  # requires exactly 1 argument
-
-    golds = outputs[0]['gold']
-    best_preds = outputs[0]['pred']
-
-    pairs = pd.DataFrame(
-        data={
-            'gold': [compound.raw for compound in golds],
-            'pred': [compound.raw for compound in best_preds]
-        }
+    splitter = NGramsSplitter(
+        n=3,
+        eliminate_allomorphy=False,
+    ).fit(train_compounds)
+    _, pred_compounds = eval_splitter(
+        splitter=splitter,
+        test_compounds=test_compounds
     )
-    pairs.to_csv(
-        os.path.join(out_dir, 'ngrams_preds.tsv'),
-        sep='\t',
-        index=False,
-        header=False
-    )
-
-    end = time.time()
-
-    print(f"Execution time: {round(end - start, 2)} s") # ~2500s
+    pass
