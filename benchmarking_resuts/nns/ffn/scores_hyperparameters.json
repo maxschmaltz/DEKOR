@@ -1,0 +1,506 @@
+[
+    {
+        "scores": {
+            "macro_accuracy": 0.0021668472372697724,
+            "micro_accuracy": 0.040231878583773806,
+            "bleu": 0.09470498750883277
+        },
+        "mean_score": 0.04570123777662546,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=32, bias=True)\n  (activation): ReLU()\n  (dense): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03445312497154271,
+            "bleu": 0.04221046513640039
+        },
+        "mean_score": 0.025554530035981033,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=64, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0343340238644707,
+            "bleu": 0.04111727721540837
+        },
+        "mean_score": 0.025150433693293024,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=16, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02472658313157566,
+            "bleu": 0.04945988517203394
+        },
+        "mean_score": 0.024728822767869866,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=16, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03211473634704637,
+            "bleu": 0.04066921401301122
+        },
+        "mean_score": 0.02426131678668586,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=32, bias=True)\n  (activation): Tanh()\n  (dense): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030504318351494936,
+            "bleu": 0.03724560560710202
+        },
+        "mean_score": 0.022583307986198984,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=16, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03068129166798999,
+            "bleu": 0.03583732958386323
+        },
+        "mean_score": 0.02217287375061774,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=64, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03044824761054811,
+            "bleu": 0.03577741921812886
+        },
+        "mean_score": 0.02207522227622566,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=128, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0303733176660956,
+            "bleu": 0.035320152623788285
+        },
+        "mean_score": 0.021897823429961296,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=32, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030137049570370854,
+            "bleu": 0.035210203739390496
+        },
+        "mean_score": 0.02178241776992045,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=128, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03053408919413939,
+            "bleu": 0.033571238585020854
+        },
+        "mean_score": 0.021368442593053413,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=64, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028647859028767427,
+            "bleu": 0.03505724566404368
+        },
+        "mean_score": 0.021235034897603703,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=16, bias=True)\n  (activation): ReLU()\n  (dense): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02976904968520372,
+            "bleu": 0.03337869961001419
+        },
+        "mean_score": 0.021049249765072636,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=128, bias=True)\n  (activation): ReLU()\n  (dense): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.017327680620792117,
+            "bleu": 0.044843894181758805
+        },
+        "mean_score": 0.020723858267516975,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=16, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02881082981560609,
+            "bleu": 0.032631426061197594
+        },
+        "mean_score": 0.020480751958934562,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=64, bias=True)\n  (activation): ReLU()\n  (dense): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029043785650223614,
+            "bleu": 0.03225693828139412
+        },
+        "mean_score": 0.02043357464387258,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=128, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02947617762779706,
+            "bleu": 0.03174140875398455
+        },
+        "mean_score": 0.020405862127260536,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=16, bias=True)\n  (activation): Tanh()\n  (dense): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029313087895486787,
+            "bleu": 0.03115861745773239
+        },
+        "mean_score": 0.020157235117739727,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=32, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029054127857471603,
+            "bleu": 0.031203353862250476
+        },
+        "mean_score": 0.02008582723990736,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=64, bias=True)\n  (activation): Tanh()\n  (dense): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028233161998322532,
+            "bleu": 0.02987010946072796
+        },
+        "mean_score": 0.01936775715301683,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=128, bias=True)\n  (activation): Tanh()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.027955064265318724,
+            "bleu": 0.03011854185481173
+        },
+        "mean_score": 0.019357868706710153,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=128, bias=True)\n  (activation): Tanh()\n  (dense): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028145690221835416,
+            "bleu": 0.02915628401272812
+        },
+        "mean_score": 0.019100658078187848,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=32, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.1, inplace=False)\n  (dense): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.015696715234816475,
+            "bleu": 0.024697924359630894
+        },
+        "mean_score": 0.01346487986481579,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=64, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.012404947091815652,
+            "bleu": 0.017163049381644604
+        },
+        "mean_score": 0.009855998824486753,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "ffn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "FFN(\n  (linear): Linear(in_features=11, out_features=32, bias=True)\n  (activation): ReLU()\n  (dropout): Dropout(p=0.025, inplace=False)\n  (dense): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    }
+]

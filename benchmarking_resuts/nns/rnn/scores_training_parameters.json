@@ -1,0 +1,2114 @@
+[
+    {
+        "scores": {
+            "macro_accuracy": 0.1646803900325027,
+            "micro_accuracy": 0.23380625634146762,
+            "bleu": 0.23560839959309807
+        },
+        "mean_score": 0.21136501532235616,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.04333694474539545,
+            "micro_accuracy": 0.14517267973389317,
+            "bleu": 0.15946822769427368
+        },
+        "mean_score": 0.11599261739118744,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.023835319609967497,
+            "micro_accuracy": 0.10343697472624884,
+            "bleu": 0.09996712816281673
+        },
+        "mean_score": 0.07574647416634435,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.01950162513542795,
+            "micro_accuracy": 0.0975659948574358,
+            "bleu": 0.09490350940880213
+        },
+        "mean_score": 0.07065704313388864,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.010834236186348862,
+            "micro_accuracy": 0.07983592187275827,
+            "bleu": 0.09024198937377872
+        },
+        "mean_score": 0.06030404914429529,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03858746285615191,
+            "bleu": 0.13083639444390366
+        },
+        "mean_score": 0.056474619100018525,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.009750812567713976,
+            "micro_accuracy": 0.037342000722282415,
+            "bleu": 0.04558942345874932
+        },
+        "mean_score": 0.03089407891624857,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.013668815388876166,
+            "bleu": 0.07876466100884098
+        },
+        "mean_score": 0.03081115879923905,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.035826353417238506,
+            "bleu": 0.049712460079845
+        },
+        "mean_score": 0.028512937832361168,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03420859920152777,
+            "bleu": 0.051052837639912564
+        },
+        "mean_score": 0.028420478947146777,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03622121810034903,
+            "bleu": 0.0487676019119503
+        },
+        "mean_score": 0.02832960667076644,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03425078579912434,
+            "bleu": 0.05024537615731002
+        },
+        "mean_score": 0.028165387318811453,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.022013346392308928,
+            "bleu": 0.05860325136551098
+        },
+        "mean_score": 0.026872199252606633,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03278978515027161,
+            "bleu": 0.046301156853440995
+        },
+        "mean_score": 0.02636364733457087,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03460086419510155,
+            "bleu": 0.04319635975210655
+        },
+        "mean_score": 0.025932407982402695,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03460086419510155,
+            "bleu": 0.04319635975210655
+        },
+        "mean_score": 0.025932407982402695,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03460086419510155,
+            "bleu": 0.04319635975210655
+        },
+        "mean_score": 0.025932407982402695,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03460086419510155,
+            "bleu": 0.04319635975210655
+        },
+        "mean_score": 0.025932407982402695,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03460086419510155,
+            "bleu": 0.04319635975210655
+        },
+        "mean_score": 0.025932407982402695,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03458975215798735,
+            "bleu": 0.04318407947581213
+        },
+        "mean_score": 0.025924610544599824,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028197570744771853,
+            "bleu": 0.04944569488207623
+        },
+        "mean_score": 0.025881088542282698,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03330924650291323,
+            "bleu": 0.04276521375118774
+        },
+        "mean_score": 0.025358153418033658,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.004333694474539545,
+            "micro_accuracy": 0.028966964178231788,
+            "bleu": 0.04181343445717872
+        },
+        "mean_score": 0.02503803103665002,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03292817756379408,
+            "bleu": 0.04216788406614304
+        },
+        "mean_score": 0.025032020543312373,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02682458852240115,
+            "bleu": 0.04696905197600817
+        },
+        "mean_score": 0.02459788016613644,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02770965210916214,
+            "bleu": 0.0408325783705809
+        },
+        "mean_score": 0.022847410159914344,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029408772922978436,
+            "bleu": 0.03688588117088971
+        },
+        "mean_score": 0.02209821803128938,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030036609689183074,
+            "bleu": 0.03520790097728469
+        },
+        "mean_score": 0.02174817022215592,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02988357320033222,
+            "bleu": 0.03456066049132976
+        },
+        "mean_score": 0.021481411230553995,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02988357320033222,
+            "bleu": 0.03456066049132976
+        },
+        "mean_score": 0.021481411230553995,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03043838248355548,
+            "bleu": 0.032101326262720026
+        },
+        "mean_score": 0.02084656958209184,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02508202082468573,
+            "bleu": 0.03475173836344512
+        },
+        "mean_score": 0.019944586396043615,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02924412425546029,
+            "bleu": 0.030499676863363603
+        },
+        "mean_score": 0.019914600372941297,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02897030756551598,
+            "bleu": 0.030308845295001993
+        },
+        "mean_score": 0.019759717620172656,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029070951193603155,
+            "bleu": 0.030093987427203032
+        },
+        "mean_score": 0.019721646206935395,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02897602437640977,
+            "bleu": 0.030121666647196618
+        },
+        "mean_score": 0.01969923034120213,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0032502708559046588,
+            "micro_accuracy": 0.024072640974049424,
+            "bleu": 0.028953135905554987
+        },
+        "mean_score": 0.018758682578503022,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.004333694474539545,
+            "micro_accuracy": 0.019862766341639578,
+            "bleu": 0.02505697769154065
+        },
+        "mean_score": 0.01641781283590659,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.019353729212884137,
+            "bleu": 0.028983068076162743
+        },
+        "mean_score": 0.016112265763015627,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.020674474195600957,
+            "bleu": 0.02582180440855415
+        },
+        "mean_score": 0.015498759534718368,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.010058798700968383,
+            "bleu": 0.016895659994317955
+        },
+        "mean_score": 0.008984819565095446,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.011884492107942976,
+            "bleu": 0.01251153919832755
+        },
+        "mean_score": 0.008132010435423508,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.011361945680367804,
+            "bleu": 0.012704873424519184
+        },
+        "mean_score": 0.00802227303496233,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.010082413984873959,
+            "bleu": 0.011547960469301788
+        },
+        "mean_score": 0.007210124818058582,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0010834236186348862,
+            "micro_accuracy": 0.005778259299386059,
+            "bleu": 0.007235398722411639
+        },
+        "mean_score": 0.004699027213477528,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.00281553667151702,
+            "bleu": 0.006831236794149653
+        },
+        "mean_score": 0.0032155911552222242,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0025225537987959043,
+            "bleu": 0.006831075788625243
+        },
+        "mean_score": 0.0031178765291403824,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.002167853721685029,
+            "bleu": 0.00613896639460611
+        },
+        "mean_score": 0.0027689400387637133,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0020707508429003954,
+            "bleu": 0.00590419042963912
+        },
+        "mean_score": 0.0026583137575131722,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0016610478242858856,
+            "bleu": 0.0038193937415031223
+        },
+        "mean_score": 0.0018268138552630026,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0020233675100331397,
+            "bleu": 0.002147557179873152
+        },
+        "mean_score": 0.0013903082299687637,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.001773142205783321,
+            "bleu": 0.0018432084230637126
+        },
+        "mean_score": 0.0012054502096156777,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.001483168720210987,
+            "bleu": 0.0016210576574840299
+        },
+        "mean_score": 0.0010347421258983388,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.001483168720210987,
+            "bleu": 0.0016210576574840299
+        },
+        "mean_score": 0.0010347421258983388,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0013996320442900498
+        },
+        "mean_score": 0.0008825443530999646,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0013996320442900498
+        },
+        "mean_score": 0.0008825443530999646,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0012950289795093603
+        },
+        "mean_score": 0.0008476766648397348,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0012950289795093603
+        },
+        "mean_score": 0.0008476766648397348,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.01,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0012950289795093603
+        },
+        "mean_score": 0.0008476766648397348,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0012950289795093603
+        },
+        "mean_score": 0.0008476766648397348,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.005,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0012480010150098444,
+            "bleu": 0.0012950289795093603
+        },
+        "mean_score": 0.0008476766648397348,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 7,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0,
+            "bleu": 0.0
+        },
+        "mean_score": 0.0,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0,
+            "bleu": 0.0
+        },
+        "mean_score": 0.0,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0,
+            "bleu": 0.0
+        },
+        "mean_score": 0.0,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 15,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0,
+            "bleu": 0.0
+        },
+        "mean_score": 0.0,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.00025,
+            "n_epochs": 2,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0,
+            "bleu": 0.0
+        },
+        "mean_score": 0.0,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "rnn",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "BCEWithLogitsLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "RNN(\n  (embedding): Embedding(35, 8)\n  (rnn): RNN(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)",
+            "activation": "relu"
+        }
+    }
+]
