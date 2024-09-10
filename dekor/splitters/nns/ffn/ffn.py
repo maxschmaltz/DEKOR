@@ -4,7 +4,7 @@ FFN model for splitting German compounds based on the DECOW16 compound data.
 
 import torch
 import torch.nn as nn
-from typing import Optional, Optional, Literal
+from typing import Optional, Literal
 
 from dekor.splitters.base import DEVICE
 from dekor.splitters.nns.base import BaseNN, BaseNNSplitter
@@ -19,7 +19,7 @@ class FFN(BaseNN):
             output_size: int,
             hidden_size: Optional[int]=64,
             activation: Optional[Literal["relu", "tanh"]]="relu",
-            dropout: Optional[float]=0.05,
+            dropout_rate: Optional[float]=0.025,
             require_softmax: Optional[bool]=False,
             batch_size: Optional[int]=4096
         ) -> None:
@@ -30,7 +30,7 @@ class FFN(BaseNN):
             output_size=output_size,
             hidden_size=hidden_size,
             activation=activation,
-            dropout=dropout,
+            dropout_rate=dropout_rate,
             require_softmax=require_softmax,
             batch_size=batch_size
         )      
@@ -42,6 +42,8 @@ class FFN(BaseNN):
             device=DEVICE
         )
         self.activation = nn.ReLU() if self.activation == "relu" else nn.Tanh()
+        if self.dropout_rate:
+            self.dropout = nn.Dropout(p=self.dropout_rate)
         self.dense = nn.Linear(
             in_features=self.hidden_size,
             out_features=self.output_size,
@@ -52,6 +54,8 @@ class FFN(BaseNN):
         # input: b x i
         output = self.linear(input_tensor)   # b x h
         output = self.activation(output)    # b x h
+        if self.dropout_rate:
+            output = self.dropout(output)   # b x h
         output = self.dense(output)    # b x o
         if self.require_softmax or force_softmax: output = self.softmax(output)  # b x o
         return output
@@ -71,15 +75,11 @@ class FFNSplitter(BaseNNSplitter):
         )
 
     def _train_on_batch(self, x: torch.Tensor, y: torch.Tensor) -> int:
-        
         output = self.model(x)
-
         loss = self.criterion(output, y)
-
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-        
         return loss.item()
     
     def _pad_batch(self, batch: torch.Tensor) -> torch.Tensor:
@@ -90,10 +90,7 @@ class FFNSplitter(BaseNNSplitter):
         return padded_batch
     
     def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
-        
         with torch.no_grad():
-
             output = self.model(x, force_softmax=True)
             output = output.detach()
-
         return output

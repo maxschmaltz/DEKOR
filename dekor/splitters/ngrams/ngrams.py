@@ -214,6 +214,8 @@ class NGramsSplitter(BaseSplitter):
     
     def _predict(self, lemma: str) -> Compound:
 
+        # TODO: utilize `_forward()` to iterate over positions
+
         # predict a single lemma and return a DECOW16-format `Compound`
         raw = ""    # will iteratively restore DECOW16-format raw compound
         lemma = f'>{lemma.lower()}<'        # BOS and EOS

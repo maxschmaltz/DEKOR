@@ -4,7 +4,7 @@ RNN model for splitting German compounds based on the DECOW16 compound data.
 
 import torch
 import torch.nn as nn
-from typing import Optional, Optional, Literal
+from typing import Optional, Literal
 
 from dekor.splitters.base import DEVICE
 from dekor.splitters.nns.base import BaseNN, BaseNNSplitter
@@ -22,7 +22,7 @@ class RNN(BaseNN):
             bidirectional: Optional[bool]=True,
             num_layers: Optional[int]=2,
             activation: Optional[Literal["relu", "tanh"]]="tanh",
-            dropout: Optional[float]=0.05,
+            dropout_rate: Optional[float]=0.0025,
             require_softmax: Optional[bool]=False,
             batch_size: Optional[int]=4096
         ) -> None:
@@ -36,19 +36,19 @@ class RNN(BaseNN):
             bidirectional=bidirectional,
             num_layers=num_layers,
             activation=activation,
-            dropout=dropout,
+            dropout_rate=dropout_rate,
             require_softmax=require_softmax,
             batch_size=batch_size
         )    
 
     def _build_self(self):
-        self.model = nn.RNN(
+        self.rnn = nn.RNN(
             input_size=self.embedding_dim,
             hidden_size=self.hidden_size,
             num_layers=self.num_layers,
             nonlinearity=self.activation,
             bidirectional=self.bidirectional,
-            dropout=self.dropout,
+            dropout=self.dropout_rate,
             batch_first=True,
             device=DEVICE
         )
@@ -62,7 +62,7 @@ class RNN(BaseNN):
     def forward(self, input_tensor, hidden_tensor, force_softmax=False):
         # input: b x 1 (x 1), hidden: D * nl x b x h
         embedded_tensor = self.embedding(input_tensor)  # b x 1 x emd
-        output, hidden = self.model(embedded_tensor, hidden_tensor)   # b x 1 x D * h, D * nl x b x h
+        output, hidden = self.rnn(embedded_tensor, hidden_tensor)   # b x 1 x D * h, D * nl x b x h
         output = self.linear(output)    # b x 1 x o
         output = output.squeeze(1)  # b x o, for softmax as it works on dimension 1
         if self.require_softmax or force_softmax: output = self.softmax(output)   # b x o
@@ -80,6 +80,13 @@ class RNNSplitter(BaseNNSplitter):
 
     name = "rnn"
 
+    def _metadata(self) -> dict:
+        return {
+            **super()._metadata(),
+            "activation": self.model.rnn.nonlinearity,
+            # "bidirectional": self.model.rnn.bidirectional # printed as `bidirectional=True` if True, omitted otherwise
+        }
+
     def _build_nn(self) -> None:
         self.model = RNN(
             vocab_size=len(self.vocab_chars) + 1,   # plus ignore index
@@ -90,22 +97,17 @@ class RNNSplitter(BaseNNSplitter):
         )
 
     def _train_on_batch(self, x: torch.Tensor, y: torch.Tensor) -> int:
-        
         hidden = self.model.init_hidden()
-
         # iterate over features
         for i in range(x.size(1)):
             # in the base class, the X tensor is float; but for embeddings,
             # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
             input = x[:, i].long().unsqueeze(-1)
             output, hidden = self.model(input, hidden)
-
         loss = self.criterion(output, y)
-
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-        
         return loss.item()
     
     def _pad_batch(self, batch: torch.Tensor) -> torch.Tensor:
@@ -117,18 +119,13 @@ class RNNSplitter(BaseNNSplitter):
         return padded_batch
     
     def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
-        
         with torch.no_grad():
-
             hidden = self.model.init_hidden()
-
             # iterate over features
             for i in range(x.size(1)):
                 # in the base class, the X tensor is float; but for embeddings,
                 # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
                 input = x[:, i].long().unsqueeze(-1)
                 output, hidden = self.model(input, hidden, force_softmax=True)
-
             output = output.detach()
-
         return output

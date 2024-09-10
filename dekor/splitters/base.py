@@ -17,6 +17,8 @@ class BaseSplitter(ABC):
     Base class for splitters.
     """
 
+    # caching preprocessed data is impossible because it gets shuffled on every iteration
+
     name: str
 
     @abstractmethod
