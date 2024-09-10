@@ -57,6 +57,10 @@ class BaseNNSplitter(BaseSplitter):
         target position (which is either a link or significant absence of it)
         for fitting and prediction
 
+    record_none_links : `bool`, optional, defaults to `False`
+        whether to record contexts between which no links occur;
+        hint: that could lead to a strong bias towards no link choice
+
     eliminate_allomorphy : `bool`, optional, defaults to `True`
         whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_
 
@@ -85,9 +89,38 @@ class BaseNNSplitter(BaseSplitter):
         parameters to pass to the backbone NN
     """
 
+    # When doing benchmarking, it is computationally inefficient to combine all the 
+    # parameters that we can pass both to the wrapper and the backbone NN 
+    # (too much configurations). Correspondingly, we should separate the parameters
+    # into groups and run benchmarking inside those groups separately, "freezing"
+    # parameters of other groups; thus, we can reassemble intuitively the best parameters
+    # group by group.
+    # We decided to divide the parameters by their "functionality". The final order is:
+    #   1. hyperparameters of the backbone NN;
+    #   2. parameters of NN training;
+    #   3. wrapper parameters, i.e. parameters of feature retrieval and managements.
+    # In ordering the parameters, we were guided by the following logic:
+    #   * Whatever the wrapper parameters are, the extracted features will still bear
+    #   information about contexts vs links distribution; that is, whatever wrapper parameters
+    #   we set, the "competition" of different configurations from the two remaining groups will be fair
+    #   because they will compete over the same information whatever this information is.
+    #   In other words, if one configuration of parameters wins another on one set of features,
+    #   it will probably win over another features, because both these features
+    #   describe the same distribution (just with different quality).
+    #   So this group should be tested the last.
+    #   * From the 2 remaining groups, hyperparameters are the core of the whole model;
+    #   if the hyperparameters are chosen poorly, the performance will be bad
+    #   no matter which training parameters are picked. However, even with a poor choice of
+    #   training parameters the model can capture the patterns.
+    #   It therefore makes sense to first test different hyperparameters, because different hyperparameters
+    #   will show different performance even with badly matching training parameters and, hence,
+    #   will be able to be ranked, but different training parameters will all result in 
+    #   low performance if the hyperparameters are chosen erroneously.
+
     def __init__(
             self,
             n: Optional[int]=3,
+            record_none_links: Optional[bool]=False,
             eliminate_allomorphy: Optional[bool]=True,
             optimizer: Optional[Literal["sgd", "adamw"]]="adamw",
             criterion: Optional[Literal["crossentropy", "bce", "margin"]]="crossentropy",
@@ -103,6 +136,7 @@ class BaseNNSplitter(BaseSplitter):
         assert n_epochs > 0
         assert "require_softmax" not in kwargs, "Is set automatically"
         self.n = n
+        self.record_none_links = record_none_links
         self.eliminate_allomorphy = eliminate_allomorphy
         self.optimizer = optimizer
         self.criterion = criterion
@@ -125,6 +159,8 @@ class BaseNNSplitter(BaseSplitter):
     def _metadata(self) -> dict:
         return {
             "n": self.n,
+            "record_none_links": self.record_none_links,
+            "eliminate_allomorphy": self.eliminate_allomorphy,
             "optimizer": self.optimizer.__class__.__name__,
             "criterion": self.criterion.__class__.__name__,
             "learning_rate": self.learning_rate,
@@ -160,7 +196,11 @@ class BaseNNSplitter(BaseSplitter):
     # allows to concentrate only on their aspects in their respective classes, such as
     # `_train_on_batch()`, `_predict_batch()`.
     
-    def _forward(self, compound: Compound) -> List[List[int]]:
+    def _forward(
+        self,
+        compound: Compound,
+        add_new: Optional[bool]=True    # while reuseing the function in prediction, we should switch off adding new entries
+    ) -> List[List[int]]:
 
         # Analyze a single compound; performed as a sliding window
         # with a sliding window inside
@@ -191,6 +231,8 @@ class BaseNNSplitter(BaseSplitter):
         #   * l is the link id (unknown id if none)
         position_codes = []
         link_ids = []
+        # define whether we should add new characters (yes when training, no when predicting)
+        encode_func = self.vocab_chars.add if add_new else self.vocab_chars.encode
         # Make sliding window; however, we want to start not directly with
         # n-grams, but first come from 1-grams to n-grams at the left of the compound
         # and then slide by n-grams; same with the end: not the last n-gram,
@@ -221,7 +263,9 @@ class BaseNNSplitter(BaseSplitter):
                     link = next_link
                     # increment
                     next_link_idx += 1
-                else: link = self._elink
+                else:
+                    if self.record_none_links: link = self._elink
+                    else: continue
                 # add
                 # link_id = self.vocab_links.add(link.component)
                 link_id = self.vocab_links.add(link.component)
@@ -229,7 +273,7 @@ class BaseNNSplitter(BaseSplitter):
                 # join position and encode to fit to backbone NN
                 position = '|'.join([left, right, mid])
                 position_code = [
-                    self.vocab_chars.add(char)
+                    encode_func(char)
                     for char in position
                 ]
                 # pad to the maximum length
@@ -322,7 +366,7 @@ class BaseNNSplitter(BaseSplitter):
             batch_size=self.model.batch_size,
             drop_last=True
         )
-        if self.verbose: progress_bar = tqdm(total=(len(X) * self.n_epochs) // self.model.batch_size)
+        if self.verbose: progress_bar = tqdm(total=(len(train_dataloader) * self.n_epochs))
         for i in range(self.n_epochs):
             if self.verbose: progress_bar.set_description_str(f"Epoch {i + 1} / {self.n_epochs}")
             for j, (x, y) in enumerate(train_dataloader):
@@ -387,7 +431,7 @@ class BaseNNSplitter(BaseSplitter):
                 right = lemma[e: f]
                 position = '|'.join([left, right, mid])
                 position_code = [
-                    self.vocab_chars.add(char)
+                    self.vocab_chars.encode(char)   # no adding new chars while predicting
                     for char in position
                 ]
                 # pad
@@ -538,6 +582,13 @@ class BaseNNSplitter(BaseSplitter):
         # in NN-based models because it is executed not for a single lemma,
         # but for the whole batch; these results are then interpreted to get the final prediction.
 
+        # to gather positions where there are no links, we force set `record_none_links`
+        # to be able to reutilize `_forward()` (there are no positions otherwise);
+        # it will not affect training as it's already passed as well as predictions
+        # because prediction depends on the weights model learned
+        record_none_links_orig = bool(self.record_none_links)   # copy
+        self.record_none_links = True
+
         # eval mode
         self.model.eval()
 
@@ -548,18 +599,21 @@ class BaseNNSplitter(BaseSplitter):
         for lemma in progress_bar:
             # collect masks from a single compound
             dummy_compound = Compound(lemma) # since there are no link in lemma, a single stem will be there
-            position_codes, _ = self._forward(dummy_compound)   # no link ids are needed (they're unks anyways)
+            position_codes, _ = self._forward(dummy_compound, add_new=False)   # no link ids are needed (they're unks anyways)
             milestones.append(milestones[-1] + len(position_codes))
             all_position_codes += position_codes
         X = torch.tensor(all_position_codes, dtype=torch.float, device=DEVICE)
 
-        all_logits = [] # I interchange probs and logits in this context
+        # return `record_none_links_orig`
+        self.record_none_links = record_none_links_orig
+
+        all_logits = [] # we interchange probs and logits in this context
         test_dataloader = DataLoader(
             XYDataset(X),   # will only output batches of x's
             batch_size=self.model.batch_size,
             drop_last=False # we cannot drop last because then not all the lemmas will be predicted
         )
-        if self.verbose: progress_bar = tqdm(total=len(X) // self.model.batch_size, desc="Predicting")
+        if self.verbose: progress_bar = tqdm(total=len(test_dataloader), desc="Predicting")
         for x in test_dataloader:
             if self.verbose: progress_bar.update()
             if len(x) < self.model.batch_size:    # last batch
