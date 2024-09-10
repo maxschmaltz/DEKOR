@@ -82,6 +82,7 @@ def benchmark_splitter(
     *,
     splitter_cls: type,
     min_counts: List[int],
+    eliminate_allomorphys: List[int],
     all_splitter_params: List[dict],
     gecodb_path: str,
     train_size: Optional[float]=0.8,
@@ -99,6 +100,10 @@ def benchmark_splitter(
     min_counts : `List[int]`:
         minimal counts of compounds to keep;
         all compounds occurring less will be dropped at the respective iteration
+
+    eliminate_allomorphys : `List[bool]`:
+        bools whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_;
+        with each splitter params, each bool from `eliminate_allomorphys` will be passed
 
     all_splitter_params : `List[dict]`
         list of tested configurations for the splitter,
@@ -118,7 +123,6 @@ def benchmark_splitter(
     best_score = -1 # so that even 0 is instantly better
     best_pairs = None
     best_plot_buffer = None
-    eliminate_allomorphys = [True, False]   # necessarily test both
     n_iter = 1  # for printout
     for min_count, eliminate_allomorphy in product(min_counts, eliminate_allomorphys):
         gecodb = parse_gecodb(
@@ -130,14 +134,20 @@ def benchmark_splitter(
         train_compounds = train_data["compound"].values
         test_compounds = test_data["compound"].values
         for splitter_params in all_splitter_params:
+            if verbose: # print out params
+                print(
+                    '\n',
+                    f"{splitter_cls.name}: iter {n_iter}/{len(all_splitter_params * len(min_counts) * len(eliminate_allomorphys))}"
+                )
+                print(
+                    ', '.join(f"{key}: {value}" for key, value in splitter_params.items()),
+                    f", min_count: {min_count}"
+                )
             splitter = splitter_cls(
                 **splitter_params,
                 eliminate_allomorphy=eliminate_allomorphy,
                 verbose=verbose
             ).fit(train_compounds)
-            if verbose: # print out params
-                print('\n', f"{splitter_cls.name}: iter {n_iter}/{len(all_splitter_params * len(min_counts) * 2)}")
-                print(', '.join(f"{key}: {value}" for key, value in splitter_params.items()), f"min_count: {min_count}")
             scores, pred_compounds = eval_splitter(
                 splitter=splitter,
                 test_compounds=test_compounds
@@ -173,6 +183,7 @@ def benchmark_splitters(
     out_dir: str,
     main_suffix: Optional[str]="",
     train_size: Optional[float]=0.8,
+    rec_best_of_all: Optional[bool]=True,
     verbose: Optional[bool]=True
 ) -> None:
     
@@ -181,14 +192,16 @@ def benchmark_splitters(
 
     Parameters
     ----------
-    cls2params : `Dict[str, Tuple[List[int], List[dict], str]]`
-        mapping between name of the splitter (according to its .name attribute)
-        and tuple out of 3 elements:
+    cls2params : `Dict[str, Tuple[List[int], List[bool], List[dict], str]]`
+        mapping between name of the splitter (according to its `.name` attribute)
+        and tuple out of 4 elements:
             1. `List[int]`: minimal counts of compounds to keep;
             all compounds occurring less will be dropped at the respective iteration
-            2. `List[dict]`: list of tested configurations for the splitter,
+            2. `List[tuple]`: bools whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_;
+            with each tested configuration (below), each bool from `eliminate_allomorphys` will be passed
+            3. `List[dict]`: list of tested configurations for the splitter,
             with each configuration being a mapping between parameter name and its value
-            3. `str`: suffix to prepend to this model out directory (<class_name_x_suffix> below)
+            4. `str`: suffix to prepend to this model out directory (<class_name_x_suffix> below)
 
     gecodb_path : `str`
         path to the TSV DECOW16-format compounds dataset
@@ -199,8 +212,12 @@ def benchmark_splitters(
     main_suffix : `str`, optional
         suffix to append to all output files before the class suffices
 
-    train_size, optional, defaults to `0.8`
+    train_size: `float`, optional, defaults to `0.8`
         train size
+
+    rec_best_of_all : `bool` optional, defaults to `True`
+        whether to additionally compile all scores in one file and save
+        the best of all predictions 
 
     verbose : `bool` optional, defaults to `True`
         whether to show progress bar when fitting and predicting compounds
@@ -210,30 +227,33 @@ def benchmark_splitters(
     The result of evaluation will be written to `out_dir` with the following structure:
         out_dir
         --- <name of the class_name_1 object>
-            --- scores<--suffix><class_name_1_suffix>.json: JSON with sorted scores for the class_name_1 model
-            --- best_preds<--suffix><class_name_1_suffix>.tsv:
+            --- scores<main_suffix><class_name_1_suffix>.json: JSON with sorted scores for the class_name_1 model
+            --- best_preds<main_suffix><class_name_1_suffix>.tsv:
                 TSV with columns of golds and preds from the best config of the class_name_1 model
-            --- best_plot<--suffix><class_name_1_suffix>.png: (if given) training plot
+            --- best_plot<main_suffix><class_name_1_suffix>.png: (if given) training plot
                 from the best config of the class_name_1 model
         --- <name of the class_name_2 object>
             ...
         --- ...
             ...
-        all_scores<--suffix>.json: JSON with all sorted scores
-        best_preds<--suffix>.tsv: TSV with columns of golds and preds from the best config of the best model
+        all_scores<main_suffix>.json: JSON with all sorted scores
+        best_preds<main_suffix>.tsv: TSV with columns of golds and preds from the best config of the best model
     """
 
     all_outputs = []
     best_pair_of_all = None
     best_score = -1
     if not os.path.exists(out_dir): os.mkdir(out_dir)
-    for splitter_cls_name, (min_counts, all_splitter_params, suffix) in cls2params.items():
-        splitter_cls = dekor.splitters.__all__[splitter_cls_name]
+    # we put `eliminate_allomorphys` on a higher level than model params
+    # because parsing also depends on it
+    for splitter_name, (min_counts, eliminate_allomorphys, all_splitter_params, suffix) in cls2params.items():
+        splitter_cls = dekor.splitters.__all__[splitter_name]
         target_dir = os.path.join(out_dir, splitter_cls.name)
         if not os.path.exists(target_dir): os.mkdir(target_dir)
         outputs, best_pairs, best_plot_buffer = benchmark_splitter(
             splitter_cls=splitter_cls,
             min_counts=min_counts,
+            eliminate_allomorphys=eliminate_allomorphys,
             all_splitter_params=all_splitter_params,
             gecodb_path=gecodb_path,
             train_size=train_size,
@@ -259,13 +279,14 @@ def benchmark_splitters(
         if outputs[0]["mean_score"] > best_score:
             best_score = outputs[0]["mean_score"]
             best_pair_of_all = best_pairs
-    all_outputs = sorted(all_outputs, key=lambda entry: entry["mean_score"], reverse=True)
-    all_outputs_path = os.path.join(out_dir, f"all_scores{main_suffix}.json")
-    with open(all_outputs_path, 'w', encoding="utf8") as out:
-        json.dump(all_outputs, out, indent=4)
-    all_pairs_path = os.path.join(out_dir, f"best_preds_of_all{main_suffix}.tsv")
-    with open(all_pairs_path, 'w', encoding="utf8") as pairs:
-        pairs.writelines([
-            f"{gold.raw}\t{pred.raw}\n"
-            for gold, pred in zip(*best_pair_of_all)
-        ])
+    if rec_best_of_all:
+        all_outputs = sorted(all_outputs, key=lambda entry: entry["mean_score"], reverse=True)
+        all_outputs_path = os.path.join(out_dir, f"all_scores{main_suffix}.json")
+        with open(all_outputs_path, 'w', encoding="utf8") as out:
+            json.dump(all_outputs, out, indent=4)
+        all_pairs_path = os.path.join(out_dir, f"best_preds_of_all{main_suffix}.tsv")
+        with open(all_pairs_path, 'w', encoding="utf8") as pairs:
+            pairs.writelines([
+                f"{gold.raw}\t{pred.raw}\n"
+                for gold, pred in zip(*best_pair_of_all)
+            ])

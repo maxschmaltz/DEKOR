@@ -16,7 +16,7 @@ def grid_parameters(parameters: Dict[str, List[Any]]) -> List[Dict[str, Any]]:
 def main() -> None:
 
     """
-    Run benchmarking of splitters. CLI-run.
+    Run benchmarking of splitters. CLI-based.
 
     CLI Parameters
     --------------
@@ -51,6 +51,10 @@ def main() -> None:
 
     --train_size", "-ts", `float`, optional, defaults to `0.8`
         train size
+
+    -x : `bool` optional, defaults to `True`
+        whether to suppress additional compilation all scores in one file and saving
+        the best of all predictions; `True` if given, `False` if missing
 
     -q, optional, defaults to `False`,
         whether to suppress verbose; `True` if given, `False` if missing
@@ -100,7 +104,8 @@ def main() -> None:
     parser.add_argument("out_dir", help="path to directory to put the results to")
     parser.add_argument("--suffix", "-s", default="", help="suffix to append to all output files before the class suffices")
     parser.add_argument("--train_size", "-ts", type=float, default=0.8, help="train size")
-    parser.add_argument("-q", action="store_false", default=False, help="whether to suppress verbose")
+    parser.add_argument("-x", action="store_false", default=True, help="whether to suppress `rec_best_of_all`")
+    parser.add_argument("-q", action="store_false", default=True, help="whether to suppress verbose")
 
     args = parser.parse_args()
 
@@ -108,10 +113,11 @@ def main() -> None:
     cls2params = {
         key: [
             min_counts,
+            elliminate_allomorphys,
             grid_parameters(params_options),    # combine param values
             suffix
         ]
-        for key, (min_counts, params_options, suffix) in params_mapping.items()
+        for key, (min_counts, elliminate_allomorphys, params_options, suffix) in params_mapping.items()
     }
 
     benchmark_splitters(
@@ -120,10 +126,11 @@ def main() -> None:
         out_dir=args.out_dir,
         train_size=args.train_size,
         main_suffix=args.suffix,
+        rec_best_of_all=args.x,
         verbose=args.q
     )
 
 
-# example: python3 ./dekor/benchmarking/main.py ./dekor/benchmarking/configs/test.json ./resources/gecodb_v04.tsv ./benchmarking_resuts -s _test
+# example: python3 ./dekor/benchmarking/main.py ./dekor/benchmarking/configs/test.json ./resources/gecodb_v04.tsv ./benchmarking_resuts --suffix _test -q
 if __name__ == "__main__":
     main()
