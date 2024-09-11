@@ -1,0 +1,4538 @@
+[
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0335320619223564,
+            "bleu": 0.05789167030609996
+        },
+        "mean_score": 0.03047457740948545,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03446881188629108,
+            "bleu": 0.0495335486666692
+        },
+        "mean_score": 0.028000786850986763,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03430211905062354,
+            "bleu": 0.048127390953475825
+        },
+        "mean_score": 0.02747650333469979,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034315129067273305,
+            "bleu": 0.04754769686329147
+        },
+        "mean_score": 0.02728760864352159,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03396245901950316,
+            "bleu": 0.046247575292971015
+        },
+        "mean_score": 0.026736678104158057,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.033791884919583785,
+            "bleu": 0.04623899165555483
+        },
+        "mean_score": 0.026676958858379538,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03346728510692294,
+            "bleu": 0.045069540075625504
+        },
+        "mean_score": 0.026178941727516152,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03304209480383962,
+            "bleu": 0.04496603135379131
+        },
+        "mean_score": 0.026002708719210312,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0346159550223352,
+            "bleu": 0.0430727637556588
+        },
+        "mean_score": 0.025896239592664665,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03500224865897587,
+            "bleu": 0.04268486367174302
+        },
+        "mean_score": 0.02589570411023963,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03489315692874027,
+            "bleu": 0.04257093648987935
+        },
+        "mean_score": 0.02582136447287321,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034889946784685044,
+            "bleu": 0.042567553157543014
+        },
+        "mean_score": 0.025819166647409353,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034889946784685044,
+            "bleu": 0.042567553157543014
+        },
+        "mean_score": 0.025819166647409353,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034889946784685044,
+            "bleu": 0.042567553157543014
+        },
+        "mean_score": 0.025819166647409353,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034889946784685044,
+            "bleu": 0.042567553157543014
+        },
+        "mean_score": 0.025819166647409353,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03482621598358888,
+            "bleu": 0.04256030897124937
+        },
+        "mean_score": 0.025795508318279415,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03482547192115333,
+            "bleu": 0.042497941129091006
+        },
+        "mean_score": 0.025774471016748113,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034768539672854266,
+            "bleu": 0.042436030867857466
+        },
+        "mean_score": 0.02573485684690391,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03434044548766591,
+            "bleu": 0.042436935327876416
+        },
+        "mean_score": 0.025592460271847445,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.035171458573317764,
+            "bleu": 0.04160287874957449
+        },
+        "mean_score": 0.02559144577429742,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03493904796760555,
+            "bleu": 0.041792244619333216
+        },
+        "mean_score": 0.02557709752897959,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034672014241340726,
+            "bleu": 0.04177367572979544
+        },
+        "mean_score": 0.02548189665704539,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034395321518782294,
+            "bleu": 0.042017421088248054
+        },
+        "mean_score": 0.02547091420234345,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03300146098168036,
+            "bleu": 0.043374308495531304
+        },
+        "mean_score": 0.025458589825737222,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034333394177288944,
+            "bleu": 0.0417442330828869
+        },
+        "mean_score": 0.025359209086725277,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03433066082850931,
+            "bleu": 0.041552554965980336
+        },
+        "mean_score": 0.025294405264829883,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.034655090952684466,
+            "bleu": 0.04122675753983171
+        },
+        "mean_score": 0.02529394949750539,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03461615977613112,
+            "bleu": 0.041083265729115206
+        },
+        "mean_score": 0.02523314183508211,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03414567521961813,
+            "bleu": 0.04150201089941678
+        },
+        "mean_score": 0.025215895373011638,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03234719146341815,
+            "bleu": 0.04309179079680781
+        },
+        "mean_score": 0.02514632742007532,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.033935187451543364,
+            "bleu": 0.04135623118575714
+        },
+        "mean_score": 0.025097139545766835,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0341382957193078,
+            "bleu": 0.04075991045543824
+        },
+        "mean_score": 0.024966068724915347,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03375483570753885,
+            "bleu": 0.04099566852810951
+        },
+        "mean_score": 0.02491683474521612,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03301950313253447,
+            "bleu": 0.041625639617822625
+        },
+        "mean_score": 0.024881714250119032,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03364290265881246,
+            "bleu": 0.040388944661190314
+        },
+        "mean_score": 0.024677282440000923,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.033210020119786916,
+            "bleu": 0.04004990934204303
+        },
+        "mean_score": 0.024419976487276646,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0341028531039084,
+            "bleu": 0.03893301971360302
+        },
+        "mean_score": 0.024345290939170473,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.033222133030388075,
+            "bleu": 0.039714197861259196
+        },
+        "mean_score": 0.02431211029721576,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03332684320252089,
+            "bleu": 0.039476841545122036
+        },
+        "mean_score": 0.024267894915880977,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.033456897591498835,
+            "bleu": 0.03934421658856876
+        },
+        "mean_score": 0.024267038060022533,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03362369961831139,
+            "bleu": 0.038613256395453766
+        },
+        "mean_score": 0.024078985337921716,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.031112594431840283,
+            "bleu": 0.04096312370263828
+        },
+        "mean_score": 0.02402523937815952,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03357628131163688,
+            "bleu": 0.03817776524848969
+        },
+        "mean_score": 0.02391801552004219,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03335051726534411,
+            "bleu": 0.03838725714967719
+        },
+        "mean_score": 0.023912591471673766,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03268035472577443,
+            "bleu": 0.038944282875285154
+        },
+        "mean_score": 0.023874879200353194,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.033380297499573074,
+            "bleu": 0.03813315648154101
+        },
+        "mean_score": 0.023837817993704696,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03229714886674621,
+            "bleu": 0.03917492594017407
+        },
+        "mean_score": 0.023824024935640092,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03262475084636592,
+            "bleu": 0.038560293422848065
+        },
+        "mean_score": 0.023728348089737995,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03342046616120257,
+            "bleu": 0.03762712828617781
+        },
+        "mean_score": 0.023682531482460124,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03364894458694109,
+            "bleu": 0.03732556063786402
+        },
+        "mean_score": 0.02365816840826837,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.032125646202043515,
+            "bleu": 0.03823446690746406
+        },
+        "mean_score": 0.023453371036502524,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03233917758161301,
+            "bleu": 0.03763689356462525
+        },
+        "mean_score": 0.023325357048746085,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.032441592142993816,
+            "bleu": 0.0372678529503245
+        },
+        "mean_score": 0.02323648169777277,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03319999778388817,
+            "bleu": 0.036373314140429165
+        },
+        "mean_score": 0.023191103974772448,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03321047662929289,
+            "bleu": 0.03624838287768439
+        },
+        "mean_score": 0.023152953168992425,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03233959609263417,
+            "bleu": 0.036813770465679845
+        },
+        "mean_score": 0.02305112218610467,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0319326841834996,
+            "bleu": 0.03707872280711691
+        },
+        "mean_score": 0.023003802330205502,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.031917621462921014,
+            "bleu": 0.03650227231871533
+        },
+        "mean_score": 0.02280663126054545,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03240549656552603,
+            "bleu": 0.03580723001373341
+        },
+        "mean_score": 0.022737575526419817,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03187423012932111,
+            "bleu": 0.036091639142918554
+        },
+        "mean_score": 0.02265528975741322,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03186630655533642,
+            "bleu": 0.03584091706202335
+        },
+        "mean_score": 0.022569074539119924,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03215933898390573,
+            "bleu": 0.03462727359404358
+        },
+        "mean_score": 0.02226220419264977,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03181505232795724,
+            "bleu": 0.03492415482625515
+        },
+        "mean_score": 0.022246402384737463,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030889798397458593,
+            "bleu": 0.03569654383975642
+        },
+        "mean_score": 0.022195447412405006,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.031750723187649335,
+            "bleu": 0.03463952681052146
+        },
+        "mean_score": 0.022130083332723597,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03164286468956295,
+            "bleu": 0.034627024216021304
+        },
+        "mean_score": 0.022089962968528082,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03110973759764044,
+            "bleu": 0.03487102122480681
+        },
+        "mean_score": 0.021993586274149084,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030594469817820873,
+            "bleu": 0.035262708733811224
+        },
+        "mean_score": 0.02195239285054403,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030930867093625417,
+            "bleu": 0.03457753549626252
+        },
+        "mean_score": 0.021836134196629314,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.0312920430719035,
+            "bleu": 0.03390716963205677
+        },
+        "mean_score": 0.02173307090132009,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03139825238912325,
+            "bleu": 0.033573699676536076
+        },
+        "mean_score": 0.021657317355219776,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03141621313311484,
+            "bleu": 0.03340022966418348
+        },
+        "mean_score": 0.02160548093243277,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029598126820220755,
+            "bleu": 0.035180555794511244
+        },
+        "mean_score": 0.021592894204910663,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03073050916893968,
+            "bleu": 0.03386645501302701
+        },
+        "mean_score": 0.021532321393988894,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03132648738492836,
+            "bleu": 0.03314249798964311
+        },
+        "mean_score": 0.021489661791523822,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030002870488588195,
+            "bleu": 0.03425278468004028
+        },
+        "mean_score": 0.02141855172287616,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030905018011387193,
+            "bleu": 0.03294191649482926
+        },
+        "mean_score": 0.02128231150207215,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030791105453001875,
+            "bleu": 0.03295770568384192
+        },
+        "mean_score": 0.021249603712281264,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030272825372672865,
+            "bleu": 0.03296065643110389
+        },
+        "mean_score": 0.02107782726792558,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030573851651134236,
+            "bleu": 0.03248999277336966
+        },
+        "mean_score": 0.021021281474834633,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030031059577072007,
+            "bleu": 0.032677140230746936
+        },
+        "mean_score": 0.020902733269272982,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030427848086162838,
+            "bleu": 0.03212567246691508
+        },
+        "mean_score": 0.02085117351769264,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030492011960510133,
+            "bleu": 0.03199277291523552
+        },
+        "mean_score": 0.02082826162524855,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029842468545265143,
+            "bleu": 0.03239846057044619
+        },
+        "mean_score": 0.020746976371903775,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03029038295339151,
+            "bleu": 0.03184442126971072
+        },
+        "mean_score": 0.02071160140770074,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 128, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030218055043830096,
+            "bleu": 0.031687685217483476
+        },
+        "mean_score": 0.02063524675377119,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.03020305644477325,
+            "bleu": 0.03161797412062815
+        },
+        "mean_score": 0.020607010188467136,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.030037226890583576,
+            "bleu": 0.03168794353399322
+        },
+        "mean_score": 0.020575056808192268,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029972432847135463,
+            "bleu": 0.031293793757177696
+        },
+        "mean_score": 0.020422075534771055,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029810509023483034,
+            "bleu": 0.0312678854697415
+        },
+        "mean_score": 0.020359464831074845,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029619082371160625,
+            "bleu": 0.03103867530262646
+        },
+        "mean_score": 0.02021925255792903,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02943488306809987,
+            "bleu": 0.030995068869614322
+        },
+        "mean_score": 0.020143317312571397,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028904338613843315,
+            "bleu": 0.03132863046641275
+        },
+        "mean_score": 0.020077656360085353,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029419721573566166,
+            "bleu": 0.030773129719667176
+        },
+        "mean_score": 0.020064283764411116,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02943183704823452,
+            "bleu": 0.030731317883312032
+        },
+        "mean_score": 0.020054384977182184,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029434419659574117,
+            "bleu": 0.03069693734015781
+        },
+        "mean_score": 0.02004378566657731,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029397188659960844,
+            "bleu": 0.030655776959078812
+        },
+        "mean_score": 0.02001765520634655,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029333597802869666,
+            "bleu": 0.030704318101872394
+        },
+        "mean_score": 0.02001263863491402,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029203524915000348,
+            "bleu": 0.030647574595042675
+        },
+        "mean_score": 0.019950366503347677,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02924660528198883,
+            "bleu": 0.030409451474510688
+        },
+        "mean_score": 0.019885352252166505,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02919821415262052,
+            "bleu": 0.03031095261019343
+        },
+        "mean_score": 0.019836388920937986,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029090138282941484,
+            "bleu": 0.03029031418322065
+        },
+        "mean_score": 0.01979348415538738,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.029146622551733146,
+            "bleu": 0.030221933766060367
+        },
+        "mean_score": 0.01978951877259784,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028894841824714104,
+            "bleu": 0.030060050760581845
+        },
+        "mean_score": 0.019651630861765315,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028959233848696905,
+            "bleu": 0.029990512974762674
+        },
+        "mean_score": 0.019649915607819857,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028912727141935518,
+            "bleu": 0.02994580311113921
+        },
+        "mean_score": 0.019619510084358242,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028899951121108325,
+            "bleu": 0.029929956229152108
+        },
+        "mean_score": 0.019609969116753476,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02886259168598299,
+            "bleu": 0.02989171249603849
+        },
+        "mean_score": 0.019584768060673826,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02884835952022095,
+            "bleu": 0.029876658929758486
+        },
+        "mean_score": 0.019575006149993145,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028814884629162426,
+            "bleu": 0.029842712469689572
+        },
+        "mean_score": 0.019552532366284,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.028808722938573686,
+            "bleu": 0.02983593924446737
+        },
+        "mean_score": 0.01954822072768035,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 16, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=3, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 16, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 32, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=3, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 32, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=2, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=2, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 32, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=32, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=3, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 64, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, batch_first=True, dropout=0.025, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=2, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=2, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=2, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=3, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 64, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, batch_first=True)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 32)\n  (recurrent): GRU(32, 64, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=64, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, batch_first=True, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, batch_first=True, dropout=0.1, bidirectional=True)\n  (linear): Linear(in_features=256, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, batch_first=True)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=3, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 8)\n  (recurrent): GRU(8, 128, num_layers=3, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, batch_first=True, dropout=0.025)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02879676791933358,
+            "bleu": 0.029823361630364868
+        },
+        "mean_score": 0.019540043183232814,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 128, batch_first=True, dropout=0.1)\n  (linear): Linear(in_features=128, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    },
+    {
+        "scores": {
+            "macro_accuracy": 0.0,
+            "micro_accuracy": 0.02856415474089077,
+            "bleu": 0.0298815141001174
+        },
+        "mean_score": 0.019481889613669392,
+        "train_size": 3692,
+        "test_size": 923,
+        "splitter_name": "gru",
+        "splitter_metadata": {
+            "n": 3,
+            "record_none_links": false,
+            "eliminate_allomorphy": true,
+            "optimizer": "AdamW",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3,
+            "model": "GRU(\n  (embedding): Embedding(35, 16)\n  (recurrent): GRU(16, 16, batch_first=True)\n  (linear): Linear(in_features=16, out_features=10, bias=True)\n  (softmax): Softmax(dim=1)\n)"
+        }
+    }
+]
