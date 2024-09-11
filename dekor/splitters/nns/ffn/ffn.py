@@ -2,12 +2,11 @@
 FFN model for splitting German compounds based on the DECOW16 compound data.
 """
 
-import torch
 import torch.nn as nn
 from typing import Optional, Literal
 
 from dekor.splitters.base import DEVICE
-from dekor.splitters.nns.base import BaseNN, BaseNNSplitter
+from dekor.splitters.nns.base import BaseNN, BaseForwardNNSplitter
 
 
 class FFN(BaseNN):
@@ -16,8 +15,8 @@ class FFN(BaseNN):
             self,
             *,
             input_size: int,
-            output_size: int,
             hidden_size: Optional[int]=64,
+            output_size: int,
             activation: Optional[Literal["relu", "tanh"]]="relu",
             dropout_rate: Optional[float]=0.025,
             require_softmax: Optional[bool]=False,
@@ -27,8 +26,8 @@ class FFN(BaseNN):
         assert activation in ["relu", "tanh"]
         super(FFN, self).__init__(
             input_size=input_size,
-            output_size=output_size,
             hidden_size=hidden_size,
+            output_size=output_size,
             activation=activation,
             dropout_rate=dropout_rate,
             require_softmax=require_softmax,
@@ -47,6 +46,7 @@ class FFN(BaseNN):
         self.dense = nn.Linear(
             in_features=self.hidden_size,
             out_features=self.output_size,
+            device=DEVICE
         )
         self.softmax = nn.Softmax(dim=1)
 
@@ -61,7 +61,7 @@ class FFN(BaseNN):
         return output
     
 
-class FFNSplitter(BaseNNSplitter):
+class FFNSplitter(BaseForwardNNSplitter):
 
     name = "ffn"
 
@@ -73,24 +73,3 @@ class FFNSplitter(BaseNNSplitter):
             # CrossEntropy is supposed to be used with raw logits
             require_softmax=self.criterion != "crossentropy"
         )
-
-    def _train_on_batch(self, x: torch.Tensor, y: torch.Tensor) -> int:
-        output = self.model(x)
-        loss = self.criterion(output, y)
-        self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
-        return loss.item()
-    
-    def _pad_batch(self, batch: torch.Tensor) -> torch.Tensor:
-        diff = self.model.batch_size - len(batch)
-        pads = [self.pad([])] * diff
-        pads = torch.tensor(pads, dtype=torch.float, device=DEVICE)
-        padded_batch = torch.cat((batch, pads), dim=0)
-        return padded_batch
-    
-    def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
-        with torch.no_grad():
-            output = self.model(x, force_softmax=True)
-            output = output.detach()
-        return output

@@ -44,6 +44,26 @@ class BaseNN(ABC, nn.Module):
         pass
 
 
+class BaseRecurrentNN(BaseNN):
+
+    def forward(self, input_tensor, hidden_tensor, force_softmax=False):
+        # input: b x 1 (x 1), hidden: D * nl x b x h
+        embedded_tensor = self.embedding(input_tensor)  # b x 1 x emd
+        output, hidden = self.recurrent(embedded_tensor, hidden_tensor)   # b x 1 x D * h, D * nl x b x h
+        output = self.linear(output)    # b x 1 x o
+        output = output.squeeze(1)  # b x o, for softmax as it works on dimension 1
+        if self.require_softmax or force_softmax: output = self.softmax(output)   # b x o
+        return output, hidden
+    
+    @property
+    def D(self):
+        return 1 if not self.bidirectional else 2
+
+    def init_hidden(self):
+        return torch.zeros(self.D * self.num_layers, self.batch_size, self.hidden_size)
+
+
+
 class BaseNNSplitter(BaseSplitter):
 
     """
@@ -538,9 +558,13 @@ class BaseNNSplitter(BaseSplitter):
 
         return pred
     
-    @abstractmethod
     def _pad_batch(self, batch: torch.Tensor) -> torch.Tensor:
-        pass
+        diff = self.model.batch_size - len(batch)
+        pads = [self.pad([])] * diff
+        # we need integers, but that will be done in `_predict_batch()`
+        pads = torch.tensor(pads, dtype=torch.float, device=DEVICE)
+        padded_batch = torch.cat((batch, pads), dim=0)
+        return padded_batch
 
     @abstractmethod
     def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
@@ -655,3 +679,55 @@ class BaseNNSplitter(BaseSplitter):
             preds.append(pred)
 
         return preds
+    
+
+class BaseForwardNNSplitter(BaseNNSplitter):
+
+    def _train_on_batch(self, x: torch.Tensor, y: torch.Tensor) -> int:
+        output = self.model(x)
+        loss = self.criterion(output, y)
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+        return loss.item()
+    
+    def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
+        with torch.no_grad():
+            # force softmax is used with CrossEntropyLoss because the loss function
+            # doesn't require softmax so it's omitted but it is required during
+            # prediction to get probability distribution
+            output = self.model(x, force_softmax=True)
+            output = output.detach()
+        return output
+    
+
+class BaseRecurrentNNSplitter(BaseNNSplitter):
+
+    def _train_on_batch(self, x: torch.Tensor, y: torch.Tensor) -> int:
+        hidden = self.model.init_hidden()
+        # iterate over features
+        for i in range(x.size(1)):
+            # in the base class, the X tensor is float; but for embeddings,
+            # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
+            input = x[:, i].long().unsqueeze(-1)
+            output, hidden = self.model(input, hidden)
+        loss = self.criterion(output, y)
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+        return loss.item()
+    
+    def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
+        with torch.no_grad():
+            hidden = self.model.init_hidden()
+            # iterate over features
+            for i in range(x.size(1)):
+                # in the base class, the X tensor is float; but for embeddings,
+                # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
+                input = x[:, i].long().unsqueeze(-1)
+                # force softmax is used with CrossEntropyLoss because the loss function
+                # doesn't require softmax so it's omitted but it is required during
+                # prediction to get probability distribution
+                output, hidden = self.model(input, hidden, force_softmax=True)
+            output = output.detach()
+        return output

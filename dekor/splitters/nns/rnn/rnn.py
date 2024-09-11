@@ -2,23 +2,22 @@
 RNN model for splitting German compounds based on the DECOW16 compound data.
 """
 
-import torch
 import torch.nn as nn
 from typing import Optional, Literal
 
 from dekor.splitters.base import DEVICE
-from dekor.splitters.nns.base import BaseNN, BaseNNSplitter
+from dekor.splitters.nns.base import BaseRecurrentNN, BaseRecurrentNNSplitter
 
 
-class RNN(BaseNN):
+class RNN(BaseRecurrentNN):
 
     def __init__(
             self,
             *,
             vocab_size: int,
-            output_size: int,
-            hidden_size: Optional[int]=64,
             embedding_dim: Optional[int]=16,
+            hidden_size: Optional[int]=64,
+            output_size: int,
             bidirectional: Optional[bool]=True,
             num_layers: Optional[int]=2,
             activation: Optional[Literal["relu", "tanh"]]="tanh",
@@ -42,7 +41,7 @@ class RNN(BaseNN):
         )    
 
     def _build_self(self):
-        self.rnn = nn.RNN(
+        self.recurrent = nn.RNN(
             input_size=self.embedding_dim,
             hidden_size=self.hidden_size,
             num_layers=self.num_layers,
@@ -58,32 +57,16 @@ class RNN(BaseNN):
             device=DEVICE
         )
         self.softmax = nn.Softmax(dim=1)
-
-    def forward(self, input_tensor, hidden_tensor, force_softmax=False):
-        # input: b x 1 (x 1), hidden: D * nl x b x h
-        embedded_tensor = self.embedding(input_tensor)  # b x 1 x emd
-        output, hidden = self.rnn(embedded_tensor, hidden_tensor)   # b x 1 x D * h, D * nl x b x h
-        output = self.linear(output)    # b x 1 x o
-        output = output.squeeze(1)  # b x o, for softmax as it works on dimension 1
-        if self.require_softmax or force_softmax: output = self.softmax(output)   # b x o
-        return output, hidden
-    
-    @property
-    def D(self):
-        return 1 if not self.bidirectional else 2
-
-    def init_hidden(self):
-        return torch.zeros(self.D * self.num_layers, self.batch_size, self.hidden_size)
     
 
-class RNNSplitter(BaseNNSplitter):
+class RNNSplitter(BaseRecurrentNNSplitter):
 
     name = "rnn"
 
     def _metadata(self) -> dict:
         return {
             **super()._metadata(),
-            "activation": self.model.rnn.nonlinearity,
+            "activation": self.model.recurrent.nonlinearity,
             # "bidirectional": self.model.rnn.bidirectional # printed as `bidirectional=True` if True, omitted otherwise
         }
 
@@ -95,37 +78,3 @@ class RNNSplitter(BaseNNSplitter):
             # CrossEntropy is supposed to be used with raw logits
             require_softmax=self.criterion != "crossentropy"
         )
-
-    def _train_on_batch(self, x: torch.Tensor, y: torch.Tensor) -> int:
-        hidden = self.model.init_hidden()
-        # iterate over features
-        for i in range(x.size(1)):
-            # in the base class, the X tensor is float; but for embeddings,
-            # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
-            input = x[:, i].long().unsqueeze(-1)
-            output, hidden = self.model(input, hidden)
-        loss = self.criterion(output, y)
-        self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
-        return loss.item()
-    
-    def _pad_batch(self, batch: torch.Tensor) -> torch.Tensor:
-        diff = self.model.batch_size - len(batch)
-        pads = [self.pad([])] * diff
-        # we need integers, but that will be done in `_predict_batch()`
-        pads = torch.tensor(pads, device=DEVICE)
-        padded_batch = torch.cat((batch, pads), dim=0)
-        return padded_batch
-    
-    def _predict_batch(self, x: torch.Tensor) -> torch.Tensor:
-        with torch.no_grad():
-            hidden = self.model.init_hidden()
-            # iterate over features
-            for i in range(x.size(1)):
-                # in the base class, the X tensor is float; but for embeddings,
-                # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
-                input = x[:, i].long().unsqueeze(-1)
-                output, hidden = self.model(input, hidden, force_softmax=True)
-            output = output.detach()
-        return output
