@@ -9,7 +9,7 @@ from dekor.embeddings.base import BaseEmbeddings
 from dekor.utils.vocabs import StringVocab
 
 
-class TorchEmbeddings(BaseEmbeddings):
+class TorchEmbeddings(BaseEmbeddings, nn.Module):
 
 	name = "torch"
 
@@ -19,6 +19,7 @@ class TorchEmbeddings(BaseEmbeddings):
 		vocab: StringVocab,
 		embedding_dim: int
 	) -> None:
+		super(TorchEmbeddings, self).__init__()
 		self.vocab = vocab
 		self.embedding_dim = embedding_dim
 		self.undelying_embedding = nn.Embedding(
@@ -33,7 +34,7 @@ class TorchEmbeddings(BaseEmbeddings):
 		raise NotImplementedError("Torch embeddings implements `embed` function directly")
 	
 	def embed(self, texts: Iterable[str]) -> torch.Tensor:
-		pass
+		pass	# use `forward()`	!!!
 	
 	@property
 	def _embedding_dim(self) -> int:
