@@ -1,0 +1,22 @@
+{
+    "cnn": [
+        [10000],
+        [true],
+        {
+            "embedding_dim": [32],
+            "window_size": [4],
+            "hidden_size": [16],
+            "activation": ["tanh"],
+            "dropout_rate": [0.025],
+            "reduction": ["max"],
+            
+            "optimizer": ["sgd", "adamw"],
+            "criterion": ["crossentropy", "bce", "margin"],
+            "learning_rate": [0.00025, 0.001, 0.005, 0.01],
+            "n_epochs": [2, 3, 7, 15],
+
+            "batch_size": [512]
+        },
+        "_training_parameters"
+    ]
+}
