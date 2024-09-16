@@ -14,7 +14,8 @@ class FFN(BaseNN):
     def __init__(
             self,
             *,
-            input_size: int,
+            vocab_size: int,
+            embedding_dim: Optional[int]=8,
             hidden_size: Optional[int]=64,
             output_size: int,
             activation: Optional[Literal["relu", "tanh"]]="relu",
@@ -25,9 +26,11 @@ class FFN(BaseNN):
 
         assert activation in ["relu", "tanh"]
         super(FFN, self).__init__(
-            input_size=input_size,
+            vocab_size=vocab_size,
+            embedding_dim=embedding_dim,
             hidden_size=hidden_size,
             output_size=output_size,
+            embedding=nn.Embedding(vocab_size, embedding_dim),
             activation=activation,
             dropout_rate=dropout_rate,
             require_softmax=require_softmax,
@@ -36,7 +39,7 @@ class FFN(BaseNN):
 
     def _build_self(self):
         self.linear = nn.Linear(
-            in_features=self.input_size,
+            in_features=self.embedding_dim,
             out_features=self.hidden_size,
             device=DEVICE
         )
@@ -52,11 +55,13 @@ class FFN(BaseNN):
 
     def forward(self, input_tensor, force_softmax=False):
         # input: b x i
-        output = self.linear(input_tensor)   # b x h
-        output = self.activation(output)    # b x h
+        output = self.embedding(input_tensor)   # b x i x emd
+        output = self.linear(output)   # b x i x h
+        output = self.activation(output)    # b x i x h
         if self.dropout_rate:
-            output = self.dropout(output)   # b x h
-        output = self.dense(output)    # b x o
+            output = self.dropout(output)   # b x i x h
+        output = self.dense(output)    # b x i x o
+        output = output.squeeze(1)
         if self.require_softmax or force_softmax: output = self.softmax(output)  # b x o
         return output
     
@@ -67,7 +72,7 @@ class FFNSplitter(BaseForwardNNSplitter):
 
     def _build_nn(self) -> None:
         self.model = FFN(
-            input_size=self.maxlen,
+            vocab_size=len(self.vocab_chars) + 1,   # plus ignore index
             output_size=len(self.vocab_links),
             **self.model_params,
             # CrossEntropy is supposed to be used with raw logits

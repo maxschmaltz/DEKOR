@@ -16,7 +16,6 @@ from typing import Optional, Iterable, Optional, List, Self, Literal, Dict
 from dekor.splitters.base import BaseSplitter, DEVICE
 from dekor.utils.gecodb_parser import (
     Compound,
-    Link,
     UMLAUTS_REVERSED
 )
 from dekor.utils.vocabs import StringVocab
@@ -44,7 +43,7 @@ class BaseNN(ABC, nn.Module):
         pass
 
 
-class BaseRecurrentNN(BaseNN):
+class BaseRecurrentNN(BaseNN):  # RNN, GRU
 
     def forward(self, input_tensor, hidden_tensor, force_softmax=False):
         # input: b x 1 (x 1), hidden: D * nl x b x h
@@ -61,7 +60,6 @@ class BaseRecurrentNN(BaseNN):
 
     def init_hidden(self):
         return torch.zeros(self.D * self.num_layers, self.batch_size, self.hidden_size)
-
 
 
 class BaseNNSplitter(BaseSplitter):
@@ -139,22 +137,23 @@ class BaseNNSplitter(BaseSplitter):
 
     def __init__(
             self,
+            *,
             n: Optional[int]=3,
-            record_none_links: Optional[bool]=False,
-            eliminate_allomorphy: Optional[bool]=True,
+            record_none_links: bool,
+            eliminate_allomorphy: bool,
             optimizer: Optional[Literal["sgd", "adamw"]]="adamw",
             criterion: Optional[Literal["crossentropy", "bce", "margin"]]="crossentropy",
             learning_rate: Optional[float]=0.001,
             n_epochs: Optional[int]=3,
             save_plot: Optional[bool]=False,
             verbose: Optional[bool]=True,
-            **kwargs
+            **model_params
         ) -> None:
         assert optimizer in ["sgd", "adamw"]
         assert criterion in ["crossentropy", "bce", "margin"]
         assert learning_rate > 0 and learning_rate < 1
         assert n_epochs > 0
-        assert "require_softmax" not in kwargs, "Is set automatically"
+        assert "require_softmax" not in model_params, "Is set automatically"
         self.n = n
         self.record_none_links = record_none_links
         self.eliminate_allomorphy = eliminate_allomorphy
@@ -166,12 +165,7 @@ class BaseNNSplitter(BaseSplitter):
         self.verbose = verbose
         self.vocab_chars = StringVocab()
         self.vocab_links = StringVocab()
-        self._elink = Link(
-            self.vocab_links.unk,
-            span=(-1, -1),
-            type=self.vocab_links.unk
-        )
-        self.model_params = kwargs
+        self.model_params = model_params
         # we want to pass the whole context as an input (since we go character-wise, we can't fit more)
         self.maxlen = self.n * 2 + 3 + 2 # `self.n` from both sides and up to 3-place `mid` and two '|' separators
         self.ignore_index = -100
@@ -336,8 +330,8 @@ class BaseNNSplitter(BaseSplitter):
             position_codes, link_ids = self._forward(compound)
             all_position_codes += position_codes
             all_link_ids += link_ids
-        X = torch.tensor(all_position_codes, dtype=torch.float, device=DEVICE)
-        Y = torch.zeros((len(all_link_ids), len(self.vocab_links)), dtype=torch.float, device=DEVICE)
+        X = torch.tensor(all_position_codes, dtype=torch.long, device=DEVICE)
+        Y = torch.zeros((len(all_link_ids), len(self.vocab_links)), dtype=torch.long, device=DEVICE)
         # make target the same shape as the input for different losses; treat
         # each row as a holistic distribution with only correct link probability equal to 1;
         # that is needed for the BCE and margin losses
@@ -562,7 +556,7 @@ class BaseNNSplitter(BaseSplitter):
         diff = self.model.batch_size - len(batch)
         pads = [self.pad([])] * diff
         # we need integers, but that will be done in `_predict_batch()`
-        pads = torch.tensor(pads, dtype=torch.float, device=DEVICE)
+        pads = torch.tensor(pads, dtype=torch.long, device=DEVICE)
         padded_batch = torch.cat((batch, pads), dim=0)
         return padded_batch
 
@@ -626,7 +620,7 @@ class BaseNNSplitter(BaseSplitter):
             position_codes, _ = self._forward(dummy_compound, add_new=False)   # no link ids are needed (they're unks anyways)
             milestones.append(milestones[-1] + len(position_codes))
             all_position_codes += position_codes
-        X = torch.tensor(all_position_codes, dtype=torch.float, device=DEVICE)
+        X = torch.tensor(all_position_codes, dtype=torch.long, device=DEVICE)
 
         # return `record_none_links_orig`
         self.record_none_links = record_none_links_orig
@@ -707,9 +701,8 @@ class BaseRecurrentNNSplitter(BaseNNSplitter):
         hidden = self.model.init_hidden()
         # iterate over features
         for i in range(x.size(1)):
-            # in the base class, the X tensor is float; but for embeddings,
-            # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
-            input = x[:, i].long().unsqueeze(-1)
+            # for embeddings, they must be wrapped into 1 x 1 tensors
+            input = x[:, i].unsqueeze(-1)
             output, hidden = self.model(input, hidden)
         loss = self.criterion(output, y)
         self.optimizer.zero_grad()
@@ -722,9 +715,7 @@ class BaseRecurrentNNSplitter(BaseNNSplitter):
             hidden = self.model.init_hidden()
             # iterate over features
             for i in range(x.size(1)):
-                # in the base class, the X tensor is float; but for embeddings,
-                # we need 1) integers and 2) they must be wrapped into 1 x 1 tensors
-                input = x[:, i].long().unsqueeze(-1)
+                input = x[:, i].unsqueeze(-1)
                 # force softmax is used with CrossEntropyLoss because the loss function
                 # doesn't require softmax so it's omitted but it is required during
                 # prediction to get probability distribution

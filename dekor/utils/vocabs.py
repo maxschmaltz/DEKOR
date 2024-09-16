@@ -5,6 +5,10 @@ Module with vocabularies for encoding different information.
 from collections import defaultdict
 
 
+UNK = "<unk>"
+UNK_ID = 0
+
+
 class StringVocab:
     
     """
@@ -12,17 +16,17 @@ class StringVocab:
     """
 
     def __init__(self) -> None:
-        self._vocab = {self.unk: self.unk_id}
-        self._vocab_reversed = {self.unk_id: self.unk}
+        self._vocab = {UNK: UNK_ID}
+        self._vocab_reversed = {UNK_ID: UNK}
         self.counts = defaultdict(int)
 
     @property
     def unk(self):
-        return "<unk>"
+        return UNK
 
     @property
     def unk_id(self):
-        return 0
+        return UNK_ID
 
     def add(self, string: str) -> int:
         
@@ -68,7 +72,7 @@ class StringVocab:
             in case the entry is not present in the vocabulary 
         """
 
-        return self._vocab.get(string, self.unk_id)
+        return self._vocab.get(string, UNK_ID)
     
     def decode(self, id: int) -> str:
 
@@ -87,7 +91,7 @@ class StringVocab:
             in case the id is unknown to the vocabulary 
         """
 
-        return self._vocab_reversed.get(id, self.unk)
+        return self._vocab_reversed.get(id, UNK)
     
     def __len__(self) -> int:
         return len(self._vocab)
