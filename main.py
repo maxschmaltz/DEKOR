@@ -113,11 +113,10 @@ def main() -> None:
     cls2params = {
         key: [
             min_counts,
-            elliminate_allomorphys,
             grid_parameters(params_options),    # combine param values
             suffix
         ]
-        for key, (min_counts, elliminate_allomorphys, params_options, suffix) in params_mapping.items()
+        for key, (min_counts, params_options, suffix) in params_mapping.items()
     }
 
     benchmark_splitters(
