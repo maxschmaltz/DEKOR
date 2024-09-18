@@ -94,6 +94,7 @@ class CNN(BaseNN):
 class CNNSplitter(BaseForwardNNSplitter):
 
     name = "cnn"
+    path = ".pretrained/nns/cnn.pt"
 
     def _build_nn(self) -> None:
         self.nn = CNN(

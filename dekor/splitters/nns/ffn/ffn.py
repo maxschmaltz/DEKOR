@@ -65,6 +65,7 @@ class FFN(BaseNN):
 class FFNSplitter(BaseForwardNNSplitter):
 
     name = "ffn"
+    path = ".pretrained/nns/ffn.pt"
 
     def _build_nn(self) -> None:
         self.nn = FFN(

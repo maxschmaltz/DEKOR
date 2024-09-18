@@ -53,6 +53,7 @@ class GRU(BaseRecurrentNN):
 class GRUSplitter(BaseRecurrentNNSplitter):
 
     name = "gru"
+    path = ".pretrained/nns/gru.pt"
 
     def _build_nn(self) -> None:
         self.nn = GRU(

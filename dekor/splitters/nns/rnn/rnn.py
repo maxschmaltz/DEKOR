@@ -57,6 +57,7 @@ class RNN(BaseRecurrentNN):
 class RNNSplitter(BaseRecurrentNNSplitter):
 
     name = "rnn"
+    path = ".pretrained/nns/rnn.pt"
 
     def _build_nn(self) -> None:
         self.nn = RNN(
