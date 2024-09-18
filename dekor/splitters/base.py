@@ -2,12 +2,14 @@
 Base model for splitting German compounds based on the DECOW16 compound data.
 """
 
+import re
 from abc import ABC, abstractmethod
+import numpy as np
 import torch
-from typing import Any, Iterable, Iterator, Self, Tuple, List
+from typing import Iterable, Iterator, Self, Tuple, List, Dict
 
-from dekor.utils.gecodb_parser import Compound, Link
-from dekor.utils.vocabs import UNK, UNK_ID
+from dekor.utils.gecodb_parser import Compound, Link, UMLAUTS
+from dekor.utils.vocabs import StringVocab, UNK
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -23,8 +25,9 @@ class BaseSplitter(ABC):
     name: str
     record_none_links: bool # enforce
     eliminate_allomorphy: bool  # enforce
+    vocab_links: StringVocab
     _elink = Link(  # for analyzing positions
-        "",
+        UNK,
         span=(-1, -1),
         type=UNK
     )
@@ -38,8 +41,9 @@ class BaseSplitter(ABC):
 
     def _get_positions(
         self,
-        compound: Compound
-    ) -> Iterator[Tuple[Tuple[str], int]]:
+        compound: Compound,
+        context_window: int
+    ) -> Iterator[Tuple[Tuple[str], Compound]]:
 
         # Analyze a single compound; performed as a sliding window
         # with a sliding window inside over the compound lemma, where for each position it is stored,
@@ -58,7 +62,7 @@ class BaseSplitter(ABC):
         # Later, uniques context-link triples will be used in prediction.
 
         lemma = f'>{compound.lemma}<'    # BOS and EOS
-        n = self.n
+        n = context_window  # shorthand
         l = len(lemma) - 1  # -1 because indexing starts at 0
 
         # as we know which links to expect, we will track them 
@@ -110,7 +114,8 @@ class BaseSplitter(ABC):
                     # as 25 occurrences of link B in different positions (if no other
                     # links have been encountered), but with none links recorded,
                     # 995-5 will be less probable than 975-25
-                    if self.record_none_links: link = self._elink
+                    if self.record_none_links:
+                        link = self._elink
                     else: continue
                 masks.append(((left, right, mid), link))
             # This will be a generator because all of the splitters will have
@@ -126,18 +131,114 @@ class BaseSplitter(ABC):
             yield masks
 
     @abstractmethod
-    def _forward(self, lemma: str, *args, **kwargs) -> Any:
-        # this will do any needed processing with positions and corresponding links
-        pass
-
-    @abstractmethod
     def fit(self, compounds: Iterable[Compound], *args, **kwargs) -> Self:
         pass
 
-    @abstractmethod
-    def _predict(self, lemma: str, *args, **kwargs) -> Compound:
-        # predicts a single compound
-        pass
+    def _predict(
+        self,
+        lemma: str,
+        logits: np.ndarray,
+        link_candidates: Dict[int, Tuple[int, str]]
+    ) -> Compound:
+
+        # For a single lemma, this function gets a list of link candidates,
+        # i.e. each (possibly link-) ngram at each lemma index, and
+        # respective to the candidates probability distribution
+        # over links, so which link (or none) this ngram is with which prob.
+        # This info is used to determine the most probable link and its position
+        # which will satisfy the grammar constrains.
+        # We know for sure that we works with N+N compounds which means
+        # we can heuristically restrict all improbable additional
+        # links it will predict. Thus, for the compound, we will
+        # gather probabilities of all non-none links with respect to their
+        # positions and then choose the most probable one.
+            
+        # at this point, none links have done their job and gave
+        # the proportion (if they were even recorded) so
+        # we should zero them to easily detect the most probable
+        # non-none link
+        logits[:, self.vocab_links.unk_id] = 0
+
+        # There is a set of heuristics that have to be filtered out in place
+        # in order to get cleaner result; for example, there can not be an umlaut link
+        # in case there is no umlaut before it. This can mostly be checked once a link with
+        # its representation is parsed; however, it is highly inefficient to do that
+        # will all links whose probability is more that 0. Instead, we will treat the
+        # probabilities as a stack with probs ordered from highest to lowest;
+        # thus, at each iteration, we will check if the current max probable link
+        # passes the filter and if yes, we'll break the cycle, if no, zero this prob
+        # and take the next highest probable one. Thus, at the end we will output
+        # the most probable link of all that passed the filter.  
+        while True:
+
+            # it cannot exceed because even if all non-zero links will appear invalid,
+            # there will be no probs anymore and the function will exit
+
+            max_prob = logits.max()
+            if not max_prob:
+                return Compound(lemma)   # no link detected, so return with no links
+            
+            best_idx, best_link_id = np.where(logits == max_prob)
+            best_idx, best_link_id = best_idx[0], best_link_id[0]   # unpack
+            i, best_realization = link_candidates[best_idx]
+            best_link = self.vocab_links.decode(best_link_id)
+            component, realization, link_type = Compound.get_link_info(
+                best_link,
+                eliminate_allomorphy=self.eliminate_allomorphy
+            )
+
+            raw = lemma[:i] # left constituent
+
+            # heuristically filter out predictions that cannot be correct
+            # using `if` so that no further checks are performed once one has failed
+            if (    # use if so that no further checks are performed once one has failed
+                # deletion type with addition realization
+                (
+                    link_type == "deletion"
+                    and len(best_realization) > 0
+                ) or
+                # concatenation type with addition realization
+                (
+                    link_type == "concatenation"
+                    and len(best_realization) > 0
+                ) or
+                # impossible addition; there might be or not be an e-, depends on whether we eliminate allomorphy
+                (
+                    "addition" in link_type and
+                    not re.match(f"^e?{realization}$", best_realization)
+                ) or
+                # umlaut link where there is no rightmost (!) umlaut before
+                (
+                    "umlaut" in link_type and
+                    not re.search(f"({'|'.join(UMLAUTS.values())})(?!.+({'|'.join(UMLAUTS.keys())}))", raw)
+                    # not re.search('|'.join(UMLAUTS_REVERSED.keys()), raw)
+                )
+            ):
+                # zero this impossible link prob
+                logits[best_idx, best_link_id] = 0
+                continue
+
+            # NOTE: reconstruct from components?
+            # If allomorphy is eliminated, we can predict cases like
+            # tag_+s_ticket correctly and know that the realization is -es-;
+            # however, since we dont reconstruct the compound from components,
+            # if we pass tag_+s_ticket to `Compound`, it will think that the
+            # realization is -s- even though we know it is not the case.
+            # That is why, if eliminated allomorphy encountered,
+            # we must reconstruct the link as if allomorphy does not get eliminated,
+            # and then `Compound` will still parse the link with elimination
+            # but will receive the correct realization we predicted.
+            if link_type == "addition_umlaut":
+                raw = Compound.reverse_umlaut(raw)
+            elif link_type == "deletion":
+                to_delete = Compound.get_deletion(component)
+                raw += to_delete
+            if best_realization != realization:
+                component = re.sub(realization, best_realization, component)
+
+            raw = raw + component + lemma[i + len(best_realization):]
+            pred = Compound(raw)
+            return pred
 
     @abstractmethod
     def predict(self, lemmas: List[str], *args, **kwargs) -> List[Compound]:
