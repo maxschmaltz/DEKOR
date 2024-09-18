@@ -95,9 +95,6 @@ class BaseNNSplitter(BaseSplitter):
         whether to record contexts between which no links occur;
         hint: that could lead to a strong bias towards no link choice
 
-    eliminate_allomorphy : `bool`, optional, defaults to `True`
-        whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_
-
     optimizer : `str`, one of ["sgd", "adamw"], optional, defaults to "adamw"
         name of the optimizer for the backbone NN training; `torch.nn.SGD` or `torch.nn.AdamW`
         are used respectively
@@ -156,7 +153,6 @@ class BaseNNSplitter(BaseSplitter):
             *,
             context_window: Optional[int]=3,
             record_none_links: bool,
-            eliminate_allomorphy: bool,
             embeddings_params: Dict[str, Any],
             nn_params: Dict[str, Any],
             optimizer: Optional[Literal["sgd", "adamw"]]="adamw",
@@ -169,7 +165,6 @@ class BaseNNSplitter(BaseSplitter):
         ) -> None:
         self.context_window = context_window
         self.record_none_links = record_none_links
-        self.eliminate_allomorphy = eliminate_allomorphy
         self.embeddings_cls = dekor.embeddings.__all__[embeddings_params.pop("name")]
         self.embeddings_params = embeddings_params
         self.nn_params = nn_params

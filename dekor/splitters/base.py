@@ -24,7 +24,6 @@ class BaseSplitter(ABC):
 
     name: str
     record_none_links: bool # enforce
-    eliminate_allomorphy: bool  # enforce
     vocab_links: StringVocab
     _elink = Link(  # for analyzing positions
         UNK,
@@ -35,8 +34,7 @@ class BaseSplitter(ABC):
     def _metadata(self) -> dict:
         # for parameter tracking
         return {
-            "record_none_links": self.record_none_links,
-            "eliminate_allomorphy": self.eliminate_allomorphy
+            "record_none_links": self.record_none_links
         }
 
     def _get_positions(
@@ -182,10 +180,7 @@ class BaseSplitter(ABC):
             best_idx, best_link_id = best_idx[0], best_link_id[0]   # unpack
             i, best_realization = link_candidates[best_idx]
             best_link = self.vocab_links.decode(best_link_id)
-            component, realization, link_type = Compound.get_link_info(
-                best_link,
-                eliminate_allomorphy=self.eliminate_allomorphy
-            )
+            component, realization, link_type = Compound.get_link_info(best_link)
 
             raw = lemma[:i] # left constituent
 

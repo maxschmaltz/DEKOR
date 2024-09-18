@@ -82,7 +82,6 @@ def benchmark_splitter(
     *,
     splitter_cls: type,
     min_counts: List[int],
-    eliminate_allomorphys: List[int],
     all_splitter_params: List[dict],
     gecodb_path: str,
     train_size: Optional[float]=0.8,
@@ -100,10 +99,6 @@ def benchmark_splitter(
     min_counts : `List[int]`:
         minimal counts of compounds to keep;
         all compounds occurring less will be dropped at the respective iteration
-
-    eliminate_allomorphys : `List[bool]`:
-        bools whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_;
-        with each splitter params, each bool from `eliminate_allomorphys` will be passed
 
     all_splitter_params : `List[dict]`
         list of tested configurations for the splitter,
@@ -124,10 +119,9 @@ def benchmark_splitter(
     best_pairs = None
     best_plot_buffer = None
     n_iter = 1  # for printout
-    for min_count, eliminate_allomorphy in product(min_counts, eliminate_allomorphys):
+    for min_count in min_counts:
         gecodb = parse_gecodb(
             gecodb_path,
-            eliminate_allomorphy=eliminate_allomorphy,
             min_count=min_count
         )
         train_data, test_data = train_test_split(gecodb, train_size=train_size, shuffle=True)
@@ -137,7 +131,7 @@ def benchmark_splitter(
             if verbose: # print out params
                 print(
                     '\n',
-                    f"{splitter_cls.name}: iter {n_iter}/{len(all_splitter_params * len(min_counts) * len(eliminate_allomorphys))}"
+                    f"{splitter_cls.name}: iter {n_iter}/{len(all_splitter_params * len(min_counts))}"
                 )
                 print(
                     ', '.join(f"{key}: {value}" for key, value in splitter_params.items()),
@@ -145,7 +139,6 @@ def benchmark_splitter(
                 )
             splitter = splitter_cls(
                 **splitter_params,
-                eliminate_allomorphy=eliminate_allomorphy,
                 verbose=verbose
             ).fit(train_compounds)
             scores, pred_compounds = eval_splitter(
@@ -197,11 +190,9 @@ def benchmark_splitters(
         and tuple out of 4 elements:
             1. `List[int]`: minimal counts of compounds to keep;
             all compounds occurring less will be dropped at the respective iteration
-            2. `List[tuple]`: bools whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_;
-            with each tested configuration (below), each bool from `eliminate_allomorphys` will be passed
-            3. `List[dict]`: list of tested configurations for the splitter,
+            2. `List[dict]`: list of tested configurations for the splitter,
             with each configuration being a mapping between parameter name and its value
-            4. `str`: suffix to prepend to this model out directory (<class_name_x_suffix> below)
+            3. `str`: suffix to prepend to this model out directory (<class_name_x_suffix> below)
 
     gecodb_path : `str`
         path to the TSV DECOW16-format compounds dataset
@@ -244,16 +235,13 @@ def benchmark_splitters(
     best_pair_of_all = None
     best_score = -1
     if not os.path.exists(out_dir): os.mkdir(out_dir)
-    # we put `eliminate_allomorphys` on a higher level than model params
-    # because parsing also depends on it
-    for splitter_name, (min_counts, eliminate_allomorphys, all_splitter_params, suffix) in cls2params.items():
+    for splitter_name, (min_counts, all_splitter_params, suffix) in cls2params.items():
         splitter_cls = dekor.splitters.__all__[splitter_name]
         target_dir = os.path.join(out_dir, splitter_cls.name)
         if not os.path.exists(target_dir): os.mkdir(target_dir)
         outputs, best_pairs, best_plot_buffer = benchmark_splitter(
             splitter_cls=splitter_cls,
             min_counts=min_counts,
-            eliminate_allomorphys=eliminate_allomorphys,
             all_splitter_params=all_splitter_params,
             gecodb_path=gecodb_path,
             train_size=train_size,

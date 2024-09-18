@@ -26,9 +26,6 @@ class NGramsSplitter(BaseSplitter):
         whether to record contexts between which no links occur;
         hint: that could lead to a strong bias towards no link choice
 
-    eliminate_allomorphy : `bool`, optional, defaults to `True`
-        whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_
-
     verbose : `bool`, optional, defaults to `True`
         whether to show progress bar when fitting and predicting compounds
     """
@@ -40,12 +37,10 @@ class NGramsSplitter(BaseSplitter):
         *,
         n: Optional[int]=3,
         record_none_links: bool,
-        eliminate_allomorphy: bool,
         verbose: Optional[bool]=True
     ) -> None:
         self.n = n
         self.record_none_links = record_none_links
-        self.eliminate_allomorphy = eliminate_allomorphy
         self.verbose = verbose
         self.vocab_positions = StringVocab()
         self.vocab_links = StringVocab()

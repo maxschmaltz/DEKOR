@@ -128,9 +128,6 @@ class Compound:
     raw : `str`
         COW dataset entry to analyze
 
-    eliminate_allomorphy : `bool`, optional, defaults to `True`
-        whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_
-
     Attributes
     ----------
     lemma : `str`
@@ -157,7 +154,6 @@ class Compound:
     """
 
     raw: str = field(compare=True)
-    eliminate_allomorphy: Optional[bool] = field(compare=False, kw_only=True, default=True)
     lemma: str = field(compare=True, init=False)
     stems: List[Stem] = field(compare=False, init=False)
     links: List[Link] = field(compare=False, init=False)
@@ -198,7 +194,7 @@ class Compound:
         return link
     
     @staticmethod
-    def get_link_info(link: str, eliminate_allomorphy: Optional[bool]=True) -> Tuple[str]:
+    def get_link_info(link: str) -> Tuple[str]:
 
         """
         Determines realization and type of the link.
@@ -208,14 +204,10 @@ class Compound:
         link : `str`
             string to analyze
 
-        eliminate_allomorphy : `bool`, optional, defaults to `True`
-            whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_
-
         Returns
         -------
         `Tuple[str]`
-            the link itself (with eliminated allomorphy if `eliminate_allomorphy` is `True`),
-            it's realization, and it's type
+            the link itself, it's realization, and it's type
         """
 
         for link_type, pattern in LINK_TYPES.items():
@@ -233,11 +225,11 @@ class Compound:
                 if link_type == "deletion":
                     realization = ""
                 # eliminate allophones
-                if eliminate_allomorphy: link = Compound._eliminate_allomorphy(link)
+                link = Compound._eliminate_allomorphy(link)
                 return link, realization, link_type
 
     def _get_link_obj(self, component: str) -> Link:
-        component, realization, link_type = self.get_link_info(component, self.eliminate_allomorphy)
+        component, realization, link_type = self.get_link_info(component)
         link = Link(
                 component=component,
                 realization=realization,
@@ -395,7 +387,6 @@ class Compound:
 
 def parse_gecodb(
     gecodb_path: str,
-    eliminate_allomorphy: Optional[bool]=True,
     min_count: Optional[int]=25
     
 ) -> pd.DataFrame:
@@ -407,9 +398,6 @@ def parse_gecodb(
     ----------
     gecodb_path : `str`
         path to the TSV DECOW16-format compounds dataset
-
-    eliminate_allomorphy : `bool`, optional, defaults to `True`
-        whether to eliminate allomorphy of the input link, e.g. _+es_ to _+s_
 
     min_count : `int`, optional, defaults to 25
         minimal count of compounds to keep; all compounds occurring less will be dropped
@@ -430,5 +418,5 @@ def parse_gecodb(
         encoding='utf-8'
     )
     if min_count: gecodb = gecodb[gecodb['count'] >= min_count]
-    gecodb['compound'] = gecodb['raw'].apply(Compound, eliminate_allomorphy=eliminate_allomorphy)
+    gecodb['compound'] = gecodb['raw'].apply(Compound)
     return gecodb
