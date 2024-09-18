@@ -1,0 +1,1 @@
+from dekor.splitters.llms.gbert import GBERTSplitter
