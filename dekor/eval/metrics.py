@@ -33,6 +33,9 @@ class CompoundMicroAccuracy(BaseMetric):
     Returns a float in the interval 0 to 1.
     """
 
+	# NOTE: now that the implementation always generates a single link,
+	# will coincide with macro accuracy
+
     name = "micro_accuracy" # does not consider alignment but punishes extra preds
 
     def _calculate(self, gold: Compound, pred: Compound) -> float:
@@ -94,6 +97,6 @@ class CompoundBLEU(BaseMetric):
 
 _all_metrics = {
     CompoundMacroAccuracy.name: CompoundMacroAccuracy,
-    CompoundMicroAccuracy.name: CompoundMicroAccuracy,
+    # CompoundMicroAccuracy.name: CompoundMicroAccuracy,	# now same as macro
     CompoundBLEU.name: CompoundBLEU
 }
