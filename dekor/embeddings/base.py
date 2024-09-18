@@ -1,12 +1,13 @@
 from abc import ABC, abstractmethod
 import asyncio
 import torch
-from typing import Iterable, Awaitable
+from typing import Iterable, Awaitable, Any
 
 
 class BaseEmbeddings(ABC):
 
 	name: str
+	underlying_embeddings: Any
 	requires_vocab: bool
 	trainable: bool
 	_embedding_dim: int
