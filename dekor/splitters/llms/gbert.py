@@ -231,6 +231,33 @@ class GBERTSplitter(BaseSplitter):
 						os.remove(os.path.join(full_dirname, filename))
 					os.rmdir(full_dirname)
 
+		# remove model if it was test
+		if self._test:
+			for filename in os.listdir(self.path):
+				os.remove(os.path.join(self.path, filename))
+			os.rmdir(self.path)
+
+	def fit(
+		self,
+		*,
+		train_compounds: Optional[Iterable[Compound]]=None,
+		dev_compounds: Optional[Iterable[Compound]]=None,
+		test: Optional[bool]=False
+	):
+		# with transformers we need to save models necessarily to load them afterwards
+		# so we will keep track on whether it's test or not in order to
+		# write the model in a temp directory and then remove if it is
+		self._test = test
+		if test:
+			self.path = re.sub(r"\/$", "_tmptest/", self.path)
+		super().fit(
+			train_compounds=train_compounds,
+			dev_compounds=dev_compounds,
+			test=test
+		)
+		del self._test
+		return self
+
 	def predict(self, lemmas: torch.List[str]) -> torch.List[Compound]:
 		
 		# to gather positions where there are no links, we force set `record_none_links`

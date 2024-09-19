@@ -142,26 +142,27 @@ class BaseSplitter(ABC):
 		self,
 		train_compounds: Iterable[Compound]=None,
 		dev_compounds: Optional[Iterable[Compound]]=None,
-		*args,
 		**kwargs
 	) -> None:
 		pass
 
 	def fit(
 		self,
+		*,
 		train_compounds: Optional[Iterable[Compound]]=None,
 		dev_compounds: Optional[Iterable[Compound]]=None,
-		*args,
+		test: Optional[bool]=False,
 		**kwargs
 	) -> Self:
-		if os.path.exists(self.path):
+		if os.path.exists(self.path) and not test:
 			warnings.warn(f"A pretrained model found. Loading from {self.path}.")
 			self.load()
 		else:
 			assert train_compounds is not None
 			warnings.warn(f"No pretrained model found. Training from scratch and saving to {self.path}.")
-			self._fit(train_compounds, dev_compounds, *args, **kwargs)
-			self.save()
+			self._fit(train_compounds, dev_compounds, **kwargs)
+			if not test:
+				self.save()
 		return self
 
 	def _predict(
