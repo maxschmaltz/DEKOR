@@ -65,6 +65,5 @@ class RNNSplitter(BaseRecurrentNNSplitter):
             output_size=len(self.vocab_links),
             **self.nn_params,
             # CrossEntropy is supposed to be used with raw logits
-            require_softmax=self.criterion != "crossentropy",
-            batch_size=self.batch_size  # for hidden init
+            require_softmax=self.criterion != "crossentropy"
         )

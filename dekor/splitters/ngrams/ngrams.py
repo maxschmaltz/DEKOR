@@ -57,7 +57,8 @@ class NGramsSplitter(BaseSplitter):
 
 	def _fit(
 		self,
-		train_compounds: Optional[Iterable[Compound]]=None
+		train_compounds: Optional[Iterable[Compound]]=None,
+		dev_compounds: Optional[Iterable[Compound]]=None
 	) -> None:
 
 		"""
