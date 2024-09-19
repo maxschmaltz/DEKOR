@@ -74,13 +74,14 @@ class BaseRecurrentNN(BaseNN):  # RNN, GRU
 	
 	@property
 	def D(self) -> int:
+		self.bidirectional = False	# legacy from when it could be bidirectional
 		return 1 if not self.bidirectional else 2
 
 	def init_hidden(self) -> torch.Tensor:
 		# return torch.zeros(self.D * self.num_layers, self.batch_size, self.hidden_size)
 		# in our implementation, we don't process the whole batch to avoid padding
 		# so it is a 2D tensor
-		return torch.zeros(self.D * self.num_layers, self.hidden_size)
+		return torch.zeros(self.D * self.num_layers, self.hidden_size, device=DEVICE)
 
 
 class BaseNNSplitter(BaseSplitter):
@@ -570,7 +571,7 @@ class BaseNNSplitter(BaseSplitter):
 				logits = self._predict_batch(x)    
 			all_logits += logits
 
-		all_logits = torch.stack(all_logits, dim=0).detach().numpy()
+		all_logits = torch.stack(all_logits, dim=0).cpu().detach().numpy()
 
 		preds = []
 		progress_bar = tqdm(lemmas, desc="Postprocessing") if self.verbose else lemmas

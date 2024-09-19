@@ -24,7 +24,8 @@ class TorchEmbeddings(nn.Module, BaseEmbeddings):
 		self.embedding_dim = embedding_dim
 		self.underlying_embeddings = nn.Embedding(
 			num_embeddings=len(vocab),
-			embedding_dim=embedding_dim
+			embedding_dim=embedding_dim,
+			device=DEVICE
 		)
 
 	# `train()` and `eval()` are implemented in `nn.Module`
