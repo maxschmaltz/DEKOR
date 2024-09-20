@@ -14,7 +14,7 @@ from typing import Optional, Iterable, Dict, List
 from dekor.splitters.llms.base import BaseLLMSplitter
 from dekor.utils.gecodb_parser import Compound
 
-BASE_MODEL_NAME = "google/byt5-base"
+BASE_MODEL_NAME = "google/byt5-small"	# base can't be run locally
 
 
 class ByT5Splitter(BaseLLMSplitter):
