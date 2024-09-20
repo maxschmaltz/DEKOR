@@ -140,7 +140,7 @@ def benchmark_splitter(
             splitter = splitter_cls(
                 **splitter_params,
                 verbose=verbose
-            ).fit(train_compounds)
+            ).fit(train_compounds=train_compounds)
             scores, pred_compounds = eval_splitter(
                 splitter=splitter,
                 test_compounds=test_compounds
