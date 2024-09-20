@@ -206,7 +206,7 @@ class GBERTSplitter(BaseLLMSplitter):
 			dev_dataset_tokenized=dev_dataset_tokenized
 		)
 
-	def predict(self, lemmas: torch.List[str]) -> torch.List[Compound]:
+	def predict(self, lemmas: List[str]) -> List[Compound]:
 		
 		# to gather positions where there are no links, we force set `record_none_links`
 		# as there are no positions otherwise because no links in test;

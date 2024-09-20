@@ -14,7 +14,7 @@ from typing import Optional, Iterable, Dict, List
 from dekor.splitters.llms.base import BaseLLMSplitter
 from dekor.utils.gecodb_parser import Compound
 
-BASE_MODEL_NAME = "google/byt5-small"	# base is too large to run locally
+BASE_MODEL_NAME = "google/byt5-base"
 
 
 class ByT5Splitter(BaseLLMSplitter):
@@ -160,7 +160,7 @@ class ByT5Splitter(BaseLLMSplitter):
 	) -> Compound:
 		raise NotImplementedError(f"The method is not implemented for {self.__class__.__name__}")
 
-	def predict(self, lemmas: torch.List[str]) -> torch.List[Compound]:
+	def predict(self, lemmas: List[str]) -> List[Compound]:
 
 		# eval mode
 		self.llm.eval()
