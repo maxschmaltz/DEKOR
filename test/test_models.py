@@ -204,14 +204,10 @@ class TestLemmaCorrectness(unittest.TestCase):
 		self.assertListEqual(test_lemmas, pred_lemmas)
 
 	def test_byt5(self):
-		# in contrary to all the models above, ByT5 splitter
-		# solves a seq2seq and not "masked classification" problem;
-		# that is why it is arguably possible to restrict it from
-		# hallucinations by any means and thus, we cannot be sure
-		# that predicted lemmas will resemble the inputs;
-		# so in this test, we'll just check if the model trains 
-		# and outputs `Compound`s at all
 		train_compounds, test_compounds = self.get_data()
+		test_lemmas = [
+			compound.lemma for compound in test_compounds
+		]
 		splitter = ByT5Splitter(
 			n_epochs=3,
 			batch_size=4,
@@ -221,9 +217,10 @@ class TestLemmaCorrectness(unittest.TestCase):
 			splitter=splitter,
 			test_compounds=test_compounds
 		)
-		for pred_compound in pred_compounds:
-			self.assertIsInstance(pred_compound, Compound)
-		self.assertEqual(len(test_compounds), len(pred_compounds))
+		pred_lemmas = [
+			compound.lemma for compound in pred_compounds
+		]
+		self.assertListEqual(test_lemmas, pred_lemmas)
 
 
 if __name__ == '__main__':
