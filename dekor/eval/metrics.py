@@ -66,6 +66,9 @@ class CompoundBLEU(BaseMetric):
     Returns a float in the interval 0 to 1.
     """
 
+    # NOTE: now that the implementation always generates a single link,
+	# will correlate too close to macro accuracy to be needed
+
     name = "bleu"
     # Typical linking that we want to recognize includes 3 elements:
     # left part, link, and right part. Therefore, "full" match
@@ -95,8 +98,8 @@ class CompoundBLEU(BaseMetric):
         )
     
 
-_all_metrics = {
+__all_metrics__ = {
     CompoundMacroAccuracy.name: CompoundMacroAccuracy,
     # CompoundMicroAccuracy.name: CompoundMicroAccuracy,	# now same as macro
-    CompoundBLEU.name: CompoundBLEU
+    # CompoundBLEU.name: CompoundBLEU
 }
