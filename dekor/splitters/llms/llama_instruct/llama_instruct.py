@@ -504,8 +504,8 @@ class LlamaInstructSplitter(BaseSplitter):
 			if self.messages_log is not None:
 				messages = [
 					{
-					"type": message.__class__.__name__,
-					"content": message.content
+						"type": message.__class__.__name__,
+						"content": message.content
 					}
 					for message in output["all_messages"]
 				]
