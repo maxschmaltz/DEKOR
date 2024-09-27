@@ -14,13 +14,13 @@ from tqdm import tqdm
 from typing import Optional, Iterable, Dict, List
 
 from dekor.splitters.base import DEVICE
-from dekor.splitters.llms.base import BaseLLMSplitter
+from dekor.splitters.llms.base import BaseHFSplitter
 from dekor.utils.gecodb_parser import Compound
 
 BASE_MODEL_NAME = "deepset/gbert-base"
 
 
-class GBERTSplitter(BaseLLMSplitter):
+class GBERTSplitter(BaseHFSplitter):
 
 	name = "gbert"
 	path = ".pretrained/llms/gbert/"

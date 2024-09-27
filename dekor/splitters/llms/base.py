@@ -17,7 +17,7 @@ from dekor.splitters.base import BaseSplitter
 from dekor.utils.gecodb_parser import Compound
 
 
-class BaseLLMSplitter(BaseSplitter):
+class BaseHFSplitter(BaseSplitter):
 
 	cache_path = ".cache/"
 	logs_path = ".logs/"
