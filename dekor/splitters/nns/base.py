@@ -159,8 +159,8 @@ class BaseNNSplitter(BaseSplitter):
 			*,
 			context_window: Optional[int]=3,
 			record_none_links: bool,
-			embeddings_params: Dict[str, Any],
-			nn_params: Dict[str, Any],
+			embeddings_params: dict,
+			nn_params: dict,
 			optimizer: Optional[Literal["sgd", "adamw"]]="adamw",
 			criterion: Optional[Literal["crossentropy", "bce", "margin"]]="crossentropy",
 			learning_rate: Optional[float]=0.001,
@@ -172,7 +172,7 @@ class BaseNNSplitter(BaseSplitter):
 		self.context_window = context_window
 		self.record_none_links = record_none_links
 		embeddings_name = embeddings_params.pop("name")
-		self.embeddings_cls = dekor.embeddings.__all__[embeddings_name]
+		self.embeddings_cls = dekor.embeddings.__all_embeddings__[embeddings_name]
 		self.embeddings_params = embeddings_params
 		self.nn_params = nn_params
 		self.optimizer = optimizer
@@ -429,7 +429,7 @@ class BaseNNSplitter(BaseSplitter):
 			"embeddings": _state_dict_embeddings	# None if not trainable
 		}
 
-		# plot
+		# save PNG of the plot
 		if self.plot_buffer:
 			plt.figure()
 			plt.plot(losses)
@@ -447,7 +447,7 @@ class BaseNNSplitter(BaseSplitter):
 			# for key, value in plot.text.items(): info.add_text(key, value)
 			# plot.save(path, format="png", pnginfo=info)
 			# ``` 
-			plt.savefig(self.plot_buffer, format="png", metadata={"Description": self.__repr__()})
+			plt.savefig(self.plot_buffer, format="png", metadata={"Description": self._metadata()})
 			plt.close()
 
 		return self
