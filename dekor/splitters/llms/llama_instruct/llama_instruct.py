@@ -40,12 +40,7 @@ class LlamaInstructSplitter(BaseSplitter):
 	path = "meta/llama-3.1-405b-instruct"
 	chroma_path = ".chroma"
 
-	######################################################
-	######################################################
-	######################################################
-	######################################################
-	######################################################
-	timeout = 3000	# 30s per generation
+	timeout = 30
 
 	def __init__(
 		self,
@@ -83,7 +78,7 @@ class LlamaInstructSplitter(BaseSplitter):
 			nvidia_api_key=os.getenv("NVIDIA_API_KEY"),
 			temperature=0,	# ensure reproducibility
 			max_tokens=1024,
-			seed=42
+			seed=42	# ensure reproducibility
 		)
 
 	def _build_graph(self) -> None:
@@ -547,17 +542,6 @@ class LlamaInstructSplitter(BaseSplitter):
 		# as we run it all async, we can't iterate over the list
 		# directly so we'll pass the progress bar alongside
 		progress_bar = tqdm(total=len(lemmas), desc="Predicting") if self.verbose else None
-
-		###########################################################################
-		###########################################################################
-		###########################################################################
-		###########################################################################
-		# lemmas = lemmas[:3]
-		###########################################################################
-		###########################################################################
-		###########################################################################
-
-
 		preds = asyncio.run(self.apredict(lemmas, progress_bar))
 		return preds
 
