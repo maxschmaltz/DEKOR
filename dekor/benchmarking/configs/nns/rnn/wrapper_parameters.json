@@ -1,0 +1,26 @@
+{
+    "rnn": [
+        [1000, 100, 10],
+        [true, false],
+        {
+            "n": [2, 3, 4],
+            "record_none_links": [true, false],
+
+            "embedding_dim": [8],
+            "hidden_size": [16],
+            "bidirectional": [false],
+            "num_layers": [3],
+            "activation": ["relu"],
+            "dropout_rate": [0],
+            
+            "optimizer": ["adamw"],
+            "criterion": ["crossentropy"],
+            "learning_rate": [0.001],
+            "n_epochs": [3],
+
+            "save_plot": [true],
+            "batch_size": [32768]
+        },
+        "_wrapper_parameters"
+    ]
+}
