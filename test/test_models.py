@@ -1,7 +1,7 @@
 import unittest
 from sklearn.model_selection import train_test_split
 
-from dekor.utils.gecodb_parser import parse_gecodb, Compound
+from dekor.utils.gecodb_parser import parse_gecodb
 from dekor.splitters import (
 
     NGramsSplitter,
@@ -12,7 +12,8 @@ from dekor.splitters import (
     CNNSplitter,
 	
 	GBERTSplitter,
-	ByT5Splitter
+	ByT5Splitter,
+	LlamaInstructSplitter
 
 )
 from dekor.benchmarking.benchmarking import eval_splitter
@@ -211,6 +212,29 @@ class TestLemmaCorrectness(unittest.TestCase):
 		splitter = ByT5Splitter(
 			n_epochs=3,
 			batch_size=4,
+			verbose=False
+		).fit(train_compounds=train_compounds, test=True)
+		_, pred_compounds = eval_splitter(
+			splitter=splitter,
+			test_compounds=test_compounds
+		)
+		pred_lemmas = [
+			compound.lemma for compound in pred_compounds
+		]
+		self.assertListEqual(test_lemmas, pred_lemmas)
+
+
+	def test_llama_instruct(self):
+		train_compounds, test_compounds = self.get_data()
+		test_compounds = test_compounds[:5]	# make only 5 lemmas to spare credits
+		test_lemmas = [
+			compound.lemma for compound in test_compounds
+		]
+		splitter = LlamaInstructSplitter(
+			n_shots=2,
+			suggest_candidates=False,
+			retrieve_paradigm=False,
+			max_generations=1,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
 		_, pred_compounds = eval_splitter(
