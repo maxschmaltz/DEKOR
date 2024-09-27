@@ -3,6 +3,7 @@ Base model for splitting German compounds based on the DECOW16 compound data.
 """
 
 import os
+import json
 import platform
 import re
 from abc import ABC, abstractmethod
@@ -164,6 +165,48 @@ class BaseSplitter(ABC):
 			if not test:
 				self.save()
 		return self
+	
+	def _passes_filter(
+		self, 
+		link_type: str,
+		realization: str,
+		first_noun: str
+	) -> bool:
+		
+		# using `if` so that no further checks are performed once one has failed
+		if (    # use if so that no further checks are performed once one has failed
+			# deletion type with addition realization
+			(
+				link_type == "deletion"
+				and (
+					len(realization)
+					or first_noun[-1] != "e"	# only schwas get deleted
+				)
+			) or
+			# concatenation type with addition realization
+			(
+				link_type == "concatenation"
+				and len(realization)
+			) or
+			# impossible addition; there might be or not be an e-,
+			# depends on whether we eliminate allomorphy (legacy)
+			(
+				"addition" in link_type and
+				# not re.match(f"^e?{realization}$", best_realization)
+				not realization in ["s", "es", "n", "en", "e", "er", "ns", "ens"]
+			) or
+			# umlaut link where there is no rightmost (!) umlaut before
+			(
+				"umlaut" in link_type and
+				(
+					not re.search(f"({'|'.join(UMLAUTS.values())})(?!.+({'|'.join(UMLAUTS.keys())}))", first_noun)
+					or not realization in ["", "e", "er"]
+				)
+			)
+		):
+			return False
+		
+		return True
 
 	def _predict(
 		self,
@@ -215,33 +258,10 @@ class BaseSplitter(ABC):
 			best_link = self.vocab_links.decode(best_link_id)
 			component, realization, link_type = Compound.get_link_info(best_link)
 
-			raw = lemma[:i] # left constituent
+			first_noun = lemma[:i] # left constituent
 
 			# heuristically filter out predictions that cannot be correct
-			# using `if` so that no further checks are performed once one has failed
-			if (    # use if so that no further checks are performed once one has failed
-				# deletion type with addition realization
-				(
-					link_type == "deletion"
-					and len(best_realization) > 0
-				) or
-				# concatenation type with addition realization
-				(
-					link_type == "concatenation"
-					and len(best_realization) > 0
-				) or
-				# impossible addition; there might be or not be an e-, depends on whether we eliminate allomorphy
-				(
-					"addition" in link_type and
-					not re.match(f"^e?{realization}$", best_realization)
-				) or
-				# umlaut link where there is no rightmost (!) umlaut before
-				(
-					"umlaut" in link_type and
-					not re.search(f"({'|'.join(UMLAUTS.values())})(?!.+({'|'.join(UMLAUTS.keys())}))", raw)
-					# not re.search('|'.join(UMLAUTS_REVERSED.keys()), raw)
-				)
-			):
+			if not self._passes_filter(link_type, realization, first_noun):
 				# zero this impossible link prob
 				logits[best_idx, best_link_id] = 0
 				continue
@@ -257,15 +277,16 @@ class BaseSplitter(ABC):
 			# and then `Compound` will still parse the link with elimination
 			# but will receive the correct realization we predicted.
 			if link_type == "addition_umlaut":
-				raw = Compound.reverse_umlaut(raw)
+				first_noun = Compound.reverse_umlaut(first_noun)
 			elif link_type == "deletion":
 				to_delete = Compound.get_deletion(component)
-				raw += to_delete
+				first_noun += to_delete
 			if best_realization != realization:
-				component = re.sub(realization, best_realization, component)
+				# component = re.sub(realization, best_realization, component)
+				component = Compound.return_allomorphy(component)
 
-			raw = raw + component + lemma[i + len(best_realization):]
-			pred = Compound(raw)
+			first_noun = first_noun + component + lemma[i + len(best_realization):]
+			pred = Compound(first_noun)
 			return pred
 
 	@abstractmethod
@@ -281,4 +302,4 @@ class BaseSplitter(ABC):
 		pass
 
 	def __repr__(self) -> str:
-		return str(self._metadata())
+		return f"{self.__class__.__name__}\n{json.dumps(self._metadata(), indent=4)}"
