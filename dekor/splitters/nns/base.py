@@ -13,14 +13,14 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 from tqdm import tqdm
 import warnings
-from typing import Optional, Iterable, Optional, List, Literal, Dict, Tuple, Any, Union
+from typing import Optional, Iterable, Optional, List, Literal, Tuple, Union
 
 import dekor.embeddings
 from dekor.splitters.base import BaseSplitter, DEVICE
 from dekor.utils.gecodb_parser import Compound
 from dekor.utils.vocabs import StringVocab
 from dekor.utils.datasets import XYDataset
-from dekor.eval.evaluator import CompoundEvaluator, EvaluationResult
+from dekor.eval.evaluate import EvaluationResult, evaluate
 
 
 class BaseNN(nn.Module, ABC):
@@ -45,8 +45,6 @@ class BaseNN(nn.Module, ABC):
 
 
 class BaseRecurrentNN(BaseNN):  # RNN, GRU
-
-	evaluator = CompoundEvaluator(["macro_accuracy"])
 
 	def forward(
 		self,
@@ -276,7 +274,7 @@ class BaseNNSplitter(BaseSplitter):
 			compound.lemma for compound in dev_compounds
 		]
 		preds = self.predict(dev_lemmas)
-		res = self.evaluator.evaluate(dev_compounds, preds)
+		res = evaluate(dev_compounds, preds)
 		return res
 
 	def _fit(
@@ -369,10 +367,7 @@ class BaseNNSplitter(BaseSplitter):
 		# pass weights to handle disbalance
 		class_weights = [self.vocab_links.counts[id] for id in self.vocab_links._vocab_reversed]
 		class_weights = torch.tensor(class_weights)
-		# normalize
-		class_weights = class_weights / class_weights.sum()
-		# higher weights for rarer classes
-		class_weights = 1 - class_weights
+		class_weights = 1 / class_weights	# higher weights for rarer classes
 		criterion_class = (
 			nn.CrossEntropyLoss if self.criterion == "crossentropy"
 			else nn.BCEWithLogitsLoss if self.criterion == "bce"

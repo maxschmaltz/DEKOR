@@ -10,9 +10,7 @@ from typing import Optional, List, Dict, Iterable
 import dekor.splitters
 from dekor.splitters.base import BaseSplitter
 from dekor.utils.gecodb_parser import parse_gecodb, Compound, Tuple, Union
-from dekor.eval.evaluator import CompoundEvaluator, EvaluationResult
-
-evaluator = CompoundEvaluator()
+from dekor.eval.evaluate import EvaluationResult, evaluate
 
 
 def predict_with_splitter(
@@ -44,7 +42,7 @@ def predict_with_splitter(
         compound.lemma for compound in test_compounds
     ]
     pred_compounds = splitter.predict(test_lemmas)
-    scores = evaluator.evaluate(test_compounds, pred_compounds)
+    scores = evaluate(test_compounds, pred_compounds)
     return pred_compounds, scores
 
 

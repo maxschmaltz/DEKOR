@@ -43,13 +43,13 @@ class LlamaInstructSplitter(BaseSplitter):
 	timeout = 30
 
 	def __init__(
-		self,
+		self,	# base: 1 credit
 		*,
 		use_german_prompts: Optional[bool]=True,
 		n_shots: Optional[int]=3,
-		suggest_candidates: Optional[bool]=False,
-		retrieve_paradigm: Optional[bool]=False,
-		max_generations: Optional[int]=3,
+		suggest_candidates: Optional[bool]=False,	# +2 credits
+		retrieve_paradigm: Optional[bool]=False,	# +1 credits
+		max_generations: Optional[int]=3,	# +2 credits per one regeneration (happens very rarely)
 		log_messages: Optional[bool]=False,
 		save_graph: Optional[bool]=False,
 		verbose: Optional[bool]=True
