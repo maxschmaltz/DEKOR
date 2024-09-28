@@ -189,7 +189,7 @@ class Compound:
         # if link == "_+es_": link = "_+s_" # -es vs -s
         # elif link == "_+en_": link = "_+n_" # -en vs -n
         # elif link == "_+ens_": link = "_+ns_" # -ens vs -ns
-        link = re.sub("_\+e", "_+", link)    # just remove the -e-
+        link = re.sub("_\+e(?=(n|s|ns))", "_+", link)    # just remove the -e-
         return link
     
     @staticmethod
@@ -212,7 +212,7 @@ class Compound:
         # if link == "_+s_": link = "_+es_" # -es vs -s
         # elif link == "_+n_": link = "_+en_" # -en vs -n
         # elif link == "_+ns_": link = "_+ens_" # -ens vs -ns
-        link = re.sub("_\+(?!e)", "_+e", link)    # just return the -e-
+        link = re.sub("_\+(?=(n|s|ns))", "_+e", link)    # just return the -e-
         return link
     
     @staticmethod
