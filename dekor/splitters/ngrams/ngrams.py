@@ -189,6 +189,7 @@ class NGramsSplitter(BaseSplitter):
 	def save(self) -> None:
 		state_dict = {
 			"freqs_links": self.freqs_links,
+			"vocab_positions": self.vocab_positions,
 			"vocab_links": self.vocab_links
 		}
 		with open(self.path, "wb") as f:
@@ -198,4 +199,5 @@ class NGramsSplitter(BaseSplitter):
 		with open(self.path, "rb") as f:
 			state_dict = pickle.load(f)
 		self.freqs_links = state_dict["freqs_links"]
+		self.vocab_positions = state_dict["vocab_positions"]
 		self.vocab_links = state_dict["vocab_links"]
