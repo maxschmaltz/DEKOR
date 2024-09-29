@@ -1,5 +1,6 @@
 # this file was made with `pip freeze > requirements.txt`;
-# after unstalling these deps, make sure to install torch with EITHER
+# after unstalling these deps, make sure to uninstall torch
+# and the reinstall it for CUDA support with EITHER
 # pip install --pre torch --index-url https://download.pytorch.org/whl/nightly/cpu for MacOS OR
 # pip install --pre torch --index-url https://download.pytorch.org/whl/nightly/cu124 for Windows
 aiohappyeyeballs==2.4.2
@@ -92,7 +93,7 @@ tabulate==0.9.0
 tenacity==8.5.0
 threadpoolctl==3.5.0
 tokenizers==0.19.1
-torch==2.4.1
+# torch==2.4.1
 tqdm==4.66.4
 transformers==4.44.2
 typing-inspect==0.9.0
