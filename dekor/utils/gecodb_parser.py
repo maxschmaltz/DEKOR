@@ -406,12 +406,9 @@ class Compound:
 
     def __repr__(self) -> str:
         return f"{self.lemma} <-- {self.raw}"
-    
 
-def parse_gecodb(
-    gecodb_path: str,
-    min_count: Optional[int]=25
-) -> pd.DataFrame:
+
+def parse_gecodb(gecodb_path: str) -> pd.DataFrame:
 
     """
     Parse the DECOW16-format compounds dataset.
@@ -421,24 +418,20 @@ def parse_gecodb(
     gecodb_path : `str`
         path to the TSV DECOW16-format compounds dataset
 
-    min_count : `int`, optional, defaults to 25
-        minimal count of compounds to keep; all compounds occurring less will be dropped
-
     Returns
     -------
     `pandas.DataFrame`
         dataframe with three columns:
-        * "raw": `str`: DECOW16-format compound entry
-        * "count": `int`: number of occurrences
-        * "compound": `Compound`: processed compounds
+        * "raws": `str`: DECOW16-format compound entry
+        * "counts": `int`: number of occurrences
+        * "compounds": `Compound`: processed compounds
     """
 
     gecodb = pd.read_csv(
         gecodb_path,
         sep='\t',
-        names=["raw", "count"],
+        names=["raw", "count", "fc_count"],
         encoding="utf-8"
     )
-    if min_count: gecodb = gecodb[gecodb["count"] >= min_count]
     gecodb["compound"] = gecodb["raw"].apply(Compound)
     return gecodb
