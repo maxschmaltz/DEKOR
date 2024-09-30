@@ -10,7 +10,7 @@
 build/
 **.egg-info/
 
-resources/
+resources/**.tsv
 
 .pretrained/
 .cache/
