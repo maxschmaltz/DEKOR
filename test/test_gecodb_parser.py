@@ -3,7 +3,7 @@ import unittest
 from dekor.utils.gecodb_parser import Compound, Stem, Link
 
 
-class TestGecoDBParser(unittest.TestCase):
+class TestGeCoDBParser(unittest.TestCase):
 
     def test_addition_umlaut_0(self):
         # parse compound

@@ -35,13 +35,13 @@ def main() -> None:
             class_name_2: ...,
             ...
         }
-        where min_count_x is the minimum count for parsing GecoDB,
+        where min_count_x is the minimum count for parsing GeCoDB,
         param_x is a list of values for param_x; all param values for all params
         will be combined, so all the configurations will be tested. Note
         that both variant with eliminating allomorphy and not will be run
 
     gecodb_path : `str`
-        path to GecoDB compound dataset
+        path to GeCoDB compound dataset
 
     out_dir : `str`
         path to directory to put the results to
@@ -94,13 +94,13 @@ def main() -> None:
             class_name_2: ...,
             ...
         }
-        where min_count_x is the minimum count for parsing GecoDB,
+        where min_count_x is the minimum count for parsing GeCoDB,
         param_x is a list of values for param_x; all param values for all params
         will be combined, so all the configurations will be tested. Note
         that both variant with eliminating allomorphy and not will be run
         """
     )
-    parser.add_argument("gecodb_path", help="path to GecoDB compound dataset")
+    parser.add_argument("gecodb_path", help="path to GeCoDB compound dataset")
     parser.add_argument("out_dir", help="path to directory to put the results to")
     parser.add_argument("--suffix", "-s", default="", help="suffix to append to all output files before the class suffices")
     parser.add_argument("--train_size", "-ts", type=float, default=0.8, help="train size")
