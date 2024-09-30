@@ -185,8 +185,6 @@ class BaseNNSplitter(BaseSplitter):
 			self.vocab_chars = StringVocab()
 			self.vocab_chars.add('')    # manually add empty char
 		self.path = re.sub("\.pt$", f"_{embeddings_name}.pt", self.path)	# so embeddings are compatible
-		if self.record_none_links:
-			self.path = re.sub("\.pt$", "_nl.pt", self.path)
 
 	def _metadata(self) -> dict:
 		return {

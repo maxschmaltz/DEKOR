@@ -46,8 +46,6 @@ class NGramsSplitter(BaseSplitter):
 		self.record_none_links = record_none_links
 		self.verbose = verbose
 		self.vocab_positions = StringVocab()
-		if self.record_none_links:
-			self.path = re.sub("\.pkl$", "_nl.pkl", self.path)
 
 	def _metadata(self) -> dict:
 		return {

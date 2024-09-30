@@ -43,8 +43,6 @@ class GBERTSplitter(BaseHFSplitter):
 		)
 		self.context_window = context_window
 		self.record_none_links = record_none_links
-		if self.record_none_links:
-			self.path = re.sub(r"\/$", "_nl/", self.path)
 
 	def _metadata(self) -> dict:
 		return {
