@@ -10,7 +10,7 @@
 build/
 **.egg-info/
 
-resources/**.tsv
+resources/gecodb_v**.tsv
 
 .pretrained/
 .cache/
