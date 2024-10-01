@@ -1,2 +1,2 @@
-0.11% of compounds have a minimum (for GeCoDB_v05) count of 5 in DECOW16A
-0.17% of first constituents have a minimum (for GeCoDB_v05) count of 1 in GeCoDB_v05
+0.11% of compounds have a minimum (GeCoDB_v05) count of 5 in DECOW16A
+0.17% of first constituents have a minimum (GeCoDB_v05) count of 1 in GeCoDB_v05
