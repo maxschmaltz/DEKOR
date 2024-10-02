@@ -5,7 +5,8 @@ Module implementing compound splitter evaluator.
 from sklearn.metrics import confusion_matrix
 import numpy as np
 import pandas as pd
-from typing import List, Tuple
+import warnings
+from typing import Iterable, Tuple, Union
 
 from dekor.utils.gecodb_parser import Compound
 
@@ -48,24 +49,26 @@ class EvaluationResult:
 
 	def __init__(
 		self,
-		golds: List[Compound],
-		preds: List[Compound],
-		target_links: List[str],
-		pred_links: List[str],
-		target_types: List[str],
-		pred_types: List[str]
+		golds: Iterable[Compound],
+		preds: Iterable[Compound],
+		comp_types: Union[Iterable[str], str],
+		target_links: Iterable[str],
+		pred_links: Iterable[str],
+		target_types: Iterable[str],
+		pred_types: Iterable[str]
 	) -> None:
 		
 		df = pd.DataFrame(
 			index=[gold.raw for gold in golds],
 			data={
 				# "golds": [gold.raw for gold in golds],
-				"preds": [pred.raw for pred in preds],
+				"pred": [pred.raw for pred in preds],
+				"comp_type": comp_types,
 				"is_correct": np.equal(golds, preds),
-				"target_links": target_links,
-				"pred_links": pred_links,
-				"target_types": target_types,
-				"pred_types": pred_types
+				"target_link": target_links,
+				"pred_link": pred_links,
+				"target_type": target_types,
+				"pred_type": pred_types
 			}
 		)
 
@@ -81,9 +84,9 @@ class EvaluationResult:
 		all_links.remove("none")
 		placement_data = {}
 		for link in all_links:
-			target_link_subdf = df[df["target_links"] == link]
+			target_link_subdf = df[df["target_link"] == link]
 			correct_pred_subdf = target_link_subdf[
-				target_link_subdf["target_links"] == target_link_subdf["pred_links"]
+				target_link_subdf["target_link"] == target_link_subdf["pred_link"]
 			]
 			correct_placement_subdf = correct_pred_subdf[correct_pred_subdf["is_correct"]]
 			if not len(correct_pred_subdf):
@@ -102,7 +105,7 @@ class EvaluationResult:
 		self.type_metrics = type_metrics
 		self.placement = placement
 
-	def _get_metrics(self, golds: List[str], preds: List[str]) -> Tuple[pd.DataFrame]:
+	def _get_metrics(self, golds: Iterable[str], preds: Iterable[str]) -> Tuple[pd.DataFrame]:
 
 		n = len(golds)
 		
@@ -120,16 +123,19 @@ class EvaluationResult:
 		# accuracy, precision, recall, f1 link-wise
 		classification_report_data = {}
 		for i, link in enumerate(all_labels):
-			classification_report_data[link] = {
-				# number of links with correctly assigned class i
-				# over all links with assigned class i
-				"precision": (precision := confmat_data[i, i] / confmat_data[:, i].sum()),
-				# number of links with correctly assigned class i
-				# over all links that are in class i
-				"recall": (recall := confmat_data[i, i] / confmat_data[i, :].sum()),
-				# harmonic mean of precision and recall
-				"f1": 2 * ((precision * recall) / (precision + recall))
-			}
+			with warnings.catch_warnings():
+				# temporarily turn off division by zero warnings
+				warnings.simplefilter("ignore", RuntimeWarning)
+				classification_report_data[link] = {
+					# number of links with correctly assigned class i
+					# over all links with assigned class i
+					"precision": (precision := confmat_data[i, i] / confmat_data[:, i].sum()),
+					# number of links with correctly assigned class i
+					# over all links that are in class i
+					"recall": (recall := confmat_data[i, i] / confmat_data[i, :].sum()),
+					# harmonic mean of precision and recall
+					"f1": 2 * ((precision * recall) / (precision + recall))
+				}
 		classification_report = pd.DataFrame(classification_report_data)
 		classification_report = classification_report.fillna(0)	# remove NaNs
 		# now add average metrics; we'll use weighted f1s and so on, where
@@ -148,19 +154,26 @@ class EvaluationResult:
 		metrics["accuracy"] = links_accuracy
 
 		return confmat, classification_report, metrics
+	
+	def __repr__(self) -> str:
+		return str(self.link_metrics)
 
 
-def evaluate(golds: List[Compound], preds: List[Compound]) -> EvaluationResult:
+def evaluate(
+	golds: Iterable[Compound],
+	preds: Iterable[Compound],
+	comp_types: Union[Iterable[str], str]
+) -> EvaluationResult:
 
 	"""
 	Evaluate splitter predictions against gold compounds.
 
 	Parameters
 	----------
-	golds : `List[Compound]`
+	golds : `Iterable[Compound]`
 		gold compounds
 	
-	preds : `List[Compound]`
+	preds : `Iterable[Compound]`
 		predictions
 
 	Returns
@@ -196,6 +209,7 @@ def evaluate(golds: List[Compound], preds: List[Compound]) -> EvaluationResult:
 	res = EvaluationResult(
 		golds,
 		preds,
+		comp_types,
 		target_link_components,
 		pred_link_components,
 		target_link_types,

@@ -101,10 +101,7 @@ class BaseHFSplitter(BaseSplitter):
 		)
 
 		trainer.train()
-
-		trainer.save_model(self.path)
-		# now load the resulting model
-		self._build_llm(self.path)
+		self.trainer = trainer
 
 		# remove checkpoints to save space; we are not training in several passes and will not
 		# continue finetuning from checkpoint; the best model is saved anyways
@@ -116,12 +113,6 @@ class BaseHFSplitter(BaseSplitter):
 						os.remove(os.path.join(full_dirname, filename))
 					os.rmdir(full_dirname)
 
-		# remove model if it was test
-		if self._test:
-			for filename in os.listdir(self.path):
-				os.remove(os.path.join(self.path, filename))
-			os.rmdir(self.path)
-
 	def fit(
 		self,
 		*,
@@ -132,10 +123,12 @@ class BaseHFSplitter(BaseSplitter):
 		# we want to have different models depending on their parameters so we
 		# replace the path here
 		path = re.sub(r"\/$", "", self.path)
-		path += '_' + '-'.join([
-			f"{''.join(param.split('_'))}-{value}" for
-			param, value in self._metadata.items()
-		])
+		path += '_' + '_'.join([
+			f"{''.join([p[0] for p in param.split('_')])}-{value}"
+			for param, value in self._metadata.items()
+		]).lower()
+		path += f"_{0 if train_compounds is None else len(train_compounds)}"
+		path += f"_{0 if dev_compounds is None else len(dev_compounds)}"
 		self.path = path + "/"
 		# with transformers we need to save models necessarily to load them afterwards
 		# so we will keep track on whether it's test or not in order to
@@ -147,15 +140,23 @@ class BaseHFSplitter(BaseSplitter):
 			train_compounds=train_compounds,
 			dev_compounds=dev_compounds,
 			test=test
-		)
-		del self._test
+		)	# will call `save()`
+		# del self._test
 		return self
 	
 	def save(self) -> None:
-		# model was saved by trainer
-		self.tokenizer.save_pretrained(self.path)
-		with open(os.path.join(self.path, "vocab_links.pkl"), "wb") as f:
-			pickle.dump(self.vocab_links, f)
+		self.trainer.save_model(self.path)
+		# now load the resulting model
+		self._build_llm(self.path)
+		if not self._test:
+			self.tokenizer.save_pretrained(self.path)
+			with open(os.path.join(self.path, "vocab_links.pkl"), "wb") as f:
+				pickle.dump(self.vocab_links, f)
+		else:
+			# remove tmp after loading the model
+			for filename in os.listdir(self.path):
+				os.remove(os.path.join(self.path, filename))
+			os.rmdir(self.path)
 
 	def load(self) -> None:
 		with open(os.path.join(self.path, "vocab_links.pkl"), "rb") as f:

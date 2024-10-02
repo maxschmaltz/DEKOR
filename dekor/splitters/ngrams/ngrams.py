@@ -121,7 +121,7 @@ class NGramsSplitter(BaseSplitter):
 		counts = np.append(counts, 1)
 
 		n_pos, n_links = len(self.vocab_positions), len(self.vocab_links)
-		counts_links = np.zeros((n_pos, n_links), dtype=np.float32)  #f or further division
+		counts_links = np.zeros((n_pos, n_links), dtype=np.float32)
 		counts_links[positions_ids, link_ids] = counts
 
 		# counts to frequencies; since all positions point at least to <unk>,
@@ -131,7 +131,7 @@ class NGramsSplitter(BaseSplitter):
 		)
 		# rewrite <unk> link from <unk> context close to 0 so that
 		# if there is an actual data available, it is preferred
-		counts_links[self.vocab_positions.unk_id, self.vocab_links.unk_id] = 1e-10
+		counts_links[self.vocab_positions.unk_id, self.vocab_links.unk_id] = 1e-7
 		self.freqs_links = counts_links
 	
 	def predict(self, lemmas: Iterable[str]) -> List[Compound]:

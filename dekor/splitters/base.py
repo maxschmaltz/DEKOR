@@ -159,17 +159,20 @@ class BaseSplitter(ABC):
 		# we want to have different models depending on their parameters so we
 		# replace the path here
 		path, extension = os.path.splitext(self.path)
-		path += '_' + '-'.join([
-			f"{''.join(param.split('_'))}-{value}" for
-			param, value in self._metadata.items()
-		])
+		path += '_' + '_'.join([
+			f"{''.join([p[0] for p in param.split('_')])}-{value}"
+			for param, value in self._metadata.items()
+		]).lower()
+		path += f"_{0 if train_compounds is None else len(train_compounds)}"
+		path += f"_{0 if dev_compounds is None else len(dev_compounds)}"
 		self.path = path + extension
 		if os.path.exists(self.path) and not test:
 			warnings.warn(f"A pretrained model found. Loading from {self.path}.")
 			self.load()
 		else:
 			assert train_compounds is not None
-			warnings.warn(f"No pretrained model found. Training from scratch and saving to {self.path}.")
+			if not test:
+				warnings.warn(f"No pretrained model found. Training from scratch and saving to {self.path}.")
 			self._fit(train_compounds, dev_compounds, **kwargs)
 			if not test:
 				self.save()
