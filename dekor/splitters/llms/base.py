@@ -129,6 +129,14 @@ class BaseHFSplitter(BaseSplitter):
 		dev_compounds: Optional[Iterable[Compound]]=None,
 		test: Optional[bool]=False
 	):
+		# we want to have different models depending on their parameters so we
+		# replace the path here
+		path = re.sub(r"\/$", "", self.path)
+		path += '_' + '-'.join([
+			f"{''.join(param.split('_'))}-{value}" for
+			param, value in self._metadata.items()
+		])
+		self.path = path + "/"
 		# with transformers we need to save models necessarily to load them afterwards
 		# so we will keep track on whether it's test or not in order to
 		# write the model in a temp directory and then remove if it is

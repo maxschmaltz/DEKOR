@@ -186,6 +186,7 @@ class BaseNNSplitter(BaseSplitter):
 			self.vocab_chars.add('')    # manually add empty char
 		self.path = re.sub("\.pt$", f"_{embeddings_name}.pt", self.path)	# so embeddings are compatible
 
+	@property
 	def _metadata(self) -> dict:
 		return {
 			"context_window": self.context_window,
@@ -440,7 +441,7 @@ class BaseNNSplitter(BaseSplitter):
 			# for key, value in plot.text.items(): info.add_text(key, value)
 			# plot.save(path, format="png", pnginfo=info)
 			# ``` 
-			plt.savefig(self.plot_buffer, format="png", metadata={"Description": self._metadata()})
+			plt.savefig(self.plot_buffer, format="png", metadata={"Description": self._metadata})
 			plt.close()
 
 		return self
