@@ -22,6 +22,7 @@ class ByT5Splitter(BaseHFSplitter):
 	name = "byt5"
 	path = ".pretrained/llms/byt5/"
 
+	@property
 	def _metadata(self) -> dict:
 		return {
 			"learning_rate": self.learning_rate,

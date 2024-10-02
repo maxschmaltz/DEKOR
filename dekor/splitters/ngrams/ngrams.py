@@ -47,6 +47,7 @@ class NGramsSplitter(BaseSplitter):
 		self.verbose = verbose
 		self.vocab_positions = StringVocab()
 
+	@property
 	def _metadata(self) -> dict:
 		return {
 			"n": self.n,

@@ -41,6 +41,7 @@ class BaseSplitter(ABC):
 		type=UNK
 	)
 
+	@property
 	def _metadata(self) -> dict:
 		# for parameter tracking
 		return {
@@ -155,6 +156,14 @@ class BaseSplitter(ABC):
 		test: Optional[bool]=False,
 		**kwargs
 	) -> Self:
+		# we want to have different models depending on their parameters so we
+		# replace the path here
+		path, extension = os.path.splitext(self.path)
+		path += '_' + '-'.join([
+			f"{''.join(param.split('_'))}-{value}" for
+			param, value in self._metadata.items()
+		])
+		self.path = path + extension
 		if os.path.exists(self.path) and not test:
 			warnings.warn(f"A pretrained model found. Loading from {self.path}.")
 			self.load()
@@ -302,4 +311,4 @@ class BaseSplitter(ABC):
 		pass
 
 	def __repr__(self) -> str:
-		return f"{self.__class__.__name__}\n{json.dumps(self._metadata(), indent=4)}"
+		return f"{self.__class__.__name__}\n{json.dumps(self._metadata, indent=4)}"

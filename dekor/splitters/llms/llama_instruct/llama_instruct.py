@@ -64,6 +64,7 @@ class LlamaInstructSplitter(BaseSplitter):
 		self.plot_buffer = BytesIO() if save_graph else None	# unify names with NN
 		self.verbose = verbose
 
+	@property
 	def _metadata(self) -> dict:
 		return {
 			"n_shots": self.n_shots,

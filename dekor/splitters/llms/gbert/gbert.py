@@ -44,6 +44,7 @@ class GBERTSplitter(BaseHFSplitter):
 		self.context_window = context_window
 		self.record_none_links = record_none_links
 
+	@property
 	def _metadata(self) -> dict:
 		return {
 			"context_window": self.context_window,
