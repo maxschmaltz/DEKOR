@@ -48,7 +48,7 @@ class GBERTSplitter(BaseHFSplitter):
 	def _metadata(self) -> dict:
 		return {
 			"context_window": self.context_window,
-			**super()._metadata(),
+			**super()._metadata,
 			"learning_rate": self.learning_rate,
 			"n_epochs": self.n_epochs
 		}

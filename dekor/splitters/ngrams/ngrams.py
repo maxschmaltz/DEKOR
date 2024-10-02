@@ -51,7 +51,7 @@ class NGramsSplitter(BaseSplitter):
 	def _metadata(self) -> dict:
 		return {
 			"n": self.n,
-			**super()._metadata()
+			**super()._metadata
 		}
 
 	def _fit(

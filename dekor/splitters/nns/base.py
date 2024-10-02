@@ -190,7 +190,7 @@ class BaseNNSplitter(BaseSplitter):
 	def _metadata(self) -> dict:
 		return {
 			"context_window": self.context_window,
-			**super()._metadata(),
+			**super()._metadata,
 			"embeddings_params": {
 				"name": self.embeddings_cls.name,
 				**self.embeddings_params
