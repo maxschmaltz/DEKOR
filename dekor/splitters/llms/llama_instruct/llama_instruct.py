@@ -325,9 +325,12 @@ class LlamaInstructSplitter(BaseSplitter):
 			# from PIL import Image
 			# from PIL.PngImagePlugin import PngInfo
 
-			# self.plot_buffer.seek(0)
-			# graph = Image.open(self.plot_buffer)
-			# graph.save(path, format="png")
+			# splitter.plot_buffer.seek(0)
+			# graph = Image.open(splitter.plot_buffer)
+			# info = PngInfo()
+			# for key, value in splitter._metadata.items():
+			# 	info.add_text(key, str(value))
+			# graph.save(path, format="png", pnginfo=info))
 			# ``` 
 			self.plot_buffer.write(self._splitter.get_graph().draw_mermaid_png())
 
