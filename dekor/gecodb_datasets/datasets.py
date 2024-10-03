@@ -30,9 +30,9 @@ COMPOUND_TYPE_DISTRIBUTION = {
 }
 
 DEFAULT_SIZES = {
-	"train": [5000, 10000, 50000],
+	"train": [500, 5000, 10000, 50000],
 	"dev": [1000],
-	"test": [500]
+	"test": [100, 500]
 }
 
 
@@ -41,6 +41,8 @@ def make_datasets(
 	out_dir: str,
 	sizes: Optional[Dict[str, List[float]]]=None
 ) -> None:
+	
+	os.makedirs(out_dir, exist_ok=True)
 	
 	gecodb = parse_gecodb(gecodb_path)	# takes some time
 	gecodb["used"] = False	# track used items
