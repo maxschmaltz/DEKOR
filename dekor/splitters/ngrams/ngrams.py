@@ -2,7 +2,7 @@
 Ngram model for splitting German compounds based on the DECOW16 compound data.
 """
 
-import re
+import os
 import numpy as np
 from tqdm import tqdm
 import pickle
@@ -186,6 +186,8 @@ class NGramsSplitter(BaseSplitter):
 		return preds
 	
 	def save(self) -> None:
+		out_dir = os.path.dirname(self.path)
+		os.makedirs(out_dir, exist_ok=True) 
 		state_dict = {
 			"freqs_links": self.freqs_links,
 			"vocab_positions": self.vocab_positions,
