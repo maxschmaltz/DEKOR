@@ -81,7 +81,8 @@ class EvaluationResult:
 		)
 		# placement
 		all_links = np.unique(target_links + pred_links).tolist()
-		all_links.remove("none")
+		if "none" in all_links:
+			all_links.remove("none")
 		placement_data = {}
 		for link in all_links:
 			target_link_subdf = df[df["target_link"] == link]
@@ -118,8 +119,9 @@ class EvaluationResult:
 			columns=all_labels
 		)
 		# there were no "none" in golds so we'l remove it for further classification report
-		all_labels.remove("none")
-		confmat = confmat.drop("none", axis=0)
+		if "none" in all_labels:
+			all_labels.remove("none")
+			confmat = confmat.drop("none", axis=0)
 		# accuracy, precision, recall, f1 link-wise
 		classification_report_data = {}
 		for i, link in enumerate(all_labels):
