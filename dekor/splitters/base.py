@@ -159,10 +159,11 @@ class BaseSplitter(ABC):
 		# we want to have different models depending on their parameters so we
 		# replace the path here
 		path, extension = os.path.splitext(self.path)
-		path += '_' + '_'.join([
-			f"{''.join([p[0] for p in param.split('_')])}-{value}"
-			for param, value in self._metadata.items()
-		]).lower()
+		s = lambda md: md if not isinstance(md, dict) else '_'.join([
+			f"{''.join([p[:3].capitalize() for p in param.split('_')])}-{s(value)}"
+			for param, value in md.items()
+		])
+		path += '_' + s(self._metadata)
 		path += f"_{0 if train_compounds is None else len(train_compounds)}"
 		path += f"_{0 if dev_compounds is None else len(dev_compounds)}"
 		self.path = path + extension
