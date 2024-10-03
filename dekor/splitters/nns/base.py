@@ -2,8 +2,8 @@
 Base NN-based model for splitting German compounds based on the DECOW16 compound data.
 """
 
+import os
 from abc import ABC, abstractmethod
-import re
 from collections import OrderedDict
 import numpy as np
 import torch
@@ -163,20 +163,22 @@ class BaseNNSplitter(BaseSplitter):
 			criterion: Optional[Literal["crossentropy", "bce", "margin"]]="crossentropy",
 			learning_rate: Optional[float]=0.001,
 			n_epochs: Optional[int]=3,
-			batch_size: Optional[int]=4096,
+			target_metric: Optional[str]="f1",
+			batch_size: Optional[int]=128,
 			save_plot: Optional[bool]=False,
 			verbose: Optional[bool]=True
 		) -> None:
 		self.context_window = context_window
 		self.record_none_links = record_none_links
-		embeddings_name = embeddings_params.pop("name")
+		self.embeddings_params = embeddings_params.copy()
+		embeddings_name = self.embeddings_params.pop("name")
 		self.embeddings_cls = dekor.embeddings.__all_embeddings__[embeddings_name]
-		self.embeddings_params = embeddings_params
-		self.nn_params = nn_params
+		self.nn_params = nn_params.copy()
 		self.optimizer = optimizer
 		self.criterion = criterion
 		self.learning_rate = learning_rate
 		self.n_epochs = n_epochs
+		self.target_metric = target_metric
 		self.batch_size = batch_size
 		self.plot_buffer = BytesIO() if save_plot else None
 		self.verbose = verbose
@@ -184,7 +186,7 @@ class BaseNNSplitter(BaseSplitter):
 		if self.embeddings_cls.requires_vocab:
 			self.vocab_chars = StringVocab()
 			self.vocab_chars.add('')    # manually add empty char
-		self.path = re.sub("\.pt$", f"_{embeddings_name}.pt", self.path)	# so embeddings are compatible
+		# self.path = re.sub(r"\.pt$", f"_{embeddings_name}.pt", self.path)	# so embeddings are compatible
 
 	@property
 	def _metadata(self) -> dict:
@@ -196,8 +198,8 @@ class BaseNNSplitter(BaseSplitter):
 				**self.embeddings_params
 			},
 			"nn_params": self.nn_params,
-			"optimizer": self.optimizer,    #.__class__.__name__,
-			"criterion": self.criterion,    #.__class__.__name__,
+			"optimizer": self.optimizer.__class__.__name__,
+			"criterion": self.criterion.__class__.__name__,
 			"learning_rate": self.learning_rate,
 			"n_epochs": self.n_epochs
 		}
@@ -236,6 +238,7 @@ class BaseNNSplitter(BaseSplitter):
 			self.embeddings_params["vocab"] = self.vocab_chars
 		# "name" is already removed at this point
 		self.embeddings = self.embeddings_cls(**self.embeddings_params)
+		self.embeddings_params.pop("vocab", None)
 	
 	@abstractmethod
 	def _build_nn(self) -> None:
@@ -273,8 +276,8 @@ class BaseNNSplitter(BaseSplitter):
 			compound.lemma for compound in dev_compounds
 		]
 		preds = self.predict(dev_lemmas)
-		res = evaluate(dev_compounds, preds)
-		return res
+		eval_res = evaluate(dev_compounds, preds, "any")	
+		return eval_res
 
 	def _fit(
 		self,
@@ -328,7 +331,7 @@ class BaseNNSplitter(BaseSplitter):
 			train_triplets += triplets
 			train_link_ids += link_ids
 			
-		if dev_compounds:
+		if dev_compounds is not None:
 
 			dev_triplets = []
 			dev_link_ids = []
@@ -356,24 +359,30 @@ class BaseNNSplitter(BaseSplitter):
 		self.nn.train()
 
 		# init optimizer, criterion
-		trainable_parameters = list(self.nn.parameters())
+		trainable_parameters = [{"params": self.nn.parameters()}]
 		# if embeddings are trainable, we need to update their parameters as well
 		if self.embeddings_cls.trainable:
-			trainable_parameters += list(self.embeddings.parameters())
+			trainable_parameters += [{
+				"params": self.embeddings.parameters(),
+				# prevent compressing embedding parameters towards zero
+				# to make the representations more distinctive
+				"weight_decay": 0
+			}]
 		optimizer_class = torch.optim.SGD if self.optimizer == "sgd" else torch.optim.AdamW
 		self.optimizer = optimizer_class(trainable_parameters, lr=self.learning_rate)
 
 		# pass weights to handle disbalance
-		class_weights = [self.vocab_links.counts[id] for id in self.vocab_links._vocab_reversed]
-		class_weights = torch.tensor(class_weights)
-		class_weights = 1 / class_weights	# higher weights for rarer classes
+		# class_weights = [self.vocab_links.counts[id] for id in self.vocab_links._vocab_reversed]
+		# class_weights = torch.tensor(class_weights, device=DEVICE)
+		# class_weights = 1 - class_weights	# higher weights for rarer classes
 		criterion_class = (
 			nn.CrossEntropyLoss if self.criterion == "crossentropy"
 			else nn.BCEWithLogitsLoss if self.criterion == "bce"
 			else nn.MultiLabelSoftMarginLoss
 		)
 		# ignore index not supported with Y being a distribution
-		self.criterion = criterion_class(weight=class_weights)
+		# self.criterion = criterion_class(weight=class_weights)
+		self.criterion = criterion_class()
 
 		train_dataloader = DataLoader(
 			# will output batches of x's and y's;
@@ -386,10 +395,9 @@ class BaseNNSplitter(BaseSplitter):
 
 		# for plotting
 		losses = []
-		accumulative_loss = 0
 
 		# save the best model
-		best_accuracy = -1
+		best_metric = -1
 		_state_dict_nn = None
 		_state_dict_embeddings = None
 
@@ -401,23 +409,23 @@ class BaseNNSplitter(BaseSplitter):
 				# accumulative_loss = accumulative_loss + (loss := self._fit_example(x, y))
 				if self.verbose: progress_bar.update()
 				loss = self._train_on_batch(x, y)
-				accumulative_loss += loss / self.batch_size
-				if j % (n_steps / 100) == 0:
-					losses.append(accumulative_loss / (n_steps / 100))
-					accumulative_loss = 0
+				losses.append(loss)
 			# evaluate at the end of every epoch
-			if dev_compounds:
-				eval_result = self._validate(dev_compounds)
-				accuracy = eval_result.macro_accuracy
-				if accuracy >= best_accuracy:
+			if dev_compounds is not None:
+				eval_res = self._validate(dev_compounds)
+				metric = eval_res.link_metrics[self.target_metric]
+				if metric >= best_metric:
 					_state_dict_nn = self.nn.state_dict()
 					if self.embeddings_cls.trainable:
 						_state_dict_embeddings = self.embeddings.state_dict()
-					best_accuracy = accuracy
+					best_metric = metric
+
+		if dev_compounds is not None:
+			self.nn.load_state_dict(_state_dict_nn)
 
 		self._state_dict = {
-			"nn_params": self.nn_params,	# to make sure architectures will be compatible
-			"embeddings_params": self.embeddings_params,
+			# "nn_params": self.nn_params,	# to make sure architectures will be compatible
+			# "embeddings_params": self.embeddings_params,
 			"vocab_links": self.vocab_links,
 			"nn": _state_dict_nn,
 			"embeddings": _state_dict_embeddings	# None if not trainable
@@ -427,21 +435,22 @@ class BaseNNSplitter(BaseSplitter):
 		if self.plot_buffer:
 			plt.figure()
 			plt.plot(losses)
-			plt.xlabel(f"Iterations with step {n_steps // 100}")
-			plt.ylabel(f"{self.criterion.__class__.__name__}")
+			plt.xlabel(f"Step")
+			plt.ylabel(f"{self.criterion.__class__.__name__} on {self.batch_size}-sized batch")
 			# the plot is saved to the plot buffer and not to a file;
 			# if you need the plot, you can easily get it from the buffer, e.g.
 			# ```python
 			# from PIL import Image
 			# from PIL.PngImagePlugin import PngInfo
 
-			# self.plot_buffer.seek(0)
-			# plot = Image.open(self.plot_buffer)
+			# splitter.plot_buffer.seek(0)
+			# plot = Image.open(splitter.plot_buffer)
 			# info = PngInfo()
-			# for key, value in plot.text.items(): info.add_text(key, value)
+			# for key, value in splitter._metadata.items():
+			# 	info.add_text(key, str(value))
 			# plot.save(path, format="png", pnginfo=info)
 			# ``` 
-			plt.savefig(self.plot_buffer, format="png", metadata={"Description": self._metadata})
+			plt.savefig(self.plot_buffer, format="png")
 			plt.close()
 
 		return self
@@ -580,16 +589,18 @@ class BaseNNSplitter(BaseSplitter):
 		return preds
 	
 	def save(self) -> None:
+		out_dir = os.path.dirname(self.path)
+		os.makedirs(out_dir, exist_ok=True) 
 		torch.save(self._state_dict, self.path)
 
 	def load(self) -> None:
-		warnings.warn(
-			"To ensure architecture compatibility, `nn_params` and `embeddings_params` from "
-			"pretrained are used. Yours will be ignored."
-		)
+		# warnings.warn(
+		# 	"To ensure architecture compatibility, `nn_params` and `embeddings_params` from "
+		# 	"pretrained are used. Yours will be ignored."
+		# )
 		state_dict = torch.load(self.path, weights_only=False)
-		self.nn_params = state_dict["nn_params"]
-		self.embeddings_params = state_dict["embeddings_params"]
+		# self.nn_params = state_dict["nn_params"]
+		# self.embeddings_params = state_dict["embeddings_params"]
 		# vocab
 		self.vocab_links = state_dict["vocab_links"]
 		# embeddings
@@ -598,7 +609,7 @@ class BaseNNSplitter(BaseSplitter):
 			self.embeddings.underlying_embeddings.load_state_dict(state_dict["embeddings"])
 		# NN
 		self._build_nn()
-		self.nn.load_state_dict()
+		self.nn.load_state_dict(state_dict["nn"])
 		# eval mode is set in `predict()`
 
 
