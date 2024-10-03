@@ -1,0 +1,44 @@
+[
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 2,
+            "record_none_links": true
+        },
+        "train_size": 47289,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.6726493611312613,
+        "recall": 0.34665063520711414,
+        "f1": 0.4316439051595429,
+        "accuracy": 0.7775919732441472
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 2,
+            "record_none_links": true
+        },
+        "train_size": 9460,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.6650441391309001,
+        "recall": 0.2142413001705003,
+        "f1": 0.28829270351322883,
+        "accuracy": 0.6354515050167224
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 2,
+            "record_none_links": true
+        },
+        "train_size": 4736,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.7267991925426776,
+        "recall": 0.15756294355410783,
+        "f1": 0.22517175028466044,
+        "accuracy": 0.540133779264214
+    }
+]

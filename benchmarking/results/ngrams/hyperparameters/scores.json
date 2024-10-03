@@ -1,0 +1,86 @@
+[
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 2,
+            "record_none_links": true
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.3451361975366789,
+        "recall": 0.04624837388086351,
+        "f1": 0.07870924088624486,
+        "accuracy": 0.10697674418604651
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 2,
+            "record_none_links": false
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.3027220897924243,
+        "recall": 0.041425108531278114,
+        "f1": 0.07018359925627705,
+        "accuracy": 0.09767441860465116
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 3,
+            "record_none_links": true
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.26448639226883025,
+        "recall": 0.01746499641111822,
+        "f1": 0.03210073581058048,
+        "accuracy": 0.013953488372093023
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 3,
+            "record_none_links": false
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.26448639226883025,
+        "recall": 0.01746499641111822,
+        "f1": 0.03210073581058048,
+        "accuracy": 0.013953488372093023
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 4,
+            "record_none_links": true
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+    },
+    {
+        "model": "ngrams",
+        "parameters": {
+            "n": 4,
+            "record_none_links": false
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+    }
+]

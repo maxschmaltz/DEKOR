@@ -1,0 +1,25 @@
+{
+	"model": "ngrams",
+
+	"parameter_grid": {},
+	"constants": {
+		"n": 2,
+		"record_none_links": true,
+		"verbose": true
+	},
+	"remove_keys": [],
+
+	"target_metric": "f1",
+	"save_best_model": true,
+	"save_full_report": true,
+
+	"train_datasets": [
+		"./resources/datasets/train_5000.tsv",
+		"./resources/datasets/train_10000.tsv",
+		"./resources/datasets/train_50000.tsv"
+	],
+	"dev_dataset": null,
+	"test_dataset": "./resources/datasets/test_500.tsv",
+
+	"out_dir": "./benchmarking/results/ngrams/final"
+}
