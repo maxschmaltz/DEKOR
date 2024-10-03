@@ -3,7 +3,9 @@ import json
 from itertools import product
 import numpy as np
 import pandas as pd
-from typing import List
+from PIL import Image
+from PIL.PngImagePlugin import PngInfo
+from typing import List, Optional
 
 from dekor.utils.gecodb_parser import parse_gecodb
 from dekor.splitters import __all_splitters__
@@ -11,30 +13,37 @@ from dekor.eval import evaluate
 from dekor.eval.evaluate import EvaluationResult
 
 
-def grid_parameters(parameters: dict, constants: dict, blacklist: List[dict]) -> List[dict]:
+def grid_parameters(
+	parameters: dict,
+	constants: Optional[dict]=None,
+	remove_keys: Optional[List[dict]]=None
+) -> List[dict]:
+	constants = constants or {}
+	remove_keys = remove_keys or []
 	# subgrids (for NNs)
 	for key, value in parameters.items():
 		if isinstance(value, dict):
-			parameters[key] = grid_parameters(value)
-	return [
-		(comb := {
-				**{key: v for key, v in zip(parameters.keys(), value)},
-				**constants
-		}) for value in product(*parameters.values())
-		# to stop undesirable combinations like Flair + embedding_dim
-		if not any([
-			d.items() <= comb.items()
-			for d in blacklist
-		])
-	]
+			parameters[key] = grid_parameters(value, remove_keys=remove_keys)
+	parameter_grid = []
+	for value in product(*parameters.values()):
+		comb = {
+			**{key: v for key, v in zip(parameters.keys(), value)},
+			**constants
+		}
+		for rule in remove_keys:
+			if rule["condition"].items() <= comb.items():
+				[comb.pop(key) for key in rule["remove"]]
+		if not comb in parameter_grid:
+			parameter_grid.append(comb)
+	return parameter_grid
 
 
 def benchmark(config: dict) -> None:
 	
 	parameters = config["parameter_grid"]
 	constants = config["constants"]
-	blacklist = config["blacklist"]
-	parameter_grid = grid_parameters(parameters, constants, blacklist)
+	remove_keys = config["remove_keys"]
+	parameter_grid = grid_parameters(parameters, constants, remove_keys)
 
 	if (dev_path := config["dev_dataset"]):
 		dev_dataset = parse_gecodb(dev_path, version="ds")
@@ -58,10 +67,10 @@ def benchmark(config: dict) -> None:
 			train_compounds = train_dataset["compound"].values
 
 			print(f"\n\n{config["model"]}: iter {n_iter}/{len(parameter_grid * len(train_paths))}")
-			print(
+			print((
 				', '.join(f"{key}: {value}" for key, value in param_comb.items()),
 				f", train_size: {len(train_dataset)}"
-			)
+			))
 
 			splitter = splitter_cls(**param_comb)
 
@@ -84,7 +93,7 @@ def benchmark(config: dict) -> None:
 			else: extended_df = None
 			sizes = {
 				"train_size": len(train_compounds),
-				"dev_size": 0 if not dev_compounds else len(dev_compounds),
+				"dev_size": 0 if dev_compounds is None else len(dev_compounds),
 				"test_size": len(test_compounds)
 			}
 			results.append((eval_res, extended_df, splitter, sizes))
@@ -161,4 +170,11 @@ def benchmark(config: dict) -> None:
 		# now general
 		write_res(best_result, out_dir)
 
-	pass
+		# save plot / graph if present
+		if getattr(best_splitter, "plot_buffer", None) is not None:
+			best_splitter.plot_buffer.seek(0)
+			plot = Image.open(best_splitter.plot_buffer)
+			info = PngInfo()
+			for key, value in best_splitter._metadata.items():
+				info.add_text(key, str(value))
+			plot.save(os.path.join(out_dir, "plot.png"), format="png", pnginfo=info)
