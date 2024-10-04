@@ -1,8 +1,10 @@
 import os
 import json
+import gc
 from itertools import product
 import numpy as np
 import pandas as pd
+import torch
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 from typing import List, Optional
@@ -45,6 +47,8 @@ def benchmark(config: dict) -> None:
 	remove_keys = config["remove_keys"]
 	parameter_grid = grid_parameters(parameters, constants, remove_keys)
 
+	target_metric = config["target_metric"]
+
 	if (dev_path := config["dev_dataset"]):
 		dev_dataset = parse_gecodb(dev_path, version="ds")
 		dev_compounds = dev_dataset["compound"].values
@@ -56,6 +60,8 @@ def benchmark(config: dict) -> None:
 	test_comp_types = test_dataset["comp_type"].values
 
 	results = []
+	best_splitter = None	# won't store all the heavy splitter objects
+	best_metric = -1
 
 	splitter_cls = __all_splitters__[config["model"]]
 	n_iter = 1
@@ -63,13 +69,16 @@ def benchmark(config: dict) -> None:
 
 		for train_path in (train_paths := config["train_datasets"]):
 
+			torch.cuda.empty_cache()
+			gc.collect()
+
 			train_dataset = parse_gecodb(train_path, version="ds")
 			train_compounds = train_dataset["compound"].values
 
 			print(f"\n\n{config["model"]}: iter {n_iter}/{len(parameter_grid * len(train_paths))}")
 			print((
-				', '.join(f"{key}: {value}" for key, value in param_comb.items()),
-				f", train_size: {len(train_dataset)}"
+				', '.join(f"{key}: {value}"
+			  	for key, value in {**param_comb, **{"train_size": len(train_dataset)}}.items()),
 			))
 
 			splitter = splitter_cls(**param_comb)
@@ -96,12 +105,15 @@ def benchmark(config: dict) -> None:
 				"dev_size": 0 if dev_compounds is None else len(dev_compounds),
 				"test_size": len(test_compounds)
 			}
-			results.append((eval_res, extended_df, splitter, sizes))
+			results.append((eval_res, extended_df, splitter._metadata, sizes))
+
+			if (m := eval_res.link_metrics[target_metric]) > best_metric:
+				best_splitter = splitter
+				best_metric = m
 
 			n_iter += 1
 
-	target_metric = config["target_metric"]
-	result_sorted = sorted(
+	results_sorted = sorted(
 		results,
 		key=lambda x: x[0].link_metrics[target_metric],
 		reverse=True
@@ -112,12 +124,12 @@ def benchmark(config: dict) -> None:
 		{
 			**{
 				"model": config["model"],
-				"parameters": splitter._metadata
+				"parameters":metadata
 			},
 			**sizes,
 			**eval_res.link_metrics.to_dict()
 		}
-		for eval_res, _, splitter, sizes in result_sorted
+		for eval_res, _, metadata, sizes in results_sorted
 	]
 	out_dir = config["out_dir"]
 	os.makedirs(out_dir, exist_ok=True)
@@ -125,7 +137,7 @@ def benchmark(config: dict) -> None:
 		json.dump(out_scores, f, indent=4)
 
 	# if needed, save the best model and make the full report
-	best_result, best_extented_df, best_splitter, _ = result_sorted[0]
+	best_result, best_extented_df, _, _ = results_sorted[0]
 
 	if config["save_best_model"]:
 		best_splitter.save()
