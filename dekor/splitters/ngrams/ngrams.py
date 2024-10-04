@@ -38,8 +38,8 @@ class NGramsSplitter(BaseSplitter):
 	def __init__(
 		self,
 		*,
-		n: Optional[int]=3,
-		record_none_links: bool,
+		n: Optional[int]=2,
+		record_none_links: Optional[bool]=True,
 		verbose: Optional[bool]=True
 	) -> None:
 		self.n = n
