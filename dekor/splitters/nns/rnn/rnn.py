@@ -15,11 +15,11 @@ class RNN(BaseRecurrentNN):
             self,
             *,
             input_size: int,
-            hidden_size: Optional[int]=64,
+            hidden_size: Optional[int]=16,
             output_size: int,
             activation: Optional[Literal["relu", "tanh"]]="tanh",
-            dropout_rate: Optional[float]=0.0025,
-            num_layers: Optional[int]=2,
+            dropout_rate: Optional[float]=0.1,
+            num_layers: Optional[int]=1,
             require_softmax: Optional[bool]=False
         ) -> None:
         assert activation in ["relu", "tanh"]

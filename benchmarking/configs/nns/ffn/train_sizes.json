@@ -3,7 +3,7 @@
 
 	"parameter_grid": {},
 	"constants": {
-		"context_window": 4,
+		"context_window": 2,
 		"record_none_links": false,
 		"embeddings_params": {
 			"name": "torch",
@@ -11,10 +11,10 @@
 		},
 		"nn_params": {
 			"hidden_size": 16,
-			"activation": "tanh",
-			"dropout_rate": 0.025
+			"activation": "relu",
+			"dropout_rate": 0.1
 		},
-		"optimizer": "adamw",
+		"optimizer": "sgd",
 		"criterion": "crossentropy",
 		"learning_rate": 0.0001,
 		"n_epochs": 10,

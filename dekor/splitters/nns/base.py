@@ -276,7 +276,10 @@ class BaseNNSplitter(BaseSplitter):
 			compound.lemma for compound in dev_compounds
 		]
 		preds = self.predict(dev_lemmas)
-		eval_res = evaluate(dev_compounds, preds, "any")	
+		eval_res = evaluate(dev_compounds, preds, "any")
+		# return train model
+		self.nn.train()
+		self.embeddings.eval()
 		return eval_res
 
 	def _fit(

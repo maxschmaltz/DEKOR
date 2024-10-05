@@ -2,7 +2,7 @@
     {
         "model": "ffn",
         "parameters": {
-            "context_window": 4,
+            "context_window": 2,
             "record_none_links": false,
             "embeddings_params": {
                 "name": "torch",
@@ -10,37 +10,10 @@
             },
             "nn_params": {
                 "hidden_size": 16,
-                "activation": "tanh",
-                "dropout_rate": 0.025
+                "activation": "relu",
+                "dropout_rate": 0.1
             },
-            "optimizer": "AdamW",
-            "criterion": "CrossEntropyLoss",
-            "learning_rate": 0.0001,
-            "n_epochs": 10
-        },
-        "train_size": 4736,
-        "dev_size": 0,
-        "test_size": 598,
-        "precision": 0.02612528308210682,
-        "recall": 0.04777651156911278,
-        "f1": 0.03377928493643217,
-        "accuracy": 0.5468227424749164
-    },
-    {
-        "model": "ffn",
-        "parameters": {
-            "context_window": 4,
-            "record_none_links": false,
-            "embeddings_params": {
-                "name": "torch",
-                "embedding_dim": 8
-            },
-            "nn_params": {
-                "hidden_size": 16,
-                "activation": "tanh",
-                "dropout_rate": 0.025
-            },
-            "optimizer": "AdamW",
+            "optimizer": "SGD",
             "criterion": "CrossEntropyLoss",
             "learning_rate": 0.0001,
             "n_epochs": 10
@@ -48,15 +21,15 @@
         "train_size": 9460,
         "dev_size": 0,
         "test_size": 598,
-        "precision": 0.02612528308210682,
-        "recall": 0.04777651156911278,
-        "f1": 0.03377928493643217,
-        "accuracy": 0.5468227424749164
+        "precision": 0.06600677602381512,
+        "recall": 0.0875492192838615,
+        "f1": 0.050464183286751625,
+        "accuracy": 0.35785953177257523
     },
     {
         "model": "ffn",
         "parameters": {
-            "context_window": 4,
+            "context_window": 2,
             "record_none_links": false,
             "embeddings_params": {
                 "name": "torch",
@@ -64,10 +37,10 @@
             },
             "nn_params": {
                 "hidden_size": 16,
-                "activation": "tanh",
-                "dropout_rate": 0.025
+                "activation": "relu",
+                "dropout_rate": 0.1
             },
-            "optimizer": "AdamW",
+            "optimizer": "SGD",
             "criterion": "CrossEntropyLoss",
             "learning_rate": 0.0001,
             "n_epochs": 10
@@ -79,5 +52,32 @@
         "recall": 0.04777651156911278,
         "f1": 0.03377928493643217,
         "accuracy": 0.5468227424749164
+    },
+    {
+        "model": "ffn",
+        "parameters": {
+            "context_window": 2,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 8
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "activation": "relu",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "CrossEntropyLoss",
+            "learning_rate": 0.0001,
+            "n_epochs": 10
+        },
+        "train_size": 4736,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.04115751781081192,
+        "recall": 0.07028349516550483,
+        "f1": 0.01650525542381853,
+        "accuracy": 0.08193979933110368
     }
 ]
