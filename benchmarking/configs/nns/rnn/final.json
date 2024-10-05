@@ -21,7 +21,7 @@
 		"learning_rate": 0.0001,
 		"n_epochs": 5,
 		"target_metric": "f1",
-		"batch_size": 128,
+		"batch_size": 512,
 		"save_plot": true,
 		"verbose": true
 	},
@@ -37,7 +37,7 @@
 	"save_full_report": true,
 
 	"train_datasets": ["./resources/datasets/train_50000.tsv"],
-	"dev_dataset": null,
+	"dev_dataset": "./resources/datasets/dev_1000.tsv",
 	"test_dataset": "./resources/datasets/test_500.tsv",
 
 	"out_dir": "./benchmarking/results/nns/rnn/final"
