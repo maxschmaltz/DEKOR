@@ -12,7 +12,6 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 from io import BytesIO
 from tqdm import tqdm
-import warnings
 from typing import Optional, Iterable, Optional, List, Literal, Tuple, Union
 
 import dekor.embeddings

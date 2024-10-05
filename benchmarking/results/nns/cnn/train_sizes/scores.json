@@ -1,0 +1,89 @@
+[
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 4736,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.026729709237595052,
+        "recall": 0.20993025521277595,
+        "f1": 0.04300143322600348,
+        "accuracy": 0.10367892976588629
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 47289,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.008248908404487635,
+        "recall": 0.06352730758261257,
+        "f1": 0.014601799056301996,
+        "accuracy": 0.12876254180602006
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 9460,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.002062600633938006,
+        "recall": 0.11138043423265234,
+        "f1": 0.004050197608460085,
+        "accuracy": 0.01839464882943144
+    }
+]

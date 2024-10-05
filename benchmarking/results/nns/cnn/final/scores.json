@@ -1,0 +1,59 @@
+[
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "flair"
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 4736,
+        "dev_size": 967,
+        "test_size": 598,
+        "precision": 0.04079413435447475,
+        "recall": 0.14530323265732756,
+        "f1": 0.0480864815322787,
+        "accuracy": 0.35618729096989965
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 4736,
+        "dev_size": 967,
+        "test_size": 598,
+        "precision": 0.07783319406080262,
+        "recall": 0.1345765304199766,
+        "f1": 0.035930468501777856,
+        "accuracy": 0.02508361204013378
+    }
+]

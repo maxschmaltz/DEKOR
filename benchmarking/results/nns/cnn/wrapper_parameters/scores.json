@@ -1,0 +1,176 @@
+[
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": true,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.08808169004016547,
+        "recall": 0.17434695141554243,
+        "f1": 0.08123014748559967,
+        "accuracy": 0.13953488372093023
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.04542419095732366,
+        "recall": 0.1990540352802415,
+        "f1": 0.06653188317972035,
+        "accuracy": 0.10232558139534884
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 4,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.05759064478905057,
+        "recall": 0.15193845013890667,
+        "f1": 0.052064936098337684,
+        "accuracy": 0.05581395348837209
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 2,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.07166768369210218,
+        "recall": 0.13218954215634288,
+        "f1": 0.03768451822973139,
+        "accuracy": 0.06976744186046512
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 4,
+            "record_none_links": true,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.022584738199484165,
+        "recall": 0.07772722309003528,
+        "f1": 0.020255067557016955,
+        "accuracy": 0.13953488372093023
+    },
+    {
+        "model": "cnn",
+        "parameters": {
+            "context_window": 2,
+            "record_none_links": true,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "convolution_size": 5,
+                "hidden_size": 32,
+                "activation": "tanh",
+                "reduction": "max",
+                "dropout_rate": 0.1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 3
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.006592226062183348,
+        "recall": 0.09448857355796132,
+        "f1": 0.012324596551038434,
+        "accuracy": 0.06976744186046512
+    }
+]

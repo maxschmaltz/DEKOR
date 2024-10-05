@@ -1,0 +1,45 @@
+{
+	"model": "cnn",
+
+	"parameter_grid": {
+		"embeddings_params": {
+			"name": ["torch", "flair"],
+			"embedding_dim": [16]
+		}
+	},
+	"constants": {
+		"context_window": 3,
+		"record_none_links": false,
+		"nn_params": {
+			"convolution_size": 5,
+			"hidden_size": 32,
+			"activation": "tanh",
+			"reduction": "max",
+			"dropout_rate": 0.1
+		},
+		"optimizer": "sgd",
+		"criterion": "margin",
+		"learning_rate": 0.001,
+		"n_epochs": 3,
+		"target_metric": "f1",
+		"batch_size": 512,
+		"save_plot": true,
+		"verbose": true
+	},
+	"remove_keys": [
+		{
+			"condition": {"name": "flair"},
+			"remove": ["embedding_dim"]
+		}
+	],
+
+	"target_metric": "f1",
+	"save_best_model": true,
+	"save_full_report": true,
+
+	"train_datasets": ["./resources/datasets/train_5000.tsv"],
+	"dev_dataset": "./resources/datasets/dev_1000.tsv",
+	"test_dataset": "./resources/datasets/test_500.tsv",
+
+	"out_dir": "./benchmarking/results/nns/cnn/final"
+}
