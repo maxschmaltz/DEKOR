@@ -3,7 +3,7 @@
 
 	"parameter_grid": {},
 	"constants": {
-		"context_window": 4,
+		"context_window": 2,
 		"record_none_links": false,
 		"embeddings_params": {
 			"name": "torch",
@@ -11,25 +11,25 @@
 		},
 		"nn_params": {
 			"hidden_size": 16,
-			"activation": "tanh",
-			"dropout_rate": 0.025
+			"activation": "relu",
+			"dropout_rate": 0.1
 		},
-		"optimizer": "adamw",
+		"optimizer": "sgd",
 		"criterion": "crossentropy",
 		"learning_rate": 0.0001,
 		"n_epochs": 100,
 		"target_metric": "f1",
-		"batch_size": 128,
+		"batch_size": 1024,
 		"save_plot": true,
 		"verbose": true
 	},
 	"remove_keys": [],
 
 	"target_metric": "f1",
-	"save_best_model": true,
+	"save_best_model": false,
 	"save_full_report": true,
 
-	"train_datasets": ["./resources/datasets/train_5000.tsv"],
+	"train_datasets": ["./resources/datasets/train_10000.tsv"],
 	"dev_dataset": null,
 	"test_dataset": "./resources/datasets/test_500.tsv",
 

@@ -2,7 +2,7 @@
     {
         "model": "ffn",
         "parameters": {
-            "context_window": 4,
+            "context_window": 2,
             "record_none_links": false,
             "embeddings_params": {
                 "name": "torch",
@@ -10,20 +10,20 @@
             },
             "nn_params": {
                 "hidden_size": 16,
-                "activation": "tanh",
-                "dropout_rate": 0.025
+                "activation": "relu",
+                "dropout_rate": 0.1
             },
-            "optimizer": "AdamW",
+            "optimizer": "SGD",
             "criterion": "CrossEntropyLoss",
             "learning_rate": 0.0001,
             "n_epochs": 100
         },
-        "train_size": 4736,
+        "train_size": 9460,
         "dev_size": 0,
         "test_size": 598,
-        "precision": 0.02612528308210682,
-        "recall": 0.04777651156911278,
-        "f1": 0.03377928493643217,
-        "accuracy": 0.5468227424749164
+        "precision": 0.038532533803840335,
+        "recall": 0.16662499891360713,
+        "f1": 0.04811491732134869,
+        "accuracy": 0.36454849498327757
     }
 ]
