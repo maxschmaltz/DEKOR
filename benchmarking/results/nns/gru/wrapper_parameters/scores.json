@@ -1,0 +1,164 @@
+[
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 4,
+            "record_none_links": true,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.17408894148522536,
+        "recall": 0.23908554032949492,
+        "f1": 0.1486845661315216,
+        "accuracy": 0.2
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.14168926313188368,
+        "recall": 0.19026827390850487,
+        "f1": 0.12790778771185987,
+        "accuracy": 0.17674418604651163
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 4,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.18621193601653155,
+        "recall": 0.08764080208732813,
+        "f1": 0.08634722203509092,
+        "accuracy": 0.25116279069767444
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 2,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.05538986960842513,
+        "recall": 0.07087509351320431,
+        "f1": 0.05550954844731866,
+        "accuracy": 0.2651162790697674
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": true,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.05980007120893882,
+        "recall": 0.10430981098399522,
+        "f1": 0.025430766384932548,
+        "accuracy": 0.05581395348837209
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 2,
+            "record_none_links": true,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.01062416733669489,
+        "recall": 0.05312083668347445,
+        "f1": 0.01770694556115815,
+        "accuracy": 0.09302325581395349
+    }
+]

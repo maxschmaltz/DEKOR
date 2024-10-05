@@ -1,0 +1,83 @@
+[
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 9460,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.05863474449575775,
+        "recall": 0.22410123921740835,
+        "f1": 0.05791538287897738,
+        "accuracy": 0.12709030100334448
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 4736,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.04823343352454804,
+        "recall": 0.061267600087692276,
+        "f1": 0.04234947758913472,
+        "accuracy": 0.26421404682274247
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 47289,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.023241077678364322,
+        "recall": 0.17357260433803773,
+        "f1": 0.035627807102128956,
+        "accuracy": 0.15551839464882944
+    }
+]

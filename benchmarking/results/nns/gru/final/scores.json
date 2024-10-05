@@ -1,0 +1,55 @@
+[
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "torch",
+                "embedding_dim": 16
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 9460,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.02593793113719633,
+        "recall": 0.0920552014910151,
+        "f1": 0.03246020803640932,
+        "accuracy": 0.10367892976588629
+    },
+    {
+        "model": "gru",
+        "parameters": {
+            "context_window": 3,
+            "record_none_links": false,
+            "embeddings_params": {
+                "name": "flair"
+            },
+            "nn_params": {
+                "hidden_size": 16,
+                "dropout_rate": 0.1,
+                "num_layers": 1
+            },
+            "optimizer": "SGD",
+            "criterion": "MultiLabelSoftMarginLoss",
+            "learning_rate": 0.001,
+            "n_epochs": 5
+        },
+        "train_size": 9460,
+        "dev_size": 0,
+        "test_size": 598,
+        "precision": 0.01800400789104833,
+        "recall": 0.059947362223458714,
+        "f1": 0.019342764707864987,
+        "accuracy": 0.06688963210702341
+    }
+]

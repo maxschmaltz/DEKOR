@@ -1,0 +1,4 @@
+	addition	addition_umlaut	concatenation	deletion	weighted_average
+precision	0.3828125	0.0	0.0	0.0	0.059398392665733976
+recall	1.0	0.0	0.0	0.0	0.15516314818803978
+f1	0.5536723163841808	0.0	0.0	0.0	0.08590953967473389
