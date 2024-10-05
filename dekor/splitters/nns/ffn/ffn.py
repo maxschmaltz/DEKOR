@@ -16,10 +16,10 @@ class FFN(BaseNN):
             self,
             *,
             input_size: int,
-            hidden_size: Optional[int]=64,
+            hidden_size: Optional[int]=16,
             output_size: int,
             activation: Optional[Literal["relu", "tanh"]]="relu",
-            dropout_rate: Optional[float]=0.025,
+            dropout_rate: Optional[float]=0.1,
             require_softmax: Optional[bool]=False
         ) -> None:
         super(FFN, self).__init__(
