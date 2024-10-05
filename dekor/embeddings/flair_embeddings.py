@@ -4,6 +4,7 @@ from flair.embeddings import FlairEmbeddings as OriginalFlairEmbeddings
 from typing import Awaitable
 
 from dekor.embeddings.base import BaseEmbeddings
+from dekor.splitters.base import DEVICE
 
 
 class FlairEmbeddings(BaseEmbeddings):
@@ -49,7 +50,8 @@ class FlairEmbeddings(BaseEmbeddings):
 		text = text or "!"
 		sentence = Sentence(text, language_code="de")
 		self.underlying_embeddings.embed(sentence)
-		embedding = sentence[0].embedding
+		# is pushed to CUDA automatically but for Mac's mps, need to enforce
+		embedding = sentence[0].embedding.to(DEVICE)
 		return embedding
 
 	@property
