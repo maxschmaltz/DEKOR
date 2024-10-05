@@ -1,0 +1,37 @@
+{
+	"model": "ffn",
+
+	"parameter_grid": {},
+	"constants": {
+		"context_window": 4,
+		"record_none_links": false,
+		"embeddings_params": {
+			"name": "torch",
+			"embedding_dim": 8
+		},
+		"nn_params": {
+			"hidden_size": 16,
+			"activation": "tanh",
+			"dropout_rate": 0.025
+		},
+		"optimizer": "adamw",
+		"criterion": "crossentropy",
+		"learning_rate": 0.0001,
+		"n_epochs": 100,
+		"target_metric": "f1",
+		"batch_size": 128,
+		"save_plot": true,
+		"verbose": true
+	},
+	"remove_keys": [],
+
+	"target_metric": "f1",
+	"save_best_model": true,
+	"save_full_report": true,
+
+	"train_datasets": ["./resources/datasets/train_5000.tsv"],
+	"dev_dataset": null,
+	"test_dataset": "./resources/datasets/test_500.tsv",
+
+	"out_dir": "./benchmarking/results/nns/ffn/long"
+}
