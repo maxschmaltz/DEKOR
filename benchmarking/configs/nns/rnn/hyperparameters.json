@@ -1,0 +1,39 @@
+{
+	"model": "rnn",
+
+	"parameter_grid": {
+		"embeddings_params": {
+			"name": ["torch"],
+			"embedding_dim": [8, 16, 32]
+		},
+		"nn_params": {
+			"hidden_size": [16, 32, 64, 128],
+			"activation": ["relu", "tanh"],
+			"dropout_rate": [0, 0.1],
+			"num_layers": [1, 2, 3]
+		}
+	},
+	"constants": {
+		"context_window": 3,
+		"record_none_links": false,
+		"optimizer": "adamw",
+		"criterion": "crossentropy",
+		"learning_rate": 0.001,
+		"n_epochs": 3,
+		"target_metric": "f1",
+		"batch_size": 64,
+		"save_plot": false,
+		"verbose": true
+	},
+	"remove_keys": [],
+
+	"target_metric": "f1",
+	"save_best_model": false,
+	"save_full_report": false,
+
+	"train_datasets": ["./resources/datasets/train_500.tsv"],
+	"dev_dataset": null,
+	"test_dataset": "./resources/datasets/test_100.tsv",
+
+	"out_dir": "./benchmarking/results/nns/rnn/hyperparameters"
+}

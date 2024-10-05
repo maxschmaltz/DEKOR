@@ -1,0 +1,44 @@
+{
+	"model": "rnn",
+
+	"parameter_grid": {
+		"embeddings_params": {
+			"name": ["torch", "flair"],
+			"embedding_dim": [16]
+		}
+	},
+	"constants": {
+		"context_window": 3,
+		"record_none_links": false,
+		"nn_params": {
+			"hidden_size": 16,
+			"activation": "tanh",
+			"dropout_rate": 0.1,
+			"num_layers": 1
+		},
+		"optimizer": "sgd",
+		"criterion": "margin",
+		"learning_rate": 0.0001,
+		"n_epochs": 5,
+		"target_metric": "f1",
+		"batch_size": 128,
+		"save_plot": true,
+		"verbose": true
+	},
+	"remove_keys": [
+		{
+			"condition": {"name": "flair"},
+			"remove": ["embedding_dim"]
+		}
+	],
+
+	"target_metric": "f1",
+	"save_best_model": true,
+	"save_full_report": true,
+
+	"train_datasets": ["./resources/datasets/train_50000.tsv"],
+	"dev_dataset": null,
+	"test_dataset": "./resources/datasets/test_500.tsv",
+
+	"out_dir": "./benchmarking/results/nns/rnn/final"
+}
