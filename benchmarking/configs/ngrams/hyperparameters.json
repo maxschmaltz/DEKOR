@@ -14,9 +14,7 @@
 	"save_best_model": false,
 	"save_full_report": false,
 
-	"train_datasets": [
-		"./resources/datasets/train_500.tsv"
-	],
+	"train_datasets": ["./resources/datasets/train_500.tsv"],
 	"dev_dataset": null,
 	"test_dataset": "./resources/datasets/test_100.tsv",
 
