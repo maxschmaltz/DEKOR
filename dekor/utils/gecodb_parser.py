@@ -144,7 +144,7 @@ class Compound:
 	-------
 	>>> compound = Compound("schule_-e_jahr")
 	>>> compound.raw
-	"Schule_-e_Jahr"
+	"schule_-e_jahr"
 	>>> compound.lemma
 	"schuljahr"
 	>>> compound.components
