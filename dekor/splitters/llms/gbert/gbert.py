@@ -178,6 +178,7 @@ class GBERTSplitter(BaseHFSplitter):
 			self._tokenize,
 			input_columns="triplets",
 			batched=True,
+      batch_size=self.batch_size * 16,	# to make dataloader compatible
 			drop_last_batch=False
 		)
 		train_dataset_tokenized.set_format(type="torch")
@@ -195,6 +196,7 @@ class GBERTSplitter(BaseHFSplitter):
 				self._tokenize,
 				input_columns="triplets",
 				batched=True,
+        batch_size=self.batch_size * 16,	# to make dataloader compatible
 				drop_last_batch=False
 			)
 			dev_dataset_tokenized.set_format(type="torch")
