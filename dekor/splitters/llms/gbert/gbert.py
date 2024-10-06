@@ -105,7 +105,7 @@ class GBERTSplitter(BaseHFSplitter):
 	
 	def _get_training_args(self, dev_available: bool) -> Dict:
 		training_args = super()._get_training_args(dev_available)
-		training_args["metric_for_best_model"] = "label_accuracy",	# from `_compute_eval_metrics()`
+		training_args["metric_for_best_model"] = "label_accuracy"	# from `_compute_eval_metrics()`
 		training_args["greater_is_better"] = True
 		return training_args
 
