@@ -1,4 +1,4 @@
 	addition	addition_umlaut	concatenation
-addition	10	0	0
-addition_umlaut	2	0	0
-concatenation	5	0	0
+addition	9	0	1
+addition_umlaut	1	1	0
+concatenation	4	0	1
