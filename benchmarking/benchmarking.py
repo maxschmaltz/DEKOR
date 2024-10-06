@@ -75,7 +75,7 @@ def benchmark(config: dict) -> None:
 			train_dataset = parse_gecodb(train_path, version="ds")
 			train_compounds = train_dataset["compound"].values
 
-			print(f"\n\n{config["model"]}: iter {n_iter}/{len(parameter_grid * len(train_paths))}")
+			print(f"\n\n{config['model']}: iter {n_iter}/{len(parameter_grid * len(train_paths))}")
 			print((
 				', '.join(f"{key}: {value}"
 			  	for key, value in {**param_comb, **{"train_size": len(train_dataset)}}.items()),
