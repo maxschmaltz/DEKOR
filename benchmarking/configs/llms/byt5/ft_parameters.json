@@ -1,0 +1,23 @@
+{
+	"model": "byt5",
+
+	"parameter_grid": {
+		"learning_rate": [0.0001, 0.001, 0.01],
+		"n_epochs": [3, 5, 10]
+	},
+	"constants": {
+		"batch_size": 64,
+		"verbose": true
+	},
+	"remove_keys": [],
+
+	"target_metric": "f1",
+	"save_best_model": false,
+	"save_full_report": false,
+
+	"train_datasets": ["./resources/datasets/train_500.tsv"],
+	"dev_dataset": null,
+	"test_dataset": "./resources/datasets/test_100.tsv",
+
+	"out_dir": "./benchmarking/results/llms/byt5/ft_parameters"
+}
