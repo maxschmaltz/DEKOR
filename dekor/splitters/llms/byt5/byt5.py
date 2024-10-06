@@ -11,6 +11,7 @@ from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 from typing import Optional, Iterable, Dict, List
 
+from dekor.splitters.base import DEVICE
 from dekor.splitters.llms.base import BaseHFSplitter
 from dekor.utils.gecodb_parser import Compound
 
@@ -39,7 +40,8 @@ class ByT5Splitter(BaseHFSplitter):
 	def _build_llm(self, path: str) -> None:
 		self.llm = T5ForConditionalGeneration.from_pretrained(
 			path,
-			cache_dir=self.cache_path
+			cache_dir=self.cache_path,
+			device_map=DEVICE
 		)
 	
 	def _tokenize(self, observations: Dict[str, List[str]]) -> torch.Tensor:
@@ -207,7 +209,30 @@ class ByT5Splitter(BaseHFSplitter):
 			for batch in test_dataloader:
 				if self.verbose: progress_bar.update()
 				input_ids = batch["input_ids"]
+				if len(input_ids) < self.batch_size:    # last batch
+					# in this case, we want to pad the whole batch to normal size
+					# and then drop excessive predictions;
+					# since any input is embedded in such a manner that 
+					# the length of it does not change the output shape of the embeddings,
+					# we can simply pad the batch with empty texts
+					diff = self.batch_size - len(input_ids)
+					# ignoreindexfor each missing observation
+					for key, tensor in batch.items():
+						batch[key] = torch.concat(
+							(
+								tensor,
+								torch.tensor([-100] * diff)
+							),
+							dim=0
+						)
+				# move batch to CUDA as it is not done manually here as opposed to Trainer
+				batch = {
+					key: tensor.to(DEVICE)
+					for key, tensor in batch.items()
+				}
 				pred_ids = self.llm.generate(**batch)
+				if len(input_ids) < self.batch_size:
+					pred_ids = pred_ids[:-diff]
 				for pred_raw, lemma in zip(
 					(self.tokenizer.batch_decode(pred_ids, skip_special_tokens=True)),
 	  				(self.tokenizer.batch_decode(input_ids, skip_special_tokens=True))
