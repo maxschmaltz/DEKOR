@@ -16,12 +16,12 @@ class CNN(BaseNN):
             self,
             *,
             input_size: int,
-            convolution_size: Optional[int]=3,
-            hidden_size: Optional[int]=64,
+            convolution_size: Optional[int]=5,
+            hidden_size: Optional[int]=32,
             output_size: int,
-            activation: Optional[Literal["relu", "tanh"]]="relu",
+            activation: Optional[Literal["relu", "tanh"]]="tanh",
             reduction: Optional[Literal["max", "conv"]]="max",
-            dropout_rate: Optional[float]=0.025,
+            dropout_rate: Optional[float]=0.1,
             require_softmax: Optional[bool]=False
         ) -> None:
         super(CNN, self).__init__(
