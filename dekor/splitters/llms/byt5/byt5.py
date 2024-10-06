@@ -49,7 +49,8 @@ class ByT5Splitter(BaseHFSplitter):
 		inputs = self.tokenizer(
 			observations["lemmas"],
 			padding=True,
-			truncation=False,
+			truncation=True,
+			max_length=256,
 			return_tensors="pt",
 			return_token_type_ids=False,
 			return_attention_mask=True,
@@ -122,7 +123,7 @@ class ByT5Splitter(BaseHFSplitter):
 		train_dataset_tokenized = train_dataset.map(
 			self._tokenize,
 			batched=True,
-      batch_size=self.batch_size * 16,	# to make dataloader compatible
+      		batch_size=self.batch_size * 16,	# to make dataloader compatible
 			drop_last_batch=False
 		)
 		train_dataset_tokenized.set_format(type="torch")
@@ -137,7 +138,7 @@ class ByT5Splitter(BaseHFSplitter):
 			dev_dataset_tokenized = dev_dataset.map(
 				self._tokenize,
 				batched=True,
-        batch_size=self.batch_size * 16,	# to make dataloader compatible
+        		batch_size=self.batch_size * 16,	# to make dataloader compatible
 				drop_last_batch=False
 			)
 			dev_dataset_tokenized.set_format(type="torch")
