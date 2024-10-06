@@ -165,7 +165,10 @@ class ByT5Splitter(BaseHFSplitter):
 		lemma: str
 	) -> Compound:
 		
-		pred = Compound(raw)
+		try:
+			pred = Compound(raw)
+		except:
+			return Compound("")
 
 		# heuristically filter out predictions that cannot be correct
 		if (
