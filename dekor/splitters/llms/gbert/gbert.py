@@ -255,6 +255,7 @@ class GBERTSplitter(BaseHFSplitter):
 			self._tokenize,
 			input_columns="triplets",
 			batched=True,
+			batch_size=self.batch_size * 16,	# to make dataloader compatible
 			drop_last_batch=False,
 			# as opposed to using Trainer, here we have to remove the excessive columns manually
 			remove_columns=["triplets"]
@@ -264,6 +265,7 @@ class GBERTSplitter(BaseHFSplitter):
 		test_dataloader = DataLoader(
 			# will only output batches of x's
 			test_dataset_tokenized,
+			shuffle=False,
 			batch_size=self.batch_size,
 			drop_last=False # we cannot drop last because then not all the lemmas will be predicted
 		)
@@ -275,34 +277,15 @@ class GBERTSplitter(BaseHFSplitter):
 		with torch.no_grad():
 			for batch in test_dataloader:
 				if self.verbose: progress_bar.update()
-				input_ids = batch["input_ids"]
-				if len(input_ids) < self.batch_size:    # last batch
-					# in this case, we want to pad the whole batch to normal size
-					# and then drop excessive predictions;
-					# since any input is embedded in such a manner that 
-					# the length of it does not change the output shape of the embeddings,
-					# we can simply pad the batch with empty texts
-					diff = self.batch_size - len(input_ids)
-					# ignoreindexfor each missing observation
-					for key, tensor in batch.items():
-						batch[key] = torch.concat(
-							(
-								tensor,
-								torch.tensor([-100] * diff)
-							),
-							dim=0
-						)
 				# move batch to CUDA as it is not done manually here as opposed to Trainer
 				batch = {
 					key: tensor.to(DEVICE)
 					for key, tensor in batch.items()
 				}
 				logits = self.llm(**batch).logits
-				if len(input_ids) < self.batch_size:
-					logits = logits[:-diff]
 				all_logits.append(logits)
 
-		all_logits = torch.concat(all_logits, dim=0).detach().numpy()
+		all_logits = torch.concat(all_logits, dim=0).cpu().detach().numpy()
 
 		preds = []
 		progress_bar = tqdm(lemmas, desc="Postprocessing") if self.verbose else lemmas
