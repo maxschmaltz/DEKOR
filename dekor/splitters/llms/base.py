@@ -1,5 +1,6 @@
 import os
 from abc import abstractmethod
+import gc
 import re
 import torch
 from datasets import Dataset
@@ -72,6 +73,7 @@ class BaseHFSplitter(BaseSplitter):
 			# "greater_is_better": ...,
 			"per_device_train_batch_size": self.batch_size,
 			"per_device_eval_batch_size": self.batch_size,
+			"group_by_length": True,
 			"logging_dir": self.logs_path,
 			"logging_strategy": "epoch",
 			"save_strategy": "epoch",	# save every epoch
@@ -87,6 +89,7 @@ class BaseHFSplitter(BaseSplitter):
 	) -> None:
 
 		torch.cuda.empty_cache()
+		gc.collect()
 
 		training_args = TrainingArguments(
 			**self._get_training_args(dev_available=dev_dataset_tokenized is not None)
@@ -95,6 +98,7 @@ class BaseHFSplitter(BaseSplitter):
 		trainer = Trainer(
 			self.llm,
 			training_args,
+			tokenizer=self.tokenizer,
 			train_dataset=train_dataset_tokenized,
 			eval_dataset=dev_dataset_tokenized,
 			compute_metrics=self._compute_eval_metrics

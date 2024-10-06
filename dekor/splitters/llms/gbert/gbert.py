@@ -265,7 +265,6 @@ class GBERTSplitter(BaseHFSplitter):
 		test_dataset_tokenized.set_format(type="torch")
 
 		test_dataloader = DataLoader(
-			# will only output batches of x's
 			test_dataset_tokenized,
 			shuffle=False,
 			batch_size=self.batch_size,
