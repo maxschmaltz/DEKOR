@@ -12,7 +12,7 @@ from langgraph.graph.message import add_messages
 from io import BytesIO
 from tqdm import tqdm
 from typing_extensions import TypedDict
-from typing import Optional, List, Dict, Iterable, Self, Awaitable, Annotated, Literal
+from typing import Optional, List, Dict, Iterable, Awaitable, Annotated, Literal	# Self
 from dotenv import load_dotenv
 
 from dekor.splitters.base import BaseSplitter
@@ -485,7 +485,7 @@ class LlamaInstructSplitter(BaseSplitter):
 		*,
 		train_compounds: Optional[Iterable[Compound]]=None,
 		test: Optional[bool]=False	# unify workflow
-	) -> Self:
+	):	# -> Self:	# won't work in python3.10 or older
 		if self.n_shots:
 			assert train_compounds is not None and len(train_compounds) >= self.n_shots
 		self._fit(train_compounds=train_compounds)

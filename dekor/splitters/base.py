@@ -10,7 +10,7 @@ from abc import ABC, abstractmethod
 import numpy as np
 import torch
 import warnings
-from typing import Iterable, Iterator, Self, Tuple, List, Dict, Optional
+from typing import Iterable, Iterator, Tuple, List, Dict, Optional	# Self
 
 from dekor.utils.gecodb_parser import Compound, Link, UMLAUTS
 from dekor.utils.vocabs import StringVocab, UNK
@@ -155,7 +155,7 @@ class BaseSplitter(ABC):
 		dev_compounds: Optional[Iterable[Compound]]=None,
 		test: Optional[bool]=False,
 		**kwargs
-	) -> Self:
+	):	# -> Self:	# won't work in python3.10 or older
 		# we want to have different models depending on their parameters so we
 		# replace the path here
 		path, extension = os.path.splitext(self.path)
