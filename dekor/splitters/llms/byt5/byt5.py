@@ -49,10 +49,10 @@ class ByT5Splitter(BaseHFSplitter):
 		lemmas = observations["lemma"]
 		lens = [len(lemma) for lemma in lemmas]
 		inputs = self.tokenizer(
-			observations["lemma"],
-			padding="longest",
+			lemmas,
+			padding=True,
 			truncation=True,
-			max_length=max(lens),
+			# max_length=max(lens),
 			return_tensors="pt",
 			return_token_type_ids=False,
 			return_attention_mask=True,
@@ -67,10 +67,10 @@ class ByT5Splitter(BaseHFSplitter):
 			raws = observations["raw"]
 			lens = [len(raw) for raw in raws]
 			targets = self.tokenizer(
-				observations["raw"],
-				padding="longest",
+				raws,
+				padding=True,
 				truncation=True,
-				max_length=max(lens),
+				# max_length=max(lens),
 				return_tensors="pt",
 				return_token_type_ids=False,
 				return_attention_mask=True,
@@ -128,7 +128,7 @@ class ByT5Splitter(BaseHFSplitter):
 		train_dataset_tokenized = train_dataset.map(
 			self._tokenize,
 			batched=True,
-      		batch_size=self.batch_size * 16,	# to make dataloader compatible
+      		batch_size=self.batch_size * 4,	# to make dataloader compatible
 			drop_last_batch=False
 		)
 		train_dataset_tokenized.set_format(type="torch")
@@ -143,7 +143,7 @@ class ByT5Splitter(BaseHFSplitter):
 			dev_dataset_tokenized = dev_dataset.map(
 				self._tokenize,
 				batched=True,
-        		batch_size=self.batch_size * 16,	# to make dataloader compatible
+        		batch_size=self.batch_size * 4,	# to make dataloader compatible
 				drop_last_batch=False
 			)
 			dev_dataset_tokenized.set_format(type="torch")
@@ -200,7 +200,7 @@ class ByT5Splitter(BaseHFSplitter):
 		test_dataset_tokenized = test_dataset.map(
 			self._tokenize,
 			batched=True,
-			batch_size=self.batch_size * 16,	# to make dataloader compatible
+			batch_size=self.batch_size * 4,	# to make dataloader compatible
 			drop_last_batch=False,
 			# as opposed to using Trainer, here we have to remove the excessive columns manually
 			remove_columns=["lemma"]
