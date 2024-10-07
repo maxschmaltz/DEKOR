@@ -47,7 +47,7 @@ class ByT5Splitter(BaseHFSplitter):
 	def _tokenize(self, observations: Dict[str, List[str]]) -> torch.Tensor:
 		
 		inputs = self.tokenizer(
-			observations["lemmas"],
+			observations["lemma"],
 			padding=True,
 			truncation=True,
 			max_length=256,
@@ -61,9 +61,9 @@ class ByT5Splitter(BaseHFSplitter):
 			"attention_mask": inputs["attention_mask"]
 		}
 
-		if "raws" in observations:	# fine-tuning
+		if "raw" in observations:	# fine-tuning
 			targets = self.tokenizer(
-				observations["raws"],
+				observations["raw"],
 				padding=True,
 				truncation=True,
 				max_length=256,
@@ -114,8 +114,8 @@ class ByT5Splitter(BaseHFSplitter):
 		# here, we have a seq2seq problem, so lemmas will become our input ids
 		# and raw compounds - labels
 		train_dataset = Dataset.from_dict({
-			"lemmas": [compound.lemma for compound in train_compounds],
-			"raws": [compound.raw for compound in train_compounds]
+			"lemma": [compound.lemma for compound in train_compounds],
+			"raw": [compound.raw for compound in train_compounds]
 		})
 
 		# ByT5 works on raw UTF-8 bytes and can be used without a tokenizer,
@@ -132,8 +132,8 @@ class ByT5Splitter(BaseHFSplitter):
 		if dev_compounds is not None:
 
 			dev_dataset = Dataset.from_dict({
-				"lemmas": [compound.lemma for compound in dev_compounds],
-				"raws": [compound.raw for compound in dev_compounds]
+				"lemma": [compound.lemma for compound in dev_compounds],
+				"raw": [compound.raw for compound in dev_compounds]
 			})
 
 			dev_dataset_tokenized = dev_dataset.map(
@@ -190,7 +190,7 @@ class ByT5Splitter(BaseHFSplitter):
 		self.llm.eval()
 
 		test_dataset = Dataset.from_dict({
-			"lemmas": lemmas
+			"lemma": lemmas
 		})
 
 		test_dataset_tokenized = test_dataset.map(
@@ -199,7 +199,7 @@ class ByT5Splitter(BaseHFSplitter):
 			batch_size=self.batch_size * 16,	# to make dataloader compatible
 			drop_last_batch=False,
 			# as opposed to using Trainer, here we have to remove the excessive columns manually
-			remove_columns=["lemmas"]
+			remove_columns=["lemma"]
 		)
 		test_dataset_tokenized.set_format(type="torch")
 

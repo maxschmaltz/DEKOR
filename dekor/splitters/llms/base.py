@@ -73,6 +73,7 @@ class BaseHFSplitter(BaseSplitter):
 			# "greater_is_better": ...,
 			"per_device_train_batch_size": self.batch_size,
 			"per_device_eval_batch_size": self.batch_size,
+			"auto_find_batch_size": False,
 			"group_by_length": True,
 			"logging_dir": self.logs_path,
 			"logging_strategy": "epoch",
