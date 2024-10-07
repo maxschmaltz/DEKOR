@@ -490,7 +490,7 @@ class LlamaInstructSplitter(BaseSplitter):
 		self._fit(train_compounds=train_compounds)
 		return self
 	
-	async def _apredict(self, lemma: str, progress_bar: Optional[tqdm]=None) -> Compound:
+	async def _apredict(self, lemma: str) -> Compound:
 		
 		try:
 			output = await asyncio.wait_for(
@@ -502,7 +502,7 @@ class LlamaInstructSplitter(BaseSplitter):
 			)
 			# compound_analysis = output["compound_analysis"]
 			pred = output["pred"]
-			if progress_bar: progress_bar.update()
+			if self._progress_bar: self._progress_bar.update()
 
 			if self.messages_log is not None:
 				messages = [
@@ -518,6 +518,9 @@ class LlamaInstructSplitter(BaseSplitter):
 			# empty compound to distinguish between incorrect generations
 			# and failed pipeline
 			pred = Compound("")
+			print(e)
+			if self.messages_log is not None:
+				self.messages_log[lemma] = str(e)
 			
 		return pred
 
@@ -535,8 +538,8 @@ class LlamaInstructSplitter(BaseSplitter):
 
 		return pred
 
-	async def apredict(self, lemmas: List[str], progress_bar: Optional[tqdm]=None) -> List[Compound]:
-		tasks = [self._apredict(lemma, progress_bar) for lemma in lemmas]
+	async def apredict(self, lemmas: List[str]) -> List[Compound]:
+		tasks = [self._apredict(lemma) for lemma in lemmas]
 		preds = await asyncio.gather(*tasks)	# async loop
 		return preds
 	
@@ -544,8 +547,8 @@ class LlamaInstructSplitter(BaseSplitter):
 		# wrapper over the async method to gather the preds;
 		# as we run it all async, we can't iterate over the list
 		# directly so we'll pass the progress bar alongside
-		progress_bar = tqdm(total=len(lemmas), desc="Predicting") if self.verbose else None
-		preds = asyncio.run(self.apredict(lemmas, progress_bar))
+		self._progress_bar = tqdm(total=len(lemmas), desc="Predicting") if self.verbose else None
+		preds = asyncio.run(self.apredict(lemmas))
 		return preds
 
 	def save(self) -> None:
