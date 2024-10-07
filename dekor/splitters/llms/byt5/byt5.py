@@ -51,7 +51,7 @@ class ByT5Splitter(BaseHFSplitter):
 		inputs = self.tokenizer(
 			observations["lemma"],
 			padding="max_length",
-			truncation=False,
+			truncation=True,
 			max_length=max(lens),
 			return_tensors="pt",
 			return_token_type_ids=False,
@@ -69,7 +69,7 @@ class ByT5Splitter(BaseHFSplitter):
 			targets = self.tokenizer(
 				observations["raw"],
 				padding="max_length",
-				truncation=False,
+				truncation=True,
 				max_length=max(lens),
 				return_tensors="pt",
 				return_token_type_ids=False,
