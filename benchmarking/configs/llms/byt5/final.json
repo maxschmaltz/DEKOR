@@ -15,7 +15,6 @@
 	"save_full_report": true,
 
 	"train_datasets": [
-		"./resources/datasets/train_5000.tsv",
 		"./resources/datasets/train_10000.tsv",
 		"./resources/datasets/train_50000.tsv"
 	],
