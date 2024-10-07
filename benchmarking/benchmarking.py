@@ -190,3 +190,8 @@ def benchmark(config: dict) -> None:
 			for key, value in best_splitter._metadata.items():
 				info.add_text(key, str(value))
 			plot.save(os.path.join(out_dir, "plot.png"), format="png", pnginfo=info)
+
+		# save messages if present
+		if getattr(best_splitter, "messages_log", None) is not None:
+			with open(os.path.join(out_dir, "messages.json"), "w") as f:
+				json.dump(best_splitter.messages_log, f, indent=4)
