@@ -28,7 +28,7 @@ class BaseHFSplitter(BaseSplitter):
 		self,
 		*,
 		learning_rate: Optional[float]=0.001,
-		n_epochs: Optional[int]=3,
+		n_epochs: Optional[int]=10,
 		batch_size: Optional[int]=16,
 		verbose: Optional[bool]=True
 	) -> None:
