@@ -10,14 +10,14 @@
 		"retrieve_paradigm": false,
 		"max_generations": 2,
 		"log_messages": true,
-		"save_graph": false,
+		"save_graph": true,
 		"verbose": true
 	},
 	"remove_keys": [],
 
 	"target_metric": "f1",
 	"save_best_model": false,
-	"save_full_report": false,
+	"save_full_report": true,
 
 	"train_datasets": ["./resources/datasets/train_500.tsv"],
 	"dev_dataset": null,
