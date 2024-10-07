@@ -15,7 +15,7 @@ from dekor.splitters.base import DEVICE
 from dekor.splitters.llms.base import BaseHFSplitter
 from dekor.utils.gecodb_parser import Compound
 
-BASE_MODEL_NAME = "google/byt5-small"	# base can't be run locally
+BASE_MODEL_NAME = "google/byt5-base"
 
 
 class ByT5Splitter(BaseHFSplitter):
