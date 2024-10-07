@@ -30,17 +30,13 @@ LINK_TYPES = {
 }
 
 
-class HeuristicException(Exception):
-	pass
-
-
 class LlamaInstructSplitter(BaseSplitter):
 
 	name = "llama-instruct"
 	path = "meta/llama-3.1-405b-instruct"
 	chroma_path = ".chroma"
 
-	timeout = 30
+	timeout = 45
 
 	def __init__(
 		self,	# base: 1 credit
@@ -67,6 +63,7 @@ class LlamaInstructSplitter(BaseSplitter):
 	@property
 	def _metadata(self) -> dict:
 		return {
+			"use_german_prompts": self.use_german_prompts,
 			"n_shots": self.n_shots,
 			"suggest_candidates": self.suggest_candidates,
 			"retrieve_paradigm": self.retrieve_paradigm,
@@ -336,7 +333,8 @@ class LlamaInstructSplitter(BaseSplitter):
 
 	def _fit(
 		self,
-		train_compounds: Iterable[Compound]=None
+		train_compounds: Optional[Iterable[Compound]]=None,
+		dev_compounds: Optional[Iterable[Compound]]=None	# unify params
 	) -> None:
 		
 		self._build_llm()
@@ -484,7 +482,8 @@ class LlamaInstructSplitter(BaseSplitter):
 		self,
 		*,
 		train_compounds: Optional[Iterable[Compound]]=None,
-		test: Optional[bool]=False	# unify workflow
+		dev_compounds: Optional[Iterable[Compound]]=None,	# unify params
+		test: Optional[bool]=False	# unify params
 	):	# -> Self:	# won't work in python3.10 or older
 		if self.n_shots:
 			assert train_compounds is not None and len(train_compounds) >= self.n_shots
