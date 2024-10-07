@@ -33,7 +33,6 @@ class ByT5Splitter(BaseHFSplitter):
 	def _build_tokenizer(self, path: str) -> None:
 		self.tokenizer = ByT5Tokenizer.from_pretrained(
 			path,
-			add_special_tokens=True,
 			padding_side="right",
 			truncation_side="right"
 		)
