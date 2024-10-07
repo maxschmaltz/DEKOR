@@ -34,7 +34,7 @@ class ByT5Splitter(BaseHFSplitter):
 		self.tokenizer = ByT5Tokenizer.from_pretrained(
 			path,
 			padding_side="right",
-			truncation_side="right"
+			truncation_side="left"
 		)
 
 	def _build_llm(self, path: str) -> None:
