@@ -46,11 +46,13 @@ class ByT5Splitter(BaseHFSplitter):
 	
 	def _tokenize(self, observations: Dict[str, List[str]]) -> torch.Tensor:
 		
+		lemmas = observations["lemma"]
+		lens = [len(lemma) for lemma in lemmas]
 		inputs = self.tokenizer(
 			observations["lemma"],
-			padding=True,
-			truncation=True,
-			max_length=256,
+			padding="max_length",
+			truncation=False,
+			max_length=max(lens),
 			return_tensors="pt",
 			return_token_type_ids=False,
 			return_attention_mask=True,
@@ -62,11 +64,13 @@ class ByT5Splitter(BaseHFSplitter):
 		}
 
 		if "raw" in observations:	# fine-tuning
+			raws = observations["raw"]
+			lens = [len(raw) for raw in raws]
 			targets = self.tokenizer(
 				observations["raw"],
-				padding=True,
-				truncation=True,
-				max_length=256,
+				padding="max_length",
+				truncation=False,
+				max_length=max(lens),
 				return_tensors="pt",
 				return_token_type_ids=False,
 				return_attention_mask=True,
