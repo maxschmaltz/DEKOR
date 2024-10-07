@@ -65,7 +65,8 @@ class ByT5Splitter(BaseHFSplitter):
 			targets = self.tokenizer(
 				observations["raws"],
 				padding=True,
-				truncation=False,
+				truncation=True,
+				max_length=256,
 				return_tensors="pt",
 				return_token_type_ids=False,
 				return_attention_mask=True,
@@ -168,7 +169,7 @@ class ByT5Splitter(BaseHFSplitter):
 		try:
 			pred = Compound(raw)
 		except:
-			return Compound("")
+			return Compound(lemma)
 
 		# heuristically filter out predictions that cannot be correct
 		if (
@@ -203,7 +204,6 @@ class ByT5Splitter(BaseHFSplitter):
 		test_dataset_tokenized.set_format(type="torch")
 
 		test_dataloader = DataLoader(
-			# will only output batches of x's
 			test_dataset_tokenized,
 			shuffle=False,
 			batch_size=self.batch_size,
