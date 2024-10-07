@@ -28,9 +28,9 @@ class GBERTSplitter(BaseHFSplitter):
 	def __init__(
 		self,
 		*,
-		context_window: Optional[int]=3,
-		record_none_links: bool,
-		learning_rate: Optional[float]=0.001,
+		context_window: Optional[int]=2,
+		record_none_links: Optional[bool]=True,
+		learning_rate: Optional[float]=0.0001,
 		n_epochs: Optional[int]=3,
 		batch_size: Optional[int]=16,
 		verbose: Optional[bool]=True
