@@ -156,7 +156,7 @@ def form_examples_english(example_compounds: Iterable[Compound]):
 			indent=4
 		)
 		# add triple backsticks and additional brackets to escape the JSON
-		json_string = f"```{es}\{json_string}{es}```"
+		json_string = f"```{es}{json_string}{es}```"
 		example = f"Compound: \"{compound.lemma.capitalize()}\"{es}Analysis:{es}{json_string}"
 		examples.append(example)
 	examples_str = f"{es * 2}Examples{es}===={es}{(es * 2).join(examples)}"
