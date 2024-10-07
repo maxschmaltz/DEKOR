@@ -86,7 +86,8 @@ class BaseHFSplitter(BaseSplitter):
 	def _train(
 		self,
 		train_dataset_tokenized: Dataset,
-		dev_dataset_tokenized: Optional[Dataset]=None
+		dev_dataset_tokenized: Optional[Dataset]=None,
+		**kwargs
 	) -> None:
 
 		torch.cuda.empty_cache()
@@ -102,7 +103,8 @@ class BaseHFSplitter(BaseSplitter):
 			tokenizer=self.tokenizer,
 			train_dataset=train_dataset_tokenized,
 			eval_dataset=dev_dataset_tokenized,
-			compute_metrics=self._compute_eval_metrics
+			compute_metrics=self._compute_eval_metrics,
+			**kwargs
 		)
 
 		trainer.train()

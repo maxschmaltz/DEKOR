@@ -5,7 +5,8 @@ from datasets import Dataset
 from transformers import (
 	ByT5Tokenizer,
 	T5ForConditionalGeneration,
-	EvalPrediction
+	EvalPrediction,
+	DataCollatorForSeq2Seq
 )
 from sklearn.metrics import accuracy_score
 from tqdm import tqdm
@@ -102,7 +103,6 @@ class ByT5Splitter(BaseHFSplitter):
 	
 	def _get_training_args(self, dev_available: bool) -> Dict:
 		training_args = super()._get_training_args(dev_available)
-		training_args["group_by_length"] = False
 		training_args["metric_for_best_model"] = "compound_accuracy"	# from `_compute_eval_metrics()`
 		training_args["greater_is_better"] = True
 		return training_args
@@ -160,9 +160,12 @@ class ByT5Splitter(BaseHFSplitter):
 		# or simply call `.contiguous()` on your tensor to pack it before saving.
 		# ```
 		for param in self.llm.parameters(): param.data = param.data.contiguous()
+
+		data_collator = DataCollatorForSeq2Seq(tokenizer=self.tokenizer, model=self.llm)
 		self._train(
 			train_dataset_tokenized=train_dataset_tokenized,
-			dev_dataset_tokenized=dev_dataset_tokenized
+			dev_dataset_tokenized=dev_dataset_tokenized,
+			data_collator=data_collator
 		)
 
 	def _predict(
