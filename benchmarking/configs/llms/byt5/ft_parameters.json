@@ -6,7 +6,7 @@
 		"n_epochs": [3, 5, 10]
 	},
 	"constants": {
-		"batch_size": 64,
+		"batch_size": 32,
 		"verbose": true
 	},
 	"remove_keys": [],
