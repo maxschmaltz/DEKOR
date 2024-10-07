@@ -47,7 +47,7 @@ class ByT5Splitter(BaseHFSplitter):
 	def _tokenize(self, observations: Dict[str, List[str]]) -> torch.Tensor:
 		
 		lemmas = observations["lemma"]
-		lens = [len(lemma) for lemma in lemmas]
+		# lens = [len(lemma) for lemma in lemmas]
 		inputs = self.tokenizer(
 			lemmas,
 			padding=True,
@@ -65,7 +65,7 @@ class ByT5Splitter(BaseHFSplitter):
 
 		if "raw" in observations:	# fine-tuning
 			raws = observations["raw"]
-			lens = [len(raw) for raw in raws]
+			# lens = [len(raw) for raw in raws]
 			targets = self.tokenizer(
 				raws,
 				padding=True,
@@ -102,6 +102,7 @@ class ByT5Splitter(BaseHFSplitter):
 	
 	def _get_training_args(self, dev_available: bool) -> Dict:
 		training_args = super()._get_training_args(dev_available)
+		training_args["group_by_length"] = False
 		training_args["metric_for_best_model"] = "compound_accuracy"	# from `_compute_eval_metrics()`
 		training_args["greater_is_better"] = True
 		return training_args
