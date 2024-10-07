@@ -19,7 +19,7 @@
 		"./resources/datasets/train_10000.tsv",
 		"./resources/datasets/train_50000.tsv"
 	],
-	"dev_dataset": "./resources/datasets/dev_1000.tsv",
+	"dev_dataset": null,
 	"test_dataset": "./resources/datasets/test_500.tsv",
 
 	"out_dir": "./benchmarking/results/llms/byt5/final"
