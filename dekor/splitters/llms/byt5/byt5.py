@@ -128,7 +128,7 @@ class ByT5Splitter(BaseHFSplitter):
 		train_dataset_tokenized = train_dataset.map(
 			self._tokenize,
 			batched=True,
-      		batch_size=self.batch_size * 4,	# to make dataloader compatible
+      		batch_size=self.batch_size * 16,	# to make dataloader compatible
 			drop_last_batch=False
 		)
 		train_dataset_tokenized.set_format(type="torch")
@@ -143,7 +143,7 @@ class ByT5Splitter(BaseHFSplitter):
 			dev_dataset_tokenized = dev_dataset.map(
 				self._tokenize,
 				batched=True,
-        		batch_size=self.batch_size * 4,	# to make dataloader compatible
+        		batch_size=self.batch_size * 16,	# to make dataloader compatible
 				drop_last_batch=False
 			)
 			dev_dataset_tokenized.set_format(type="torch")
@@ -200,7 +200,7 @@ class ByT5Splitter(BaseHFSplitter):
 		test_dataset_tokenized = test_dataset.map(
 			self._tokenize,
 			batched=True,
-			batch_size=self.batch_size * 4,	# to make dataloader compatible
+			batch_size=self.batch_size * 16,	# to make dataloader compatible
 			drop_last_batch=False,
 			# as opposed to using Trainer, here we have to remove the excessive columns manually
 			remove_columns=["lemma"]
