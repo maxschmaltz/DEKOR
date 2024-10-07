@@ -5,7 +5,7 @@
 	"constants": {
 		"learning_rate": 0.001,
 		"n_epochs": 10, 
-		"batch_size": 64,
+		"batch_size": 16,
 		"verbose": true
 	},
 	"remove_keys": [],
