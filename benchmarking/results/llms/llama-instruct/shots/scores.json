@@ -1,0 +1,36 @@
+[
+    {
+        "model": "llama-instruct",
+        "parameters": {
+            "use_german_prompts": false,
+            "n_shots": 0,
+            "suggest_candidates": false,
+            "retrieve_paradigm": false,
+            "max_generations": 2
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.583680517698554,
+        "recall": 0.38141292794018644,
+        "f1": 0.4422891938126609,
+        "accuracy": 0.7255813953488373
+    },
+    {
+        "model": "llama-instruct",
+        "parameters": {
+            "use_german_prompts": false,
+            "n_shots": 3,
+            "suggest_candidates": false,
+            "retrieve_paradigm": false,
+            "max_generations": 2
+        },
+        "train_size": 501,
+        "dev_size": 0,
+        "test_size": 215,
+        "precision": 0.6038178414276538,
+        "recall": 0.36166550033690126,
+        "f1": 0.4185648668920917,
+        "accuracy": 0.7255813953488373
+    }
+]
