@@ -59,7 +59,7 @@ class BaseRecurrentNN(BaseNN):  # RNN, GRU
 		# so we separate this function onto two modes
 		if r:
 			# input: b x emb, already embedded, hidden: (D * nl) x h
-			assert isinstance(hidden_tensor, torch.Tensor)
+			# assert isinstance(hidden_tensor, torch.Tensor)
 			output, hidden = self.recurrent(input_tensor, hidden_tensor)   # b x 1 x (D * h), (D * nl) x b x h
 			return output, hidden
 		else:
@@ -622,7 +622,7 @@ class BaseForwardNNSplitter(BaseNNSplitter):
 		triplets_array = np.array(triplets, dtype=np.object_)
 
 		# In this implementation, we need to pass info about the whole
-		# context to the model (not recurrently); however, different contexts are (in the math sense)
+		# context to the model (not recurrently); however, different parts are (in the math sense)
 		# independent so instead of embedding the whole contexts,
 		# we want to embed each part of the triplet and concatenate the results if needed later.
 		triplet_parts_embeddings = []
