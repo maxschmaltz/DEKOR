@@ -3,7 +3,7 @@
 
 	"parameter_grid": {},
 	"constants": {
-		"use_german_prompts": false,
+		"use_german_prompts": true,
 		"n_shots": 3,
 		"suggest_candidates": true,
 		"retrieve_paradigm": false,
@@ -20,7 +20,7 @@
 
 	"train_datasets": ["./resources/datasets/train_500.tsv"],
 	"dev_dataset": null,
-	"test_dataset": "./resources/datasets/test_500.tsv",
+	"test_dataset": "./resources/datasets/test_100.tsv",
 
 	"out_dir": "./benchmarking/results/llms/llama-instruct/plus_candidates_german_small"
 }
