@@ -492,27 +492,27 @@ class LlamaInstructSplitter(BaseSplitter):
 	
 	async def _apredict(self, lemma: str) -> Compound:
 		
-		try:
-			output = await asyncio.wait_for(
-				self._splitter.ainvoke({
-					"lemma": lemma.capitalize(),
-					"made_attempts": 0	# will be incremented each guess
-				}),
-				timeout=self.timeout * self.max_generations
-			)
-			# compound_analysis = output["compound_analysis"]
-			pred = output["pred"]
-			if self._progress_bar: self._progress_bar.update()
+			try:
+				output = await asyncio.wait_for(
+					self._splitter.ainvoke({
+						"lemma": lemma.capitalize(),
+						"made_attempts": 0	# will be incremented each guess
+					}),
+					timeout=self.timeout * self.max_generations
+				)
+				# compound_analysis = output["compound_analysis"]
+				pred = output["pred"]
+				if self._progress_bar: self._progress_bar.update()
 
-			if self.messages_log is not None:
-				messages = [
-					{
-						"type": message.__class__.__name__,
-						"content": message.content
-					}
-					for message in output["all_messages"]
-				]
-				self.messages_log[lemma] = messages
+				if self.messages_log is not None:
+					messages = [
+						{
+							"type": message.__class__.__name__,
+							"content": message.content
+						}
+						for message in output["all_messages"]
+					]
+					self.messages_log[lemma] = messages
 
 		except Exception as e:
 			# empty compound to distinguish between incorrect generations
