@@ -21,6 +21,8 @@ from dekor.utils.gecodb_parser import Compound
 
 load_dotenv()	# load environment variables
 
+sem = asyncio.Semaphore(10)	# limit the number of concurrent async tasks to 10
+
 LINK_TYPES = {
     # to get the link component from its realization
     "addition_umlaut": "_+={c}_",	# gast_+=e_buch = Gästebuch, mutter_+=_rente = Mütterrente
@@ -45,7 +47,7 @@ class LlamaInstructSplitter(BaseSplitter):
 		n_shots: Optional[int]=3,
 		suggest_candidates: Optional[bool]=False,	# +2 credits
 		retrieve_paradigm: Optional[bool]=False,	# +1 credits
-		max_generations: Optional[int]=3,	# +2 credits per one regeneration (happens very rarely)
+		max_generations: Optional[int]=3,	# +2 credits per one regeneration (happens rarely)
 		log_messages: Optional[bool]=False,
 		save_graph: Optional[bool]=False,
 		verbose: Optional[bool]=True
@@ -57,7 +59,7 @@ class LlamaInstructSplitter(BaseSplitter):
 		self.retrieve_paradigm = retrieve_paradigm
 		self.max_generations = max(max_generations, 1)
 		self.messages_log = {} if log_messages else None
-		self.plot_buffer = BytesIO() if save_graph else None	# unify names with NN
+		self.plot_buffer = BytesIO() if save_graph else None	# unify names with NNs
 		self.verbose = verbose
 
 	@property
@@ -109,11 +111,13 @@ class LlamaInstructSplitter(BaseSplitter):
 			tool_calls = await self.json_parser.aparse(ai_response.content)
 			tool_outputs = []
 			for tool_call in tool_calls:
-				tool_name = tool_call["name"]
-				tool_args = tool_call["arguments"]
-				tool_to_call = self.tools[tool_name]
-				tool_output = await tool_to_call.ainvoke(tool_args)
-				tool_outputs.append(tool_output)
+				try:
+					tool_name = tool_call["name"]
+					tool_args = tool_call["arguments"]
+					tool_to_call = self.tools[tool_name]
+					tool_output = await tool_to_call.ainvoke(tool_args)
+					tool_outputs.append(tool_output)
+				except: pass
 
 			tool_outputs = '\n'.join(tool_outputs)
 			# simulate AI message so that it can refer to itself
@@ -491,6 +495,8 @@ class LlamaInstructSplitter(BaseSplitter):
 		return self
 	
 	async def _apredict(self, lemma: str) -> Compound:
+
+		async with sem:
 		
 			try:
 				output = await asyncio.wait_for(
@@ -514,15 +520,20 @@ class LlamaInstructSplitter(BaseSplitter):
 					]
 					self.messages_log[lemma] = messages
 
-		except Exception as e:
-			# empty compound to distinguish between incorrect generations
-			# and failed pipeline
-			pred = Compound("")
-			print(e)
-			if self.messages_log is not None:
-				self.messages_log[lemma] = str(e)
-			
-		return pred
+			except Exception as e:
+				# empty compound to distinguish between incorrect generations
+				# and failed pipeline
+				if "[402] Payment Required" in str(e):
+					pass # change credits if needed and rebuild the LLM and graph
+					# self.llm = ...
+					# self._build_graph()
+
+				pred = Compound("")
+				print(e)
+				if self.messages_log is not None:
+					self.messages_log[lemma] = str(e)
+				
+			return pred
 
 	def _predict(self, compound_analysis: Dict[str, str]) -> Compound:
 

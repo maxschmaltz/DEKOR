@@ -168,7 +168,7 @@ def form_examples_english(example_compounds: Iterable[Compound]):
 # we separate the tasks: not regenerate the analysis here, but rather
 # find the errors here and regenerate in the next guess
 FIND_ERRORS_TEMPLATE_ENGLISH = """\
-Your Colleague had the following task:
+Your colleague had the following task:
 
 {instructions}
 
