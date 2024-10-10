@@ -36,19 +36,18 @@ class LlamaInstructSplitter(BaseSplitter):
 
 	name = "llama-instruct"
 	path = "meta/llama-3.1-405b-instruct"
-	chroma_path = ".chroma"
 
-	timeout = 45
+	timeout = 30
 
 	def __init__(
 		self,	# base: 1 credit
 		*,
-		use_german_prompts: Optional[bool]=True,
+		use_german_prompts: Optional[bool]=False,
 		n_shots: Optional[int]=3,
-		suggest_candidates: Optional[bool]=False,	# +2 credits
+		suggest_candidates: Optional[bool]=True,	# +2 credits
 		retrieve_paradigm: Optional[bool]=False,	# +1 credits
 		max_generations: Optional[int]=3,	# +2 credits per one regeneration (happens rarely)
-		log_messages: Optional[bool]=False,
+		log_messages: Optional[bool]=True,
 		save_graph: Optional[bool]=False,
 		verbose: Optional[bool]=True
 	) -> None:
