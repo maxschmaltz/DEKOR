@@ -1,0 +1,26 @@
+{
+	"model": "llama-instruct",
+
+	"parameter_grid": {},
+	"constants": {
+		"use_german_prompts": false,
+		"n_shots": 0,
+		"suggest_candidates": true,
+		"retrieve_paradigm": false,
+		"max_generations": 3,
+		"log_messages": true,
+		"save_graph": true,
+		"verbose": true
+	},
+	"remove_keys": [],
+
+	"target_metric": "f1",
+	"save_best_model": false,
+	"save_full_report": true,
+
+	"train_datasets": ["./resources/datasets/train_500.tsv"],
+	"dev_dataset": null,
+	"test_dataset": "./resources/datasets/test_500.tsv",
+
+	"out_dir": "./benchmarking/results/llms/llama-instruct/cand_english_0_shot/"
+}
