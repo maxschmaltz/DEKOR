@@ -349,9 +349,9 @@ seite_+n_bracke	seite_+n_bracke	common	True	_+n_	_+n_	addition	addition
 mensch_+en_ratte	mensch_+en_ratte	common	True	_+n_	_+n_	addition	addition
 angehörige_+n_stunde	angehörige_+n_stunde	common	True	_+n_	_+n_	addition	addition
 hölle_+n_erlebnis	hölle_+n_erlebnis	common	True	_+n_	_+n_	addition	addition
-sprache_-e_empfang		common	False	_-e_	none	deletion	none
-schule_-e_staatssekretär		common	False	_-e_	none	deletion	none
-kontrolle_-e_pflicht		common	False	_-e_	none	deletion	none
+sprache_-e_empfang	sprache_-e_empfang	common	True	_-e_	_-e_	deletion	deletion
+schule_-e_staatssekretär	schule_-e_staatssekretär	common	True	_-e_	_-e_	deletion	deletion
+kontrolle_-e_pflicht	kontrolle_-e_pflicht	common	True	_-e_	_-e_	deletion	deletion
 wolle_-e_mantel	woll_mantel	common	False	_-e_	_	deletion	concatenation
 hund_+e_krankengymnastin		common	False	_+e_	none	addition	none
 referat_+e_seite	referat_+e_seite	common	True	_+e_	_+e_	addition	addition
@@ -479,8 +479,8 @@ kommode_+n_schublade	kommode_+n_schublade	infrequent	True	_+n_	_+n_	addition	add
 makrone_+n_masse	makrone_+n_masse	infrequent	True	_+n_	_+n_	addition	addition
 kinematograph_+en_vorstellung	kinematographen_vorstellung	infrequent	False	_+n_	_	addition	concatenation
 nuance_+n_bereich		infrequent	False	_+n_	none	addition	none
-blesse_-e_huhn		infrequent	False	_-e_	none	deletion	none
-einöde_-e_riegel	Einödriegel	infrequent	False	_-e_	none	deletion	none
+blesse_-e_huhn	bless_huhn	infrequent	False	_-e_	_	deletion	concatenation
+einöde_-e_riegel	einödriegel	infrequent	False	_-e_	none	deletion	none
 geleise_-e_anlage	geleis_anlage	infrequent	False	_-e_	_	deletion	concatenation
 staend_+e_staat		infrequent	False	_+e_	none	addition	none
 supernova_+e_explosion	supernova_+e_explosion	infrequent	True	_+e_	_+e_	addition	addition
@@ -523,7 +523,7 @@ freistoß_+s_tor	Freistoßstor	hapax_legomena	False	_+s_	none	addition	none
 gastropode_+n_fauna	gastropode_+n_fauna	hapax_legomena	True	_+n_	_+n_	addition	addition
 gefägedanke_+n_linie	gefäge_dankenlinie	hapax_legomena	False	_+n_	_	addition	concatenation
 altarist_+en_haus	altarist_+en_haus	hapax_legomena	True	_+n_	_+n_	addition	addition
-genosse_-e_innenschaft		hapax_legomena	False	_-e_	none	deletion	none
+genosse_-e_innenschaft	genossinnenschaft	hapax_legomena	False	_-e_	none	deletion	none
 maegd_+e_frau	Maegdefrau	hapax_legomena	False	_+e_	none	addition	none
 maerkt_+e_trennung	Maerktetrennung	hapax_legomena	False	_+e_	none	addition	none
 gaeng_+e_viertel	Gaengeviertel	hapax_legomena	False	_+e_	none	addition	none
@@ -553,7 +553,7 @@ maus_+=e_falle	maus_+=e_falle	allomorphic_fc	True	_+=e_	_+=e_	addition_umlaut	ad
 hund_katze	hund_katze	invented	True	_	_	concatenation	concatenation
 hund_+e_katze	hund_+e_katze	invented	True	_+e_	_+e_	addition	addition
 hund_+s_katze	hund_+s_katze	invented	True	_+s_	_+s_	addition	addition
-erde_-e_ei	Erdei	invented	False	_-e_	none	deletion	none
+erde_-e_ei	erdei	invented	False	_-e_	none	deletion	none
 erde_ei	erde_ei	invented	True	_	_	concatenation	concatenation
 erde_+n_ei	erde_+n_ei	invented	True	_+n_	_+n_	addition	addition
 pferd_wolke	pferd_wolke	invented	True	_	_	concatenation	concatenation
@@ -573,11 +573,11 @@ huhn_fuchs	huhn_fuchs	invented	True	_	_	concatenation	concatenation
 huhn_+=er_fuchs	huhn_+=er_fuchs	invented	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 elefant_erdbeere		invented	False	_	none	concatenation	none
 elefant_+en_erdbeere	elefant_+en_erdbeere	invented	True	_+n_	_+n_	addition	addition
-münz_-e_knopf	münz_knopf	invented	False	_-e_	_	deletion	concatenation
+münz_-e_knopf	münze_-e_knopf	invented	False	_-e_	_-e_	deletion	deletion
 münze_+n_knopf	münze_+n_knopf	invented	True	_+n_	_+n_	addition	addition
 gans_würfel	gans_würfel	invented	True	_	_	concatenation	concatenation
 gans_=e_würfel	Gans=ewürfel	invented	False	_	none	concatenation	none
-birne_-e_bus	birn_bus	invented	False	_-e_	_	deletion	concatenation
+birne_-e_bus	birne_-e_bus	invented	True	_-e_	_-e_	deletion	deletion
 birne_+n_bus	birne_+n_bus	invented	True	_+n_	_+n_	addition	addition
 hahn_hund	hahn_hund	invented	True	_	_	concatenation	concatenation
 hahn_+en_hund	hahn_+en_hund	invented	True	_+n_	_+n_	addition	addition
@@ -595,5 +595,5 @@ schwan_trompete	schwan_trompete	invented	True	_	_	concatenation	concatenation
 schwan_+en_trompete	schwane_+n_trompete	invented	False	_+n_	_+n_	addition	addition
 alligator_ente	alligator_ente	invented	True	_	_	concatenation	concatenation
 alligator_+en_ente	alligator_+en_ente	invented	True	_+n_	_+n_	addition	addition
-erdbeere_-e_ananas	Erdbeerananas	invented	False	_-e_	none	deletion	none
+erdbeere_-e_ananas	erdbeere_-e_ananas	invented	True	_-e_	_-e_	deletion	deletion
 erdbeere_+n_ananas	erdbeere_+n_ananas	invented	True	_+n_	_+n_	addition	addition

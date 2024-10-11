@@ -22,7 +22,7 @@ freistoß_+s_tor	Freistoßstor	hapax_legomena	False	_+s_	none	addition	none
 gastropode_+n_fauna	gastropode_+n_fauna	hapax_legomena	True	_+n_	_+n_	addition	addition
 gefägedanke_+n_linie	gefäge_dankenlinie	hapax_legomena	False	_+n_	_	addition	concatenation
 altarist_+en_haus	altarist_+en_haus	hapax_legomena	True	_+n_	_+n_	addition	addition
-genosse_-e_innenschaft		hapax_legomena	False	_-e_	none	deletion	none
+genosse_-e_innenschaft	genossinnenschaft	hapax_legomena	False	_-e_	none	deletion	none
 maegd_+e_frau	Maegdefrau	hapax_legomena	False	_+e_	none	addition	none
 maerkt_+e_trennung	Maerktetrennung	hapax_legomena	False	_+e_	none	addition	none
 gaeng_+e_viertel	Gaengeviertel	hapax_legomena	False	_+e_	none	addition	none

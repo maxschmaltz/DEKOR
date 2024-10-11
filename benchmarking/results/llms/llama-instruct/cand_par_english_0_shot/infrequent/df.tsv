@@ -107,8 +107,8 @@ kommode_+n_schublade	kommode_+n_schublade	infrequent	True	_+n_	_+n_	addition	add
 makrone_+n_masse	makrone_+n_masse	infrequent	True	_+n_	_+n_	addition	addition
 kinematograph_+en_vorstellung	kinematographen_vorstellung	infrequent	False	_+n_	_	addition	concatenation
 nuance_+n_bereich		infrequent	False	_+n_	none	addition	none
-blesse_-e_huhn		infrequent	False	_-e_	none	deletion	none
-einöde_-e_riegel	Einödriegel	infrequent	False	_-e_	none	deletion	none
+blesse_-e_huhn	bless_huhn	infrequent	False	_-e_	_	deletion	concatenation
+einöde_-e_riegel	einödriegel	infrequent	False	_-e_	none	deletion	none
 geleise_-e_anlage	geleis_anlage	infrequent	False	_-e_	_	deletion	concatenation
 staend_+e_staat		infrequent	False	_+e_	none	addition	none
 supernova_+e_explosion	supernova_+e_explosion	infrequent	True	_+e_	_+e_	addition	addition

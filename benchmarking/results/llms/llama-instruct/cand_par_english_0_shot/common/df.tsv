@@ -349,9 +349,9 @@ seite_+n_bracke	seite_+n_bracke	common	True	_+n_	_+n_	addition	addition
 mensch_+en_ratte	mensch_+en_ratte	common	True	_+n_	_+n_	addition	addition
 angehörige_+n_stunde	angehörige_+n_stunde	common	True	_+n_	_+n_	addition	addition
 hölle_+n_erlebnis	hölle_+n_erlebnis	common	True	_+n_	_+n_	addition	addition
-sprache_-e_empfang		common	False	_-e_	none	deletion	none
-schule_-e_staatssekretär		common	False	_-e_	none	deletion	none
-kontrolle_-e_pflicht		common	False	_-e_	none	deletion	none
+sprache_-e_empfang	sprache_-e_empfang	common	True	_-e_	_-e_	deletion	deletion
+schule_-e_staatssekretär	schule_-e_staatssekretär	common	True	_-e_	_-e_	deletion	deletion
+kontrolle_-e_pflicht	kontrolle_-e_pflicht	common	True	_-e_	_-e_	deletion	deletion
 wolle_-e_mantel	woll_mantel	common	False	_-e_	_	deletion	concatenation
 hund_+e_krankengymnastin		common	False	_+e_	none	addition	none
 referat_+e_seite	referat_+e_seite	common	True	_+e_	_+e_	addition	addition
