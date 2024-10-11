@@ -224,7 +224,7 @@ class LlamaInstructSplitter(BaseSplitter):
 				#	2. not a correct lemma
 				or pred.lemma != lemma.lower()	# we capitalized it earlier
 				# 	3. the link is impossible
-				or not self._passes_filter(l[0].type, l[0].realization, pred.stems[0].component)
+				or not self._passes_filter(l[0].type, l[0].realization, pred.stems[0].realization)
 			)
 
 			if valid:
