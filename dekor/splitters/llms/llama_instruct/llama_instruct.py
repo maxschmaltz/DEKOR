@@ -37,7 +37,7 @@ class LlamaInstructSplitter(BaseSplitter):
 	name = "llama-instruct"
 	path = "meta/llama-3.1-405b-instruct"
 
-	timeout = 15
+	timeout = 30
 
 	def __init__(
 		self,	# base: 1 credit
