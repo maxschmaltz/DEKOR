@@ -22,11 +22,11 @@ huhn_fuchs	huhn_fuchs	invented	True	_	_	concatenation	concatenation
 huhn_+=er_fuchs	huhn_+=er_fuchs	invented	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 elefant_erdbeere	Elefanterdbeere	invented	False	_	none	concatenation	none
 elefant_+en_erdbeere	elefant_+en_erdbeere	invented	True	_+n_	_+n_	addition	addition
-münz_-e_knopf	Münzknopf	invented	False	_-e_	none	deletion	none
+münz_-e_knopf	münze_-e_knopf	invented	False	_-e_	_-e_	deletion	deletion
 münze_+n_knopf	münze_+n_knopf	invented	True	_+n_	_+n_	addition	addition
 gans_würfel	gans_würfel	invented	True	_	_	concatenation	concatenation
 gans_=e_würfel	Gans=ewürfel	invented	False	_	none	concatenation	none
-birne_-e_bus	birn_bus	invented	False	_-e_	_	deletion	concatenation
+birne_-e_bus	birne_-e_bus	invented	True	_-e_	_-e_	deletion	deletion
 birne_+n_bus	birne_+n_bus	invented	True	_+n_	_+n_	addition	addition
 hahn_hund	hahn_hund	invented	True	_	_	concatenation	concatenation
 hahn_+en_hund	hahn_+en_hund	invented	True	_+n_	_+n_	addition	addition
@@ -44,5 +44,5 @@ schwan_trompete	schwan_trompete	invented	True	_	_	concatenation	concatenation
 schwan_+en_trompete	schwane_+n_trompete	invented	False	_+n_	_+n_	addition	addition
 alligator_ente	alligator_ente	invented	True	_	_	concatenation	concatenation
 alligator_+en_ente	alligator_+en_ente	invented	True	_+n_	_+n_	addition	addition
-erdbeere_-e_ananas	erdbeer_ananas	invented	False	_-e_	_	deletion	concatenation
+erdbeere_-e_ananas	erdbeere_-e_ananas	invented	True	_-e_	_-e_	deletion	deletion
 erdbeere_+n_ananas	erdbeere_+n_ananas	invented	True	_+n_	_+n_	addition	addition

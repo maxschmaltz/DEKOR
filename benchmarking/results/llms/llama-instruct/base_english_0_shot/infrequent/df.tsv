@@ -108,8 +108,8 @@ makrone_+n_masse	makrone_+n_masse	infrequent	True	_+n_	_+n_	addition	addition
 kinematograph_+en_vorstellung	kinematographen_vorstellung	infrequent	False	_+n_	_	addition	concatenation
 nuance_+n_bereich	nuance_+n_bereich	infrequent	True	_+n_	_+n_	addition	addition
 blesse_-e_huhn	bless_huhn	infrequent	False	_-e_	_	deletion	concatenation
-einöde_-e_riegel	Einödriegel	infrequent	False	_-e_	none	deletion	none
-geleise_-e_anlage	Geleisanlage	infrequent	False	_-e_	none	deletion	none
+einöde_-e_riegel	einöde_-e_riegel	infrequent	True	_-e_	_-e_	deletion	deletion
+geleise_-e_anlage	geleis_anlage	infrequent	False	_-e_	_	deletion	concatenation
 staend_+e_staat	Staendestaat	infrequent	False	_+e_	none	addition	none
 supernova_+e_explosion	supernova_+e_explosion	infrequent	True	_+e_	_+e_	addition	addition
 ärzt_+e_organisation	arzt_+=e_organisation	infrequent	False	_+e_	_+=e_	addition	addition_umlaut
