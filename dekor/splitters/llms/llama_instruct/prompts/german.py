@@ -106,7 +106,7 @@ Der Output soll ein gut formatierter JSON-String sein, der genau dem folgenden J
 {schema}
 ```
 
-Gib nur den reinen JSON-String zurück, der von dreifachen Graviszeichen (```) umgeben ist.\
+Gib NUR den reinen JSON-String zurück, der von dreifachen Graviszeichen (```) umgeben ist.\
 """
 
 

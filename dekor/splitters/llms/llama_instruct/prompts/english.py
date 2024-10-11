@@ -103,7 +103,7 @@ The output should be a well-formatted JSON instance that strictly conforms to th
 {schema}
 ```
 
-Return only a pure JSON string surrounded by triple backticks (```).\
+Return ONLY a pure JSON string surrounded by triple backticks (```).\
 """
 
 
