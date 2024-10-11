@@ -193,5 +193,5 @@ def benchmark(config: dict) -> None:
 
 		# save messages if present
 		if getattr(best_splitter, "messages_log", None) is not None:
-			with open(os.path.join(out_dir, "messages.json"), "w") as f:
+			with open(os.path.join(out_dir, "messages.json"), "w", encoding="utf8") as f:
 				json.dump(best_splitter.messages_log, f, indent=4)
