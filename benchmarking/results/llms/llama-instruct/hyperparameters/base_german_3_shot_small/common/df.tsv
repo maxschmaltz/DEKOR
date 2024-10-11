@@ -68,9 +68,9 @@ favorit_+en_frage	favorit_+en_frage	common	True	_+n_	_+n_	addition	addition
 fuge_+n_begrünung	fuge_+n_begrünung	common	True	_+n_	_+n_	addition	addition
 schlacht_+en_geschick	schlachten_geschick	common	False	_+n_	_	addition	concatenation
 ente_+n_attrappe	ente_+n_attrappe	common	True	_+n_	_+n_	addition	addition
-violine_-e_tradition	Violintradition	common	False	_-e_	none	deletion	none
-adresse_-e_akt	Adressakt	common	False	_-e_	none	deletion	none
-sprache_-e_kundigkeit	Sprachkundigkeit	common	False	_-e_	none	deletion	none
+violine_-e_tradition	violine_-e_tradition	common	True	_-e_	_-e_	deletion	deletion
+adresse_-e_akt	adresse_-e_akt	common	True	_-e_	_-e_	deletion	deletion
+sprache_-e_kundigkeit	sprachkunde_-e_igkeit	common	False	_-e_	_-e_	deletion	deletion
 ersatzteil_+e_lieferung	ersatzteil_+e_lieferung	common	True	_+e_	_+e_	addition	addition
 tod_+e_schrei	Todeschrei	common	False	_+e_	none	addition	none
 gerücht_+e_thread	gerüchte_thread	common	False	_+e_	_	addition	concatenation

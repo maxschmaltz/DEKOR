@@ -20,8 +20,8 @@ annullation_+s_gebühr	annullation_+s_gebühr	infrequent	True	_+s_	_+s_	addition
 garant_+en_pflicht	garant_+en_pflicht	infrequent	True	_+n_	_+n_	addition	addition
 feuerwaffe_+n_verordnung	feuerwaffe_+n_verordnung	infrequent	True	_+n_	_+n_	addition	addition
 spürnase_+n_aktion	spürnase_+n_aktion	infrequent	True	_+n_	_+n_	addition	addition
-einöde_-e_kirche	Einödkirche	infrequent	False	_-e_	none	deletion	none
-einöde_-e_standort	Einödstandort	infrequent	False	_-e_	none	deletion	none
+einöde_-e_kirche	einöde_-e_kirche	infrequent	True	_-e_	_-e_	deletion	deletion
+einöde_-e_standort	einöde_-e_standort	infrequent	True	_-e_	_-e_	deletion	deletion
 spinnwebe_-e_haut	spinnweb_haut	infrequent	False	_-e_	_	deletion	concatenation
 perlit_+e_füllung	perlit_+e_füllung	infrequent	True	_+e_	_+e_	addition	addition
 stueck_+e_lunge	Stueckelunge	infrequent	False	_+e_	none	addition	none
