@@ -224,7 +224,14 @@ class LlamaInstructSplitter(BaseSplitter):
 				#	2. not a correct lemma
 				or pred.lemma != lemma.lower()	# we capitalized it earlier
 				# 	3. the link is impossible
-				or not self._passes_filter(l[0].type, l[0].realization, pred.stems[0].realization)
+				or not self._passes_filter(
+					l[0].type,
+					l[0].realization,
+					(
+						pred.stems[0].realization if pred.links[0].type != "deletion"
+						else pred.stems[0].component
+					)
+				)
 			)
 
 			if valid:
@@ -265,7 +272,7 @@ class LlamaInstructSplitter(BaseSplitter):
 			abort_message = AIMessage(content="Aborting.")
 			return {
 				"all_messages": [abort_message],
-				"pred": Compound(lemma)
+				"pred": Compound(lemma.lower())
 			}
 			
 		# define start state
