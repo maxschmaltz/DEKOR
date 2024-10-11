@@ -59,7 +59,7 @@ kreationismus_vorwurf	kreationismus_vorwurf	infrequent	True	_	_	concatenation	co
 voraussage_kraft	voraussage_kraft	infrequent	True	_	_	concatenation	concatenation
 tessiner_brot	tessiner_brot	infrequent	True	_	_	concatenation	concatenation
 methylphenidat_behandlung	methylphenidat_behandlung	infrequent	True	_	_	concatenation	concatenation
-umgriff_ebene	Umgriffebene	infrequent	False	_	none	concatenation	none
+umgriff_ebene	umgriffebene	infrequent	False	_	none	concatenation	none
 imago_tag	imago_tag	infrequent	True	_	_	concatenation	concatenation
 schäffer_ei		infrequent	False	_	none	concatenation	none
 salmler_gattung	salmler_gattung	infrequent	True	_	_	concatenation	concatenation
@@ -92,17 +92,17 @@ ingestion_+s_unfall	ingestion_+s_unfall	infrequent	True	_+s_	_+s_	addition	addit
 reorientierung_+s_phase	reorientierung_+s_phase	infrequent	True	_+s_	_+s_	addition	addition
 ersitzung_+s_zeit	ersitzung_+s_zeit	infrequent	True	_+s_	_+s_	addition	addition
 verfrühung_+s_schaden	verfrühung_+s_schaden	infrequent	True	_+s_	_+s_	addition	addition
-gueltigkeit_+s_bereich	Gueltigkeitsbereich	infrequent	False	_+s_	none	addition	none
+gueltigkeit_+s_bereich	gueltigkeitsbereich	infrequent	False	_+s_	none	addition	none
 samojede_+n_spitz	samojede_+n_spitz	infrequent	True	_+n_	_+n_	addition	addition
 dramaturg_+en_stelle	dramaturg_+en_stelle	infrequent	True	_+n_	_+n_	addition	addition
-schüppe_+n_straße	Schüppenstraße	infrequent	False	_+n_	none	addition	none
+schüppe_+n_straße	schüppenstraße	infrequent	False	_+n_	none	addition	none
 disponent_+en_ausbildung	disponent_+en_ausbildung	infrequent	True	_+n_	_+n_	addition	addition
 adventist_+en_familie	adventist_+en_familie	infrequent	True	_+n_	_+n_	addition	addition
 parallele_+n_paar	parallele_+n_paar	infrequent	True	_+n_	_+n_	addition	addition
 logopäde_+n_verband	logopäde_+n_verband	infrequent	True	_+n_	_+n_	addition	addition
 disponent_+en_stelle	disponent_+en_stelle	infrequent	True	_+n_	_+n_	addition	addition
 prädikant_+en_bibliothek	prädikant_+en_bibliothek	infrequent	True	_+n_	_+n_	addition	addition
-kämpe_+n_straße	Kämpenstraße	infrequent	False	_+n_	none	addition	none
+kämpe_+n_straße	kämpenstraße	infrequent	False	_+n_	none	addition	none
 kommode_+n_schublade	kommode_+n_schublade	infrequent	True	_+n_	_+n_	addition	addition
 makrone_+n_masse	makrone_+n_masse	infrequent	True	_+n_	_+n_	addition	addition
 kinematograph_+en_vorstellung	kinematographen_vorstellung	infrequent	False	_+n_	_	addition	concatenation
@@ -113,8 +113,8 @@ geleise_-e_anlage	geleis_anlage	infrequent	False	_-e_	_	deletion	concatenation
 staend_+e_staat		infrequent	False	_+e_	none	addition	none
 supernova_+e_explosion	supernova_+e_explosion	infrequent	True	_+e_	_+e_	addition	addition
 ärzt_+e_organisation	arzt_+=e_organisation	infrequent	False	_+e_	_+=e_	addition	addition_umlaut
-koern_+er_haufen	Koernerhaufen	infrequent	False	_+er_	none	addition	none
-baed_+er_architektur	Baederarchitektur	infrequent	False	_+er_	none	addition	none
+koern_+er_haufen	koernerhaufen	infrequent	False	_+er_	none	addition	none
+baed_+er_architektur	baederarchitektur	infrequent	False	_+er_	none	addition	none
 viech_+er_zeug	viech_erzeug	infrequent	False	_+er_	_	addition	concatenation
 truthuhn_+=er_bestand	truthuhn_+=er_bestand	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 gemeingut_+=er_wirtschaft	gemeingut_+=er_wirtschaft	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
@@ -126,5 +126,5 @@ aberglaube_+ns_vorstellung	aberglauben_+s_vorstellung	infrequent	False	_+ns_	_+s
 aberglaube_+ns_forschung	aberglauben_+s_forschung	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_kritik	aberglauben_+s_kritik	infrequent	False	_+ns_	_+s_	addition	addition
 soller_+=_kopf		infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_rinne	Söllerrinne	infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_treppe	Söllertreppe	infrequent	False	_+=_	none	addition_umlaut	none
+soller_+=_rinne	söllerrinne	infrequent	False	_+=_	none	addition_umlaut	none
+soller_+=_treppe	söllertreppe	infrequent	False	_+=_	none	addition_umlaut	none

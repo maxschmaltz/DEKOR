@@ -6,7 +6,7 @@ schatten_spiegel		common	False	_	none	concatenation	none
 radio_halter	radio_halter	common	True	_	_	concatenation	concatenation
 schnee_fleck	schnee_fleck	common	True	_	_	concatenation	concatenation
 reiter_aufgebot	reiter_aufgebot	common	True	_	_	concatenation	concatenation
-granat_schuss	Granatschuss	common	False	_	none	concatenation	none
+granat_schuss	granatschuss	common	False	_	none	concatenation	none
 blei_pfeife	blei_pfeife	common	True	_	_	concatenation	concatenation
 met_ontologie		common	False	_	none	concatenation	none
 schrott_album	schrott_album	common	True	_	_	concatenation	concatenation
@@ -14,7 +14,7 @@ macht_zwang	macht_zwang	common	True	_	_	concatenation	concatenation
 brust_falte	brust_falte	common	True	_	_	concatenation	concatenation
 meer_land	meer_land	common	True	_	_	concatenation	concatenation
 team_kollaboration	team_kollaboration	common	True	_	_	concatenation	concatenation
-fond_scheibe	Fondscheibe	common	False	_	none	concatenation	none
+fond_scheibe	fondscheibe	common	False	_	none	concatenation	none
 kühlschrank_ruhe	kühlschrank_ruhe	common	True	_	_	concatenation	concatenation
 messe_crew	messe_crew	common	True	_	_	concatenation	concatenation
 sturm_forum	sturm_forum	common	True	_	_	concatenation	concatenation
@@ -54,7 +54,7 @@ bau_richtung	bau_richtung	common	True	_	_	concatenation	concatenation
 west_sieger	west_sieger	common	True	_	_	concatenation	concatenation
 mega_park	mega_park	common	True	_	_	concatenation	concatenation
 reifen_mix	reifen_mix	common	True	_	_	concatenation	concatenation
-beweis_element	Beweiselement	common	False	_	none	concatenation	none
+beweis_element	beweiselement	common	False	_	none	concatenation	none
 motorrad_prozession	motorrad_prozession	common	True	_	_	concatenation	concatenation
 pass_einfahrt	pass_einfahrt	common	True	_	_	concatenation	concatenation
 produkt_breite	produkt_breite	common	True	_	_	concatenation	concatenation
@@ -72,7 +72,7 @@ technologie_überwachung	technologie_überwachung	common	True	_	_	concatenation	
 leser_rezension	leser_rezension	common	True	_	_	concatenation	concatenation
 haupt_materie	haupt_materie	common	True	_	_	concatenation	concatenation
 karo_van	karo_van	common	True	_	_	concatenation	concatenation
-adler_ritter	Adlerritter	common	False	_	none	concatenation	none
+adler_ritter	adlerritter	common	False	_	none	concatenation	none
 bitumen_schindel	bitumen_schindel	common	True	_	_	concatenation	concatenation
 mädchen_hort		common	False	_	none	concatenation	none
 sarg_laden	sarg_laden	common	True	_	_	concatenation	concatenation
@@ -100,7 +100,7 @@ musik_traum	musik_traum	common	True	_	_	concatenation	concatenation
 schweizer_haus		common	False	_	none	concatenation	none
 wunsch_architekt	wunsch_architekt	common	True	_	_	concatenation	concatenation
 werkstatt_dach	werkstatt_dach	common	True	_	_	concatenation	concatenation
-zivildienst_erfahrung	Zivildiensterfahrung	common	False	_	none	concatenation	none
+zivildienst_erfahrung	zivildiensterfahrung	common	False	_	none	concatenation	none
 marmor_vertäfelung	marmor_vertäfelung	common	True	_	_	concatenation	concatenation
 kammer_linse	kammer_linse	common	True	_	_	concatenation	concatenation
 jahrtausend_rückblick	jahrtausend_rückblick	common	True	_	_	concatenation	concatenation
@@ -110,7 +110,7 @@ darm_paket		common	False	_	none	concatenation	none
 offizier_lehrgang	offizier_lehrgang	common	True	_	_	concatenation	concatenation
 porträt_skizze		common	False	_	none	concatenation	none
 hobby_schreiberin	hobby_schreiberin	common	True	_	_	concatenation	concatenation
-praxis_raeum	Praxisraeum	common	False	_	none	concatenation	none
+praxis_raeum	praxisraeum	common	False	_	none	concatenation	none
 darm_stabilität	darm_stabilität	common	True	_	_	concatenation	concatenation
 fitness_ball	fitness_ball	common	True	_	_	concatenation	concatenation
 panorama_abschnitt	panorama_abschnitt	common	True	_	_	concatenation	concatenation
@@ -129,7 +129,7 @@ last_konzentration	last_konzentration	common	True	_	_	concatenation	concatenatio
 jugend_boot	jugend_boot	common	True	_	_	concatenation	concatenation
 zweirad_treff	zweirad_treff	common	True	_	_	concatenation	concatenation
 lob_artikel	lob_artikel	common	True	_	_	concatenation	concatenation
-haus_hoheit	Haushoheit	common	False	_	none	concatenation	none
+haus_hoheit	haushoheit	common	False	_	none	concatenation	none
 deck_tod	deck_tod	common	True	_	_	concatenation	concatenation
 yoga_haus	yoga_haus	common	True	_	_	concatenation	concatenation
 öko_frau	öko_frau	common	True	_	_	concatenation	concatenation
@@ -215,7 +215,7 @@ regenwald_frucht	regenwald_frucht	common	True	_	_	concatenation	concatenation
 mauer_höhle	mauer_höhle	common	True	_	_	concatenation	concatenation
 schlager_musik	schlager_musik	common	True	_	_	concatenation	concatenation
 sound_debatte	sound_debatte	common	True	_	_	concatenation	concatenation
-flugzeug_sitz	Flugzeugsitz	common	False	_	none	concatenation	none
+flugzeug_sitz	flugzeugsitz	common	False	_	none	concatenation	none
 freiland_deposition	freiland_deposition	common	True	_	_	concatenation	concatenation
 harmonie_brei	harmonie_brei	common	True	_	_	concatenation	concatenation
 frühling_+s_tisch	frühling_+s_tisch	common	True	_+s_	_+s_	addition	addition
@@ -249,7 +249,7 @@ gewicht_+s_verhältnis		common	False	_+s_	none	addition	none
 trennung_+s_koeffizient	trennung_+s_koeffizient	common	True	_+s_	_+s_	addition	addition
 vernichtung_+s_aktion	vernichtung_+s_aktion	common	True	_+s_	_+s_	addition	addition
 regierung_+s_anwalt	regierung_+s_anwalt	common	True	_+s_	_+s_	addition	addition
-verlängerung_+s_tag	Verlängerungstag	common	False	_+s_	none	addition	none
+verlängerung_+s_tag	verlängerungstag	common	False	_+s_	none	addition	none
 benachrichtigung_+s_konzept	benachrichtigung_+s_konzept	common	True	_+s_	_+s_	addition	addition
 empfang_+s_messung	empfang_+s_messung	common	True	_+s_	_+s_	addition	addition
 bewegung_+s_seite	bewegung_+s_seite	common	True	_+s_	_+s_	addition	addition
@@ -337,7 +337,7 @@ maßnahme_+n_ebene	maßnahme_+n_ebene	common	True	_+n_	_+n_	addition	addition
 maschine_+n_rüstzeit	maschine_+n_rüstzeit	common	True	_+n_	_+n_	addition	addition
 gebühr_+en_angelegenheit	gebühr_+en_angelegenheit	common	True	_+n_	_+n_	addition	addition
 tinte_+n_rezeptur	tinte_+n_rezeptur	common	True	_+n_	_+n_	addition	addition
-briefmarke_+n_messen	Briefmarkenmessen	common	False	_+n_	none	addition	none
+briefmarke_+n_messen	briefmarkenmessen	common	False	_+n_	none	addition	none
 idee_+n_fundus	idee_+n_fundus	common	True	_+n_	_+n_	addition	addition
 variable_+n_eingabe	variable_+n_eingabe	common	True	_+n_	_+n_	addition	addition
 straße_+n_katalog		common	False	_+n_	none	addition	none
@@ -362,12 +362,12 @@ ei_+er_mann	eier_mann	common	False	_+er_	_	addition	concatenation
 wort_+=er_kette	wort_+=er_kette	common	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 huhn_+=er_leiter	huhn_+=er_leiter	common	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 blatt_+=er_suppe	blatt_+=er_suppe	common	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-gans_+=e_sänger	Gänsesänger	common	False	_+=e_	none	addition_umlaut	none
+gans_+=e_sänger	gänsesänger	common	False	_+=e_	none	addition_umlaut	none
 gast_+=e_etage		common	False	_+=e_	none	addition_umlaut	none
 stand_+=e_gesellschaft	stand_+=e_gesellschaft	common	True	_+=e_	_+=e_	addition_umlaut	addition_umlaut
 glaube_+ns_gesetz		common	False	_+ns_	none	addition	none
 herz_+ens_eigenschaft	herzen_+s_eigenschaft	common	False	_+ns_	_+s_	addition	addition
 name_+ns_roulette	name_+ns_roulette	common	True	_+ns_	_+ns_	addition	addition
-vater_+=_suche	Vätersuche	common	False	_+=_	none	addition_umlaut	none
-bruder_+=_heim	Brüderheim	common	False	_+=_	none	addition_umlaut	none
+vater_+=_suche	vätersuche	common	False	_+=_	none	addition_umlaut	none
+bruder_+=_heim	brüderheim	common	False	_+=_	none	addition_umlaut	none
 vater_+=_herz	väter_herz	common	False	_+=_	_	addition_umlaut	concatenation

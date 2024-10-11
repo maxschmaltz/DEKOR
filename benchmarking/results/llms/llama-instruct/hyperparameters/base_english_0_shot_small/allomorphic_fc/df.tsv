@@ -9,7 +9,7 @@ mann_+es_kraft	mann_+es_kraft	allomorphic_fc	True	_+s_	_+s_	addition	addition
 mann_+s_volk	mann_+s_volk	allomorphic_fc	True	_+s_	_+s_	addition	addition
 mensch_werdung	mensch_werdung	allomorphic_fc	True	_	_	concatenation	concatenation
 mensch_+en_affe	mensch_+en_affe	allomorphic_fc	True	_+n_	_+n_	addition	addition
-mensch_+ens_kind	Menschenskind	allomorphic_fc	False	_+ns_	none	addition	none
+mensch_+ens_kind	menschenskind	allomorphic_fc	False	_+ns_	none	addition	none
 schwein_+e_fleisch	schwein_+e_fleisch	allomorphic_fc	True	_+e_	_+e_	addition	addition
 schwein_kram	schwein_kram	allomorphic_fc	True	_	_	concatenation	concatenation
 schwein_+s_galopp	schwein_+s_galopp	allomorphic_fc	True	_+s_	_+s_	addition	addition

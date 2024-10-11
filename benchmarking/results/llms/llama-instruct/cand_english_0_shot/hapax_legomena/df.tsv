@@ -1,5 +1,5 @@
 	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-apoll_altar	Apollaltar	hapax_legomena	False	_	none	concatenation	none
+apoll_altar	apollaltar	hapax_legomena	False	_	none	concatenation	none
 fellchen_hilfe	fellchen_hilfe	hapax_legomena	True	_	_	concatenation	concatenation
 gilgamesch_epos	gilgamesch_epos	hapax_legomena	True	_	_	concatenation	concatenation
 molchen_berg	molch_+en_berg	hapax_legomena	False	_	_+n_	concatenation	addition
@@ -22,13 +22,13 @@ freistoß_+s_tor	freistoß_+s_tor	hapax_legomena	True	_+s_	_+s_	addition	additio
 gastropode_+n_fauna	gastropode_+n_fauna	hapax_legomena	True	_+n_	_+n_	addition	addition
 gefägedanke_+n_linie	gefäge_dankenlinie	hapax_legomena	False	_+n_	_	addition	concatenation
 altarist_+en_haus	altarist_+en_haus	hapax_legomena	True	_+n_	_+n_	addition	addition
-genosse_-e_innenschaft	Genossinnenschaft	hapax_legomena	False	_-e_	none	deletion	none
-maegd_+e_frau	Maegdefrau	hapax_legomena	False	_+e_	none	addition	none
-maerkt_+e_trennung	Maerktetrennung	hapax_legomena	False	_+e_	none	addition	none
-gaeng_+e_viertel	Gaengeviertel	hapax_legomena	False	_+e_	none	addition	none
-raed_+er_werk	Raederwerk	hapax_legomena	False	_+er_	none	addition	none
-graeb_+er_feld	Graeberfeld	hapax_legomena	False	_+er_	none	addition	none
-glaes_+er_ruecken	Glaeserruecken	hapax_legomena	False	_+er_	none	addition	none
+genosse_-e_innenschaft	genossinnenschaft	hapax_legomena	False	_-e_	none	deletion	none
+maegd_+e_frau	maegdefrau	hapax_legomena	False	_+e_	none	addition	none
+maerkt_+e_trennung	maerktetrennung	hapax_legomena	False	_+e_	none	addition	none
+gaeng_+e_viertel	gaengeviertel	hapax_legomena	False	_+e_	none	addition	none
+raed_+er_werk	raederwerk	hapax_legomena	False	_+er_	none	addition	none
+graeb_+er_feld	graeberfeld	hapax_legomena	False	_+er_	none	addition	none
+glaes_+er_ruecken	glaeserruecken	hapax_legomena	False	_+er_	none	addition	none
 sammel_+ns_wert	sammeln_+s_wert	hapax_legomena	False	_+ns_	_+s_	addition	addition
 unglaube_+ns_bekenntnis	unglauben_+s_bekenntnis	hapax_legomena	False	_+ns_	_+s_	addition	addition
-vorvater_+=_zeit	Vorväterzeit	hapax_legomena	False	_+=_	none	addition_umlaut	none
+vorvater_+=_zeit	vorväterzeit	hapax_legomena	False	_+=_	none	addition_umlaut	none

@@ -24,9 +24,9 @@ einöde_-e_kirche	einöde_-e_kirche	infrequent	True	_-e_	_-e_	deletion	deletion
 einöde_-e_standort	einöde_-e_standort	infrequent	True	_-e_	_-e_	deletion	deletion
 spinnwebe_-e_haut	spinnweb_haut	infrequent	False	_-e_	_	deletion	concatenation
 perlit_+e_füllung	perlit_+e_füllung	infrequent	True	_+e_	_+e_	addition	addition
-stueck_+e_lunge	Stueckelunge	infrequent	False	_+e_	none	addition	none
+stueck_+e_lunge	stueckelunge	infrequent	False	_+e_	none	addition	none
 eckwert_+e_papier	eckwert_+e_papier	infrequent	True	_+e_	_+e_	addition	addition
-koern_+er_futter	Koernerfutter	infrequent	False	_+er_	none	addition	none
+koern_+er_futter	koernerfutter	infrequent	False	_+er_	none	addition	none
 biest_+er_berg	biester_berg	infrequent	False	_+er_	_	addition	concatenation
 biest_+er_mann	biest_+er_mann	infrequent	True	_+er_	_+er_	addition	addition
 truthuhn_+=er_bestand	truthühner_bestand	infrequent	False	_+=er_	_	addition_umlaut	concatenation

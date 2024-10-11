@@ -1,6 +1,6 @@
 	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
 aufklärer_version	aufklärer_version	infrequent	True	_	_	concatenation	concatenation
-analysis_unterricht	Analysisunterricht	infrequent	False	_	none	concatenation	none
+analysis_unterricht	analysisunterricht	infrequent	False	_	none	concatenation	none
 hausierer_ware	hausierer_ware	infrequent	True	_	_	concatenation	concatenation
 befürworter_schaft	befürworter_schaft	infrequent	True	_	_	concatenation	concatenation
 muskateller_salbei	muskateller_salbei	infrequent	True	_	_	concatenation	concatenation
@@ -21,7 +21,7 @@ nazarener_stil	nazarener_stil	infrequent	True	_	_	concatenation	concatenation
 systematik_baum	systematik_baum	infrequent	True	_	_	concatenation	concatenation
 schikane_aktion	schikane_aktion	infrequent	True	_	_	concatenation	concatenation
 yogi_bär	yogi_bär	infrequent	True	_	_	concatenation	concatenation
-zwölfzylinder_triebwerk	Zwölfzylindertriebwerk	infrequent	False	_	none	concatenation	none
+zwölfzylinder_triebwerk	zwölfzylindertriebwerk	infrequent	False	_	none	concatenation	none
 schreiben_lernen	schreiben_lernen	infrequent	True	_	_	concatenation	concatenation
 empfehler_programm	empfehler_programm	infrequent	True	_	_	concatenation	concatenation
 turboprop_motor	turboprop_motor	infrequent	True	_	_	concatenation	concatenation
@@ -37,7 +37,7 @@ wetzstein_stollen	wetzstein_stollen	infrequent	True	_	_	concatenation	concatenat
 blouson_schnitt	blouson_schnitt	infrequent	True	_	_	concatenation	concatenation
 neider_sachse	neider_sachse	infrequent	True	_	_	concatenation	concatenation
 oktopus_garten	oktopus_garten	infrequent	True	_	_	concatenation	concatenation
-bilharziose_erreger	Bilharzioseerreger	infrequent	False	_	none	concatenation	none
+bilharziose_erreger	bilharzioseerreger	infrequent	False	_	none	concatenation	none
 böhme_ufer	böhme_ufer	infrequent	True	_	_	concatenation	concatenation
 monarch_falter	monarch_falter	infrequent	True	_	_	concatenation	concatenation
 tungsten_anteil	tungsten_anteil	infrequent	True	_	_	concatenation	concatenation
@@ -59,7 +59,7 @@ kreationismus_vorwurf	kreationismus_vorwurf	infrequent	True	_	_	concatenation	co
 voraussage_kraft	voraussage_kraft	infrequent	True	_	_	concatenation	concatenation
 tessiner_brot	tessiner_brot	infrequent	True	_	_	concatenation	concatenation
 methylphenidat_behandlung	methylphenidat_behandlung	infrequent	True	_	_	concatenation	concatenation
-umgriff_ebene	Umgriffebene	infrequent	False	_	none	concatenation	none
+umgriff_ebene	umgriffebene	infrequent	False	_	none	concatenation	none
 imago_tag	imago_tag	infrequent	True	_	_	concatenation	concatenation
 schäffer_ei	schäffer_ei	infrequent	True	_	_	concatenation	concatenation
 salmler_gattung	salmler_gattung	infrequent	True	_	_	concatenation	concatenation
@@ -75,7 +75,7 @@ zusammenlagerung_+s_hinweis	zusammenlagerung_+s_hinweis	infrequent	True	_+s_	_+s
 faulheit_+s_verdacht	faulheit_+s_verdacht	infrequent	True	_+s_	_+s_	addition	addition
 besänftigung_+s_strategie	besänftigung_+s_strategie	infrequent	True	_+s_	_+s_	addition	addition
 ausfachung_+s_bohrung	ausfachung_+s_bohrung	infrequent	True	_+s_	_+s_	addition	addition
-fassenacht_+s_zeit	Fassenachtszeit	infrequent	False	_+s_	none	addition	none
+fassenacht_+s_zeit	fassenachtszeit	infrequent	False	_+s_	none	addition	none
 saldierung_+s_vorschrift	saldierung_+s_vorschrift	infrequent	True	_+s_	_+s_	addition	addition
 verdingung_+s_muster	verdingung_+s_muster	infrequent	True	_+s_	_+s_	addition	addition
 rauhigkeit_+s_spitz	rauhigkeit_+s_spitz	infrequent	True	_+s_	_+s_	addition	addition
@@ -92,10 +92,10 @@ ingestion_+s_unfall	ingestion_+s_unfall	infrequent	True	_+s_	_+s_	addition	addit
 reorientierung_+s_phase	reorientierung_+s_phase	infrequent	True	_+s_	_+s_	addition	addition
 ersitzung_+s_zeit	ersitzung_+s_zeit	infrequent	True	_+s_	_+s_	addition	addition
 verfrühung_+s_schaden	verfrühung_+s_schaden	infrequent	True	_+s_	_+s_	addition	addition
-gueltigkeit_+s_bereich	Gueltigkeitsbereich	infrequent	False	_+s_	none	addition	none
+gueltigkeit_+s_bereich	gueltigkeitsbereich	infrequent	False	_+s_	none	addition	none
 samojede_+n_spitz	samojede_+n_spitz	infrequent	True	_+n_	_+n_	addition	addition
 dramaturg_+en_stelle	dramaturg_+en_stelle	infrequent	True	_+n_	_+n_	addition	addition
-schüppe_+n_straße	Schüppenstraße	infrequent	False	_+n_	none	addition	none
+schüppe_+n_straße	schüppenstraße	infrequent	False	_+n_	none	addition	none
 disponent_+en_ausbildung	disponent_+en_ausbildung	infrequent	True	_+n_	_+n_	addition	addition
 adventist_+en_familie	adventist_+en_familie	infrequent	True	_+n_	_+n_	addition	addition
 parallele_+n_paar	parallele_+n_paar	infrequent	True	_+n_	_+n_	addition	addition
@@ -110,21 +110,21 @@ nuance_+n_bereich	nuance_+n_bereich	infrequent	True	_+n_	_+n_	addition	addition
 blesse_-e_huhn	bless_huhn	infrequent	False	_-e_	_	deletion	concatenation
 einöde_-e_riegel	einöde_-e_riegel	infrequent	True	_-e_	_-e_	deletion	deletion
 geleise_-e_anlage	geleis_anlage	infrequent	False	_-e_	_	deletion	concatenation
-staend_+e_staat	Staendestaat	infrequent	False	_+e_	none	addition	none
+staend_+e_staat	staendestaat	infrequent	False	_+e_	none	addition	none
 supernova_+e_explosion	supernova_+e_explosion	infrequent	True	_+e_	_+e_	addition	addition
 ärzt_+e_organisation	arzt_+=e_organisation	infrequent	False	_+e_	_+=e_	addition	addition_umlaut
-koern_+er_haufen	Koernerhaufen	infrequent	False	_+er_	none	addition	none
-baed_+er_architektur	Baederarchitektur	infrequent	False	_+er_	none	addition	none
-viech_+er_zeug	Viecherzeug	infrequent	False	_+er_	none	addition	none
+koern_+er_haufen	koernerhaufen	infrequent	False	_+er_	none	addition	none
+baed_+er_architektur	baederarchitektur	infrequent	False	_+er_	none	addition	none
+viech_+er_zeug	viecherzeug	infrequent	False	_+er_	none	addition	none
 truthuhn_+=er_bestand	truthuhn_+=er_bestand	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 gemeingut_+=er_wirtschaft	gemeingut_+=er_wirtschaft	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 gemeingut_+=er_debatte	gemeingut_+=er_debatte	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
 abhang_+=e_last	abhänge_last	infrequent	False	_+=e_	_	addition_umlaut	concatenation
 abhang_+=e_system	abhäng_+e_system	infrequent	False	_+=e_	_+e_	addition_umlaut	addition
-abhang_+=e_wagen	Abhängewagen	infrequent	False	_+=e_	none	addition_umlaut	none
+abhang_+=e_wagen	abhängewagen	infrequent	False	_+=e_	none	addition_umlaut	none
 aberglaube_+ns_vorstellung	aberglauben_+s_vorstellung	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_forschung	aberglauben_+s_forschung	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_kritik	aberglauben_+s_kritik	infrequent	False	_+ns_	_+s_	addition	addition
-soller_+=_kopf	Söllerkopf	infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_rinne	Söllerrinne	infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_treppe	Söllertreppe	infrequent	False	_+=_	none	addition_umlaut	none
+soller_+=_kopf	söllerkopf	infrequent	False	_+=_	none	addition_umlaut	none
+soller_+=_rinne	söllerrinne	infrequent	False	_+=_	none	addition_umlaut	none
+soller_+=_treppe	söllertreppe	infrequent	False	_+=_	none	addition_umlaut	none

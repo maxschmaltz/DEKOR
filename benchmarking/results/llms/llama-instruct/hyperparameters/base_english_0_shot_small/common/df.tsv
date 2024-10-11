@@ -2,7 +2,7 @@
 politik_darstellerin	politik_darstellerin	common	True	_	_	concatenation	concatenation
 schlacht_vorgang	schlacht_vorgang	common	True	_	_	concatenation	concatenation
 sound_shuttle	sound_shuttle	common	True	_	_	concatenation	concatenation
-inventur_erstellung	Inventurerstellung	common	False	_	none	concatenation	none
+inventur_erstellung	inventurerstellung	common	False	_	none	concatenation	none
 gips_bild	gips_bild	common	True	_	_	concatenation	concatenation
 rausch_tritt	rausch_tritt	common	True	_	_	concatenation	concatenation
 knie_kuhle	knie_kuhle	common	True	_	_	concatenation	concatenation
@@ -31,7 +31,7 @@ generator_aufbau	generator_aufbau	common	True	_	_	concatenation	concatenation
 web_pinguin	web_pinguin	common	True	_	_	concatenation	concatenation
 welt_emission	welt_emission	common	True	_	_	concatenation	concatenation
 insulin_effekt	insulin_effekt	common	True	_	_	concatenation	concatenation
-teil_rechung	Teilrechung	common	False	_	none	concatenation	none
+teil_rechung	teilrechung	common	False	_	none	concatenation	none
 bonus_kriterium	bonus_kriterium	common	True	_	_	concatenation	concatenation
 haupt_übersetzerin	haupt_übersetzerin	common	True	_	_	concatenation	concatenation
 kraft_wurf	kraft_wurf	common	True	_	_	concatenation	concatenation
@@ -72,7 +72,7 @@ violine_-e_tradition	violin_tradition	common	False	_-e_	_	deletion	concatenation
 adresse_-e_akt	adresse_-e_akt	common	True	_-e_	_-e_	deletion	deletion
 sprache_-e_kundigkeit	sprache_-e_kundigkeit	common	True	_-e_	_-e_	deletion	deletion
 ersatzteil_+e_lieferung	ersatzteil_+e_lieferung	common	True	_+e_	_+e_	addition	addition
-tod_+e_schrei	Todeschrei	common	False	_+e_	none	addition	none
+tod_+e_schrei	todeschrei	common	False	_+e_	none	addition	none
 gerücht_+e_thread	gerüchte_thread	common	False	_+e_	_	addition	concatenation
 geist_+er_feier	geist_+er_feier	common	True	_+er_	_+er_	addition	addition
 bild_+er_nummer	bilder_nummer	common	False	_+er_	_	addition	concatenation
@@ -86,6 +86,6 @@ maus_+=e_sack	maus_+=e_sack	common	True	_+=e_	_+=e_	addition_umlaut	addition_uml
 name_+ns_ehrung	name_+ns_ehrung	common	True	_+ns_	_+ns_	addition	addition
 name_+ns_verkündung	name_+ns_verkündung	common	True	_+ns_	_+ns_	addition	addition
 glaube_+ns_neuerung	glauben_+s_neuerung	common	False	_+ns_	_+s_	addition	addition
-mangel_+=_klasse	Mängelklasse	common	False	_+=_	none	addition_umlaut	none
-vater_+=_haus	Väterhaus	common	False	_+=_	none	addition_umlaut	none
+mangel_+=_klasse	mängelklasse	common	False	_+=_	none	addition_umlaut	none
+vater_+=_haus	väterhaus	common	False	_+=_	none	addition_umlaut	none
 vater_+=_kreis	väter_kreis	common	False	_+=_	_	addition_umlaut	concatenation

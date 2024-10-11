@@ -7,7 +7,7 @@ erde_ei	erde_ei	invented	True	_	_	concatenation	concatenation
 erde_+n_ei	erde_+n_ei	invented	True	_+n_	_+n_	addition	addition
 pferd_wolke	pferd_wolke	invented	True	_	_	concatenation	concatenation
 pferd_+e_wolke	pferde_wolke	invented	False	_+e_	_	addition	concatenation
-katze_hund	Katzehund	invented	False	_	none	concatenation	none
+katze_hund	katzehund	invented	False	_	none	concatenation	none
 katze_+n_hund	katze_+n_hund	invented	True	_+n_	_+n_	addition	addition
 ei_erde	ei_erde	invented	True	_	_	concatenation	concatenation
 ei_+er_erde	ei_+er_erde	invented	True	_+er_	_+er_	addition	addition
@@ -25,7 +25,7 @@ elefant_+en_erdbeere	elefant_+en_erdbeere	invented	True	_+n_	_+n_	addition	addit
 münz_-e_knopf	münze_-e_knopf	invented	False	_-e_	_-e_	deletion	deletion
 münze_+n_knopf	münze_+n_knopf	invented	True	_+n_	_+n_	addition	addition
 gans_würfel	gans_würfel	invented	True	_	_	concatenation	concatenation
-gans_=e_würfel	Gans=ewürfel	invented	False	_	none	concatenation	none
+gans_=e_würfel	gans=ewürfel	invented	False	_	none	concatenation	none
 birne_-e_bus	birne_-e_bus	invented	True	_-e_	_-e_	deletion	deletion
 birne_+n_bus	birne_+n_bus	invented	True	_+n_	_+n_	addition	addition
 hahn_hund	hahn_hund	invented	True	_	_	concatenation	concatenation
