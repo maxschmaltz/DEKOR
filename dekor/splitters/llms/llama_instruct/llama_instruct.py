@@ -37,13 +37,13 @@ class LlamaInstructSplitter(BaseSplitter):
 	name = "llama-instruct"
 	path = "meta/llama-3.1-405b-instruct"
 
-	timeout = 30
+	timeout = 15
 
 	def __init__(
 		self,	# base: 1 credit
 		*,
 		use_german_prompts: Optional[bool]=False,
-		n_shots: Optional[int]=3,
+		n_shots: Optional[int]=0,
 		suggest_candidates: Optional[bool]=True,	# +2 credits
 		retrieve_paradigm: Optional[bool]=False,	# +1 credits
 		max_generations: Optional[int]=3,	# +2 credits per one regeneration (happens rarely)
@@ -526,6 +526,7 @@ class LlamaInstructSplitter(BaseSplitter):
 					pass # change credits if needed and rebuild the LLM and graph
 					# self.llm = ...
 					# self._build_graph()
+					# pred = ...
 
 				pred = Compound("")
 				print(e)
@@ -554,9 +555,6 @@ class LlamaInstructSplitter(BaseSplitter):
 		return preds
 	
 	def predict(self, lemmas: List[str]) -> List[Compound]:
-		# wrapper over the async method to gather the preds;
-		# as we run it all async, we can't iterate over the list
-		# directly so we'll pass the progress bar alongside
 		self._progress_bar = tqdm(total=len(lemmas), desc="Predicting") if self.verbose else None
 		preds = asyncio.run(self.apredict(lemmas))
 		return preds
