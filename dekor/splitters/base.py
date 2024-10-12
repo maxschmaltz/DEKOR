@@ -204,7 +204,7 @@ class BaseSplitter(ABC):
 			# impossible addition; there might be or not be an e-,
 			# depends on whether we eliminate allomorphy (legacy)
 			(
-				"addition" in link_type and
+				link_type == "addition" and
 				# not re.match(f"^e?{realization}$", best_realization)
 				not realization in ["s", "es", "n", "en", "e", "er", "ns", "ens"]
 			) or
