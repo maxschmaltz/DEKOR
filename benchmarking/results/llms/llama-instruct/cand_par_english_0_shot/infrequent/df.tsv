@@ -125,6 +125,3 @@ abhang_+=e_wagen		infrequent	False	_+=e_	none	addition_umlaut	none
 aberglaube_+ns_vorstellung	aberglauben_+s_vorstellung	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_forschung	aberglauben_+s_forschung	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_kritik	aberglauben_+s_kritik	infrequent	False	_+ns_	_+s_	addition	addition
-soller_+=_kopf		infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_rinne	söllerrinne	infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_treppe	söllertreppe	infrequent	False	_+=_	none	addition_umlaut	none

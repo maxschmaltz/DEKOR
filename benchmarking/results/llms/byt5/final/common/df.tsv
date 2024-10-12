@@ -368,6 +368,3 @@ stand_+=e_gesellschaft	ständegesellschaft	common	False	_+=e_	none	addition_umla
 glaube_+ns_gesetz	glaube_+ns_gesetz	common	True	_+ns_	_+ns_	addition	addition
 herz_+ens_eigenschaft	herzenseigenschaft	common	False	_+ns_	none	addition	none
 name_+ns_roulette	name_+ns_roulette	common	True	_+ns_	_+ns_	addition	addition
-vater_+=_suche	vätersuche	common	False	_+=_	none	addition_umlaut	none
-bruder_+=_heim	brüderheim	common	False	_+=_	none	addition_umlaut	none
-vater_+=_herz	väterherz	common	False	_+=_	none	addition_umlaut	none

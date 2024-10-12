@@ -86,9 +86,6 @@ maus_+=e_sack	maus_+=e_sack	common	True	_+=e_	_+=e_	addition_umlaut	addition_uml
 name_+ns_ehrung	namen_+s_ehrung	common	False	_+ns_	_+s_	addition	addition
 name_+ns_verkündung	name_+ns_verkündung	common	True	_+ns_	_+ns_	addition	addition
 glaube_+ns_neuerung	glauben_+s_neuerung	common	False	_+ns_	_+s_	addition	addition
-mangel_+=_klasse	mängelklasse	common	False	_+=_	none	addition_umlaut	none
-vater_+=_haus	väterhaus	common	False	_+=_	none	addition_umlaut	none
-vater_+=_kreis	väter_kreis	common	False	_+=_	_	addition_umlaut	concatenation
 nautilus_schnecke	nautilus_schnecke	infrequent	True	_	_	concatenation	concatenation
 antibiotikum_behandlung	antibiotikum_behandlung	infrequent	True	_	_	concatenation	concatenation
 wegerich_bär	wegerich_bär	infrequent	True	_	_	concatenation	concatenation
@@ -128,9 +125,6 @@ abhang_+=e_höhe	abhang_+=e_höhe	infrequent	True	_+=e_	_+=e_	addition_umlaut	ad
 aberglaube_+ns_vorwurf	aberglauben_+s_vorwurf	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_form	aberglauben_+s_form	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_begriff	aberglauben_+s_begriff	infrequent	False	_+ns_	_+s_	addition	addition
-soller_+=_straße	söller_straße	infrequent	False	_+=_	_	addition_umlaut	concatenation
-soller_+=_rinne	söller_rinne	infrequent	False	_+=_	_	addition_umlaut	concatenation
-soller_+=_haus	söller_haus	infrequent	False	_+=_	_	addition_umlaut	concatenation
 aramäer_könig	aramäer_könig	hapax_legomena	True	_	_	concatenation	concatenation
 handtäschchen_träger	handtäschchen_träger	hapax_legomena	True	_	_	concatenation	concatenation
 remischen_stein	remisch_+en_stein	hapax_legomena	False	_	_+n_	concatenation	addition
@@ -149,7 +143,6 @@ findelkind_+er_haus	findelkind_+er_haus	hapax_legomena	True	_+er_	_+er_	addition
 glaes_+er_ruecken	glaeserruecken	hapax_legomena	False	_+er_	none	addition	none
 sammel_+ns_wert	sammeln_+s_wert	hapax_legomena	False	_+ns_	_+s_	addition	addition
 unglaube_+ns_bekenntnis	unglauben_+s_bekenntnis	hapax_legomena	False	_+ns_	_+s_	addition	addition
-vorvater_+=_zeit	vorväter_zeit	hapax_legomena	False	_+=_	_	addition_umlaut	concatenation
 kind_+er_arzt	kinder_arzt	allomorphic_fc	False	_+er_	_	addition	concatenation
 kind_+es_alter	kind_+es_alter	allomorphic_fc	True	_+s_	_+s_	addition	addition
 kind_+s_tod	kind_+s_tod	allomorphic_fc	True	_+s_	_+s_	addition	addition

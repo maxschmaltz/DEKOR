@@ -1,5 +1,4 @@
-	addition	addition_umlaut	concatenation	deletion	none
-addition	9	0	1	0	4
-addition_umlaut	0	0	1	0	0
-concatenation	1	0	2	0	0
-deletion	0	0	0	0	1
+	addition	concatenation	deletion	none
+addition	9	1	0	4
+concatenation	1	2	0	0
+deletion	0	0	0	1

@@ -86,6 +86,3 @@ maus_+=e_sack	maus_+=e_sack	common	True	_+=e_	_+=e_	addition_umlaut	addition_uml
 name_+ns_ehrung	name_+ns_ehrung	common	True	_+ns_	_+ns_	addition	addition
 name_+ns_verkündung	name_+ns_verkündung	common	True	_+ns_	_+ns_	addition	addition
 glaube_+ns_neuerung	glauben_+s_neuerung	common	False	_+ns_	_+s_	addition	addition
-mangel_+=_klasse	mängelklasse	common	False	_+=_	none	addition_umlaut	none
-vater_+=_haus	väterhaus	common	False	_+=_	none	addition_umlaut	none
-vater_+=_kreis	väter_kreis	common	False	_+=_	_	addition_umlaut	concatenation

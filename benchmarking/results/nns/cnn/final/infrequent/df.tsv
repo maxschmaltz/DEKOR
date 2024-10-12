@@ -125,6 +125,3 @@ abhang_+=e_wagen	ab_ngewagen	infrequent	False	_+=e_	_	addition_umlaut	concatenat
 aberglaube_+ns_vorstellung	aber_laubensvorstellung	infrequent	False	_+ns_	_	addition	concatenation
 aberglaube_+ns_forschung	aber_laubensforschung	infrequent	False	_+ns_	_	addition	concatenation
 aberglaube_+ns_kritik	aber_laubenskritik	infrequent	False	_+ns_	_	addition	concatenation
-soller_+=_kopf	sö_+=er_llerkopf	infrequent	False	_+=_	_+=er_	addition_umlaut	addition_umlaut
-soller_+=_rinne	sö_+=er_llerrinne	infrequent	False	_+=_	_+=er_	addition_umlaut	addition_umlaut
-soller_+=_treppe	solle_+=er_rtreppe	infrequent	False	_+=_	_+=er_	addition_umlaut	addition_umlaut

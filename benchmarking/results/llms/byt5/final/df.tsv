@@ -368,9 +368,6 @@ stand_+=e_gesellschaft	ständegesellschaft	common	False	_+=e_	none	addition_umla
 glaube_+ns_gesetz	glaube_+ns_gesetz	common	True	_+ns_	_+ns_	addition	addition
 herz_+ens_eigenschaft	herzenseigenschaft	common	False	_+ns_	none	addition	none
 name_+ns_roulette	name_+ns_roulette	common	True	_+ns_	_+ns_	addition	addition
-vater_+=_suche	vätersuche	common	False	_+=_	none	addition_umlaut	none
-bruder_+=_heim	brüderheim	common	False	_+=_	none	addition_umlaut	none
-vater_+=_herz	väterherz	common	False	_+=_	none	addition_umlaut	none
 aufklärer_version	aufklärer_version	infrequent	True	_	_	concatenation	concatenation
 analysis_unterricht	analysis_unterricht	infrequent	True	_	_	concatenation	concatenation
 hausierer_ware	hausierer_ware	infrequent	True	_	_	concatenation	concatenation
@@ -497,9 +494,6 @@ abhang_+=e_wagen	abhängewagen	infrequent	False	_+=e_	none	addition_umlaut	none
 aberglaube_+ns_vorstellung	aberglaubensvorstellung	infrequent	False	_+ns_	none	addition	none
 aberglaube_+ns_forschung	aberglaubensforschung	infrequent	False	_+ns_	none	addition	none
 aberglaube_+ns_kritik	aberglaubenskritik	infrequent	False	_+ns_	none	addition	none
-soller_+=_kopf	söllerkopf	infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_rinne	söllerrinne	infrequent	False	_+=_	none	addition_umlaut	none
-soller_+=_treppe	söllertreppe	infrequent	False	_+=_	none	addition_umlaut	none
 apoll_altar	apoll_altar	hapax_legomena	True	_	_	concatenation	concatenation
 fellchen_hilfe	fellchen_hilfe	hapax_legomena	True	_	_	concatenation	concatenation
 gilgamesch_epos	gilgamesche_pos	hapax_legomena	False	_	_	concatenation	concatenation
@@ -532,7 +526,6 @@ graeb_+er_feld	graeber_feld	hapax_legomena	False	_+er_	_	addition	concatenation
 glaes_+er_ruecken	glaes_+er_ruecken	hapax_legomena	True	_+er_	_+er_	addition	addition
 sammel_+ns_wert	sammeln_+s_wert	hapax_legomena	False	_+ns_	_+s_	addition	addition
 unglaube_+ns_bekenntnis	unglaubensbekenntnis	hapax_legomena	False	_+ns_	none	addition	none
-vorvater_+=_zeit	vorväter_zeit	hapax_legomena	False	_+=_	_	addition_umlaut	concatenation
 kind_+er_arzt	kind_+er_arzt	allomorphic_fc	True	_+er_	_+er_	addition	addition
 kind_+es_alter	kind_+es_alter	allomorphic_fc	True	_+s_	_+s_	addition	addition
 kind_+s_tod	kind_+s_tod	allomorphic_fc	True	_+s_	_+s_	addition	addition

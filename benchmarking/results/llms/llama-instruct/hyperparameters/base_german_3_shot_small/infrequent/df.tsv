@@ -38,6 +38,3 @@ abhang_+=e_höhe	abhang_+=e_höhe	infrequent	True	_+=e_	_+=e_	addition_umlaut	ad
 aberglaube_+ns_vorwurf	aberglauben_+s_vorwurf	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_form	aberglauben_+s_form	infrequent	False	_+ns_	_+s_	addition	addition
 aberglaube_+ns_begriff	aberglauben_+s_begriff	infrequent	False	_+ns_	_+s_	addition	addition
-soller_+=_straße	söller_straße	infrequent	False	_+=_	_	addition_umlaut	concatenation
-soller_+=_rinne	söller_rinne	infrequent	False	_+=_	_	addition_umlaut	concatenation
-soller_+=_haus	söller_haus	infrequent	False	_+=_	_	addition_umlaut	concatenation

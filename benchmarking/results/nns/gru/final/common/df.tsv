@@ -368,6 +368,3 @@ stand_+=e_gesellschaft	ständeges_+ens_llschaft	common	False	_+=e_	_+ns_	additio
 glaube_+ns_gesetz	glaubensges_+ens_tz	common	False	_+ns_	_+ns_	addition	addition
 herz_+ens_eigenschaft	herzenseigens_+ens_aft	common	False	_+ns_	_+ns_	addition	addition
 name_+ns_roulette	namens_+ens_lette	common	False	_+ns_	_+ns_	addition	addition
-vater_+=_suche	väters_+ens_e	common	False	_+=_	_+ns_	addition_umlaut	addition
-bruder_+=_heim	br_derheim	common	False	_+=_	_	addition_umlaut	concatenation
-vater_+=_herz	vaterh_+=er_z	common	False	_+=_	_+=er_	addition_umlaut	addition_umlaut

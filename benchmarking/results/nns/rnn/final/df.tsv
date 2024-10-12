@@ -368,9 +368,6 @@ stand_+=e_gesellschaft	stän_degesellschaft	common	False	_+=e_	_	addition_umlaut
 glaube_+ns_gesetz	g_+er_aubensgesetz	common	False	_+ns_	_+er_	addition	addition
 herz_+ens_eigenschaft	herzensei_nschaft	common	False	_+ns_	_	addition	concatenation
 name_+ns_roulette	namensrou_+er_ette	common	False	_+ns_	_+er_	addition	addition
-vater_+=_suche	vä_+er_ersuche	common	False	_+=_	_+er_	addition_umlaut	addition
-bruder_+=_heim	b_rüderheim	common	False	_+=_	_	addition_umlaut	concatenation
-vater_+=_herz	v_+er_äterherz	common	False	_+=_	_+er_	addition_umlaut	addition
 aufklärer_version	aufklä_+er_erversion	infrequent	False	_	_+er_	concatenation	addition
 analysis_unterricht	ana_+er_ysisunterricht	infrequent	False	_	_+er_	concatenation	addition
 hausierer_ware	hausiee_-e_erware	infrequent	False	_	_-e_	concatenation	deletion
@@ -497,9 +494,6 @@ abhang_+=e_wagen	a_+er_bhängewagen	infrequent	False	_+=e_	_+er_	addition_umlaut
 aberglaube_+ns_vorstellung	aberg_+er_aubensvorstellung	infrequent	False	_+ns_	_+er_	addition	addition
 aberglaube_+ns_forschung	ab_erglaubensforschung	infrequent	False	_+ns_	_	addition	concatenation
 aberglaube_+ns_kritik	ab_erglaubenskritik	infrequent	False	_+ns_	_	addition	concatenation
-soller_+=_kopf	söllerk_opf	infrequent	False	_+=_	_	addition_umlaut	concatenation
-soller_+=_rinne	sö_+er_lerrinne	infrequent	False	_+=_	_+er_	addition_umlaut	addition
-soller_+=_treppe	söllert_+er_eppe	infrequent	False	_+=_	_+er_	addition_umlaut	addition
 apoll_altar	a_+er_laltar	hapax_legomena	False	_	_+er_	concatenation	addition
 fellchen_hilfe	fe_llchenhilfe	hapax_legomena	False	_	_	concatenation	concatenation
 gilgamesch_epos	gilgam_eschepos	hapax_legomena	False	_	_	concatenation	concatenation
@@ -532,7 +526,6 @@ graeb_+er_feld	graeberf_eld	hapax_legomena	False	_+er_	_	addition	concatenation
 glaes_+er_ruecken	glaeserr_uecken	hapax_legomena	False	_+er_	_	addition	concatenation
 sammel_+ns_wert	sammee_-e_nswert	hapax_legomena	False	_+ns_	_-e_	addition	deletion
 unglaube_+ns_bekenntnis	u_+er_aubensbekenntnis	hapax_legomena	False	_+ns_	_+er_	addition	addition
-vorvater_+=_zeit	vorvä_+er_erzeit	hapax_legomena	False	_+=_	_+er_	addition_umlaut	addition
 kind_+er_arzt	kindera_+er_zt	allomorphic_fc	False	_+er_	_+er_	addition	addition
 kind_+es_alter	k_indesalter	allomorphic_fc	False	_+s_	_	addition	concatenation
 kind_+s_tod	kind_stod	allomorphic_fc	False	_+s_	_	addition	concatenation
