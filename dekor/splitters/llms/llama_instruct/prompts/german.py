@@ -2,7 +2,6 @@ import json
 from langchain_core.pydantic_v1 import BaseModel, Field
 from typing import Literal, Iterable, Optional
 
-from dekor.splitters.llms.llama_instruct.tools.german import paradigm_tool_german
 from dekor.utils.gecodb_parser import Compound
 
 
