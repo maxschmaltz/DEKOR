@@ -1,10 +1,10 @@
 	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-kind_+er_arzt	kinder_arzt	allomorphic_fc	False	_+er_	_	addition	concatenation
+kind_+er_arzt	kind_+er_arzt	allomorphic_fc	True	_+er_	_+er_	addition	addition
 kind_+es_alter	kind_+es_alter	allomorphic_fc	True	_+s_	_+s_	addition	addition
 kind_+s_tod	kind_+s_tod	allomorphic_fc	True	_+s_	_+s_	addition	addition
 kind_bett	kind_bett	allomorphic_fc	True	_	_	concatenation	concatenation
 mann_deckung	mann_deckung	allomorphic_fc	True	_	_	concatenation	concatenation
-mann_+=er_beruf	mann_+=er_beruf	allomorphic_fc	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
+mann_+=er_beruf	männer_beruf	allomorphic_fc	False	_+=er_	_	addition_umlaut	concatenation
 mann_+es_kraft	mann_+es_kraft	allomorphic_fc	True	_+s_	_+s_	addition	addition
 mann_+s_volk	mann_+s_volk	allomorphic_fc	True	_+s_	_+s_	addition	addition
 mensch_werdung	mensch_werdung	allomorphic_fc	True	_	_	concatenation	concatenation
