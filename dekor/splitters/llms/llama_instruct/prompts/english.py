@@ -2,7 +2,6 @@ import json
 from langchain_core.pydantic_v1 import BaseModel, Field
 from typing import Literal, Iterable, Optional
 
-from dekor.splitters.llms.llama_instruct.tools.german import paradigm_tool_german
 from dekor.utils.gecodb_parser import Compound
 
 
@@ -85,12 +84,14 @@ Hint:
 
 
 async def get_candidates_instructions_english(candidates: str) -> str:
-	candidates_str = "Your colleague has prepared the most likely "
-	"pairs of first components and linking elements for you. "
-	"When choosing, remember that probability is not always "
-	"correlated with correctness, so be sure to necessarily check "
-	"which analyses really fit. The hint from the colleague is:"
-	f"\n\n{candidates}\n\n"
+	candidates_str = (
+		"Your colleague has prepared the most likely "
+		"pairs of first components and linking elements for you. "
+		"When choosing, remember that probability is not always "
+		"correlated with correctness, so be sure to necessarily check "
+		"which analyses really fit. The hint from the colleague is:"
+		f"\n\n{candidates}\n\n"
+	)
 	return candidates_str
 
 
