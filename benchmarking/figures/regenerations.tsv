@@ -1,4 +1,4 @@
 	1	2
 llama-instruct-base	24	3
-llama-instruct+cand	31	7
-llama-instruct+cand+par	22	7
+llama-instruct+cand	87	9
+llama-instruct+cand+par	95	30
