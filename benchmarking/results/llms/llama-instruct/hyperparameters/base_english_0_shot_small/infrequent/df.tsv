@@ -1,40 +1,40 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-nautilus_schnecke	nautilus_schnecke	infrequent	True	_	_	concatenation	concatenation
-antibiotikum_behandlung	antibiotikum_behandlung	infrequent	True	_	_	concatenation	concatenation
-wegerich_bär	wegerich_bär	infrequent	True	_	_	concatenation	concatenation
-ambrosia_allergie	ambrosia_allergie	infrequent	True	_	_	concatenation	concatenation
-aperitif_bar	aperitif_bar	infrequent	True	_	_	concatenation	concatenation
-yucca_pflanze	yucca_pflanze	infrequent	True	_	_	concatenation	concatenation
-stoffel_berg	stoffel_berg	infrequent	True	_	_	concatenation	concatenation
-taft_stoff	taft_stoff	infrequent	True	_	_	concatenation	concatenation
-synonym_ring	synonym_ring	infrequent	True	_	_	concatenation	concatenation
-prinzessin_kostüm	prinzessin_kostüm	infrequent	True	_	_	concatenation	concatenation
-sauerampfer_salat	sauerampfer_salat	infrequent	True	_	_	concatenation	concatenation
-hellseher_fähigkeit	hellseher_fähigkeit	infrequent	True	_	_	concatenation	concatenation
-geck_pate	geck_pate	infrequent	True	_	_	concatenation	concatenation
-kombinat_+s_gebäude	kombinat_+s_gebäude	infrequent	True	_+s_	_+s_	addition	addition
-rueckschlag_+s_potential	rueckschlag_+s_potential	infrequent	True	_+s_	_+s_	addition	addition
-anpflanzung_+s_gebot	anpflanzung_+s_gebot	infrequent	True	_+s_	_+s_	addition	addition
-biegung_+s_radius	biegung_+s_radius	infrequent	True	_+s_	_+s_	addition	addition
-annullation_+s_gebühr	annullation_+s_gebühr	infrequent	True	_+s_	_+s_	addition	addition
-garant_+en_pflicht	garant_+en_pflicht	infrequent	True	_+n_	_+n_	addition	addition
-feuerwaffe_+n_verordnung	feuerwaffe_+n_verordnung	infrequent	True	_+n_	_+n_	addition	addition
-spürnase_+n_aktion	spürnase_+n_aktion	infrequent	True	_+n_	_+n_	addition	addition
-einöde_-e_kirche	einöde_-e_kirche	infrequent	True	_-e_	_-e_	deletion	deletion
-einöde_-e_standort	einödstandort	infrequent	False	_-e_	none	deletion	none
-spinnwebe_-e_haut	spinne_-e_webhaut	infrequent	False	_-e_	_-e_	deletion	deletion
-perlit_+e_füllung	perlit_+e_füllung	infrequent	True	_+e_	_+e_	addition	addition
-stueck_+e_lunge	stueckelunge	infrequent	False	_+e_	none	addition	none
-eckwert_+e_papier	eckwert_+e_papier	infrequent	True	_+e_	_+e_	addition	addition
-koern_+er_futter	koernerfutter	infrequent	False	_+er_	none	addition	none
-biest_+er_berg	biester_berg	infrequent	False	_+er_	_	addition	concatenation
-biest_+er_mann	biest_+er_mann	infrequent	True	_+er_	_+er_	addition	addition
-truthuhn_+=er_bestand	truthuhn_+=er_bestand	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-besitztum_+=er_liste	besitztum_+=er_liste	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-gemeingut_+=er_debatte	gemeingut_+=er_debatte	infrequent	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-einwand_+=e_formular	einwand_+=e_formular	infrequent	True	_+=e_	_+=e_	addition_umlaut	addition_umlaut
-abhang_+=e_system	abhängesystem	infrequent	False	_+=e_	none	addition_umlaut	none
-abhang_+=e_höhe	abhang_+=e_höhe	infrequent	True	_+=e_	_+=e_	addition_umlaut	addition_umlaut
-aberglaube_+ns_vorwurf	aberglauben_+s_vorwurf	infrequent	False	_+ns_	_+s_	addition	addition
-aberglaube_+ns_form	aberglauben_+s_form	infrequent	False	_+ns_	_+s_	addition	addition
-aberglaube_+ns_begriff	aberglaube_+ns_begriff	infrequent	True	_+ns_	_+ns_	addition	addition
+	gold	pred	comp_type
+0	nautilus_schnecke	nautilus_schnecke	infrequent
+1	antibiotikum_behandlung	antibiotikum_behandlung	infrequent
+2	wegerich_bär	wegerich_bär	infrequent
+3	ambrosia_allergie	ambrosia_allergie	infrequent
+4	aperitif_bar	aperitif_bar	infrequent
+5	yucca_pflanze	yucca_pflanze	infrequent
+6	stoffel_berg	stoffel_berg	infrequent
+7	taft_stoff	taft_stoff	infrequent
+8	synonym_ring	synonym_ring	infrequent
+9	prinzessin_kostüm	prinzessin_kostüm	infrequent
+10	sauerampfer_salat	sauerampfer_salat	infrequent
+11	hellseher_fähigkeit	hellseher_fähigkeit	infrequent
+12	geck_pate	geck_pate	infrequent
+13	kombinat_+s_gebäude	kombinat_+s_gebäude	infrequent
+14	rueckschlag_+s_potential	rueckschlag_+s_potential	infrequent
+15	anpflanzung_+s_gebot	anpflanzung_+s_gebot	infrequent
+16	biegung_+s_radius	biegung_+s_radius	infrequent
+17	annullation_+s_gebühr	annullation_+s_gebühr	infrequent
+18	garant_+en_pflicht	garant_+en_pflicht	infrequent
+19	feuerwaffe_+n_verordnung	feuerwaffe_+n_verordnung	infrequent
+20	spürnase_+n_aktion	spürnase_+n_aktion	infrequent
+21	einöde_-e_kirche	einöde_-e_kirche	infrequent
+22	einöde_-e_standort	einödstandort	infrequent
+23	spinnwebe_-e_haut	spinne_-e_webhaut	infrequent
+24	perlit_+e_füllung	perlit_+e_füllung	infrequent
+25	stueck_+e_lunge	stueckelunge	infrequent
+26	eckwert_+e_papier	eckwert_+e_papier	infrequent
+27	koern_+er_futter	koernerfutter	infrequent
+28	biest_+er_berg	biester_berg	infrequent
+29	biest_+er_mann	biest_+er_mann	infrequent
+30	truthuhn_+=er_bestand	truthuhn_+=er_bestand	infrequent
+31	besitztum_+=er_liste	besitztum_+=er_liste	infrequent
+32	gemeingut_+=er_debatte	gemeingut_+=er_debatte	infrequent
+33	einwand_+=e_formular	einwand_+=e_formular	infrequent
+34	abhang_+=e_system	abhängesystem	infrequent
+35	abhang_+=e_höhe	abhang_+=e_höhe	infrequent
+36	aberglaube_+ns_vorwurf	aberglauben_+s_vorwurf	infrequent
+37	aberglaube_+ns_form	aberglauben_+s_form	infrequent
+38	aberglaube_+ns_begriff	aberglaube_+ns_begriff	infrequent

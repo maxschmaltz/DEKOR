@@ -1,33 +1,33 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-apoll_altar	apol_tar	hapax_legomena	False	_	_	concatenation	concatenation
-fellchen_hilfe	fellc_enhilfe	hapax_legomena	False	_	_	concatenation	concatenation
-gilgamesch_epos	gilgames_hepos	hapax_legomena	False	_	_	concatenation	concatenation
-molchen_berg	mol_henberg	hapax_legomena	False	_	_	concatenation	concatenation
-reinemacher_frau	reinema_herfrau	hapax_legomena	False	_	_	concatenation	concatenation
-bremervörder_innen	bremervörderi_+es_nnen	hapax_legomena	False	_	_+s_	concatenation	addition
-albinismus_form	albinismu_form	hapax_legomena	False	_	_	concatenation	concatenation
-fachsimpler_ei	fach_plerei	hapax_legomena	False	_	_	concatenation	concatenation
-atrazin_wert	atrazinwe_+es_t	hapax_legomena	False	_	_+s_	concatenation	addition
-sharia_gericht	s_ariagericht	hapax_legomena	False	_	_	concatenation	concatenation
-krankmacher_übung	krankm_herübung	hapax_legomena	False	_	_	concatenation	concatenation
-wassrer_rutsch	w_srerrutsch	hapax_legomena	False	_	_	concatenation	concatenation
-hosianna_ruf	h_iannaruf	hapax_legomena	False	_	_	concatenation	concatenation
-orkus_nebel	orku_nebel	hapax_legomena	False	_	_	concatenation	concatenation
-defunktion_alisierung	defu_+es_nktionalisierung	hapax_legomena	False	_	_+s_	concatenation	addition
-transillumination_+s_technik	transillu_nationstechnik	hapax_legomena	False	_+s_	_	addition	concatenation
-nachbeatmung_+s_zeit	nachbe_tmungszeit	hapax_legomena	False	_+s_	_	addition	concatenation
-konditionalität_+s_prinzip	kondition_litätsprinzip	hapax_legomena	False	_+s_	_	addition	concatenation
-wiederauffrischung_+s_kurs	wiederau_+ens_frischungskurs	hapax_legomena	False	_+s_	_+ns_	addition	addition
-freistoß_+s_tor	freistoßs_or	hapax_legomena	False	_+s_	_	addition	concatenation
-gastropode_+n_fauna	gastropoden_+e_na	hapax_legomena	False	_+n_	_+e_	addition	addition
-gefägedanke_+n_linie	gefä_+es_gedankenlinie	hapax_legomena	False	_+n_	_+s_	addition	addition
-altarist_+en_haus	al_aristenhaus	hapax_legomena	False	_+n_	_	addition	concatenation
-genosse_-e_innenschaft	genossinnens_haft	hapax_legomena	False	_-e_	_	deletion	concatenation
-maegd_+e_frau	m_egdefrau	hapax_legomena	False	_+e_	_	addition	concatenation
-maerkt_+e_trennung	m_erktetrennung	hapax_legomena	False	_+e_	_	addition	concatenation
-gaeng_+e_viertel	g_engeviertel	hapax_legomena	False	_+e_	_	addition	concatenation
-raed_+er_werk	raederw_+es_rk	hapax_legomena	False	_+er_	_+s_	addition	addition
-graeb_+er_feld	graeberf_+es_eld	hapax_legomena	False	_+er_	_+s_	addition	addition
-glaes_+er_ruecken	glaeserrue_ken	hapax_legomena	False	_+er_	_	addition	concatenation
-sammel_+ns_wert	sa_elnswert	hapax_legomena	False	_+ns_	_	addition	concatenation
-unglaube_+ns_bekenntnis	un_glaubensbekenntnis	hapax_legomena	False	_+ns_	_	addition	concatenation
+	gold	pred	comp_type
+0	apoll_altar	apol_tar	hapax_legomena
+1	fellchen_hilfe	fellc_enhilfe	hapax_legomena
+2	gilgamesch_epos	gilgames_hepos	hapax_legomena
+3	molchen_berg	mol_henberg	hapax_legomena
+4	reinemacher_frau	reinema_herfrau	hapax_legomena
+5	bremervörder_innen	bremervörderi_+es_nnen	hapax_legomena
+6	albinismus_form	albinismu_form	hapax_legomena
+7	fachsimpler_ei	fach_plerei	hapax_legomena
+8	atrazin_wert	atrazinwe_+es_t	hapax_legomena
+9	sharia_gericht	s_ariagericht	hapax_legomena
+10	krankmacher_übung	krankm_herübung	hapax_legomena
+11	wassrer_rutsch	w_srerrutsch	hapax_legomena
+12	hosianna_ruf	h_iannaruf	hapax_legomena
+13	orkus_nebel	orku_nebel	hapax_legomena
+14	defunktion_alisierung	defu_+es_nktionalisierung	hapax_legomena
+15	transillumination_+s_technik	transillu_nationstechnik	hapax_legomena
+16	nachbeatmung_+s_zeit	nachbe_tmungszeit	hapax_legomena
+17	konditionalität_+s_prinzip	kondition_litätsprinzip	hapax_legomena
+18	wiederauffrischung_+s_kurs	wiederau_+ens_frischungskurs	hapax_legomena
+19	freistoß_+s_tor	freistoßs_or	hapax_legomena
+20	gastropode_+n_fauna	gastropoden_+e_na	hapax_legomena
+21	gefägedanke_+n_linie	gefä_+es_gedankenlinie	hapax_legomena
+22	altarist_+en_haus	al_aristenhaus	hapax_legomena
+23	genosse_-e_innenschaft	genossinnens_haft	hapax_legomena
+24	maegd_+e_frau	m_egdefrau	hapax_legomena
+25	maerkt_+e_trennung	m_erktetrennung	hapax_legomena
+26	gaeng_+e_viertel	g_engeviertel	hapax_legomena
+27	raed_+er_werk	raederw_+es_rk	hapax_legomena
+28	graeb_+er_feld	graeberf_+es_eld	hapax_legomena
+29	glaes_+er_ruecken	glaeserrue_ken	hapax_legomena
+30	sammel_+ns_wert	sa_elnswert	hapax_legomena
+31	unglaube_+ns_bekenntnis	un_glaubensbekenntnis	hapax_legomena

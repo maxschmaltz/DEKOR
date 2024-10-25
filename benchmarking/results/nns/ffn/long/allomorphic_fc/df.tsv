@@ -1,18 +1,18 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-kind_+er_arzt	kin_erarzt	allomorphic_fc	False	_+er_	_	addition	concatenation
-kind_+es_alter	kindesa_r	allomorphic_fc	False	_+s_	_	addition	concatenation
-kind_+s_tod	kinds_+e_od	allomorphic_fc	False	_+s_	_+e_	addition	addition
-kind_bett	kindbet_t	allomorphic_fc	False	_	_	concatenation	concatenation
-mann_deckung	manndeckun_g	allomorphic_fc	False	_	_	concatenation	concatenation
-mann_+=er_beruf	mannerber_+=er_f	allomorphic_fc	False	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-mann_+es_kraft	mannesk_t	allomorphic_fc	False	_+s_	_	addition	concatenation
-mann_+s_volk	mannsv_+er_lk	allomorphic_fc	False	_+s_	_+er_	addition	addition
-mensch_werdung	menschwerdun_g	allomorphic_fc	False	_	_	concatenation	concatenation
-mensch_+en_affe	menschenaff_e	allomorphic_fc	False	_+n_	_	addition	concatenation
-mensch_+ens_kind	menschenskin_d	allomorphic_fc	False	_+ns_	_	addition	concatenation
-schwein_+e_fleisch	schweinefleis_h	allomorphic_fc	False	_+e_	_	addition	concatenation
-schwein_kram	schwein_m	allomorphic_fc	False	_	_	concatenation	concatenation
-schwein_+s_galopp	schweinsgalo_p	allomorphic_fc	False	_+s_	_	addition	concatenation
-maus_klick	mausklic_k	allomorphic_fc	False	_	_	concatenation	concatenation
-maus_+e_falle	mausefall_e	allomorphic_fc	False	_+e_	_	addition	concatenation
-maus_+=e_falle	mausef_+=er_e	allomorphic_fc	False	_+=e_	_+=er_	addition_umlaut	addition_umlaut
+	gold	pred	comp_type
+0	kind_+er_arzt	kin_erarzt	allomorphic_fc
+1	kind_+es_alter	kindesa_r	allomorphic_fc
+2	kind_+s_tod	kinds_+e_od	allomorphic_fc
+3	kind_bett	kindbet_t	allomorphic_fc
+4	mann_deckung	manndeckun_g	allomorphic_fc
+5	mann_+=er_beruf	mannerber_+=er_f	allomorphic_fc
+6	mann_+es_kraft	mannesk_t	allomorphic_fc
+7	mann_+s_volk	mannsv_+er_lk	allomorphic_fc
+8	mensch_werdung	menschwerdun_g	allomorphic_fc
+9	mensch_+en_affe	menschenaff_e	allomorphic_fc
+10	mensch_+ens_kind	menschenskin_d	allomorphic_fc
+11	schwein_+e_fleisch	schweinefleis_h	allomorphic_fc
+12	schwein_kram	schwein_m	allomorphic_fc
+13	schwein_+s_galopp	schweinsgalo_p	allomorphic_fc
+14	maus_klick	mausklic_k	allomorphic_fc
+15	maus_+e_falle	mausefall_e	allomorphic_fc
+16	maus_+=e_falle	mausef_+=er_e	allomorphic_fc

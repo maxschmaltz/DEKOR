@@ -1,48 +1,48 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-hund_katze	h_+ens_ndkatze	invented	False	_	_+ns_	concatenation	addition
-hund_+e_katze	hund_+ens_katze	invented	False	_+e_	_+ns_	addition	addition
-hund_+s_katze	hund_+ens_katze	invented	False	_+s_	_+ns_	addition	addition
-erde_-e_ei	erd_+ens_i	invented	False	_-e_	_+ns_	deletion	addition
-erde_ei	erd_+ens_i	invented	False	_	_+ns_	concatenation	addition
-erde_+n_ei	erd_+ens_i	invented	False	_+n_	_+ns_	addition	addition
-pferd_wolke	p_+ens_rdwolke	invented	False	_	_+ns_	concatenation	addition
-pferd_+e_wolke	pferd_+ens_wolke	invented	False	_+e_	_+ns_	addition	addition
-katze_hund	ka_hund	invented	False	_	_	concatenation	concatenation
-katze_+n_hund	katz_hund	invented	False	_+n_	_	addition	concatenation
-ei_erde	eierd_+ens_e	invented	False	_	_+ns_	concatenation	addition
-ei_+er_erde	eiererd_+ens_e	invented	False	_+er_	_+ns_	addition	addition
-schwein_frosch	sc_+es_weinfrosch	invented	False	_	_+s_	concatenation	addition
-schwein_+e_frosch	s_+ens_chweinefrosch	invented	False	_+e_	_+ns_	addition	addition
-schwein_+s_frosch	s_+ens_chweinsfrosch	invented	False	_+s_	_+ns_	addition	addition
-maus_elefant	m_+ens_selefant	invented	False	_	_+ns_	concatenation	addition
-maus_+e_elefant	maus_+ens_lefant	invented	False	_+e_	_+ns_	addition	addition
-schaf_wolke	sc_+es_afwolke	invented	False	_	_+s_	concatenation	addition
-schaf_+s_wolke	sc_+es_afswolke	invented	False	_+s_	_+s_	addition	addition
-huhn_fuchs	h_fuchs	invented	False	_	_	concatenation	concatenation
-huhn_+=er_fuchs	huhnerf_+=er_s	invented	False	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-elefant_erdbeere	elefanterd_+ens_re	invented	False	_	_+ns_	concatenation	addition
-elefant_+en_erdbeere	elefa_tenerdbeere	invented	False	_+n_	_	addition	concatenation
-münz_-e_knopf	munzk_+=er_f	invented	False	_-e_	_+=er_	deletion	addition_umlaut
-münze_+n_knopf	mü_zenknopf	invented	False	_+n_	_	addition	concatenation
-gans_würfel	ga_swürfel	invented	False	_	_	concatenation	concatenation
-gans_=e_würfel	gans_+ens_würfel	invented	False	_	_+ns_	concatenation	addition
-birne_-e_bus	bir_+ens_s	invented	False	_-e_	_+ns_	deletion	addition
-birne_+n_bus	birne_+ens_s	invented	False	_+n_	_+ns_	addition	addition
-hahn_hund	ha_hund	invented	False	_	_	concatenation	concatenation
-hahn_+en_hund	hahn_hund	invented	False	_+n_	_	addition	concatenation
-krokodil_ente	kr_okodilente	invented	False	_	_	concatenation	concatenation
-krokodil_+s_ente	krokodils_+ens_nte	invented	False	_+s_	_+ns_	addition	addition
-papagei_krokodil	pap_+ens_eikrokodil	invented	False	_	_+ns_	concatenation	addition
-papagei_+en_krokodil	papageien_okodil	invented	False	_+n_	_	addition	concatenation
-bär_hund	barh_+=er_d	invented	False	_	_+=er_	concatenation	addition_umlaut
-bär_+en_hund	bär_hund	invented	False	_+n_	_	addition	concatenation
-strauß_palme	str_+ens_palme	invented	False	_	_+ns_	concatenation	addition
-strauß_+en_palme	strauß_+ens_npalme	invented	False	_+n_	_+ns_	addition	addition
-pfau_palme	p_+ens_palme	invented	False	_	_+ns_	concatenation	addition
-pfau_+en_palme	pfauenp_+ens_e	invented	False	_+n_	_+ns_	addition	addition
-schwan_trompete	s_+ens_chwantrompete	invented	False	_	_+ns_	concatenation	addition
-schwan_+en_trompete	schwan_trompete	invented	False	_+n_	_	addition	concatenation
-alligator_ente	alligator_te	invented	False	_	_	concatenation	concatenation
-alligator_+en_ente	alligator_ente	invented	False	_+n_	_	addition	concatenation
-erdbeere_-e_ananas	erdbeerana_as	invented	False	_-e_	_	deletion	concatenation
-erdbeere_+n_ananas	erdbeerena_as	invented	False	_+n_	_	addition	concatenation
+	gold	pred	comp_type
+0	hund_katze	h_+ens_ndkatze	invented
+1	hund_+e_katze	hund_+ens_katze	invented
+2	hund_+s_katze	hund_+ens_katze	invented
+3	erde_-e_ei	erd_+ens_i	invented
+4	erde_ei	erd_+ens_i	invented
+5	erde_+n_ei	erd_+ens_i	invented
+6	pferd_wolke	p_+ens_rdwolke	invented
+7	pferd_+e_wolke	pferd_+ens_wolke	invented
+8	katze_hund	ka_hund	invented
+9	katze_+n_hund	katz_hund	invented
+10	ei_erde	eierd_+ens_e	invented
+11	ei_+er_erde	eiererd_+ens_e	invented
+12	schwein_frosch	sc_+es_weinfrosch	invented
+13	schwein_+e_frosch	s_+ens_chweinefrosch	invented
+14	schwein_+s_frosch	s_+ens_chweinsfrosch	invented
+15	maus_elefant	m_+ens_selefant	invented
+16	maus_+e_elefant	maus_+ens_lefant	invented
+17	schaf_wolke	sc_+es_afwolke	invented
+18	schaf_+s_wolke	sc_+es_afswolke	invented
+19	huhn_fuchs	h_fuchs	invented
+20	huhn_+=er_fuchs	huhnerf_+=er_s	invented
+21	elefant_erdbeere	elefanterd_+ens_re	invented
+22	elefant_+en_erdbeere	elefa_tenerdbeere	invented
+23	münz_-e_knopf	munzk_+=er_f	invented
+24	münze_+n_knopf	mü_zenknopf	invented
+25	gans_würfel	ga_swürfel	invented
+26	gans_=e_würfel	gans_+ens_würfel	invented
+27	birne_-e_bus	bir_+ens_s	invented
+28	birne_+n_bus	birne_+ens_s	invented
+29	hahn_hund	ha_hund	invented
+30	hahn_+en_hund	hahn_hund	invented
+31	krokodil_ente	kr_okodilente	invented
+32	krokodil_+s_ente	krokodils_+ens_nte	invented
+33	papagei_krokodil	pap_+ens_eikrokodil	invented
+34	papagei_+en_krokodil	papageien_okodil	invented
+35	bär_hund	barh_+=er_d	invented
+36	bär_+en_hund	bär_hund	invented
+37	strauß_palme	str_+ens_palme	invented
+38	strauß_+en_palme	strauß_+ens_npalme	invented
+39	pfau_palme	p_+ens_palme	invented
+40	pfau_+en_palme	pfauenp_+ens_e	invented
+41	schwan_trompete	s_+ens_chwantrompete	invented
+42	schwan_+en_trompete	schwan_trompete	invented
+43	alligator_ente	alligator_te	invented
+44	alligator_+en_ente	alligator_ente	invented
+45	erdbeere_-e_ananas	erdbeerana_as	invented
+46	erdbeere_+n_ananas	erdbeerena_as	invented

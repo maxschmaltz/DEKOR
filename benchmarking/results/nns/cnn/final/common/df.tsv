@@ -1,370 +1,370 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-golf_jugend	gol_ugend	common	False	_	_	concatenation	concatenation
-architektur_haus	ar_hitekturhaus	common	False	_	_	concatenation	concatenation
-gewinner_büro	gewinnerbur_+=er_o	common	False	_	_+=er_	concatenation	addition_umlaut
-schatten_spiegel	s_hattenspiegel	common	False	_	_	concatenation	concatenation
-radio_halter	r_+es_iohalter	common	False	_	_+s_	concatenation	addition
-schnee_fleck	sc_neefleck	common	False	_	_	concatenation	concatenation
-reiter_aufgebot	reiterauf_ebot	common	False	_	_	concatenation	concatenation
-granat_schuss	grana_schuss	common	False	_	_	concatenation	concatenation
-blei_pfeife	bleip_ife	common	False	_	_	concatenation	concatenation
-met_ontologie	meton_logie	common	False	_	_	concatenation	concatenation
-schrott_album	s_hrottalbum	common	False	_	_	concatenation	concatenation
-macht_zwang	machtzw_+es_ang	common	False	_	_+s_	concatenation	addition
-brust_falte	br_stfalte	common	False	_	_	concatenation	concatenation
-meer_land	me_land	common	False	_	_	concatenation	concatenation
-team_kollaboration	teamko_+es_llaboration	common	False	_	_+s_	concatenation	addition
-fond_scheibe	fon_scheibe	common	False	_	_	concatenation	concatenation
-kühlschrank_ruhe	kuhlschr_+=er_ankruhe	common	False	_	_+=er_	concatenation	addition_umlaut
-messe_crew	messe_rew	common	False	_	_	concatenation	concatenation
-sturm_forum	sturmfor_m	common	False	_	_	concatenation	concatenation
-ring_strom	r_ngstrom	common	False	_	_	concatenation	concatenation
-gewalt_verhinderung	gewalt_erhinderung	common	False	_	_	concatenation	concatenation
-spielfilm_redaktion	spielfilmred_+es_tion	common	False	_	_+s_	concatenation	addition
-mainstream_judentum	ma_nstreamjudentum	common	False	_	_	concatenation	concatenation
-ried_hammer	rie_+es_dhammer	common	False	_	_+s_	concatenation	addition
-slot_händler	slothandle_+=er_r	common	False	_	_+=er_	concatenation	addition_umlaut
-signal_zweck	signalzwe_+es_ck	common	False	_	_+s_	concatenation	addition
-hirsch_bräu	hirsch_räu	common	False	_	_	concatenation	concatenation
-ritual_transfer	ritualtra_er	common	False	_	_	concatenation	concatenation
-musik_purist	mus_kpurist	common	False	_	_	concatenation	concatenation
-enzym_typus	en_+es_typus	common	False	_	_+s_	concatenation	addition
-top_journalistin	t_pjournalistin	common	False	_	_	concatenation	concatenation
-strom_konverter	s_romkonverter	common	False	_	_	concatenation	concatenation
-stecker_trafo	stecke_rafo	common	False	_	_	concatenation	concatenation
-riss_neigung	rissnei_ung	common	False	_	_	concatenation	concatenation
-kai_gleis	kai_leis	common	False	_	_	concatenation	concatenation
-klima_lügner	klimalugn_+=er_er	common	False	_	_+=er_	concatenation	addition_umlaut
-hopfen_note	hopfen_+es_e	common	False	_	_+s_	concatenation	addition
-kern_fänger	kernfän_er	common	False	_	_	concatenation	concatenation
-paläo_ökologie	palä_+=er_oökologie	common	False	_	_+=er_	concatenation	addition_umlaut
-derby_bericht	derbyber_ht	common	False	_	_	concatenation	concatenation
-reise_feeling	re_sefeeling	common	False	_	_	concatenation	concatenation
-quarz_bügel	quarzbuge_+=er_l	common	False	_	_+=er_	concatenation	addition_umlaut
-geld_seligkeit	geldseligke_t	common	False	_	_	concatenation	concatenation
-tisch_zahl	t_+es_ischzahl	common	False	_	_+s_	concatenation	addition
-dialog_gremium	dialoggre_um	common	False	_	_	concatenation	concatenation
-haft_zeitraum	haf_zeitraum	common	False	_	_	concatenation	concatenation
-einlage_leistung	einlageleistun_+es_g	common	False	_	_+s_	concatenation	addition
-zwiebel_fett	zw_ebelfett	common	False	_	_	concatenation	concatenation
-fach_inhalt	fa_hinhalt	common	False	_	_	concatenation	concatenation
-trüffel_bauer	truf_+=er_felbauer	common	False	_	_+=er_	concatenation	addition_umlaut
-stifter_hof	st_fterhof	common	False	_	_	concatenation	concatenation
-bau_richtung	baurichtun_+es_g	common	False	_	_+s_	concatenation	addition
-west_sieger	wes_eger	common	False	_	_	concatenation	concatenation
-mega_park	megap_k	common	False	_	_	concatenation	concatenation
-reifen_mix	re_fenmix	common	False	_	_	concatenation	concatenation
-beweis_element	b_+es_eweiselement	common	False	_	_+s_	concatenation	addition
-motorrad_prozession	motorradp_zession	common	False	_	_	concatenation	concatenation
-pass_einfahrt	passeinfa_t	common	False	_	_	concatenation	concatenation
-produkt_breite	produktbre_te	common	False	_	_	concatenation	concatenation
-ballon_reisende	ballonre_sende	common	False	_	_	concatenation	concatenation
-schmelz_halle	schmelzha_+es_lle	common	False	_	_+s_	concatenation	addition
-mail_gateway	ma_lgateway	common	False	_	_	concatenation	concatenation
-manager_krankheit	managerkrankh_+es_it	common	False	_	_+s_	concatenation	addition
-photovoltaik_büro	photovoltaikbur_+=er_o	common	False	_	_+=er_	concatenation	addition_umlaut
-rasse_charakter	ras_+es_secharakter	common	False	_	_+s_	concatenation	addition
-industrie_kooperation	industriekooper_+es_ion	common	False	_	_+s_	concatenation	addition
-afrika_armee	afrik_+es_armee	common	False	_	_+s_	concatenation	addition
-vogel_miere	vo_elmiere	common	False	_	_	concatenation	concatenation
-kolonie_besitzerin	koloniebesitzer_n	common	False	_	_	concatenation	concatenation
-technologie_überwachung	technologieuber_+=er_wachung	common	False	_	_+=er_	concatenation	addition_umlaut
-leser_rezension	les_rezension	common	False	_	_	concatenation	concatenation
-haupt_materie	ha_ptmaterie	common	False	_	_	concatenation	concatenation
-karo_van	karo_an	common	False	_	_	concatenation	concatenation
-adler_ritter	adlerri_er	common	False	_	_	concatenation	concatenation
-bitumen_schindel	bitumensch_ndel	common	False	_	_	concatenation	concatenation
-mädchen_hort	madc_+=er_henhort	common	False	_	_+=er_	concatenation	addition_umlaut
-sarg_laden	sarglad_+es_en	common	False	_	_+s_	concatenation	addition
-express_gut	expres_ut	common	False	_	_	concatenation	concatenation
-sonder_bahre	sonde_+es_rbahre	common	False	_	_+s_	concatenation	addition
-archiv_kammer	ar_hivkammer	common	False	_	_	concatenation	concatenation
-mark_radikal	markrad_+es_ikal	common	False	_	_+s_	concatenation	addition
-spende_bescheinigung	s_+es_debescheinigung	common	False	_	_+s_	concatenation	addition
-karton_plastik	kartonplas_+es_tik	common	False	_	_+s_	concatenation	addition
-gehäuse_ersatz	gehaus_+=er_eersatz	common	False	_	_+=er_	concatenation	addition_umlaut
-reise_kredit	reisekred_t	common	False	_	_	concatenation	concatenation
-pech_moment	p_+es_hmoment	common	False	_	_+s_	concatenation	addition
-balkon_grille	ba_+es_lkongrille	common	False	_	_+s_	concatenation	addition
-boden_abdruck	bo_+es_abdruck	common	False	_	_+s_	concatenation	addition
-ziel_härte	zielhart_+=er_e	common	False	_	_+=er_	concatenation	addition_umlaut
-kapsel_perforation	kapselpe_ration	common	False	_	_	concatenation	concatenation
-schaum_pistole	s_haumpistole	common	False	_	_	concatenation	concatenation
-verdienst_vorstellung	verdienst_rstellung	common	False	_	_	concatenation	concatenation
-meister_solist	meisterso_st	common	False	_	_	concatenation	concatenation
-netzwerk_detail	netzwer_detail	common	False	_	_	concatenation	concatenation
-gold_deckel	golddec_+es_kel	common	False	_	_+s_	concatenation	addition
-elektro_griller	e_+es_lektrogriller	common	False	_	_+s_	concatenation	addition
-sportwagen_tochter	sp_+es_ortwagentochter	common	False	_	_+s_	concatenation	addition
-musik_traum	mus_ktraum	common	False	_	_	concatenation	concatenation
-schweizer_haus	schweizer_aus	common	False	_	_	concatenation	concatenation
-wunsch_architekt	wunscharc_+es_ekt	common	False	_	_+s_	concatenation	addition
-werkstatt_dach	wer_attdach	common	False	_	_	concatenation	concatenation
-zivildienst_erfahrung	zivildienst_fahrung	common	False	_	_	concatenation	concatenation
-marmor_vertäfelung	marmorvertä_+=er_felung	common	False	_	_+=er_	concatenation	addition_umlaut
-kammer_linse	kammerl_nse	common	False	_	_	concatenation	concatenation
-jahrtausend_rückblick	jahrtausendruc_+=er_kblick	common	False	_	_+=er_	concatenation	addition_umlaut
-wal_lücke	walluc_+=er_ke	common	False	_	_+=er_	concatenation	addition_umlaut
-geld_lobby	geldlo_by	common	False	_	_	concatenation	concatenation
-darm_paket	da_+es_aket	common	False	_	_+s_	concatenation	addition
-offizier_lehrgang	o_+es_ffizierlehrgang	common	False	_	_+s_	concatenation	addition
-porträt_skizze	portratski_+=er_ze	common	False	_	_+=er_	concatenation	addition_umlaut
-hobby_schreiberin	hobbyschreiber_n	common	False	_	_	concatenation	concatenation
-praxis_raeum	praxisrae_+es_um	common	False	_	_+s_	concatenation	addition
-darm_stabilität	darmsta_lität	common	False	_	_	concatenation	concatenation
-fitness_ball	f_tnessball	common	False	_	_	concatenation	concatenation
-panorama_abschnitt	panoramaabsch_t	common	False	_	_	concatenation	concatenation
-aal_verlust	aalve_st	common	False	_	_	concatenation	concatenation
-ausschluss_diagnose	ausschlussd_agnose	common	False	_	_	concatenation	concatenation
-bediener_eingriff	bedienereingr_ff	common	False	_	_	concatenation	concatenation
-brett_stadt	b_tstadt	common	False	_	_	concatenation	concatenation
-teil_plagiat	t_+es_ilplagiat	common	False	_	_+s_	concatenation	addition
-nebel_schutz	nebelsch_z	common	False	_	_	concatenation	concatenation
-stifter_lauf	st_fterlauf	common	False	_	_	concatenation	concatenation
-militär_design	militardesig_+=er_n	common	False	_	_+=er_	concatenation	addition_umlaut
-gepäck_träger	gepac_+=er_kträger	common	False	_	_+=er_	concatenation	addition_umlaut
-porträt_lithographie	portratli_+=er_thographie	common	False	_	_+=er_	concatenation	addition_umlaut
-teil_kalender	t_+es_ilkalender	common	False	_	_+s_	concatenation	addition
-last_konzentration	lastkonzentra_+es_tion	common	False	_	_+s_	concatenation	addition
-jugend_boot	jugendbo_t	common	False	_	_	concatenation	concatenation
-zweirad_treff	zweiradt_f	common	False	_	_	concatenation	concatenation
-lob_artikel	lobarti_el	common	False	_	_	concatenation	concatenation
-haus_hoheit	h_hoheit	common	False	_	_	concatenation	concatenation
-deck_tod	dec_+es_od	common	False	_	_+s_	concatenation	addition
-yoga_haus	yog_aus	common	False	_	_	concatenation	concatenation
-öko_frau	ok_+=er_ofrau	common	False	_	_+=er_	concatenation	addition_umlaut
-fun_veranstaltung	funveranstaltun_+es_g	common	False	_	_+s_	concatenation	addition
-tafel_jura	t_+es_afeljura	common	False	_	_+s_	concatenation	addition
-display_anwendung	d_+es_isplayanwendung	common	False	_	_+s_	concatenation	addition
-damm_trasse	damm_asse	common	False	_	_	concatenation	concatenation
-genre_skizze	genresk_+es_e	common	False	_	_+s_	concatenation	addition
-bein_muckis	beinmuck_s	common	False	_	_	concatenation	concatenation
-teil_kondensation	teilkondensa_n	common	False	_	_	concatenation	concatenation
-archiv_festigkeit	arc_festigkeit	common	False	_	_	concatenation	concatenation
-fracht_liste	f_+es_chtliste	common	False	_	_+s_	concatenation	addition
-apfel_gelee	ap_lgelee	common	False	_	_	concatenation	concatenation
-designer_lampe	design_lampe	common	False	_	_	concatenation	concatenation
-satire_format	satirefor_t	common	False	_	_	concatenation	concatenation
-abfall_transporteur	abfalltranspo_ur	common	False	_	_	concatenation	concatenation
-eis_mission	eismi_sion	common	False	_	_	concatenation	concatenation
-wechselkurs_anpassung	we_hselkursanpassung	common	False	_	_	concatenation	concatenation
-zusatz_wirkung	zusa_zwirkung	common	False	_	_	concatenation	concatenation
-ersatz_leder	ersa_zleder	common	False	_	_	concatenation	concatenation
-warenhaus_kredit	waren_auskredit	common	False	_	_	concatenation	concatenation
-vorhersage_formel	vorhersagefor_el	common	False	_	_	concatenation	concatenation
-auswanderer_sendung	au_+es_anderersendung	common	False	_	_+s_	concatenation	addition
-bürgermeister_funktion	burgerme_+=er_terfunktion	common	False	_	_+=er_	concatenation	addition_umlaut
-mutter_elch	mutterel_h	common	False	_	_	concatenation	concatenation
-schlüssel_bedingung	schlusselbedin_+=er_gung	common	False	_	_+=er_	concatenation	addition_umlaut
-video_stoff	videos_ff	common	False	_	_	concatenation	concatenation
-grafik_argument	grafikargu_t	common	False	_	_	concatenation	concatenation
-wahl_technik	wa_+es_hltechnik	common	False	_	_+s_	concatenation	addition
-ersatz_karriere	ersa_zkarriere	common	False	_	_	concatenation	concatenation
-richter_meier	richterme_er	common	False	_	_	concatenation	concatenation
-anleihe_portfolio	anleihepor_lio	common	False	_	_	concatenation	concatenation
-fels_spalter	felsspa_r	common	False	_	_	concatenation	concatenation
-funk_literatur	funkliterat_ur	common	False	_	_	concatenation	concatenation
-gewinn_walze	gew_nnwalze	common	False	_	_	concatenation	concatenation
-schweiß_auftrag	schweißauf_ag	common	False	_	_	concatenation	concatenation
-ding_weite	d_+es_ingweite	common	False	_	_+s_	concatenation	addition
-tennis_spaß	t_+es_ennisspaß	common	False	_	_+s_	concatenation	addition
-ferien_charakter	fer_encharakter	common	False	_	_	concatenation	concatenation
-schloss_therme	sch_sstherme	common	False	_	_	concatenation	concatenation
-jury_klasse	jury_+es_klasse	common	False	_	_+s_	concatenation	addition
-welt_spannung	weltspann_+es_g	common	False	_	_+s_	concatenation	addition
-hochdruck_sumpf	hochdruc_sumpf	common	False	_	_	concatenation	concatenation
-monitor_befehl	monitorbef_+es_ehl	common	False	_	_+s_	concatenation	addition
-image_verbesserung	ima_+es_geverbesserung	common	False	_	_+s_	concatenation	addition
-koch_profi	ko_hprofi	common	False	_	_	concatenation	concatenation
-gärtner_tugend	gä_+=er_rtnertugend	common	False	_	_+=er_	concatenation	addition_umlaut
-finanz_präsident	finanzprä_+=er_ent	common	False	_	_+=er_	concatenation	addition_umlaut
-studio_mischer	studiomisch_er	common	False	_	_	concatenation	concatenation
-referenz_suche	refer_zsuche	common	False	_	_	concatenation	concatenation
-wal_kopf	wa_+es_lkopf	common	False	_	_+s_	concatenation	addition
-schlitz_fräsung	sch_litzfräsung	common	False	_	_	concatenation	concatenation
-engel_gebet	engelge_et	common	False	_	_	concatenation	concatenation
-horn_kluft	hornk_t	common	False	_	_	concatenation	concatenation
-öko_lyrik	ö_+=er_kolyrik	common	False	_	_+=er_	concatenation	addition_umlaut
-stress_menge	stressm_ge	common	False	_	_	concatenation	concatenation
-gewinn_zuschlag	gew_nnzuschlag	common	False	_	_	concatenation	concatenation
-protokoll_vorlage	protokollvor_+es_ge	common	False	_	_+s_	concatenation	addition
-rhythmus_meister	rhythmusme_er	common	False	_	_	concatenation	concatenation
-sitzplatz_gast	sitzplat_+es_ast	common	False	_	_+s_	concatenation	addition
-lied_übergang	liedube_+=er_ang	common	False	_	_+=er_	concatenation	addition_umlaut
-drachen_kamm	d_+es_chenkamm	common	False	_	_+s_	concatenation	addition
-camping_krempel	camp_ngkrempel	common	False	_	_	concatenation	concatenation
-probe_skript	pr_+es_eskript	common	False	_	_+s_	concatenation	addition
-theater_genie	the_+es_atergenie	common	False	_	_+s_	concatenation	addition
-liga_absteiger	ligaabste_er	common	False	_	_	concatenation	concatenation
-propaganda_plan	pr_+es_gandaplan	common	False	_	_+s_	concatenation	addition
-gitter_körper	gitterkor_+=er_per	common	False	_	_+=er_	concatenation	addition_umlaut
-busch_weide	b_schweide	common	False	_	_	concatenation	concatenation
-hof_zug	hof_ug	common	False	_	_	concatenation	concatenation
-wurf_art	wur_rt	common	False	_	_	concatenation	concatenation
-kegel_stand	kegelst_+es_and	common	False	_	_+s_	concatenation	addition
-rock_märchen	rockmarc_+=er_hen	common	False	_	_+=er_	concatenation	addition_umlaut
-freizeit_spielchen	fre_zeitspielchen	common	False	_	_	concatenation	concatenation
-knorpel_versorgung	knorpelverso_ung	common	False	_	_	concatenation	concatenation
-baum_magie	baumma_ie	common	False	_	_	concatenation	concatenation
-auslage_tisch	aus_etisch	common	False	_	_	concatenation	concatenation
-winter_angler	w_nterangler	common	False	_	_	concatenation	concatenation
-gast_fahrkarte	gas_fahrkarte	common	False	_	_	concatenation	concatenation
-paddel_bericht	paddelber_ht	common	False	_	_	concatenation	concatenation
-mono_fernseher	monofernse_er	common	False	_	_	concatenation	concatenation
-regenwald_frucht	regenwald_rucht	common	False	_	_	concatenation	concatenation
-mauer_höhle	mauerhö_+=er_hle	common	False	_	_+=er_	concatenation	addition_umlaut
-schlager_musik	schlagermus_k	common	False	_	_	concatenation	concatenation
-sound_debatte	sounddeba_te	common	False	_	_	concatenation	concatenation
-flugzeug_sitz	flugze_sitz	common	False	_	_	concatenation	concatenation
-freiland_deposition	freil_+es_anddeposition	common	False	_	_+s_	concatenation	addition
-harmonie_brei	ha_+es_rmoniebrei	common	False	_	_+s_	concatenation	addition
-frühling_+s_tisch	fruhlin_+=er_tisch	common	False	_+s_	_+=er_	addition	addition_umlaut
-monat_+s_woche	m_+es_tswoche	common	False	_+s_	_+s_	addition	addition
-wirklichkeit_+s_klötzchen	wirklichkeitsklö_+=er_tzchen	common	False	_+s_	_+=er_	addition	addition_umlaut
-platzierung_+s_form	plat_+es_zierungsform	common	False	_+s_	_+s_	addition	addition
-bereich_+s_ausschuss	ber_hsausschuss	common	False	_+s_	_	addition	concatenation
-krieger_+s_mann	kr_egersmann	common	False	_+s_	_	addition	concatenation
-torsion_+s_effekt	torsion_+s_effekt	common	True	_+s_	_+s_	addition	addition
-verbindung_+s_plan	ver_ndungsplan	common	False	_+s_	_	addition	concatenation
-funktionär_+s_diktatur	funktionarsdi_+=er_ktatur	common	False	_+s_	_+=er_	addition	addition_umlaut
-verlag_+s_promotion	verlagspromo_n	common	False	_+s_	_	addition	concatenation
-rationalität_+s_fiktion	rationalitatsfikti_+=er_on	common	False	_+s_	_+=er_	addition	addition_umlaut
-tagung_+s_zentrum	tagun_szentrum	common	False	_+s_	_	addition	concatenation
-kriminalität_+s_anteil	kriminalitat_+=er_anteil	common	False	_+s_	_+=er_	addition	addition_umlaut
-alter_+s_potenzial	a_+es_lterspotenzial	common	False	_+s_	_+s_	addition	addition
-ort_+s_bewegung	ortsbeweg_g	common	False	_+s_	_	addition	concatenation
-alter_+s_reserve	a_+es_ltersreserve	common	False	_+s_	_+s_	addition	addition
-belichtung_+s_möglichkeit	belichtungsmö_+=er_glichkeit	common	False	_+s_	_+=er_	addition	addition_umlaut
-rettung_+s_pfeil	rettun_spfeil	common	False	_+s_	_	addition	concatenation
-leben_+s_panorama	lebenspano_ma	common	False	_+s_	_	addition	concatenation
-vernichtung_+s_friede	verni_tungsfriede	common	False	_+s_	_	addition	concatenation
-redaktion_+s_anfrage	red_+es_tionsanfrage	common	False	_+s_	_+s_	addition	addition
-beschäftigung_+s_kasten	beschä_+=er_ftigungskasten	common	False	_+s_	_+=er_	addition	addition_umlaut
-liebling_+s_ton	l_eblingston	common	False	_+s_	_	addition	concatenation
-gesinnung_+s_datei	g_+es_sinnungsdatei	common	False	_+s_	_+s_	addition	addition
-werk_+s_struktur	wer_sstruktur	common	False	_+s_	_	addition	concatenation
-vorrat_+s_gesellschaft	vorratsgesellsch_t	common	False	_+s_	_	addition	concatenation
-arbeit_+s_formation	arbeitsfor_mation	common	False	_+s_	_	addition	concatenation
-gewicht_+s_verhältnis	gewichtsverhaltn_+=er_is	common	False	_+s_	_+=er_	addition	addition_umlaut
-trennung_+s_koeffizient	trennun_skoeffizient	common	False	_+s_	_	addition	concatenation
-vernichtung_+s_aktion	verni_tungsaktion	common	False	_+s_	_	addition	concatenation
-regierung_+s_anwalt	regierun_sanwalt	common	False	_+s_	_	addition	concatenation
-verlängerung_+s_tag	verlange_+=er_rungstag	common	False	_+s_	_+=er_	addition	addition_umlaut
-benachrichtigung_+s_konzept	benachricht_ungskonzept	common	False	_+s_	_	addition	concatenation
-empfang_+s_messung	e_+es_angsmessung	common	False	_+s_	_+s_	addition	addition
-bewegung_+s_seite	bewegungsse_te	common	False	_+s_	_	addition	concatenation
-pruefung_+s_verband	prue_ungsverband	common	False	_+s_	_	addition	concatenation
-arbeit_+s_status	arbei_sstatus	common	False	_+s_	_	addition	concatenation
-beschäftigung_+s_einsatz	beschä_+=er_ftigungseinsatz	common	False	_+s_	_+=er_	addition	addition_umlaut
-erfolg_+s_argument	erfolgsa_ument	common	False	_+s_	_	addition	concatenation
-haftung_+s_kapital	ha_tungskapital	common	False	_+s_	_	addition	concatenation
-exposition_+s_pfad	exposition_+es_fad	common	False	_+s_	_+s_	addition	addition
-unglück_+s_straße	ungluc_+=er_ksstraße	common	False	_+s_	_+=er_	addition	addition_umlaut
-regierung_+s_uebernahme	regierungsueber_hme	common	False	_+s_	_	addition	concatenation
-sieg_+es_lied	s_egeslied	common	False	_+s_	_	addition	concatenation
-übung_+s_platz	ü_+=er_bungsplatz	common	False	_+s_	_+=er_	addition	addition_umlaut
-angebot_+s_hinweis	an_ebotshinweis	common	False	_+s_	_	addition	concatenation
-konstruktion_+s_wissen	konst_tionswissen	common	False	_+s_	_	addition	concatenation
-telekommunikation_+s_professor	telekommunikationsprofes_r	common	False	_+s_	_	addition	concatenation
-sicherheit_+s_luecke	sicherheitslue_ke	common	False	_+s_	_	addition	concatenation
-kleidung_+s_reform	kleidungsrefor_m	common	False	_+s_	_	addition	concatenation
-gefühl_+s_krise	gefuhls_+=er_krise	common	False	_+s_	_+=er_	addition	addition_umlaut
-besichtigung_+s_liste	besicht_ungsliste	common	False	_+s_	_	addition	concatenation
-spannung_+s_umschaltung	spannungsumschaltun_+es_g	common	False	_+s_	_+s_	addition	addition
-dienstleistung_+s_gehalt	dienstleistun_sgehalt	common	False	_+s_	_	addition	concatenation
-identifikation_+s_rahmen	identifikationsrah_en	common	False	_+s_	_	addition	concatenation
-wirkung_+s_zyklus	w_rkungszyklus	common	False	_+s_	_	addition	concatenation
-aufmerksamkeit_+s_räuber	aufmerksamkeitsraube_+=er_r	common	False	_+s_	_+=er_	addition	addition_umlaut
-zwang_+s_parfümierung	zwangsparfum_+=er_ierung	common	False	_+s_	_+=er_	addition	addition_umlaut
-beruhigung_+s_placebo	ber_igungsplacebo	common	False	_+s_	_	addition	concatenation
-verkehr_+s_konjunktur	verkehrskonjunk_ur	common	False	_+s_	_	addition	concatenation
-mittag_+s_wind	mitta_swind	common	False	_+s_	_	addition	concatenation
-weisheit_+s_vogel	we_sheitsvogel	common	False	_+s_	_	addition	concatenation
-skalierung_+s_eigenschaft	skalierungseigensch_t	common	False	_+s_	_	addition	concatenation
-zahlung_+s_sicherung	zahlun_ssicherung	common	False	_+s_	_	addition	concatenation
-bergwerk_+s_leute	ber_werksleute	common	False	_+s_	_	addition	concatenation
-stimmung_+s_bildung	stimmung_ldung	common	False	_+s_	_	addition	concatenation
-sicherheit_+s_gewahrsam	si_herheitsgewahrsam	common	False	_+s_	_	addition	concatenation
-sachverhalt_+s_beurteilung	sachverhaltsbeurte_lung	common	False	_+s_	_	addition	concatenation
-ausrüstung_+s_art	ausrü_+=er_stungsart	common	False	_+s_	_+=er_	addition	addition_umlaut
-kürzung_+s_vereinbarung	kü_+=er_rzungsvereinbarung	common	False	_+s_	_+=er_	addition	addition_umlaut
-selektion_+s_pool	se_+es_lektionspool	common	False	_+s_	_+s_	addition	addition
-einheit_+s_straße	e_nheitsstraße	common	False	_+s_	_	addition	concatenation
-verfolgung_+s_geist	ver_lgungsgeist	common	False	_+s_	_	addition	concatenation
-behandlung_+s_bedürfnis	behandlungsbedurfn_+=er_is	common	False	_+s_	_+=er_	addition	addition_umlaut
-virtualisierung_+s_szenarium	v_rtualisierungsszenarium	common	False	_+s_	_	addition	concatenation
-aktionär_+s_hand	aktionar_+=er_hand	common	False	_+s_	_+=er_	addition	addition_umlaut
-artikulation_+s_ort	artik_+es_tionsort	common	False	_+s_	_+s_	addition	addition
-währung_+s_region	wä_+=er_hrungsregion	common	False	_+s_	_+=er_	addition	addition_umlaut
-begriff_+s_trias	be_riffstrias	common	False	_+s_	_	addition	concatenation
-aufklärung_+s_ausstattung	aufklär_sausstattung	common	False	_+s_	_	addition	concatenation
-verpflegung_+s_auto	verpflegungsa_o	common	False	_+s_	_	addition	concatenation
-querschnitt_+s_ressort	qu_schnittsressort	common	False	_+s_	_	addition	concatenation
-haushalt_+s_vermögen	haushaltsvermö_+=er_gen	common	False	_+s_	_+=er_	addition	addition_umlaut
-eis_+es_heim	e_sesheim	common	False	_+s_	_	addition	concatenation
-patenschaft_+s_anlage	pat_schaftsanlage	common	False	_+s_	_	addition	concatenation
-masse_+n_schlächterei	massenschlac_+=er_hterei	common	False	_+n_	_+=er_	addition	addition_umlaut
-tide_+n_stieg	tidens_+es_tieg	common	False	_+n_	_+s_	addition	addition
-figur_+en_wissen	fi_renwissen	common	False	_+n_	_	addition	concatenation
-gruppe_+n_prüfung	grup_+es_enprüfung	common	False	_+n_	_+s_	addition	addition
-hölle_+n_brand	hollenbr_+=er_and	common	False	_+n_	_+=er_	addition	addition_umlaut
-röhre_+n_stand	rohrens_+=er_tand	common	False	_+n_	_+=er_	addition	addition_umlaut
-klarinette_+n_einsatz	klar_netteneinsatz	common	False	_+n_	_	addition	concatenation
-ziege_+n_maske	z_egenmaske	common	False	_+n_	_	addition	concatenation
-seele_+n_tagebuch	seelentagebu_h	common	False	_+n_	_	addition	concatenation
-experte_+n_geschichte	expertengeschic_te	common	False	_+n_	_	addition	concatenation
-hose_+n_spanner	hosenspa_r	common	False	_+n_	_	addition	concatenation
-katze_+n_wurf	katze_rf	common	False	_+n_	_	addition	concatenation
-lesbe_+n_leben	lesbe_+es_nleben	common	False	_+n_	_+s_	addition	addition
-sünde_+n_waage	sundenw_+=er_age	common	False	_+n_	_+=er_	addition	addition_umlaut
-karte_+n_kompatibilität	kartenkompatib_+es_tät	common	False	_+n_	_+s_	addition	addition
-lärche_+n_straße	larc_+=er_henstraße	common	False	_+n_	_+=er_	addition	addition_umlaut
-quant_+en_kommunikation	quantenkommu_kation	common	False	_+n_	_	addition	concatenation
-rose_+n_malerei	rosenm_+es_alerei	common	False	_+n_	_+s_	addition	addition
-platte_+n_meister	p_ttenmeister	common	False	_+n_	_	addition	concatenation
-stern_+en_rechner	st_nenrechner	common	False	_+n_	_	addition	concatenation
-hose_+n_segment	hos_egment	common	False	_+n_	_	addition	concatenation
-glocke_+n_steuerung	glockenst_rung	common	False	_+n_	_	addition	concatenation
-harfe_+n_komposition	harf_komposition	common	False	_+n_	_	addition	concatenation
-echse_+n_liebhaber	echsenl_ebhaber	common	False	_+n_	_	addition	concatenation
-katze_+n_liebhaber	katzenl_ebhaber	common	False	_+n_	_	addition	concatenation
-auge_+n_riemen	augenri_+es_men	common	False	_+n_	_+s_	addition	addition
-autor_+en_feld	au_renfeld	common	False	_+n_	_	addition	concatenation
-wüste_+n_schurke	wustensc_+=er_hurke	common	False	_+n_	_+=er_	addition	addition_umlaut
-winde_+n_typ	wi_ntyp	common	False	_+n_	_	addition	concatenation
-karte_+n_landschaft	kartenlandsch_t	common	False	_+n_	_	addition	concatenation
-maßnahme_+n_ebene	ma_+es_ßnahmenebene	common	False	_+n_	_+s_	addition	addition
-maschine_+n_rüstzeit	masch_nenrüstzeit	common	False	_+n_	_	addition	concatenation
-gebühr_+en_angelegenheit	gebuhr_+=er_enangelegenheit	common	False	_+n_	_+=er_	addition	addition_umlaut
-tinte_+n_rezeptur	tintenrezep_ur	common	False	_+n_	_	addition	concatenation
-briefmarke_+n_messen	briefmarkenme_+es_ssen	common	False	_+n_	_+s_	addition	addition
-idee_+n_fundus	id_+es_enfundus	common	False	_+n_	_+s_	addition	addition
-variable_+n_eingabe	variablenein_+es_be	common	False	_+n_	_+s_	addition	addition
-straße_+n_katalog	straßenkat_g	common	False	_+n_	_	addition	concatenation
-prämie_+n_versicherer	pramienversic_+=er_herer	common	False	_+n_	_+=er_	addition	addition_umlaut
-walze_+n_verschleiß	walzenversc_leiß	common	False	_+n_	_	addition	concatenation
-premiere_+n_präsentation	premierenprasen_+=er_tion	common	False	_+n_	_+=er_	addition	addition_umlaut
-präsident_+en_cup	prä_+=er_entencup	common	False	_+n_	_+=er_	addition	addition_umlaut
-seite_+n_bracke	s_+es_eitenbracke	common	False	_+n_	_+s_	addition	addition
-mensch_+en_ratte	mensch_ratte	common	False	_+n_	_	addition	concatenation
-angehörige_+n_stunde	angehorig_+=er_enstunde	common	False	_+n_	_+=er_	addition	addition_umlaut
-hölle_+n_erlebnis	hollenerle_+=er_nis	common	False	_+n_	_+=er_	addition	addition_umlaut
-sprache_-e_empfang	sprac_empfang	common	False	_-e_	_	deletion	concatenation
-schule_-e_staatssekretär	schulstaatsse_retär	common	False	_-e_	_	deletion	concatenation
-kontrolle_-e_pflicht	kontro_+es_llpflicht	common	False	_-e_	_+s_	deletion	addition
-wolle_-e_mantel	wollman_el	common	False	_-e_	_	deletion	concatenation
-hund_+e_krankengymnastin	hunde_+es_krankengymnastin	common	False	_+e_	_+s_	addition	addition
-referat_+e_seite	referate_+es_te	common	False	_+e_	_+s_	addition	addition
-apparat_+e_ausschuss	apparate_schuss	common	False	_+e_	_	addition	concatenation
-brett_+er_lücke	bretterluc_+=er_ke	common	False	_+er_	_+=er_	addition	addition_umlaut
-mitglied_+er_sperre	mi_gliedersperre	common	False	_+er_	_	addition	concatenation
-ei_+er_mann	ei_+es_ann	common	False	_+er_	_+s_	addition	addition
-wort_+=er_kette	wö_+=er_terkette	common	False	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-huhn_+=er_leiter	huhn_+=er_erleiter	common	False	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-blatt_+=er_suppe	blat_+=er_tersuppe	common	False	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-gans_+=e_sänger	gä_+=er_esänger	common	False	_+=e_	_+=er_	addition_umlaut	addition_umlaut
-gast_+=e_etage	gasteet_+=er_age	common	False	_+=e_	_+=er_	addition_umlaut	addition_umlaut
-stand_+=e_gesellschaft	stande_+=er_gesellschaft	common	False	_+=e_	_+=er_	addition_umlaut	addition_umlaut
-glaube_+ns_gesetz	glaubensg_setz	common	False	_+ns_	_	addition	concatenation
-herz_+ens_eigenschaft	herzenseigensch_t	common	False	_+ns_	_	addition	concatenation
-name_+ns_roulette	namensroul_te	common	False	_+ns_	_	addition	concatenation
+	gold	pred	comp_type
+0	golf_jugend	gol_ugend	common
+1	architektur_haus	ar_hitekturhaus	common
+2	gewinner_büro	gewinnerbur_+=er_o	common
+3	schatten_spiegel	s_hattenspiegel	common
+4	radio_halter	r_+es_iohalter	common
+5	schnee_fleck	sc_neefleck	common
+6	reiter_aufgebot	reiterauf_ebot	common
+7	granat_schuss	grana_schuss	common
+8	blei_pfeife	bleip_ife	common
+9	met_ontologie	meton_logie	common
+10	schrott_album	s_hrottalbum	common
+11	macht_zwang	machtzw_+es_ang	common
+12	brust_falte	br_stfalte	common
+13	meer_land	me_land	common
+14	team_kollaboration	teamko_+es_llaboration	common
+15	fond_scheibe	fon_scheibe	common
+16	kühlschrank_ruhe	kuhlschr_+=er_ankruhe	common
+17	messe_crew	messe_rew	common
+18	sturm_forum	sturmfor_m	common
+19	ring_strom	r_ngstrom	common
+20	gewalt_verhinderung	gewalt_erhinderung	common
+21	spielfilm_redaktion	spielfilmred_+es_tion	common
+22	mainstream_judentum	ma_nstreamjudentum	common
+23	ried_hammer	rie_+es_dhammer	common
+24	slot_händler	slothandle_+=er_r	common
+25	signal_zweck	signalzwe_+es_ck	common
+26	hirsch_bräu	hirsch_räu	common
+27	ritual_transfer	ritualtra_er	common
+28	musik_purist	mus_kpurist	common
+29	enzym_typus	en_+es_typus	common
+30	top_journalistin	t_pjournalistin	common
+31	strom_konverter	s_romkonverter	common
+32	stecker_trafo	stecke_rafo	common
+33	riss_neigung	rissnei_ung	common
+34	kai_gleis	kai_leis	common
+35	klima_lügner	klimalugn_+=er_er	common
+36	hopfen_note	hopfen_+es_e	common
+37	kern_fänger	kernfän_er	common
+38	paläo_ökologie	palä_+=er_oökologie	common
+39	derby_bericht	derbyber_ht	common
+40	reise_feeling	re_sefeeling	common
+41	quarz_bügel	quarzbuge_+=er_l	common
+42	geld_seligkeit	geldseligke_t	common
+43	tisch_zahl	t_+es_ischzahl	common
+44	dialog_gremium	dialoggre_um	common
+45	haft_zeitraum	haf_zeitraum	common
+46	einlage_leistung	einlageleistun_+es_g	common
+47	zwiebel_fett	zw_ebelfett	common
+48	fach_inhalt	fa_hinhalt	common
+49	trüffel_bauer	truf_+=er_felbauer	common
+50	stifter_hof	st_fterhof	common
+51	bau_richtung	baurichtun_+es_g	common
+52	west_sieger	wes_eger	common
+53	mega_park	megap_k	common
+54	reifen_mix	re_fenmix	common
+55	beweis_element	b_+es_eweiselement	common
+56	motorrad_prozession	motorradp_zession	common
+57	pass_einfahrt	passeinfa_t	common
+58	produkt_breite	produktbre_te	common
+59	ballon_reisende	ballonre_sende	common
+60	schmelz_halle	schmelzha_+es_lle	common
+61	mail_gateway	ma_lgateway	common
+62	manager_krankheit	managerkrankh_+es_it	common
+63	photovoltaik_büro	photovoltaikbur_+=er_o	common
+64	rasse_charakter	ras_+es_secharakter	common
+65	industrie_kooperation	industriekooper_+es_ion	common
+66	afrika_armee	afrik_+es_armee	common
+67	vogel_miere	vo_elmiere	common
+68	kolonie_besitzerin	koloniebesitzer_n	common
+69	technologie_überwachung	technologieuber_+=er_wachung	common
+70	leser_rezension	les_rezension	common
+71	haupt_materie	ha_ptmaterie	common
+72	karo_van	karo_an	common
+73	adler_ritter	adlerri_er	common
+74	bitumen_schindel	bitumensch_ndel	common
+75	mädchen_hort	madc_+=er_henhort	common
+76	sarg_laden	sarglad_+es_en	common
+77	express_gut	expres_ut	common
+78	sonder_bahre	sonde_+es_rbahre	common
+79	archiv_kammer	ar_hivkammer	common
+80	mark_radikal	markrad_+es_ikal	common
+81	spende_bescheinigung	s_+es_debescheinigung	common
+82	karton_plastik	kartonplas_+es_tik	common
+83	gehäuse_ersatz	gehaus_+=er_eersatz	common
+84	reise_kredit	reisekred_t	common
+85	pech_moment	p_+es_hmoment	common
+86	balkon_grille	ba_+es_lkongrille	common
+87	boden_abdruck	bo_+es_abdruck	common
+88	ziel_härte	zielhart_+=er_e	common
+89	kapsel_perforation	kapselpe_ration	common
+90	schaum_pistole	s_haumpistole	common
+91	verdienst_vorstellung	verdienst_rstellung	common
+92	meister_solist	meisterso_st	common
+93	netzwerk_detail	netzwer_detail	common
+94	gold_deckel	golddec_+es_kel	common
+95	elektro_griller	e_+es_lektrogriller	common
+96	sportwagen_tochter	sp_+es_ortwagentochter	common
+97	musik_traum	mus_ktraum	common
+98	schweizer_haus	schweizer_aus	common
+99	wunsch_architekt	wunscharc_+es_ekt	common
+100	werkstatt_dach	wer_attdach	common
+101	zivildienst_erfahrung	zivildienst_fahrung	common
+102	marmor_vertäfelung	marmorvertä_+=er_felung	common
+103	kammer_linse	kammerl_nse	common
+104	jahrtausend_rückblick	jahrtausendruc_+=er_kblick	common
+105	wal_lücke	walluc_+=er_ke	common
+106	geld_lobby	geldlo_by	common
+107	darm_paket	da_+es_aket	common
+108	offizier_lehrgang	o_+es_ffizierlehrgang	common
+109	porträt_skizze	portratski_+=er_ze	common
+110	hobby_schreiberin	hobbyschreiber_n	common
+111	praxis_raeum	praxisrae_+es_um	common
+112	darm_stabilität	darmsta_lität	common
+113	fitness_ball	f_tnessball	common
+114	panorama_abschnitt	panoramaabsch_t	common
+115	aal_verlust	aalve_st	common
+116	ausschluss_diagnose	ausschlussd_agnose	common
+117	bediener_eingriff	bedienereingr_ff	common
+118	brett_stadt	b_tstadt	common
+119	teil_plagiat	t_+es_ilplagiat	common
+120	nebel_schutz	nebelsch_z	common
+121	stifter_lauf	st_fterlauf	common
+122	militär_design	militardesig_+=er_n	common
+123	gepäck_träger	gepac_+=er_kträger	common
+124	porträt_lithographie	portratli_+=er_thographie	common
+125	teil_kalender	t_+es_ilkalender	common
+126	last_konzentration	lastkonzentra_+es_tion	common
+127	jugend_boot	jugendbo_t	common
+128	zweirad_treff	zweiradt_f	common
+129	lob_artikel	lobarti_el	common
+130	haus_hoheit	h_hoheit	common
+131	deck_tod	dec_+es_od	common
+132	yoga_haus	yog_aus	common
+133	öko_frau	ok_+=er_ofrau	common
+134	fun_veranstaltung	funveranstaltun_+es_g	common
+135	tafel_jura	t_+es_afeljura	common
+136	display_anwendung	d_+es_isplayanwendung	common
+137	damm_trasse	damm_asse	common
+138	genre_skizze	genresk_+es_e	common
+139	bein_muckis	beinmuck_s	common
+140	teil_kondensation	teilkondensa_n	common
+141	archiv_festigkeit	arc_festigkeit	common
+142	fracht_liste	f_+es_chtliste	common
+143	apfel_gelee	ap_lgelee	common
+144	designer_lampe	design_lampe	common
+145	satire_format	satirefor_t	common
+146	abfall_transporteur	abfalltranspo_ur	common
+147	eis_mission	eismi_sion	common
+148	wechselkurs_anpassung	we_hselkursanpassung	common
+149	zusatz_wirkung	zusa_zwirkung	common
+150	ersatz_leder	ersa_zleder	common
+151	warenhaus_kredit	waren_auskredit	common
+152	vorhersage_formel	vorhersagefor_el	common
+153	auswanderer_sendung	au_+es_anderersendung	common
+154	bürgermeister_funktion	burgerme_+=er_terfunktion	common
+155	mutter_elch	mutterel_h	common
+156	schlüssel_bedingung	schlusselbedin_+=er_gung	common
+157	video_stoff	videos_ff	common
+158	grafik_argument	grafikargu_t	common
+159	wahl_technik	wa_+es_hltechnik	common
+160	ersatz_karriere	ersa_zkarriere	common
+161	richter_meier	richterme_er	common
+162	anleihe_portfolio	anleihepor_lio	common
+163	fels_spalter	felsspa_r	common
+164	funk_literatur	funkliterat_ur	common
+165	gewinn_walze	gew_nnwalze	common
+166	schweiß_auftrag	schweißauf_ag	common
+167	ding_weite	d_+es_ingweite	common
+168	tennis_spaß	t_+es_ennisspaß	common
+169	ferien_charakter	fer_encharakter	common
+170	schloss_therme	sch_sstherme	common
+171	jury_klasse	jury_+es_klasse	common
+172	welt_spannung	weltspann_+es_g	common
+173	hochdruck_sumpf	hochdruc_sumpf	common
+174	monitor_befehl	monitorbef_+es_ehl	common
+175	image_verbesserung	ima_+es_geverbesserung	common
+176	koch_profi	ko_hprofi	common
+177	gärtner_tugend	gä_+=er_rtnertugend	common
+178	finanz_präsident	finanzprä_+=er_ent	common
+179	studio_mischer	studiomisch_er	common
+180	referenz_suche	refer_zsuche	common
+181	wal_kopf	wa_+es_lkopf	common
+182	schlitz_fräsung	sch_litzfräsung	common
+183	engel_gebet	engelge_et	common
+184	horn_kluft	hornk_t	common
+185	öko_lyrik	ö_+=er_kolyrik	common
+186	stress_menge	stressm_ge	common
+187	gewinn_zuschlag	gew_nnzuschlag	common
+188	protokoll_vorlage	protokollvor_+es_ge	common
+189	rhythmus_meister	rhythmusme_er	common
+190	sitzplatz_gast	sitzplat_+es_ast	common
+191	lied_übergang	liedube_+=er_ang	common
+192	drachen_kamm	d_+es_chenkamm	common
+193	camping_krempel	camp_ngkrempel	common
+194	probe_skript	pr_+es_eskript	common
+195	theater_genie	the_+es_atergenie	common
+196	liga_absteiger	ligaabste_er	common
+197	propaganda_plan	pr_+es_gandaplan	common
+198	gitter_körper	gitterkor_+=er_per	common
+199	busch_weide	b_schweide	common
+200	hof_zug	hof_ug	common
+201	wurf_art	wur_rt	common
+202	kegel_stand	kegelst_+es_and	common
+203	rock_märchen	rockmarc_+=er_hen	common
+204	freizeit_spielchen	fre_zeitspielchen	common
+205	knorpel_versorgung	knorpelverso_ung	common
+206	baum_magie	baumma_ie	common
+207	auslage_tisch	aus_etisch	common
+208	winter_angler	w_nterangler	common
+209	gast_fahrkarte	gas_fahrkarte	common
+210	paddel_bericht	paddelber_ht	common
+211	mono_fernseher	monofernse_er	common
+212	regenwald_frucht	regenwald_rucht	common
+213	mauer_höhle	mauerhö_+=er_hle	common
+214	schlager_musik	schlagermus_k	common
+215	sound_debatte	sounddeba_te	common
+216	flugzeug_sitz	flugze_sitz	common
+217	freiland_deposition	freil_+es_anddeposition	common
+218	harmonie_brei	ha_+es_rmoniebrei	common
+219	frühling_+s_tisch	fruhlin_+=er_tisch	common
+220	monat_+s_woche	m_+es_tswoche	common
+221	wirklichkeit_+s_klötzchen	wirklichkeitsklö_+=er_tzchen	common
+222	platzierung_+s_form	plat_+es_zierungsform	common
+223	bereich_+s_ausschuss	ber_hsausschuss	common
+224	krieger_+s_mann	kr_egersmann	common
+225	torsion_+s_effekt	torsion_+s_effekt	common
+226	verbindung_+s_plan	ver_ndungsplan	common
+227	funktionär_+s_diktatur	funktionarsdi_+=er_ktatur	common
+228	verlag_+s_promotion	verlagspromo_n	common
+229	rationalität_+s_fiktion	rationalitatsfikti_+=er_on	common
+230	tagung_+s_zentrum	tagun_szentrum	common
+231	kriminalität_+s_anteil	kriminalitat_+=er_anteil	common
+232	alter_+s_potenzial	a_+es_lterspotenzial	common
+233	ort_+s_bewegung	ortsbeweg_g	common
+234	alter_+s_reserve	a_+es_ltersreserve	common
+235	belichtung_+s_möglichkeit	belichtungsmö_+=er_glichkeit	common
+236	rettung_+s_pfeil	rettun_spfeil	common
+237	leben_+s_panorama	lebenspano_ma	common
+238	vernichtung_+s_friede	verni_tungsfriede	common
+239	redaktion_+s_anfrage	red_+es_tionsanfrage	common
+240	beschäftigung_+s_kasten	beschä_+=er_ftigungskasten	common
+241	liebling_+s_ton	l_eblingston	common
+242	gesinnung_+s_datei	g_+es_sinnungsdatei	common
+243	werk_+s_struktur	wer_sstruktur	common
+244	vorrat_+s_gesellschaft	vorratsgesellsch_t	common
+245	arbeit_+s_formation	arbeitsfor_mation	common
+246	gewicht_+s_verhältnis	gewichtsverhaltn_+=er_is	common
+247	trennung_+s_koeffizient	trennun_skoeffizient	common
+248	vernichtung_+s_aktion	verni_tungsaktion	common
+249	regierung_+s_anwalt	regierun_sanwalt	common
+250	verlängerung_+s_tag	verlange_+=er_rungstag	common
+251	benachrichtigung_+s_konzept	benachricht_ungskonzept	common
+252	empfang_+s_messung	e_+es_angsmessung	common
+253	bewegung_+s_seite	bewegungsse_te	common
+254	pruefung_+s_verband	prue_ungsverband	common
+255	arbeit_+s_status	arbei_sstatus	common
+256	beschäftigung_+s_einsatz	beschä_+=er_ftigungseinsatz	common
+257	erfolg_+s_argument	erfolgsa_ument	common
+258	haftung_+s_kapital	ha_tungskapital	common
+259	exposition_+s_pfad	exposition_+es_fad	common
+260	unglück_+s_straße	ungluc_+=er_ksstraße	common
+261	regierung_+s_uebernahme	regierungsueber_hme	common
+262	sieg_+es_lied	s_egeslied	common
+263	übung_+s_platz	ü_+=er_bungsplatz	common
+264	angebot_+s_hinweis	an_ebotshinweis	common
+265	konstruktion_+s_wissen	konst_tionswissen	common
+266	telekommunikation_+s_professor	telekommunikationsprofes_r	common
+267	sicherheit_+s_luecke	sicherheitslue_ke	common
+268	kleidung_+s_reform	kleidungsrefor_m	common
+269	gefühl_+s_krise	gefuhls_+=er_krise	common
+270	besichtigung_+s_liste	besicht_ungsliste	common
+271	spannung_+s_umschaltung	spannungsumschaltun_+es_g	common
+272	dienstleistung_+s_gehalt	dienstleistun_sgehalt	common
+273	identifikation_+s_rahmen	identifikationsrah_en	common
+274	wirkung_+s_zyklus	w_rkungszyklus	common
+275	aufmerksamkeit_+s_räuber	aufmerksamkeitsraube_+=er_r	common
+276	zwang_+s_parfümierung	zwangsparfum_+=er_ierung	common
+277	beruhigung_+s_placebo	ber_igungsplacebo	common
+278	verkehr_+s_konjunktur	verkehrskonjunk_ur	common
+279	mittag_+s_wind	mitta_swind	common
+280	weisheit_+s_vogel	we_sheitsvogel	common
+281	skalierung_+s_eigenschaft	skalierungseigensch_t	common
+282	zahlung_+s_sicherung	zahlun_ssicherung	common
+283	bergwerk_+s_leute	ber_werksleute	common
+284	stimmung_+s_bildung	stimmung_ldung	common
+285	sicherheit_+s_gewahrsam	si_herheitsgewahrsam	common
+286	sachverhalt_+s_beurteilung	sachverhaltsbeurte_lung	common
+287	ausrüstung_+s_art	ausrü_+=er_stungsart	common
+288	kürzung_+s_vereinbarung	kü_+=er_rzungsvereinbarung	common
+289	selektion_+s_pool	se_+es_lektionspool	common
+290	einheit_+s_straße	e_nheitsstraße	common
+291	verfolgung_+s_geist	ver_lgungsgeist	common
+292	behandlung_+s_bedürfnis	behandlungsbedurfn_+=er_is	common
+293	virtualisierung_+s_szenarium	v_rtualisierungsszenarium	common
+294	aktionär_+s_hand	aktionar_+=er_hand	common
+295	artikulation_+s_ort	artik_+es_tionsort	common
+296	währung_+s_region	wä_+=er_hrungsregion	common
+297	begriff_+s_trias	be_riffstrias	common
+298	aufklärung_+s_ausstattung	aufklär_sausstattung	common
+299	verpflegung_+s_auto	verpflegungsa_o	common
+300	querschnitt_+s_ressort	qu_schnittsressort	common
+301	haushalt_+s_vermögen	haushaltsvermö_+=er_gen	common
+302	eis_+es_heim	e_sesheim	common
+303	patenschaft_+s_anlage	pat_schaftsanlage	common
+304	masse_+n_schlächterei	massenschlac_+=er_hterei	common
+305	tide_+n_stieg	tidens_+es_tieg	common
+306	figur_+en_wissen	fi_renwissen	common
+307	gruppe_+n_prüfung	grup_+es_enprüfung	common
+308	hölle_+n_brand	hollenbr_+=er_and	common
+309	röhre_+n_stand	rohrens_+=er_tand	common
+310	klarinette_+n_einsatz	klar_netteneinsatz	common
+311	ziege_+n_maske	z_egenmaske	common
+312	seele_+n_tagebuch	seelentagebu_h	common
+313	experte_+n_geschichte	expertengeschic_te	common
+314	hose_+n_spanner	hosenspa_r	common
+315	katze_+n_wurf	katze_rf	common
+316	lesbe_+n_leben	lesbe_+es_nleben	common
+317	sünde_+n_waage	sundenw_+=er_age	common
+318	karte_+n_kompatibilität	kartenkompatib_+es_tät	common
+319	lärche_+n_straße	larc_+=er_henstraße	common
+320	quant_+en_kommunikation	quantenkommu_kation	common
+321	rose_+n_malerei	rosenm_+es_alerei	common
+322	platte_+n_meister	p_ttenmeister	common
+323	stern_+en_rechner	st_nenrechner	common
+324	hose_+n_segment	hos_egment	common
+325	glocke_+n_steuerung	glockenst_rung	common
+326	harfe_+n_komposition	harf_komposition	common
+327	echse_+n_liebhaber	echsenl_ebhaber	common
+328	katze_+n_liebhaber	katzenl_ebhaber	common
+329	auge_+n_riemen	augenri_+es_men	common
+330	autor_+en_feld	au_renfeld	common
+331	wüste_+n_schurke	wustensc_+=er_hurke	common
+332	winde_+n_typ	wi_ntyp	common
+333	karte_+n_landschaft	kartenlandsch_t	common
+334	maßnahme_+n_ebene	ma_+es_ßnahmenebene	common
+335	maschine_+n_rüstzeit	masch_nenrüstzeit	common
+336	gebühr_+en_angelegenheit	gebuhr_+=er_enangelegenheit	common
+337	tinte_+n_rezeptur	tintenrezep_ur	common
+338	briefmarke_+n_messen	briefmarkenme_+es_ssen	common
+339	idee_+n_fundus	id_+es_enfundus	common
+340	variable_+n_eingabe	variablenein_+es_be	common
+341	straße_+n_katalog	straßenkat_g	common
+342	prämie_+n_versicherer	pramienversic_+=er_herer	common
+343	walze_+n_verschleiß	walzenversc_leiß	common
+344	premiere_+n_präsentation	premierenprasen_+=er_tion	common
+345	präsident_+en_cup	prä_+=er_entencup	common
+346	seite_+n_bracke	s_+es_eitenbracke	common
+347	mensch_+en_ratte	mensch_ratte	common
+348	angehörige_+n_stunde	angehorig_+=er_enstunde	common
+349	hölle_+n_erlebnis	hollenerle_+=er_nis	common
+350	sprache_-e_empfang	sprac_empfang	common
+351	schule_-e_staatssekretär	schulstaatsse_retär	common
+352	kontrolle_-e_pflicht	kontro_+es_llpflicht	common
+353	wolle_-e_mantel	wollman_el	common
+354	hund_+e_krankengymnastin	hunde_+es_krankengymnastin	common
+355	referat_+e_seite	referate_+es_te	common
+356	apparat_+e_ausschuss	apparate_schuss	common
+357	brett_+er_lücke	bretterluc_+=er_ke	common
+358	mitglied_+er_sperre	mi_gliedersperre	common
+359	ei_+er_mann	ei_+es_ann	common
+360	wort_+=er_kette	wö_+=er_terkette	common
+361	huhn_+=er_leiter	huhn_+=er_erleiter	common
+362	blatt_+=er_suppe	blat_+=er_tersuppe	common
+363	gans_+=e_sänger	gä_+=er_esänger	common
+364	gast_+=e_etage	gasteet_+=er_age	common
+365	stand_+=e_gesellschaft	stande_+=er_gesellschaft	common
+366	glaube_+ns_gesetz	glaubensg_setz	common
+367	herz_+ens_eigenschaft	herzenseigensch_t	common
+368	name_+ns_roulette	namensroul_te	common

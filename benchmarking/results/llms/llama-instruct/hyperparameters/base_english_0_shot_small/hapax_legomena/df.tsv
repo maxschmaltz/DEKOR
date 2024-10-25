@@ -1,19 +1,19 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-aramäer_könig	aramäer_könig	hapax_legomena	True	_	_	concatenation	concatenation
-handtäschchen_träger	handtäschchenträger	hapax_legomena	False	_	none	concatenation	none
-remischen_stein	remisch_+en_stein	hapax_legomena	False	_	_+n_	concatenation	addition
-beteuerung_+s_formel	beteuerung_+s_formel	hapax_legomena	True	_+s_	_+s_	addition	addition
-rückleitung_+s_spesen	rückleitung_+s_spesen	hapax_legomena	True	_+s_	_+s_	addition	addition
-dormitorium_+s_treppe	dormitorium_+s_treppe	hapax_legomena	True	_+s_	_+s_	addition	addition
-schänke_+n_wirt	schänke_+n_wirt	hapax_legomena	True	_+n_	_+n_	addition	addition
-papyrologe_+n_tag	papyrologe_+n_tag	hapax_legomena	True	_+n_	_+n_	addition	addition
-tsetsefliege_+n_mann	tsetsefliege_+n_mann	hapax_legomena	True	_+n_	_+n_	addition	addition
-genosse_-e_innenschaft	genossinnenschaft	hapax_legomena	False	_-e_	none	deletion	none
-flueg_+e_lende	fluegelende	hapax_legomena	False	_+e_	none	addition	none
-spruech_+e_klopfer	spruecheklopfer	hapax_legomena	False	_+e_	none	addition	none
-gaeng_+e_viertel	gaengeviertel	hapax_legomena	False	_+e_	none	addition	none
-raed_+er_werk	raederwerk	hapax_legomena	False	_+er_	none	addition	none
-findelkind_+er_haus	findelkind_+er_haus	hapax_legomena	True	_+er_	_+er_	addition	addition
-glaes_+er_ruecken	glaeserruecken	hapax_legomena	False	_+er_	none	addition	none
-sammel_+ns_wert	sammeln_+s_wert	hapax_legomena	False	_+ns_	_+s_	addition	addition
-unglaube_+ns_bekenntnis	unglauben_+s_bekenntnis	hapax_legomena	False	_+ns_	_+s_	addition	addition
+	gold	pred	comp_type
+0	aramäer_könig	aramäer_könig	hapax_legomena
+1	handtäschchen_träger	handtäschchenträger	hapax_legomena
+2	remischen_stein	remisch_+en_stein	hapax_legomena
+3	beteuerung_+s_formel	beteuerung_+s_formel	hapax_legomena
+4	rückleitung_+s_spesen	rückleitung_+s_spesen	hapax_legomena
+5	dormitorium_+s_treppe	dormitorium_+s_treppe	hapax_legomena
+6	schänke_+n_wirt	schänke_+n_wirt	hapax_legomena
+7	papyrologe_+n_tag	papyrologe_+n_tag	hapax_legomena
+8	tsetsefliege_+n_mann	tsetsefliege_+n_mann	hapax_legomena
+9	genosse_-e_innenschaft	genossinnenschaft	hapax_legomena
+10	flueg_+e_lende	fluegelende	hapax_legomena
+11	spruech_+e_klopfer	spruecheklopfer	hapax_legomena
+12	gaeng_+e_viertel	gaengeviertel	hapax_legomena
+13	raed_+er_werk	raederwerk	hapax_legomena
+14	findelkind_+er_haus	findelkind_+er_haus	hapax_legomena
+15	glaes_+er_ruecken	glaeserruecken	hapax_legomena
+16	sammel_+ns_wert	sammeln_+s_wert	hapax_legomena
+17	unglaube_+ns_bekenntnis	unglauben_+s_bekenntnis	hapax_legomena

@@ -1,127 +1,127 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-aufklärer_version	au_+ens_fklärerversion	infrequent	False	_	_+ns_	concatenation	addition
-analysis_unterricht	analysis_+ens_nterricht	infrequent	False	_	_+ns_	concatenation	addition
-hausierer_ware	hausie_+ens_rware	infrequent	False	_	_+ns_	concatenation	addition
-befürworter_schaft	b_rworterschaft	infrequent	False	_	_	concatenation	concatenation
-muskateller_salbei	mus_+ens_katellersalbei	infrequent	False	_	_+ns_	concatenation	addition
-abmarsch_tag	abmars_+ens_chtag	infrequent	False	_	_+ns_	concatenation	addition
-mache_lohn	mac_ohn	infrequent	False	_	_	concatenation	concatenation
-patronage_macht	patronagem_+ens_cht	infrequent	False	_	_+ns_	concatenation	addition
-grauen_fels	graue_+ens_ls	infrequent	False	_	_+ns_	concatenation	addition
-barchent_produktion	barc_tproduktion	infrequent	False	_	_	concatenation	concatenation
-hänsel_straße	häns_+ens_lstraße	infrequent	False	_	_+ns_	concatenation	addition
-romantiker_herz	rom_+ens_antikerherz	infrequent	False	_	_+ns_	concatenation	addition
-körnchen_geberin	kö_chengeberin	infrequent	False	_	_	concatenation	concatenation
-philipper_brief	p_+ens_hilipperbrief	infrequent	False	_	_+ns_	concatenation	addition
-stretching_technik	s_+ens_tchingtechnik	infrequent	False	_	_+ns_	concatenation	addition
-skala_tal	s_+ens_kalatal	infrequent	False	_	_+ns_	concatenation	addition
-dramatiker_förderung	dramatikerfö_derung	infrequent	False	_	_	concatenation	concatenation
-angelus_glocke	ange_+ens_sglocke	infrequent	False	_	_+ns_	concatenation	addition
-nazarener_stil	nazareners_+ens_til	infrequent	False	_	_+ns_	concatenation	addition
-systematik_baum	sys_+ens_matikbaum	infrequent	False	_	_+ns_	concatenation	addition
-schikane_aktion	s_+ens_hikaneaktion	infrequent	False	_	_+ns_	concatenation	addition
-yogi_bär	y_+ens_ibär	infrequent	False	_	_+ns_	concatenation	addition
-zwölfzylinder_triebwerk	z_+ens_wölfzylindertriebwerk	infrequent	False	_	_+ns_	concatenation	addition
-schreiben_lernen	schreibenler_en	infrequent	False	_	_	concatenation	concatenation
-empfehler_programm	em_+ens_hlerprogramm	infrequent	False	_	_+ns_	concatenation	addition
-turboprop_motor	tur_propmotor	infrequent	False	_	_	concatenation	concatenation
-blasphemie_prozess	blasphemieprozes_+ens_s	infrequent	False	_	_+ns_	concatenation	addition
-verletzer_prozess	verletzerprozes_+ens_s	infrequent	False	_	_+ns_	concatenation	addition
-kalahari_gebiet	kalaharige_+ens_t	infrequent	False	_	_+ns_	concatenation	addition
-countdown_timer	countdowntim_+ens_r	infrequent	False	_	_+ns_	concatenation	addition
-karmesin_farbe	karm_+ens_sinfarbe	infrequent	False	_	_+ns_	concatenation	addition
-aurikel_blüte	aurike_+ens_lblüte	infrequent	False	_	_+ns_	concatenation	addition
-typografie_funktion	ty_+ens_rafiefunktion	infrequent	False	_	_+ns_	concatenation	addition
-virginia_wachtel	virg_+ens_iniawachtel	infrequent	False	_	_+ns_	concatenation	addition
-wetzstein_stollen	wetzsteins_+ens_ollen	infrequent	False	_	_+ns_	concatenation	addition
-blouson_schnitt	blousons_+ens_nitt	infrequent	False	_	_+ns_	concatenation	addition
-neider_sachse	neid_+ens_rsachse	infrequent	False	_	_+ns_	concatenation	addition
-oktopus_garten	oktopus_+ens_arten	infrequent	False	_	_+ns_	concatenation	addition
-bilharziose_erreger	bilharzioseerre_+ens_r	infrequent	False	_	_+ns_	concatenation	addition
-böhme_ufer	böhme_+ens_r	infrequent	False	_	_+ns_	concatenation	addition
-monarch_falter	mo_archfalter	infrequent	False	_	_	concatenation	concatenation
-tungsten_anteil	tungsten_teil	infrequent	False	_	_	concatenation	concatenation
-nörgler_fraktion	nö_+=e_glerfraktion	infrequent	False	_	_+=e_	concatenation	addition_umlaut
-numerus_markierung	numerus_+ens_arkierung	infrequent	False	_	_+ns_	concatenation	addition
-eiffel_studio	eiffels_+ens_dio	infrequent	False	_	_+ns_	concatenation	addition
-galan_gin	ga_gin	infrequent	False	_	_	concatenation	concatenation
-bora_kai	bo_+ens_rakai	infrequent	False	_	_+ns_	concatenation	addition
-publicity_arbeit	p_+ens_blicityarbeit	infrequent	False	_	_+ns_	concatenation	addition
-dandy_boy	dandy_+ens_y	infrequent	False	_	_+ns_	concatenation	addition
-demonstrator_maschine	d_+es_nstratormaschine	infrequent	False	_	_+s_	concatenation	addition
-zwischenfall_training	zwischenfalltrain_g	infrequent	False	_	_	concatenation	concatenation
-determinismus_konzept	determinis_+ens_skonzept	infrequent	False	_	_+ns_	concatenation	addition
-superior_zimmer	superiorzimm_+ens_r	infrequent	False	_	_+ns_	concatenation	addition
-vordach_pfosten	vordachpfos_+ens_n	infrequent	False	_	_+ns_	concatenation	addition
-smalltalk_thema	s_+ens_alltalkthema	infrequent	False	_	_+ns_	concatenation	addition
-spießbürger_idyll	spießbürgeridy_+ens_ll	infrequent	False	_	_+ns_	concatenation	addition
-kreationismus_vorwurf	kreationismus_+ens_orwurf	infrequent	False	_	_+ns_	concatenation	addition
-voraussage_kraft	vorauss_+ens_kraft	infrequent	False	_	_+ns_	concatenation	addition
-tessiner_brot	tessin_brot	infrequent	False	_	_	concatenation	concatenation
-methylphenidat_behandlung	methylphe_+ens_nidatbehandlung	infrequent	False	_	_+ns_	concatenation	addition
-umgriff_ebene	um_+ens_riffebene	infrequent	False	_	_+ns_	concatenation	addition
-imago_tag	im_+ens_tag	infrequent	False	_	_+ns_	concatenation	addition
-schäffer_ei	schaff_+=er_i	infrequent	False	_	_+=er_	concatenation	addition_umlaut
-salmler_gattung	s_+ens_almlergattung	infrequent	False	_	_+ns_	concatenation	addition
-körnchen_pickerei	kö_chenpickerei	infrequent	False	_	_	concatenation	concatenation
-enzyklopädie_band	enzy_+ens_pädieband	infrequent	False	_	_+ns_	concatenation	addition
-spalter_wahl	s_+ens_alterwahl	infrequent	False	_	_+ns_	concatenation	addition
-psychosomatik_abteilung	psyc_+es_somatikabteilung	infrequent	False	_	_+s_	concatenation	addition
-listung_+s_gespräch	listungs_+ens_spräch	infrequent	False	_+s_	_+ns_	addition	addition
-regularität_+s_satz	regularitäts_+ens_satz	infrequent	False	_+s_	_+ns_	addition	addition
-ästhetisierung_+s_kritik	asthet_+=e_sierungskritik	infrequent	False	_+s_	_+=e_	addition	addition_umlaut
-günstling_+s_wirtschaft	gunst_+=e_ngswirtschaft	infrequent	False	_+s_	_+=e_	addition	addition_umlaut
-zusammenlagerung_+s_hinweis	zusammenlagerungshinw_+ens_is	infrequent	False	_+s_	_+ns_	addition	addition
-faulheit_+s_verdacht	faulheits_+ens_rdacht	infrequent	False	_+s_	_+ns_	addition	addition
-besänftigung_+s_strategie	bes_+ens_nftigungsstrategie	infrequent	False	_+s_	_+ns_	addition	addition
-ausfachung_+s_bohrung	ausfachu_gsbohrung	infrequent	False	_+s_	_	addition	concatenation
-fassenacht_+s_zeit	fassenachts_+ens_it	infrequent	False	_+s_	_+ns_	addition	addition
-saldierung_+s_vorschrift	saldierungs_+ens_orschrift	infrequent	False	_+s_	_+ns_	addition	addition
-verdingung_+s_muster	verdingungsmus_+ens_r	infrequent	False	_+s_	_+ns_	addition	addition
-rauhigkeit_+s_spitz	rauhigkeitss_+ens_pitz	infrequent	False	_+s_	_+ns_	addition	addition
-leugnung_+s_prozess	leugnungsprozes_+ens_s	infrequent	False	_+s_	_+ns_	addition	addition
-befassung_+s_pflicht	befassungs_+ens_pflicht	infrequent	False	_+s_	_+ns_	addition	addition
-mächtigkeit_+s_verteilung	m_+ens_chtigkeitsverteilung	infrequent	False	_+s_	_+ns_	addition	addition
-entrechtung_+s_programm	entrechtun_gsprogramm	infrequent	False	_+s_	_	addition	concatenation
-umhüllung_+s_qualität	umhüllungs_+ens_alität	infrequent	False	_+s_	_+ns_	addition	addition
-optimalität_+s_kriterium	optimalitats_+=e_terium	infrequent	False	_+s_	_+=e_	addition	addition_umlaut
-ungleichung_+s_kette	ungleichu_gskette	infrequent	False	_+s_	_	addition	concatenation
-entschichtung_+s_arbeit	entschichtungsarb_+ens_it	infrequent	False	_+s_	_+ns_	addition	addition
-entstalinisierung_+s_krise	ents_+ens_talinisierungskrise	infrequent	False	_+s_	_+ns_	addition	addition
-ingestion_+s_unfall	ingestions_+ens_nfall	infrequent	False	_+s_	_+ns_	addition	addition
-reorientierung_+s_phase	reor_ientierungsphase	infrequent	False	_+s_	_	addition	concatenation
-ersitzung_+s_zeit	ersitzungs_+ens_it	infrequent	False	_+s_	_+ns_	addition	addition
-verfrühung_+s_schaden	ver_hungsschaden	infrequent	False	_+s_	_	addition	concatenation
-gueltigkeit_+s_bereich	g_+ens_eltigkeitsbereich	infrequent	False	_+s_	_+ns_	addition	addition
-samojede_+n_spitz	samojedens_+ens_pitz	infrequent	False	_+n_	_+ns_	addition	addition
-dramaturg_+en_stelle	dramaturgens_+ens_elle	infrequent	False	_+n_	_+ns_	addition	addition
-schüppe_+n_straße	schüpp_+ens_nstraße	infrequent	False	_+n_	_+ns_	addition	addition
-disponent_+en_ausbildung	dispo_tenausbildung	infrequent	False	_+n_	_	addition	concatenation
-adventist_+en_familie	ad_+ens_entistenfamilie	infrequent	False	_+n_	_+ns_	addition	addition
-parallele_+n_paar	pa_+er_lelenpaar	infrequent	False	_+n_	_+er_	addition	addition
-logopäde_+n_verband	logopäden_band	infrequent	False	_+n_	_	addition	concatenation
-disponent_+en_stelle	dispo_tenstelle	infrequent	False	_+n_	_	addition	concatenation
-prädikant_+en_bibliothek	prädika_tenbibliothek	infrequent	False	_+n_	_	addition	concatenation
-kämpe_+n_straße	kämp_+ens_nstraße	infrequent	False	_+n_	_+ns_	addition	addition
-kommode_+n_schublade	kommodens_+ens_blade	infrequent	False	_+n_	_+ns_	addition	addition
-makrone_+n_masse	makr_enmasse	infrequent	False	_+n_	_	addition	concatenation
-kinematograph_+en_vorstellung	kinematographenvors_+ens_ellung	infrequent	False	_+n_	_+ns_	addition	addition
-nuance_+n_bereich	nua_cenbereich	infrequent	False	_+n_	_	addition	concatenation
-blesse_-e_huhn	bless_+ens_n	infrequent	False	_-e_	_+ns_	deletion	addition
-einöde_-e_riegel	einödrie_+ens_l	infrequent	False	_-e_	_+ns_	deletion	addition
-geleise_-e_anlage	geleis_+ens_anlage	infrequent	False	_-e_	_+ns_	deletion	addition
-staend_+e_staat	staendest_+ens_aat	infrequent	False	_+e_	_+ns_	addition	addition
-supernova_+e_explosion	supernovaee_+ens_xplosion	infrequent	False	_+e_	_+ns_	addition	addition
-ärzt_+e_organisation	ä_+ens_rzteorganisation	infrequent	False	_+e_	_+ns_	addition	addition
-koern_+er_haufen	ko_erhaufen	infrequent	False	_+er_	_	addition	concatenation
-baed_+er_architektur	baed_+ens_rarchitektur	infrequent	False	_+er_	_+ns_	addition	addition
-viech_+er_zeug	viecherze_+ens_g	infrequent	False	_+er_	_+ns_	addition	addition
-truthuhn_+=er_bestand	truthüh_erbestand	infrequent	False	_+=er_	_	addition_umlaut	concatenation
-gemeingut_+=er_wirtschaft	gemeingut_+=e_wirtschaft	infrequent	False	_+=er_	_+=e_	addition_umlaut	addition_umlaut
-gemeingut_+=er_debatte	gemeingüterd_+ens_batte	infrequent	False	_+=er_	_+ns_	addition_umlaut	addition
-abhang_+=e_last	abhäng_+ens_last	infrequent	False	_+=e_	_+ns_	addition_umlaut	addition
-abhang_+=e_system	abhängesy_+ens_m	infrequent	False	_+=e_	_+ns_	addition_umlaut	addition
-abhang_+=e_wagen	abhängew_+ens_n	infrequent	False	_+=e_	_+ns_	addition_umlaut	addition
-aberglaube_+ns_vorstellung	aberglaubens_+ens_orstellung	infrequent	False	_+ns_	_+ns_	addition	addition
-aberglaube_+ns_forschung	aberglaubensfors_+ens_ng	infrequent	False	_+ns_	_+ns_	addition	addition
-aberglaube_+ns_kritik	aberglaubens_+ens_ritik	infrequent	False	_+ns_	_+ns_	addition	addition
+	gold	pred	comp_type
+0	aufklärer_version	au_+ens_fklärerversion	infrequent
+1	analysis_unterricht	analysis_+ens_nterricht	infrequent
+2	hausierer_ware	hausie_+ens_rware	infrequent
+3	befürworter_schaft	b_rworterschaft	infrequent
+4	muskateller_salbei	mus_+ens_katellersalbei	infrequent
+5	abmarsch_tag	abmars_+ens_chtag	infrequent
+6	mache_lohn	mac_ohn	infrequent
+7	patronage_macht	patronagem_+ens_cht	infrequent
+8	grauen_fels	graue_+ens_ls	infrequent
+9	barchent_produktion	barc_tproduktion	infrequent
+10	hänsel_straße	häns_+ens_lstraße	infrequent
+11	romantiker_herz	rom_+ens_antikerherz	infrequent
+12	körnchen_geberin	kö_chengeberin	infrequent
+13	philipper_brief	p_+ens_hilipperbrief	infrequent
+14	stretching_technik	s_+ens_tchingtechnik	infrequent
+15	skala_tal	s_+ens_kalatal	infrequent
+16	dramatiker_förderung	dramatikerfö_derung	infrequent
+17	angelus_glocke	ange_+ens_sglocke	infrequent
+18	nazarener_stil	nazareners_+ens_til	infrequent
+19	systematik_baum	sys_+ens_matikbaum	infrequent
+20	schikane_aktion	s_+ens_hikaneaktion	infrequent
+21	yogi_bär	y_+ens_ibär	infrequent
+22	zwölfzylinder_triebwerk	z_+ens_wölfzylindertriebwerk	infrequent
+23	schreiben_lernen	schreibenler_en	infrequent
+24	empfehler_programm	em_+ens_hlerprogramm	infrequent
+25	turboprop_motor	tur_propmotor	infrequent
+26	blasphemie_prozess	blasphemieprozes_+ens_s	infrequent
+27	verletzer_prozess	verletzerprozes_+ens_s	infrequent
+28	kalahari_gebiet	kalaharige_+ens_t	infrequent
+29	countdown_timer	countdowntim_+ens_r	infrequent
+30	karmesin_farbe	karm_+ens_sinfarbe	infrequent
+31	aurikel_blüte	aurike_+ens_lblüte	infrequent
+32	typografie_funktion	ty_+ens_rafiefunktion	infrequent
+33	virginia_wachtel	virg_+ens_iniawachtel	infrequent
+34	wetzstein_stollen	wetzsteins_+ens_ollen	infrequent
+35	blouson_schnitt	blousons_+ens_nitt	infrequent
+36	neider_sachse	neid_+ens_rsachse	infrequent
+37	oktopus_garten	oktopus_+ens_arten	infrequent
+38	bilharziose_erreger	bilharzioseerre_+ens_r	infrequent
+39	böhme_ufer	böhme_+ens_r	infrequent
+40	monarch_falter	mo_archfalter	infrequent
+41	tungsten_anteil	tungsten_teil	infrequent
+42	nörgler_fraktion	nö_+=e_glerfraktion	infrequent
+43	numerus_markierung	numerus_+ens_arkierung	infrequent
+44	eiffel_studio	eiffels_+ens_dio	infrequent
+45	galan_gin	ga_gin	infrequent
+46	bora_kai	bo_+ens_rakai	infrequent
+47	publicity_arbeit	p_+ens_blicityarbeit	infrequent
+48	dandy_boy	dandy_+ens_y	infrequent
+49	demonstrator_maschine	d_+es_nstratormaschine	infrequent
+50	zwischenfall_training	zwischenfalltrain_g	infrequent
+51	determinismus_konzept	determinis_+ens_skonzept	infrequent
+52	superior_zimmer	superiorzimm_+ens_r	infrequent
+53	vordach_pfosten	vordachpfos_+ens_n	infrequent
+54	smalltalk_thema	s_+ens_alltalkthema	infrequent
+55	spießbürger_idyll	spießbürgeridy_+ens_ll	infrequent
+56	kreationismus_vorwurf	kreationismus_+ens_orwurf	infrequent
+57	voraussage_kraft	vorauss_+ens_kraft	infrequent
+58	tessiner_brot	tessin_brot	infrequent
+59	methylphenidat_behandlung	methylphe_+ens_nidatbehandlung	infrequent
+60	umgriff_ebene	um_+ens_riffebene	infrequent
+61	imago_tag	im_+ens_tag	infrequent
+62	schäffer_ei	schaff_+=er_i	infrequent
+63	salmler_gattung	s_+ens_almlergattung	infrequent
+64	körnchen_pickerei	kö_chenpickerei	infrequent
+65	enzyklopädie_band	enzy_+ens_pädieband	infrequent
+66	spalter_wahl	s_+ens_alterwahl	infrequent
+67	psychosomatik_abteilung	psyc_+es_somatikabteilung	infrequent
+68	listung_+s_gespräch	listungs_+ens_spräch	infrequent
+69	regularität_+s_satz	regularitäts_+ens_satz	infrequent
+70	ästhetisierung_+s_kritik	asthet_+=e_sierungskritik	infrequent
+71	günstling_+s_wirtschaft	gunst_+=e_ngswirtschaft	infrequent
+72	zusammenlagerung_+s_hinweis	zusammenlagerungshinw_+ens_is	infrequent
+73	faulheit_+s_verdacht	faulheits_+ens_rdacht	infrequent
+74	besänftigung_+s_strategie	bes_+ens_nftigungsstrategie	infrequent
+75	ausfachung_+s_bohrung	ausfachu_gsbohrung	infrequent
+76	fassenacht_+s_zeit	fassenachts_+ens_it	infrequent
+77	saldierung_+s_vorschrift	saldierungs_+ens_orschrift	infrequent
+78	verdingung_+s_muster	verdingungsmus_+ens_r	infrequent
+79	rauhigkeit_+s_spitz	rauhigkeitss_+ens_pitz	infrequent
+80	leugnung_+s_prozess	leugnungsprozes_+ens_s	infrequent
+81	befassung_+s_pflicht	befassungs_+ens_pflicht	infrequent
+82	mächtigkeit_+s_verteilung	m_+ens_chtigkeitsverteilung	infrequent
+83	entrechtung_+s_programm	entrechtun_gsprogramm	infrequent
+84	umhüllung_+s_qualität	umhüllungs_+ens_alität	infrequent
+85	optimalität_+s_kriterium	optimalitats_+=e_terium	infrequent
+86	ungleichung_+s_kette	ungleichu_gskette	infrequent
+87	entschichtung_+s_arbeit	entschichtungsarb_+ens_it	infrequent
+88	entstalinisierung_+s_krise	ents_+ens_talinisierungskrise	infrequent
+89	ingestion_+s_unfall	ingestions_+ens_nfall	infrequent
+90	reorientierung_+s_phase	reor_ientierungsphase	infrequent
+91	ersitzung_+s_zeit	ersitzungs_+ens_it	infrequent
+92	verfrühung_+s_schaden	ver_hungsschaden	infrequent
+93	gueltigkeit_+s_bereich	g_+ens_eltigkeitsbereich	infrequent
+94	samojede_+n_spitz	samojedens_+ens_pitz	infrequent
+95	dramaturg_+en_stelle	dramaturgens_+ens_elle	infrequent
+96	schüppe_+n_straße	schüpp_+ens_nstraße	infrequent
+97	disponent_+en_ausbildung	dispo_tenausbildung	infrequent
+98	adventist_+en_familie	ad_+ens_entistenfamilie	infrequent
+99	parallele_+n_paar	pa_+er_lelenpaar	infrequent
+100	logopäde_+n_verband	logopäden_band	infrequent
+101	disponent_+en_stelle	dispo_tenstelle	infrequent
+102	prädikant_+en_bibliothek	prädika_tenbibliothek	infrequent
+103	kämpe_+n_straße	kämp_+ens_nstraße	infrequent
+104	kommode_+n_schublade	kommodens_+ens_blade	infrequent
+105	makrone_+n_masse	makr_enmasse	infrequent
+106	kinematograph_+en_vorstellung	kinematographenvors_+ens_ellung	infrequent
+107	nuance_+n_bereich	nua_cenbereich	infrequent
+108	blesse_-e_huhn	bless_+ens_n	infrequent
+109	einöde_-e_riegel	einödrie_+ens_l	infrequent
+110	geleise_-e_anlage	geleis_+ens_anlage	infrequent
+111	staend_+e_staat	staendest_+ens_aat	infrequent
+112	supernova_+e_explosion	supernovaee_+ens_xplosion	infrequent
+113	ärzt_+e_organisation	ä_+ens_rzteorganisation	infrequent
+114	koern_+er_haufen	ko_erhaufen	infrequent
+115	baed_+er_architektur	baed_+ens_rarchitektur	infrequent
+116	viech_+er_zeug	viecherze_+ens_g	infrequent
+117	truthuhn_+=er_bestand	truthüh_erbestand	infrequent
+118	gemeingut_+=er_wirtschaft	gemeingut_+=e_wirtschaft	infrequent
+119	gemeingut_+=er_debatte	gemeingüterd_+ens_batte	infrequent
+120	abhang_+=e_last	abhäng_+ens_last	infrequent
+121	abhang_+=e_system	abhängesy_+ens_m	infrequent
+122	abhang_+=e_wagen	abhängew_+ens_n	infrequent
+123	aberglaube_+ns_vorstellung	aberglaubens_+ens_orstellung	infrequent
+124	aberglaube_+ns_forschung	aberglaubensfors_+ens_ng	infrequent
+125	aberglaube_+ns_kritik	aberglaubens_+ens_ritik	infrequent

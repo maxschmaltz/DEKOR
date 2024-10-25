@@ -1,18 +1,18 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-kind_+er_arzt	kinderarzt	allomorphic_fc	False	_+er_	none	addition	none
-kind_+es_alter	kind_+es_alter	allomorphic_fc	True	_+s_	_+s_	addition	addition
-kind_+s_tod	kindstod	allomorphic_fc	False	_+s_	none	addition	none
-kind_bett	kind_bett	allomorphic_fc	True	_	_	concatenation	concatenation
-mann_deckung	mann_deckung	allomorphic_fc	True	_	_	concatenation	concatenation
-mann_+=er_beruf	männer_beruf	allomorphic_fc	False	_+=er_	_	addition_umlaut	concatenation
-mann_+es_kraft	mann_+es_kraft	allomorphic_fc	True	_+s_	_+s_	addition	addition
-mann_+s_volk	mann_+s_volk	allomorphic_fc	True	_+s_	_+s_	addition	addition
-mensch_werdung	menschwerdung	allomorphic_fc	False	_	none	concatenation	none
-mensch_+en_affe	menschenaffe	allomorphic_fc	False	_+n_	none	addition	none
-mensch_+ens_kind	menschenskind	allomorphic_fc	False	_+ns_	none	addition	none
-schwein_+e_fleisch	schweine_fleisch	allomorphic_fc	False	_+e_	_	addition	concatenation
-schwein_kram	schweinkram	allomorphic_fc	False	_	none	concatenation	none
-schwein_+s_galopp	schwein_+s_galopp	allomorphic_fc	True	_+s_	_+s_	addition	addition
-maus_klick	mausklick	allomorphic_fc	False	_	none	concatenation	none
-maus_+e_falle	mause_falle	allomorphic_fc	False	_+e_	_	addition	concatenation
-maus_+=e_falle	mäuse_falle	allomorphic_fc	False	_+=e_	_	addition_umlaut	concatenation
+	gold	pred	comp_type
+0	kind_+er_arzt	kinderarzt	allomorphic_fc
+1	kind_+es_alter	kind_+es_alter	allomorphic_fc
+2	kind_+s_tod	kindstod	allomorphic_fc
+3	kind_bett	kind_bett	allomorphic_fc
+4	mann_deckung	mann_deckung	allomorphic_fc
+5	mann_+=er_beruf	männer_beruf	allomorphic_fc
+6	mann_+es_kraft	mann_+es_kraft	allomorphic_fc
+7	mann_+s_volk	mann_+s_volk	allomorphic_fc
+8	mensch_werdung	menschwerdung	allomorphic_fc
+9	mensch_+en_affe	menschenaffe	allomorphic_fc
+10	mensch_+ens_kind	menschenskind	allomorphic_fc
+11	schwein_+e_fleisch	schweine_fleisch	allomorphic_fc
+12	schwein_kram	schweinkram	allomorphic_fc
+13	schwein_+s_galopp	schwein_+s_galopp	allomorphic_fc
+14	maus_klick	mausklick	allomorphic_fc
+15	maus_+e_falle	mause_falle	allomorphic_fc
+16	maus_+=e_falle	mäuse_falle	allomorphic_fc

@@ -1,88 +1,88 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-politik_darstellerin	politik_darstellerin	common	True	_	_	concatenation	concatenation
-schlacht_vorgang	schlacht_vorgang	common	True	_	_	concatenation	concatenation
-sound_shuttle		common	False	_	none	concatenation	none
-inventur_erstellung	inventurerstellung	common	False	_	none	concatenation	none
-gips_bild	gips_bild	common	True	_	_	concatenation	concatenation
-rausch_tritt	rausch_tritt	common	True	_	_	concatenation	concatenation
-knie_kuhle	knie_kuhle	common	True	_	_	concatenation	concatenation
-kostüm_spezialist	kostüm_spezialist	common	True	_	_	concatenation	concatenation
-torf_untergrund	torf_untergrund	common	True	_	_	concatenation	concatenation
-aufnahme_regel	aufnahme_regel	common	True	_	_	concatenation	concatenation
-meer_blume	meer_blume	common	True	_	_	concatenation	concatenation
-gas_welle	gas_welle	common	True	_	_	concatenation	concatenation
-zeit_ansatz	zeit_ansatz	common	True	_	_	concatenation	concatenation
-pionier_bereich	pionier_bereich	common	True	_	_	concatenation	concatenation
-fahrrad_versicherer	fahrrad_versicherer	common	True	_	_	concatenation	concatenation
-fahrer_engpass	fahrer_engpass	common	True	_	_	concatenation	concatenation
-finger_bedienung	finger_bedienung	common	True	_	_	concatenation	concatenation
-lipid_transport	lipid_transport	common	True	_	_	concatenation	concatenation
-kälte_schrank	kälte_schrank	common	True	_	_	concatenation	concatenation
-schinken_spezialität	schinkenspezialität	common	False	_	none	concatenation	none
-schaum_folie	schaum_folie	common	True	_	_	concatenation	concatenation
-leser_steuerung	leser_steuerung	common	True	_	_	concatenation	concatenation
-nachbar_kolonne	nachbar_kolonne	common	True	_	_	concatenation	concatenation
-quartier_gespräch	quartier_gespräch	common	True	_	_	concatenation	concatenation
-neon_nazi	neon_nazi	common	True	_	_	concatenation	concatenation
-macht_form	macht_form	common	True	_	_	concatenation	concatenation
-welt_konstitution	welt_konstitution	common	True	_	_	concatenation	concatenation
-zeh_prellung	zeh_prellung	common	True	_	_	concatenation	concatenation
-generator_aufbau	generator_aufbau	common	True	_	_	concatenation	concatenation
-web_pinguin	web_pinguin	common	True	_	_	concatenation	concatenation
-welt_emission	weltemission	common	False	_	none	concatenation	none
-insulin_effekt	insulin_effekt	common	True	_	_	concatenation	concatenation
-teil_rechung	teil_rechung	common	True	_	_	concatenation	concatenation
-bonus_kriterium	bonus_kriterium	common	True	_	_	concatenation	concatenation
-haupt_übersetzerin	haupt_übersetzerin	common	True	_	_	concatenation	concatenation
-kraft_wurf	kraft_wurf	common	True	_	_	concatenation	concatenation
-ringer_fest	ringer_fest	common	True	_	_	concatenation	concatenation
-treuhand_mitarbeiter	treuhand_mitarbeiter	common	True	_	_	concatenation	concatenation
-polit_serie	polit_serie	common	True	_	_	concatenation	concatenation
-parameter_darstellung	parameter_darstellung	common	True	_	_	concatenation	concatenation
-jahrtausend_ziel	jahrtausend_ziel	common	True	_	_	concatenation	concatenation
-wasser_liberalisierung	wasser_liberalisierung	common	True	_	_	concatenation	concatenation
-show_highlight	show_highlight	common	True	_	_	concatenation	concatenation
-organisation_+s_verantwortung	organisation_+s_verantwortung	common	True	_+s_	_+s_	addition	addition
-lösung_+s_zutritt	lösung_+s_zutritt	common	True	_+s_	_+s_	addition	addition
-navigation_+s_werkzeug	navigation_+s_werkzeug	common	True	_+s_	_+s_	addition	addition
-arbeit_+s_formel	arbeit_+s_formel	common	True	_+s_	_+s_	addition	addition
-vermögen_+s_veraltung	vermögen_+s_veraltung	common	True	_+s_	_+s_	addition	addition
-ort_+s_wähler	orts_wähler	common	False	_+s_	_	addition	concatenation
-könig_+s_reihe	könig_+s_reihe	common	True	_+s_	_+s_	addition	addition
-tag_+es_besuch	tag_+es_besuch	common	True	_+s_	_+s_	addition	addition
-rotation_+s_stellung	rotation_+s_stellung	common	True	_+s_	_+s_	addition	addition
-planung_+s_optimismus	planung_+s_optimismus	common	True	_+s_	_+s_	addition	addition
-leistung_+s_voraussetzung	leistung_+s_voraussetzung	common	True	_+s_	_+s_	addition	addition
-krankheit_+s_ursache	krankheit_+s_ursache	common	True	_+s_	_+s_	addition	addition
-schulung_+s_container	schulung_+s_container	common	True	_+s_	_+s_	addition	addition
-vermarktung_+s_management	vermarktung_+s_management	common	True	_+s_	_+s_	addition	addition
-eingriff_+s_regel	eingriff_+s_regel	common	True	_+s_	_+s_	addition	addition
-krieg_+s_gemeinschaft	krieg_+s_gemeinschaft	common	True	_+s_	_+s_	addition	addition
-zukunft_+s_materialien	zukunft_+s_materialien	common	True	_+s_	_+s_	addition	addition
-schraube_+n_galeere	schraube_+n_galeere	common	True	_+n_	_+n_	addition	addition
-schuld_+en_menge	schulden_menge	common	False	_+n_	_	addition	concatenation
-briefmarke_+n_frankatur	briefmarke_+n_frankatur	common	True	_+n_	_+n_	addition	addition
-instrument_+en_zauber	instrument_+en_zauber	common	True	_+n_	_+n_	addition	addition
-nomade_+n_gesellschaft	nomade_+n_gesellschaft	common	True	_+n_	_+n_	addition	addition
-favorit_+en_frage	favorit_+en_frage	common	True	_+n_	_+n_	addition	addition
-fuge_+n_begrünung	fuge_+n_begrünung	common	True	_+n_	_+n_	addition	addition
-schlacht_+en_geschick	schlacht_+en_geschick	common	True	_+n_	_+n_	addition	addition
-ente_+n_attrappe	ente_+n_attrappe	common	True	_+n_	_+n_	addition	addition
-violine_-e_tradition	violin_tradition	common	False	_-e_	_	deletion	concatenation
-adresse_-e_akt	adresse_-e_akt	common	True	_-e_	_-e_	deletion	deletion
-sprache_-e_kundigkeit	sprache_-e_kundigkeit	common	True	_-e_	_-e_	deletion	deletion
-ersatzteil_+e_lieferung	ersatzteil_+e_lieferung	common	True	_+e_	_+e_	addition	addition
-tod_+e_schrei	todeschrei	common	False	_+e_	none	addition	none
-gerücht_+e_thread	gerüchte_thread	common	False	_+e_	_	addition	concatenation
-geist_+er_feier	geist_+er_feier	common	True	_+er_	_+er_	addition	addition
-bild_+er_nummer	bilder_nummer	common	False	_+er_	_	addition	concatenation
-schild_+er_präger	schilder_präger	common	False	_+er_	_	addition	concatenation
-huhn_+=er_kenner	huhn_+=er_kenner	common	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-land_+=er_reihe	land_+=er_reihe	common	True	_+=er_	_+=er_	addition_umlaut	addition_umlaut
-kraut_+=er_umschlag	kräuter_umschlag	common	False	_+=er_	_	addition_umlaut	concatenation
-anhang_+=e_last	anhäng_+e_last	common	False	_+=e_	_+e_	addition_umlaut	addition
-gast_+=e_bericht	gast_+=e_bericht	common	True	_+=e_	_+=e_	addition_umlaut	addition_umlaut
-maus_+=e_sack	maus_+=e_sack	common	True	_+=e_	_+=e_	addition_umlaut	addition_umlaut
-name_+ns_ehrung	name_+ns_ehrung	common	True	_+ns_	_+ns_	addition	addition
-name_+ns_verkündung	name_+ns_verkündung	common	True	_+ns_	_+ns_	addition	addition
-glaube_+ns_neuerung	glauben_+s_neuerung	common	False	_+ns_	_+s_	addition	addition
+	gold	pred	comp_type
+0	politik_darstellerin	politik_darstellerin	common
+1	schlacht_vorgang	schlacht_vorgang	common
+2	sound_shuttle		common
+3	inventur_erstellung	inventurerstellung	common
+4	gips_bild	gips_bild	common
+5	rausch_tritt	rausch_tritt	common
+6	knie_kuhle	knie_kuhle	common
+7	kostüm_spezialist	kostüm_spezialist	common
+8	torf_untergrund	torf_untergrund	common
+9	aufnahme_regel	aufnahme_regel	common
+10	meer_blume	meer_blume	common
+11	gas_welle	gas_welle	common
+12	zeit_ansatz	zeit_ansatz	common
+13	pionier_bereich	pionier_bereich	common
+14	fahrrad_versicherer	fahrrad_versicherer	common
+15	fahrer_engpass	fahrer_engpass	common
+16	finger_bedienung	finger_bedienung	common
+17	lipid_transport	lipid_transport	common
+18	kälte_schrank	kälte_schrank	common
+19	schinken_spezialität	schinkenspezialität	common
+20	schaum_folie	schaum_folie	common
+21	leser_steuerung	leser_steuerung	common
+22	nachbar_kolonne	nachbar_kolonne	common
+23	quartier_gespräch	quartier_gespräch	common
+24	neon_nazi	neon_nazi	common
+25	macht_form	macht_form	common
+26	welt_konstitution	welt_konstitution	common
+27	zeh_prellung	zeh_prellung	common
+28	generator_aufbau	generator_aufbau	common
+29	web_pinguin	web_pinguin	common
+30	welt_emission	weltemission	common
+31	insulin_effekt	insulin_effekt	common
+32	teil_rechung	teil_rechung	common
+33	bonus_kriterium	bonus_kriterium	common
+34	haupt_übersetzerin	haupt_übersetzerin	common
+35	kraft_wurf	kraft_wurf	common
+36	ringer_fest	ringer_fest	common
+37	treuhand_mitarbeiter	treuhand_mitarbeiter	common
+38	polit_serie	polit_serie	common
+39	parameter_darstellung	parameter_darstellung	common
+40	jahrtausend_ziel	jahrtausend_ziel	common
+41	wasser_liberalisierung	wasser_liberalisierung	common
+42	show_highlight	show_highlight	common
+43	organisation_+s_verantwortung	organisation_+s_verantwortung	common
+44	lösung_+s_zutritt	lösung_+s_zutritt	common
+45	navigation_+s_werkzeug	navigation_+s_werkzeug	common
+46	arbeit_+s_formel	arbeit_+s_formel	common
+47	vermögen_+s_veraltung	vermögen_+s_veraltung	common
+48	ort_+s_wähler	orts_wähler	common
+49	könig_+s_reihe	könig_+s_reihe	common
+50	tag_+es_besuch	tag_+es_besuch	common
+51	rotation_+s_stellung	rotation_+s_stellung	common
+52	planung_+s_optimismus	planung_+s_optimismus	common
+53	leistung_+s_voraussetzung	leistung_+s_voraussetzung	common
+54	krankheit_+s_ursache	krankheit_+s_ursache	common
+55	schulung_+s_container	schulung_+s_container	common
+56	vermarktung_+s_management	vermarktung_+s_management	common
+57	eingriff_+s_regel	eingriff_+s_regel	common
+58	krieg_+s_gemeinschaft	krieg_+s_gemeinschaft	common
+59	zukunft_+s_materialien	zukunft_+s_materialien	common
+60	schraube_+n_galeere	schraube_+n_galeere	common
+61	schuld_+en_menge	schulden_menge	common
+62	briefmarke_+n_frankatur	briefmarke_+n_frankatur	common
+63	instrument_+en_zauber	instrument_+en_zauber	common
+64	nomade_+n_gesellschaft	nomade_+n_gesellschaft	common
+65	favorit_+en_frage	favorit_+en_frage	common
+66	fuge_+n_begrünung	fuge_+n_begrünung	common
+67	schlacht_+en_geschick	schlacht_+en_geschick	common
+68	ente_+n_attrappe	ente_+n_attrappe	common
+69	violine_-e_tradition	violin_tradition	common
+70	adresse_-e_akt	adresse_-e_akt	common
+71	sprache_-e_kundigkeit	sprache_-e_kundigkeit	common
+72	ersatzteil_+e_lieferung	ersatzteil_+e_lieferung	common
+73	tod_+e_schrei	todeschrei	common
+74	gerücht_+e_thread	gerüchte_thread	common
+75	geist_+er_feier	geist_+er_feier	common
+76	bild_+er_nummer	bilder_nummer	common
+77	schild_+er_präger	schilder_präger	common
+78	huhn_+=er_kenner	huhn_+=er_kenner	common
+79	land_+=er_reihe	land_+=er_reihe	common
+80	kraut_+=er_umschlag	kräuter_umschlag	common
+81	anhang_+=e_last	anhäng_+e_last	common
+82	gast_+=e_bericht	gast_+=e_bericht	common
+83	maus_+=e_sack	maus_+=e_sack	common
+84	name_+ns_ehrung	name_+ns_ehrung	common
+85	name_+ns_verkündung	name_+ns_verkündung	common
+86	glaube_+ns_neuerung	glauben_+s_neuerung	common

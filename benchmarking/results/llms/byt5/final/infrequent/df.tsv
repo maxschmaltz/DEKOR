@@ -1,127 +1,127 @@
-	pred	comp_type	is_correct	target_link	pred_link	target_type	pred_type
-aufklärer_version	aufklärer_version	infrequent	True	_	_	concatenation	concatenation
-analysis_unterricht	analysis_unterricht	infrequent	True	_	_	concatenation	concatenation
-hausierer_ware	hausierer_ware	infrequent	True	_	_	concatenation	concatenation
-befürworter_schaft	befürworter_schaft	infrequent	True	_	_	concatenation	concatenation
-muskateller_salbei	muskateller_salbei	infrequent	True	_	_	concatenation	concatenation
-abmarsch_tag	abmarsch_tag	infrequent	True	_	_	concatenation	concatenation
-mache_lohn	mache_lohn	infrequent	True	_	_	concatenation	concatenation
-patronage_macht	patronage_macht	infrequent	True	_	_	concatenation	concatenation
-grauen_fels	grauen_fels	infrequent	True	_	_	concatenation	concatenation
-barchent_produktion	barchent_produktion	infrequent	True	_	_	concatenation	concatenation
-hänsel_straße	hänsel_straße	infrequent	True	_	_	concatenation	concatenation
-romantiker_herz	romantiker_herz	infrequent	True	_	_	concatenation	concatenation
-körnchen_geberin	körnchen_geberin	infrequent	True	_	_	concatenation	concatenation
-philipper_brief	philipper_brief	infrequent	True	_	_	concatenation	concatenation
-stretching_technik	stretching_technik	infrequent	True	_	_	concatenation	concatenation
-skala_tal	skala_tal	infrequent	True	_	_	concatenation	concatenation
-dramatiker_förderung	dramatikerförderung	infrequent	False	_	none	concatenation	none
-angelus_glocke	angelus_glocke	infrequent	True	_	_	concatenation	concatenation
-nazarener_stil	nazar_+en_erstil	infrequent	False	_	_+n_	concatenation	addition
-systematik_baum	systematik_baum	infrequent	True	_	_	concatenation	concatenation
-schikane_aktion	schikane_aktion	infrequent	True	_	_	concatenation	concatenation
-yogi_bär	yogi_bär	infrequent	True	_	_	concatenation	concatenation
-zwölfzylinder_triebwerk	zwölfzylindertriebwerk	infrequent	False	_	none	concatenation	none
-schreiben_lernen	schreiben_lernen	infrequent	True	_	_	concatenation	concatenation
-empfehler_programm	empfehler_programm	infrequent	True	_	_	concatenation	concatenation
-turboprop_motor	turbo_propmotor	infrequent	False	_	_	concatenation	concatenation
-blasphemie_prozess	blasphemie_prozess	infrequent	True	_	_	concatenation	concatenation
-verletzer_prozess	verletzer_prozess	infrequent	True	_	_	concatenation	concatenation
-kalahari_gebiet	kalahari_gebiet	infrequent	True	_	_	concatenation	concatenation
-countdown_timer	countdown_timer	infrequent	True	_	_	concatenation	concatenation
-karmesin_farbe	karmesin_farbe	infrequent	True	_	_	concatenation	concatenation
-aurikel_blüte	aurikel_blüte	infrequent	True	_	_	concatenation	concatenation
-typografie_funktion	typografie_funktion	infrequent	True	_	_	concatenation	concatenation
-virginia_wachtel	virginia_wachtel	infrequent	True	_	_	concatenation	concatenation
-wetzstein_stollen	wetzstein_stollen	infrequent	True	_	_	concatenation	concatenation
-blouson_schnitt	blouson_schnitt	infrequent	True	_	_	concatenation	concatenation
-neider_sachse	neider_sachse	infrequent	True	_	_	concatenation	concatenation
-oktopus_garten	oktopus_garten	infrequent	True	_	_	concatenation	concatenation
-bilharziose_erreger	bilharziose_erreger	infrequent	True	_	_	concatenation	concatenation
-böhme_ufer	böhme_ufer	infrequent	True	_	_	concatenation	concatenation
-monarch_falter	monarch_falter	infrequent	True	_	_	concatenation	concatenation
-tungsten_anteil	tungsten_anteil	infrequent	True	_	_	concatenation	concatenation
-nörgler_fraktion	nörgler_fraktion	infrequent	True	_	_	concatenation	concatenation
-numerus_markierung	numerus_markierung	infrequent	True	_	_	concatenation	concatenation
-eiffel_studio	eiffel_studio	infrequent	True	_	_	concatenation	concatenation
-galan_gin	galan_gin	infrequent	True	_	_	concatenation	concatenation
-bora_kai	bora_kai	infrequent	True	_	_	concatenation	concatenation
-publicity_arbeit	publicity_arbeit	infrequent	True	_	_	concatenation	concatenation
-dandy_boy	dandy_boy	infrequent	True	_	_	concatenation	concatenation
-demonstrator_maschine	demonstratormaschine	infrequent	False	_	none	concatenation	none
-zwischenfall_training	zwischenfalltraining	infrequent	False	_	none	concatenation	none
-determinismus_konzept	determinismuskonzept	infrequent	False	_	none	concatenation	none
-superior_zimmer	superior_zimmer	infrequent	True	_	_	concatenation	concatenation
-vordach_pfosten	vordach_pfosten	infrequent	True	_	_	concatenation	concatenation
-smalltalk_thema	smalltalk_thema	infrequent	True	_	_	concatenation	concatenation
-spießbürger_idyll	spießbürger_idyll	infrequent	True	_	_	concatenation	concatenation
-kreationismus_vorwurf	kreationismusvorwurf	infrequent	False	_	none	concatenation	none
-voraussage_kraft	voraussage_kraft	infrequent	True	_	_	concatenation	concatenation
-tessiner_brot	tessiner_brot	infrequent	True	_	_	concatenation	concatenation
-methylphenidat_behandlung	methylphenidatbehandlung	infrequent	False	_	none	concatenation	none
-umgriff_ebene	umgriff_ebene	infrequent	True	_	_	concatenation	concatenation
-imago_tag	imago_tag	infrequent	True	_	_	concatenation	concatenation
-schäffer_ei	schäffer_ei	infrequent	True	_	_	concatenation	concatenation
-salmler_gattung	salmler_gattung	infrequent	True	_	_	concatenation	concatenation
-körnchen_pickerei	körnchen_pickerei	infrequent	True	_	_	concatenation	concatenation
-enzyklopädie_band	enzyklopädie_band	infrequent	True	_	_	concatenation	concatenation
-spalter_wahl	spalter_wahl	infrequent	True	_	_	concatenation	concatenation
-psychosomatik_abteilung	psychosomatikabteilung	infrequent	False	_	none	concatenation	none
-listung_+s_gespräch	listungsgespräch	infrequent	False	_+s_	none	addition	none
-regularität_+s_satz	regularitätssatz	infrequent	False	_+s_	none	addition	none
-ästhetisierung_+s_kritik	ästhetisierungskritik	infrequent	False	_+s_	none	addition	none
-günstling_+s_wirtschaft	günstlingswirtschaft	infrequent	False	_+s_	none	addition	none
-zusammenlagerung_+s_hinweis	zusammenlagerungshinweis	infrequent	False	_+s_	none	addition	none
-faulheit_+s_verdacht	faulheitsverdacht	infrequent	False	_+s_	none	addition	none
-besänftigung_+s_strategie	besänftigungsstrategie	infrequent	False	_+s_	none	addition	none
-ausfachung_+s_bohrung	ausfachungsbohrung	infrequent	False	_+s_	none	addition	none
-fassenacht_+s_zeit	fassenacht_+s_zeit	infrequent	True	_+s_	_+s_	addition	addition
-saldierung_+s_vorschrift	saldierungsvorschrift	infrequent	False	_+s_	none	addition	none
-verdingung_+s_muster	verdingungsmuster	infrequent	False	_+s_	none	addition	none
-rauhigkeit_+s_spitz	rauhigkeit_+s_spitz	infrequent	True	_+s_	_+s_	addition	addition
-leugnung_+s_prozess	leugnung_+s_prozess	infrequent	True	_+s_	_+s_	addition	addition
-befassung_+s_pflicht	befassungspflicht	infrequent	False	_+s_	none	addition	none
-mächtigkeit_+s_verteilung	mächtigkeitsverteilung	infrequent	False	_+s_	none	addition	none
-entrechtung_+s_programm	entrechtungsprogramm	infrequent	False	_+s_	none	addition	none
-umhüllung_+s_qualität	umhüllungsqualität	infrequent	False	_+s_	none	addition	none
-optimalität_+s_kriterium	optimalitätskriterium	infrequent	False	_+s_	none	addition	none
-ungleichung_+s_kette	ungleichungskette	infrequent	False	_+s_	none	addition	none
-entschichtung_+s_arbeit	entschichtungsarbeit	infrequent	False	_+s_	none	addition	none
-entstalinisierung_+s_krise	entstalinisierungskrise	infrequent	False	_+s_	none	addition	none
-ingestion_+s_unfall	ingestion_+s_unfall	infrequent	True	_+s_	_+s_	addition	addition
-reorientierung_+s_phase	reorientierungsphase	infrequent	False	_+s_	none	addition	none
-ersitzung_+s_zeit	ersitzung_+s_zeit	infrequent	True	_+s_	_+s_	addition	addition
-verfrühung_+s_schaden	verfrühungsschaden	infrequent	False	_+s_	none	addition	none
-gueltigkeit_+s_bereich	gueltigkeitsbereich	infrequent	False	_+s_	none	addition	none
-samojede_+n_spitz	samojede_+n_spitz	infrequent	True	_+n_	_+n_	addition	addition
-dramaturg_+en_stelle	dramaturgenstelle	infrequent	False	_+n_	none	addition	none
-schüppe_+n_straße	schüppe_+n_straße	infrequent	True	_+n_	_+n_	addition	addition
-disponent_+en_ausbildung	disponentenausbildung	infrequent	False	_+n_	none	addition	none
-adventist_+en_familie	adventistenfamilie	infrequent	False	_+n_	none	addition	none
-parallele_+n_paar	parallele_+n_paar	infrequent	True	_+n_	_+n_	addition	addition
-logopäde_+n_verband	logopädenverband	infrequent	False	_+n_	none	addition	none
-disponent_+en_stelle	disponentenstelle	infrequent	False	_+n_	none	addition	none
-prädikant_+en_bibliothek	prädikantenbibliothek	infrequent	False	_+n_	none	addition	none
-kämpe_+n_straße	kämpe_+n_straße	infrequent	True	_+n_	_+n_	addition	addition
-kommode_+n_schublade	kommodenschublade	infrequent	False	_+n_	none	addition	none
-makrone_+n_masse	makrone_+n_masse	infrequent	True	_+n_	_+n_	addition	addition
-kinematograph_+en_vorstellung	kinematographenvorstellung	infrequent	False	_+n_	none	addition	none
-nuance_+n_bereich	nuance_+n_bereich	infrequent	True	_+n_	_+n_	addition	addition
-blesse_-e_huhn	blesse_-e_huhn	infrequent	True	_-e_	_-e_	deletion	deletion
-einöde_-e_riegel	einöde_-e_riegel	infrequent	True	_-e_	_-e_	deletion	deletion
-geleise_-e_anlage	geleise_-e_anlage	infrequent	True	_-e_	_-e_	deletion	deletion
-staend_+e_staat	staend_+e_staat	infrequent	True	_+e_	_+e_	addition	addition
-supernova_+e_explosion	supernovaeexplosion	infrequent	False	_+e_	none	addition	none
-ärzt_+e_organisation	ärzteorganisation	infrequent	False	_+e_	none	addition	none
-koern_+er_haufen	koern_+er_haufen	infrequent	True	_+er_	_+er_	addition	addition
-baed_+er_architektur	baederarchitektur	infrequent	False	_+er_	none	addition	none
-viech_+er_zeug	viech_+er_zeug	infrequent	True	_+er_	_+er_	addition	addition
-truthuhn_+=er_bestand	truthühnerbestand	infrequent	False	_+=er_	none	addition_umlaut	none
-gemeingut_+=er_wirtschaft	gemeingüterwirtschaft	infrequent	False	_+=er_	none	addition_umlaut	none
-gemeingut_+=er_debatte	gemeingüterdebatte	infrequent	False	_+=er_	none	addition_umlaut	none
-abhang_+=e_last	abhängelast	infrequent	False	_+=e_	none	addition_umlaut	none
-abhang_+=e_system	abhängesystem	infrequent	False	_+=e_	none	addition_umlaut	none
-abhang_+=e_wagen	abhängewagen	infrequent	False	_+=e_	none	addition_umlaut	none
-aberglaube_+ns_vorstellung	aberglaubensvorstellung	infrequent	False	_+ns_	none	addition	none
-aberglaube_+ns_forschung	aberglaubensforschung	infrequent	False	_+ns_	none	addition	none
-aberglaube_+ns_kritik	aberglaubenskritik	infrequent	False	_+ns_	none	addition	none
+	gold	pred	comp_type
+0	aufklärer_version	aufklärer_version	infrequent
+1	analysis_unterricht	analysis_unterricht	infrequent
+2	hausierer_ware	hausierer_ware	infrequent
+3	befürworter_schaft	befürworter_schaft	infrequent
+4	muskateller_salbei	muskateller_salbei	infrequent
+5	abmarsch_tag	abmarsch_tag	infrequent
+6	mache_lohn	mache_lohn	infrequent
+7	patronage_macht	patronage_macht	infrequent
+8	grauen_fels	grauen_fels	infrequent
+9	barchent_produktion	barchent_produktion	infrequent
+10	hänsel_straße	hänsel_straße	infrequent
+11	romantiker_herz	romantiker_herz	infrequent
+12	körnchen_geberin	körnchen_geberin	infrequent
+13	philipper_brief	philipper_brief	infrequent
+14	stretching_technik	stretching_technik	infrequent
+15	skala_tal	skala_tal	infrequent
+16	dramatiker_förderung	dramatikerförderung	infrequent
+17	angelus_glocke	angelus_glocke	infrequent
+18	nazarener_stil	nazar_+en_erstil	infrequent
+19	systematik_baum	systematik_baum	infrequent
+20	schikane_aktion	schikane_aktion	infrequent
+21	yogi_bär	yogi_bär	infrequent
+22	zwölfzylinder_triebwerk	zwölfzylindertriebwerk	infrequent
+23	schreiben_lernen	schreiben_lernen	infrequent
+24	empfehler_programm	empfehler_programm	infrequent
+25	turboprop_motor	turbo_propmotor	infrequent
+26	blasphemie_prozess	blasphemie_prozess	infrequent
+27	verletzer_prozess	verletzer_prozess	infrequent
+28	kalahari_gebiet	kalahari_gebiet	infrequent
+29	countdown_timer	countdown_timer	infrequent
+30	karmesin_farbe	karmesin_farbe	infrequent
+31	aurikel_blüte	aurikel_blüte	infrequent
+32	typografie_funktion	typografie_funktion	infrequent
+33	virginia_wachtel	virginia_wachtel	infrequent
+34	wetzstein_stollen	wetzstein_stollen	infrequent
+35	blouson_schnitt	blouson_schnitt	infrequent
+36	neider_sachse	neider_sachse	infrequent
+37	oktopus_garten	oktopus_garten	infrequent
+38	bilharziose_erreger	bilharziose_erreger	infrequent
+39	böhme_ufer	böhme_ufer	infrequent
+40	monarch_falter	monarch_falter	infrequent
+41	tungsten_anteil	tungsten_anteil	infrequent
+42	nörgler_fraktion	nörgler_fraktion	infrequent
+43	numerus_markierung	numerus_markierung	infrequent
+44	eiffel_studio	eiffel_studio	infrequent
+45	galan_gin	galan_gin	infrequent
+46	bora_kai	bora_kai	infrequent
+47	publicity_arbeit	publicity_arbeit	infrequent
+48	dandy_boy	dandy_boy	infrequent
+49	demonstrator_maschine	demonstratormaschine	infrequent
+50	zwischenfall_training	zwischenfalltraining	infrequent
+51	determinismus_konzept	determinismuskonzept	infrequent
+52	superior_zimmer	superior_zimmer	infrequent
+53	vordach_pfosten	vordach_pfosten	infrequent
+54	smalltalk_thema	smalltalk_thema	infrequent
+55	spießbürger_idyll	spießbürger_idyll	infrequent
+56	kreationismus_vorwurf	kreationismusvorwurf	infrequent
+57	voraussage_kraft	voraussage_kraft	infrequent
+58	tessiner_brot	tessiner_brot	infrequent
+59	methylphenidat_behandlung	methylphenidatbehandlung	infrequent
+60	umgriff_ebene	umgriff_ebene	infrequent
+61	imago_tag	imago_tag	infrequent
+62	schäffer_ei	schäffer_ei	infrequent
+63	salmler_gattung	salmler_gattung	infrequent
+64	körnchen_pickerei	körnchen_pickerei	infrequent
+65	enzyklopädie_band	enzyklopädie_band	infrequent
+66	spalter_wahl	spalter_wahl	infrequent
+67	psychosomatik_abteilung	psychosomatikabteilung	infrequent
+68	listung_+s_gespräch	listungsgespräch	infrequent
+69	regularität_+s_satz	regularitätssatz	infrequent
+70	ästhetisierung_+s_kritik	ästhetisierungskritik	infrequent
+71	günstling_+s_wirtschaft	günstlingswirtschaft	infrequent
+72	zusammenlagerung_+s_hinweis	zusammenlagerungshinweis	infrequent
+73	faulheit_+s_verdacht	faulheitsverdacht	infrequent
+74	besänftigung_+s_strategie	besänftigungsstrategie	infrequent
+75	ausfachung_+s_bohrung	ausfachungsbohrung	infrequent
+76	fassenacht_+s_zeit	fassenacht_+s_zeit	infrequent
+77	saldierung_+s_vorschrift	saldierungsvorschrift	infrequent
+78	verdingung_+s_muster	verdingungsmuster	infrequent
+79	rauhigkeit_+s_spitz	rauhigkeit_+s_spitz	infrequent
+80	leugnung_+s_prozess	leugnung_+s_prozess	infrequent
+81	befassung_+s_pflicht	befassungspflicht	infrequent
+82	mächtigkeit_+s_verteilung	mächtigkeitsverteilung	infrequent
+83	entrechtung_+s_programm	entrechtungsprogramm	infrequent
+84	umhüllung_+s_qualität	umhüllungsqualität	infrequent
+85	optimalität_+s_kriterium	optimalitätskriterium	infrequent
+86	ungleichung_+s_kette	ungleichungskette	infrequent
+87	entschichtung_+s_arbeit	entschichtungsarbeit	infrequent
+88	entstalinisierung_+s_krise	entstalinisierungskrise	infrequent
+89	ingestion_+s_unfall	ingestion_+s_unfall	infrequent
+90	reorientierung_+s_phase	reorientierungsphase	infrequent
+91	ersitzung_+s_zeit	ersitzung_+s_zeit	infrequent
+92	verfrühung_+s_schaden	verfrühungsschaden	infrequent
+93	gueltigkeit_+s_bereich	gueltigkeitsbereich	infrequent
+94	samojede_+n_spitz	samojede_+n_spitz	infrequent
+95	dramaturg_+en_stelle	dramaturgenstelle	infrequent
+96	schüppe_+n_straße	schüppe_+n_straße	infrequent
+97	disponent_+en_ausbildung	disponentenausbildung	infrequent
+98	adventist_+en_familie	adventistenfamilie	infrequent
+99	parallele_+n_paar	parallele_+n_paar	infrequent
+100	logopäde_+n_verband	logopädenverband	infrequent
+101	disponent_+en_stelle	disponentenstelle	infrequent
+102	prädikant_+en_bibliothek	prädikantenbibliothek	infrequent
+103	kämpe_+n_straße	kämpe_+n_straße	infrequent
+104	kommode_+n_schublade	kommodenschublade	infrequent
+105	makrone_+n_masse	makrone_+n_masse	infrequent
+106	kinematograph_+en_vorstellung	kinematographenvorstellung	infrequent
+107	nuance_+n_bereich	nuance_+n_bereich	infrequent
+108	blesse_-e_huhn	blesse_-e_huhn	infrequent
+109	einöde_-e_riegel	einöde_-e_riegel	infrequent
+110	geleise_-e_anlage	geleise_-e_anlage	infrequent
+111	staend_+e_staat	staend_+e_staat	infrequent
+112	supernova_+e_explosion	supernovaeexplosion	infrequent
+113	ärzt_+e_organisation	ärzteorganisation	infrequent
+114	koern_+er_haufen	koern_+er_haufen	infrequent
+115	baed_+er_architektur	baederarchitektur	infrequent
+116	viech_+er_zeug	viech_+er_zeug	infrequent
+117	truthuhn_+=er_bestand	truthühnerbestand	infrequent
+118	gemeingut_+=er_wirtschaft	gemeingüterwirtschaft	infrequent
+119	gemeingut_+=er_debatte	gemeingüterdebatte	infrequent
+120	abhang_+=e_last	abhängelast	infrequent
+121	abhang_+=e_system	abhängesystem	infrequent
+122	abhang_+=e_wagen	abhängewagen	infrequent
+123	aberglaube_+ns_vorstellung	aberglaubensvorstellung	infrequent
+124	aberglaube_+ns_forschung	aberglaubensforschung	infrequent
+125	aberglaube_+ns_kritik	aberglaubenskritik	infrequent
