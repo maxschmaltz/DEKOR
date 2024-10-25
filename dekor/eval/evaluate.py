@@ -82,7 +82,7 @@ class EvaluationResult:
 			columns=all_labels
 		)
 		# there were no "none" and others in golds so we'l remove it for further classification report
-		confmat = confmat.drop(["none", "err_link", "err_place"], axis=0, errors=False)
+		confmat = confmat.drop(["none", "err_link", "err_place"], axis=0, errors="ignore")
 		# accuracy, precision, recall, f1 link-wise
 		classification_report_data = {}
 		for i, link in enumerate(all_labels):
@@ -102,7 +102,7 @@ class EvaluationResult:
 		classification_report = pd.DataFrame(classification_report_data)
 		classification_report = classification_report.fillna(0)	# remove NaNs
 		# there were no "none" and others in golds so we'l remove it for weighted average
-		classification_report = classification_report.drop(["none", "err_link", "err_place"], axis=1, errors=False)
+		classification_report = classification_report.drop(["none", "err_link", "err_place"], axis=1, errors="ignore")
 		# now add average metrics; we'll use weighted f1s and so on, where
 		# classes with lower frequency will get higher weights
 		class_weights = confmat.sum(axis=1)
