@@ -97,8 +97,8 @@ def benchmark(config: dict) -> None:
 				# from `Compound` objects and not their raw representations
 				# so to avoid re-parsing them from raws, we'll just store them
 				extended_df = eval_res.df.copy()
-				extended_df["gold_comp"] = test_compounds
-				extended_df["pred_comp"] = pred_compounds
+				extended_df["gold"] = test_compounds
+				extended_df["pred"] = pred_compounds
 			else: extended_df = None
 			sizes = {
 				"train_size": len(train_compounds),
@@ -156,13 +156,9 @@ def benchmark(config: dict) -> None:
 			)
 			for attr in [
 				"df",
-				"link_confmat",
-				"link_classification_report",
-				"link_metrics",
-				"type_confmat",
-				"type_classification_report",
-				"type_metrics",
-				"placement"
+				"confmat",
+				"classification_report",
+				"metrics"
 			]:
 				dfize(attr)
 		
@@ -172,8 +168,8 @@ def benchmark(config: dict) -> None:
 			comp_type_subdf = best_extented_df[
 				best_extented_df["comp_type"] == comp_type
 			]
-			comp_type_golds = comp_type_subdf["gold_comp"].values
-			comp_type_preds = comp_type_subdf["pred_comp"].values
+			comp_type_golds = comp_type_subdf["gold"].values
+			comp_type_preds = comp_type_subdf["pred"].values
 			comp_type_res = evaluate(comp_type_golds, comp_type_preds, comp_type)
 			comp_type_dir = os.path.join(out_dir, comp_type)
 			os.makedirs(comp_type_dir, exist_ok=True)
