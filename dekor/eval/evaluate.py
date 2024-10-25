@@ -19,109 +19,70 @@ class EvaluationResult:
 	Attributes
 	----------   
 	df : `pandas.DataFrame`
-		dataframe with golds, predictions, whether the prediction is correct,
-		target and pred link (all in raw string format),
-		target and pred type, retrievable under columns "golds", "preds", "is_correct",
-		"target_links", "pred_links", "target_types", "pred_types" respectively;
-		note: if pred link is correct but not in the right place, "is_correct" equals `False`
+		dataframe with golds, predictions, and compound class 
+		retrievable under columns "golds", "preds", "comp_type" respectively
 
-	link_confmat : `pandas.Dataframe`
+	confmat : `pandas.Dataframe`
 		overall link confusion matrix
 
-	link_classification_report : `pandas.Dataframe`
+	classification_report : `pandas.Dataframe`
 		label-wise and weighted average precision, recall, f1 for links
 
-	link_metrics : `pandas.Dataframe`
+	metrics : `pandas.Dataframe`
 		weighted average precision, recall, f1, and overall accuracy for links
-
-	type_confmat : `pandas.Dataframe`
-		overall link type confusion matrix
-
-	type_classification_report : `pandas.Dataframe`
-		label-wise and weighted average precision, recall, f1 for link types
-
-	type_metrics : `pandas.Dataframe`
-		weighted average precision, recall, f1, and overall accuracy for link types
-
-	placement : `pandas.Dataframe`
-		percentage of correct placement of the link when predicted correctly
 	"""
 
 	def __init__(
 		self,
 		golds: Iterable[Compound],
 		preds: Iterable[Compound],
-		comp_types: Union[Iterable[str], str],
-		target_links: Iterable[str],
-		pred_links: Iterable[str],
-		target_types: Iterable[str],
-		pred_types: Iterable[str]
+		comp_types: Union[Iterable[str], str]
 	) -> None:
 		
-		df = pd.DataFrame(
-			index=[gold.raw for gold in golds],
+		data_df = pd.DataFrame(
 			data={
-				# "golds": [gold.raw for gold in golds],
+				"gold": [gold.raw for gold in golds],
 				"pred": [pred.raw for pred in preds],
 				"comp_type": comp_types,
 				"is_correct": np.equal(golds, preds),
-				"target_link": target_links,
-				"pred_link": pred_links,
-				"target_type": target_types,
-				"pred_type": pred_types
+				"gold_link": [gold.links[0].component for gold in golds],
+				"pred_link": ["none" if not pred.links else pred.links[0].component for pred in preds]
 			}
 		)
+		# define where the incorrect link was produced
+		cond = (data_df["gold_link"] != data_df["pred_link"]) & (data_df["pred_link"] != "none")
+		indexer = cond[cond].index.values
+		data_df.loc[indexer, "pred_link"] = "err_link"
+		# define where the correct link was placed wrong
+		cond = (data_df["gold_link"] == data_df["pred_link"]) & (data_df["is_correct"] == False) & (data_df["pred_link"] != "none")
+		indexer = cond[cond].index.values
+		data_df.loc[indexer, "pred_link"] = "err_place"
 
-		# confusion matrices, metrics
-		link_confmat, link_classification_report, link_metrics = self._get_metrics(
-			target_links, pred_links
+		# confusion matrix, metrics
+		confmat, classification_report, metrics = self._get_metrics(
+			data_df["gold_link"].values, data_df["pred_link"].values
 		)
-		type_confmat, type_classification_report, type_metrics = self._get_metrics(
-			target_types, pred_types
-		)
-		# placement
-		all_links = np.unique(target_links + pred_links).tolist()
-		if "none" in all_links:
-			all_links.remove("none")
-		placement_data = {}
-		for link in all_links:
-			target_link_subdf = df[df["target_link"] == link]
-			correct_pred_subdf = target_link_subdf[
-				target_link_subdf["target_link"] == target_link_subdf["pred_link"]
-			]
-			correct_placement_subdf = correct_pred_subdf[correct_pred_subdf["is_correct"]]
-			if not len(correct_pred_subdf):
-				placement_percentage = 0
-			else:
-				placement_percentage = len(correct_placement_subdf) / len(correct_pred_subdf)
-			placement_data[link] = placement_percentage
-		placement = pd.Series(placement_data)
 
+		df = data_df.copy().drop(["is_correct", "gold_link", "pred_link"], axis=1)
 		self.df = df
-		self.link_confmat = link_confmat
-		self.link_classification_report = link_classification_report
-		self.link_metrics = link_metrics
-		self.type_confmat = type_confmat
-		self.type_classification_report = type_classification_report
-		self.type_metrics = type_metrics
-		self.placement = placement
+		self.confmat = confmat
+		self.classification_report = classification_report
+		self.metrics = metrics
 
 	def _get_metrics(self, golds: Iterable[str], preds: Iterable[str]) -> Tuple[pd.DataFrame]:
 
 		n = len(golds)
 		
 		# confusion matrix
-		all_labels = np.unique(golds + preds).tolist()
+		all_labels = np.unique((golds, preds))
 		confmat_data = confusion_matrix(golds, preds, labels=all_labels)
 		confmat = pd.DataFrame(
 			data=confmat_data,
 			index=all_labels,
 			columns=all_labels
 		)
-		# there were no "none" in golds so we'l remove it for further classification report
-		if "none" in all_labels:
-			all_labels.remove("none")
-			confmat = confmat.drop("none", axis=0)
+		# there were no "none" and others in golds so we'l remove it for further classification report
+		confmat = confmat.drop(["none", "err_link", "err_place"], axis=0, errors=False)
 		# accuracy, precision, recall, f1 link-wise
 		classification_report_data = {}
 		for i, link in enumerate(all_labels):
@@ -140,6 +101,8 @@ class EvaluationResult:
 				}
 		classification_report = pd.DataFrame(classification_report_data)
 		classification_report = classification_report.fillna(0)	# remove NaNs
+		# there were no "none" and others in golds so we'l remove it for weighted average
+		classification_report = classification_report.drop(["none", "err_link", "err_place"], axis=1, errors=False)
 		# now add average metrics; we'll use weighted f1s and so on, where
 		# classes with lower frequency will get higher weights
 		class_weights = confmat.sum(axis=1)
@@ -158,7 +121,7 @@ class EvaluationResult:
 		return confmat, classification_report, metrics
 	
 	def __repr__(self) -> str:
-		return str(self.link_metrics)
+		return str(self.metrics)
 
 
 def evaluate(
@@ -186,36 +149,10 @@ def evaluate(
 
 	assert len(golds) == len(preds)
 
-	target_link_components = []
-	pred_link_components = []
-
-	target_link_types = []
-	pred_link_types = []
-
-	for gold, pred in zip(golds, preds):
-
-		target_link_components.append(
-			gold.links[0].component
-		)
-		pred_link_components.append(
-			"none" if not pred.links else pred.links[0].component
-		)
-
-		target_link_types.append(
-			gold.links[0].type
-		)
-		pred_link_types.append(
-			"none" if not pred.links else pred.links[0].type
-		)
-
 	res = EvaluationResult(
 		golds,
 		preds,
-		comp_types,
-		target_link_components,
-		pred_link_components,
-		target_link_types,
-		pred_link_types
+		comp_types
 	)
 
 	return res
