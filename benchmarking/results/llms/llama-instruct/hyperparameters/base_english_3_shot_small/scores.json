@@ -1,19 +1,4 @@
-[
-    {
-        "model": "llama-instruct",
-        "parameters": {
-            "use_german_prompts": false,
-            "n_shots": 3,
-            "suggest_candidates": false,
-            "retrieve_paradigm": false,
-            "max_generations": 2
-        },
-        "train_size": 501,
-        "dev_size": 0,
-        "test_size": 215,
-        "precision": 1.0,
-        "recall": 0.5822485290632403,
-        "f1": 0.6991441391406912,
-        "accuracy": 0.7692307692307693
-    }
-]
+{
+    "weighted_accuracy": 0.5822485290632403,
+    "absolute_accuracy": 0.7692307692307693
+}

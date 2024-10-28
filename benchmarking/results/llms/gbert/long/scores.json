@@ -1,18 +1,4 @@
-[
-    {
-        "model": "gbert",
-        "parameters": {
-            "context_window": 2,
-            "record_none_links": true,
-            "learning_rate": 0.0001,
-            "n_epochs": 10
-        },
-        "train_size": 47289,
-        "dev_size": 967,
-        "test_size": 598,
-        "precision": 0.19440687208132018,
-        "recall": 0.1311696011954694,
-        "f1": 0.15198580211401969,
-        "accuracy": 0.47715736040609136
-    }
-]
+{
+    "weighted_accuracy": 0.1311696011954694,
+    "absolute_accuracy": 0.47715736040609136
+}

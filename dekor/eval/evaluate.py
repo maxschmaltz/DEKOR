@@ -91,16 +91,20 @@ class EvaluationResult:
 				warnings.simplefilter("ignore", RuntimeWarning)
 				classification_report_data[link] = {
 					# number of links with correctly assigned class i
-					# over all links with assigned class i
-					"precision": (precision := confmat_data[i, i] / confmat_data[:, i].sum()),
-					# number of links with correctly assigned class i
 					# over all links that are in class i
-					"recall": (recall := confmat_data[i, i] / confmat_data[i, :].sum()),
-					# harmonic mean of precision and recall
-					"f1": 2 * ((precision * recall) / (precision + recall))
+					"accuracy": confmat_data[i, i] / confmat_data[i, :].sum()
 				}
+		# Note: in the results, you'll see that the average precision is 1.0, whereas
+		# the precision for rarer compound classes might be much lower. That originates from the
+		# fact, that is no certain link could be predicted (e.g. no `_-e_` detected), the
+		# precision becomes `NaN` because it is calculated as 0 / 0. Below, the `NaN`s are
+		# replaces with zeros, which determines the final score below 1.0. So, if a compound
+		# class is predicted with a precision lower than 1.0, it just means that some of the links were
+		# not predicted at all; on the average, that doesn't hold because each link was predicted at least
+		# once, so there are no "skipped links"; and the fact is, if a link was predicted, it was predicted
+		# correctly.  
 		classification_report = pd.DataFrame(classification_report_data)
-		classification_report = classification_report.fillna(0)	# remove NaNs
+		# classification_report = classification_report.fillna(0)	# remove NaNs
 		# there were no "none" and others in golds so we'l remove it for weighted average
 		classification_report = classification_report.drop(["none", "err_link", "err_place"], axis=1, errors="ignore")
 		# now add average metrics; we'll use weighted f1s and so on, where
@@ -112,11 +116,12 @@ class EvaluationResult:
 		class_weights = class_weights / class_weights.sum()	# normalize
 		# inverse-weighted metrics
 		metrics = np.matmul(classification_report, class_weights)
+		metrics = metrics.rename({"accuracy": "weighted_accuracy"})
 		classification_report["weighted_average"] = metrics
 		# accuracy
 		n_correct = confmat_data.diagonal().sum()
 		links_accuracy = n_correct / n
-		metrics["accuracy"] = links_accuracy
+		metrics["absolute_accuracy"] = links_accuracy
 
 		return confmat, classification_report, metrics
 	

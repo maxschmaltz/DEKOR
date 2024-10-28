@@ -1,44 +1,4 @@
-[
-    {
-        "model": "byt5",
-        "parameters": {
-            "learning_rate": 0.001,
-            "n_epochs": 10
-        },
-        "train_size": 47289,
-        "dev_size": 967,
-        "test_size": 598,
-        "precision": 0.7011637515442429,
-        "recall": 0.40026196324742536,
-        "f1": 0.5004372786743646,
-        "accuracy": 0.7208121827411168
-    },
-    {
-        "model": "byt5",
-        "parameters": {
-            "learning_rate": 0.001,
-            "n_epochs": 10
-        },
-        "train_size": 9460,
-        "dev_size": 967,
-        "test_size": 598,
-        "precision": 0.5868491952227177,
-        "recall": 0.32561169714068966,
-        "f1": 0.4094790603045062,
-        "accuracy": 0.7190635451505016
-    },
-    {
-        "model": "byt5",
-        "parameters": {
-            "learning_rate": 0.001,
-            "n_epochs": 10
-        },
-        "train_size": 4736,
-        "dev_size": 967,
-        "test_size": 598,
-        "precision": 0.4975076682136832,
-        "recall": 0.27023565455884413,
-        "f1": 0.33596461397229677,
-        "accuracy": 0.6822742474916388
-    }
-]
+{
+    "weighted_accuracy": 0.40026196324742536,
+    "absolute_accuracy": 0.7208121827411168
+}

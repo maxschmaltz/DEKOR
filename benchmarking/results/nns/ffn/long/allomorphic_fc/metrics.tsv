@@ -1,4 +1,2 @@
-precision	0.0
-recall	0.0
-f1	0.0
-accuracy	0.0
+weighted_accuracy	0.0
+absolute_accuracy	0.0
