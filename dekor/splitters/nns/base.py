@@ -162,7 +162,7 @@ class BaseNNSplitter(BaseSplitter):
 			criterion: Optional[Literal["crossentropy", "bce", "margin"]]="crossentropy",
 			learning_rate: Optional[float]=0.001,
 			n_epochs: Optional[int]=3,
-			target_metric: Optional[str]="f1",
+			target_metric: Optional[str]="weighted_accuracy",
 			batch_size: Optional[int]=128,
 			save_plot: Optional[bool]=False,
 			verbose: Optional[bool]=True
@@ -415,7 +415,7 @@ class BaseNNSplitter(BaseSplitter):
 			# evaluate at the end of every epoch
 			if dev_compounds is not None:
 				eval_res = self._validate(dev_compounds)
-				metric = eval_res.link_metrics[self.target_metric]
+				metric = eval_res.metrics[self.target_metric]
 				if metric >= best_metric:
 					_state_dict_nn = self.nn.state_dict()
 					if self.embeddings_cls.trainable:

@@ -14,9 +14,7 @@ from dekor.splitters import (
 	GBERTSplitter,
 	ByT5Splitter,
 	LlamaInstructSplitter
-
 )
-from dekor.benchmarking.benchmarking import eval_splitter
 
 
 class TestLemmaCorrectness(unittest.TestCase):
@@ -54,10 +52,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			record_none_links=False,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -83,10 +78,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			batch_size=4096,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -114,10 +106,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			batch_size=4096,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -144,10 +133,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			batch_size=4096,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -174,10 +160,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			batch_size=4096,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -195,10 +178,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			batch_size=64,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -214,10 +194,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			batch_size=4,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]
@@ -237,10 +214,7 @@ class TestLemmaCorrectness(unittest.TestCase):
 			max_generations=1,
 			verbose=False
 		).fit(train_compounds=train_compounds, test=True)
-		_, pred_compounds = eval_splitter(
-			splitter=splitter,
-			test_compounds=test_compounds
-		)
+		pred_compounds = splitter.predict(test_lemmas)
 		pred_lemmas = [
 			compound.lemma for compound in pred_compounds
 		]

@@ -107,7 +107,7 @@ def benchmark(config: dict) -> None:
 			}
 			results.append((eval_res, extended_df, splitter._metadata, sizes))
 
-			if (m := eval_res.link_metrics[target_metric]) > best_metric:
+			if (m := eval_res.metrics[target_metric]) > best_metric:
 				best_splitter = splitter
 				best_metric = m
 
@@ -115,7 +115,7 @@ def benchmark(config: dict) -> None:
 
 	results_sorted = sorted(
 		results,
-		key=lambda x: x[0].link_metrics[target_metric],
+		key=lambda x: x[0].metrics[target_metric],
 		reverse=True
 	)
 
@@ -127,7 +127,7 @@ def benchmark(config: dict) -> None:
 				"parameters":metadata
 			},
 			**sizes,
-			**eval_res.link_metrics.to_dict()
+			**eval_res.metrics.to_dict()
 		}
 		for eval_res, _, metadata, sizes in results_sorted
 	]

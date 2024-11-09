@@ -23,13 +23,13 @@ class EvaluationResult:
 		retrievable under columns "golds", "preds", "comp_type" respectively
 
 	confmat : `pandas.Dataframe`
-		overall link confusion matrix
+		confusion matrix
 
 	classification_report : `pandas.Dataframe`
-		label-wise and weighted average precision, recall, f1 for links
+		label-wise and weighted average accuracy
 
 	metrics : `pandas.Dataframe`
-		weighted average precision, recall, f1, and overall accuracy for links
+		weighted average and absolute accuracy
 	"""
 
 	def __init__(
@@ -83,7 +83,7 @@ class EvaluationResult:
 		)
 		# there were no "none" and others in golds so we'l remove it for further classification report
 		confmat = confmat.drop(["none", "err_link", "err_place"], axis=0, errors="ignore")
-		# accuracy, precision, recall, f1 link-wise
+		# link-wise accuracy
 		classification_report_data = {}
 		for i, link in enumerate(all_labels):
 			with warnings.catch_warnings():
@@ -107,7 +107,7 @@ class EvaluationResult:
 		# classification_report = classification_report.fillna(0)	# remove NaNs
 		# there were no "none" and others in golds so we'l remove it for weighted average
 		classification_report = classification_report.drop(["none", "err_link", "err_place"], axis=1, errors="ignore")
-		# now add average metrics; we'll use weighted f1s and so on, where
+		# now add average metrics; we'll use weighted accuracy and so on, where
 		# classes with lower frequency will get higher weights
 		class_weights = confmat.sum(axis=1)
 		class_weights += 1	# add-1 smoothing to avoid 0 log values when there is a single link 

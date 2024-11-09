@@ -21,7 +21,7 @@
 		"criterion": "margin",
 		"learning_rate": 0.001,
 		"n_epochs": 3,
-		"target_metric": "f1",
+		"target_metric": "weighted_accuracy",
 		"batch_size": 512,
 		"save_plot": true,
 		"verbose": true
@@ -33,7 +33,7 @@
 		}
 	],
 
-	"target_metric": "f1",
+	"target_metric": "weighted_accuracy",
 	"save_best_model": true,
 	"save_full_report": true,
 

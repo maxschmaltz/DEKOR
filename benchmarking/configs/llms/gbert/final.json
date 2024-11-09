@@ -12,7 +12,7 @@
 	},
 	"remove_keys": [],
 
-	"target_metric": "f1",
+	"target_metric": "weighted_accuracy",
 	"save_best_model": true,
 	"save_full_report": true,
 
