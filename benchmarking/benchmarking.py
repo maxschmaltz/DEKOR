@@ -41,6 +41,8 @@ def grid_parameters(
 
 
 def benchmark(config: dict) -> None:
+
+	# see main.py for config file description
 	
 	parameters = config["parameter_grid"]
 	constants = config["constants"]

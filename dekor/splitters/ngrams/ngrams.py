@@ -1,5 +1,5 @@
 """
-Ngram model for splitting German compounds based on the DECOW16 compound data.
+N-gram model for splitting German compounds based on the DECOW16 compound data.
 """
 
 import os
@@ -16,13 +16,12 @@ from dekor.utils.vocabs import StringVocab
 class NGramsSplitter(BaseSplitter):
 
 	"""
-	N-grams-based compound splitter that relies on the COW dataset format.
-	First, fits train COW entries, then predicts lemma splits in this format.
+	N-gram model for splitting German compounds based on the DECOW16 compound data.
 
 	Parameters
 	----------
 	n : `int`, optional, defaults to `2`
-		maximum n-grams length
+		maximum N-gram length
 
 	record_none_links : `bool`, optional, defaults to `False`
 		whether to record contexts between which no links occur;
@@ -62,7 +61,7 @@ class NGramsSplitter(BaseSplitter):
 
 		"""
 		Feed DECOW16 compounds to the model. That includes iterating through each compound
-		with a sliding window and counting occurrences of links between n-gram contexts
+		with a sliding window and counting occurrences of links between N-gram contexts
 		to try to fit to the target distribution.
 
 		Parameters
@@ -84,9 +83,9 @@ class NGramsSplitter(BaseSplitter):
 			for masks in self._get_positions(compound, self.n):
 				for (left, right, mid), link in masks:
 					# A mask has a form (c_l, c_r, c_m, l), where
-					#   * c_l is the left n-gram
-					#   * c_r is the right n-gram
-					#   * c_m is the mid n-gram
+					#   * c_l is the left N-gram
+					#   * c_r is the right N-gram
+					#   * c_m is the mid N-gram
 					#   * l is the link id (unknown link id if none)
 					# We want to get a mapping from <c_l, c_r, c_m> of contexts C = (c1, c2, ...)
 					# to distribution of link ids L = (l1, l2, ...).
@@ -97,7 +96,7 @@ class NGramsSplitter(BaseSplitter):
 					# the 4D matrix of shape (|C|, |C|, |C|, |L|) to a 2D matrix of shape (|P|, |L|),
 					# where P is the set of encoded positions. Moreover, we will this significantly
 					# reduce the sparseness of the matrix because there will be no unknowns contexts
-					# so no zeros between n-grams, only zeros on L distribution when a link never occurs in a position.
+					# so no zeros between N-grams, only zeros on L distribution when a link never occurs in a position.
 					# For that, we join the contexts into a single position.
 					link_id = self.vocab_links.add(link.component)
 					position = '|'.join([left, right, mid])

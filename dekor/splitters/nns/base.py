@@ -1,5 +1,5 @@
 """
-Base NN-based model for splitting German compounds based on the DECOW16 compound data.
+Base NN-based models for splitting German compounds based on the DECOW16 compound data.
 """
 
 import os
@@ -89,7 +89,7 @@ class BaseNNSplitter(BaseSplitter):
 	Parameters
 	----------
 
-	n : `int`, optional, defaults to `3`
+	context_window : `int`, optional, defaults to `3`
 		length of the contexts to encode on the left and on the right from
 		target position (which is either a link or significant absence of it)
 		for fitting and prediction
@@ -120,7 +120,7 @@ class BaseNNSplitter(BaseSplitter):
 		whether to show progress bar when fitting and predicting compounds
 
 	kwargs:
-		parameters to pass to the backbone NN
+		parameters to pass to the backbone NN (see respective class documentation)
 	"""
 
 	# When doing benchmarking, it is computationally inefficient to combine all the 
@@ -287,22 +287,6 @@ class BaseNNSplitter(BaseSplitter):
 		dev_compounds: Optional[Iterable[Compound]]=None
 	) -> None:
 
-		"""
-		Feed DECOW16 compounds to the model. That includes iterating through each compound
-		with a sliding window, collecting and encoding occurrences of links between n-gram contexts
-		and training the backbone NN on them to try to fit to the target distribution.
-
-		Parameters
-		----------
-		compounds : `Iterable[Compound]`
-			collection of `Compound` objects out of COW dataset to fit
-
-		Returns
-		-------
-		A subclass of `BaseNNSplitter`
-			fit model
-		"""
-
 		train_triplets = []
 		train_link_ids = []
 		progress_bar = tqdm(train_compounds, desc="Preprocessing train") if self.verbose else train_compounds
@@ -312,9 +296,9 @@ class BaseNNSplitter(BaseSplitter):
 			for masks in self._get_positions(compound, self.context_window):
 				for (left, right, mid), link in masks:
 					# A mask has a form (c_l, c_r, c_m, l), where
-					#   * c_l is the left n-gram
-					#   * c_r is the right n-gram
-					#   * c_m is the mid n-gram
+					#   * c_l is the left N-gram
+					#   * c_r is the right N-gram
+					#   * c_m is the mid N-gram
 					#   * l is the link id (unknown link id if none)
 					# Since this category of splitters uses NNs as the backbone,
 					# we need to embed triplets to be able to efficiently work with them further.
@@ -472,20 +456,6 @@ class BaseNNSplitter(BaseSplitter):
 		return output
 
 	def predict(self, lemmas: Iterable[str]) -> List[Compound]:
-
-		"""
-		Make prediction from lemmas to DECOW16-format `Compound`s
-
-		Parameters
-		----------
-		lemmas : `Iterable[str]`
-			lemmas to predict
-
-		Returns
-		-------
-		`List[Compound]`
-			preds in DECOW16 compound format
-		"""
 
 		# Unlike N-gram model, we cannot predict every lemma separately.
 		# To be more precise, we can, but that would just be very inefficient. 

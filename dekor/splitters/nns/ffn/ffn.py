@@ -64,6 +64,27 @@ class FFN(BaseNN):
 
 class FFNSplitter(BaseForwardNNSplitter):
 
+    """
+    FFN model for splitting German compounds based on the DECOW16 compound data.
+
+    Parameters
+    ----------
+    input_size : `int`
+        input size (number of input features)
+
+    hidden_size : `int`, optional, defaults to 16
+        size of the hidden layer
+
+    output_size : `int`
+        output size (number of output classes)
+
+    activation : `str`, one of `["relu", "tanh"]`, optional, defaults to `"relu"`
+        activation function between linear layers
+
+    dropout_rate : `float`, optional, defaults to `0.1`
+        dropout rate after activation
+    """
+
     name = "ffn"
     path = ".pretrained/nns/ffn.pt"
 

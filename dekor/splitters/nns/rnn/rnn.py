@@ -56,6 +56,30 @@ class RNN(BaseRecurrentNN):
 
 class RNNSplitter(BaseRecurrentNNSplitter):
 
+    """
+    RNN model for splitting German compounds based on the DECOW16 compound data.
+
+    Parameters
+    ----------
+    input_size : `int`
+        input size (number of input features)
+
+    hidden_size : `int`, optional, defaults to 16
+        size of the hidden layer
+
+    output_size : `int`
+        output size (number of output classes)
+
+    activation : `str`, one of `["relu", "tanh"]`, optional, defaults to `"tanh"`
+        activation function for `torch.nn.RNN`
+
+    dropout_rate : `float`, optional, defaults to `0.1`
+        dropout rate for `torch.nn.RNN`
+
+    num_layers : `int`, optional, defaults to `1`
+        number of layers in `torch.nn.RNN` 
+    """
+
     name = "rnn"
     path = ".pretrained/nns/rnn.pt"
 

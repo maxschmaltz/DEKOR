@@ -56,7 +56,7 @@ class BaseSplitter(ABC):
 
 		# Analyze a single compound; performed as a sliding window
 		# with a sliding window inside over the compound lemma, where for each position it is stored,
-		# which left and right context in n-grams there is and what is in between and
+		# which left and right context in N-grams there is and what is in between and
 		# whether that "in between" is a link and, if yes, which one.
 		# Example:
 		#   "bundestag" with 2-grams
@@ -77,21 +77,21 @@ class BaseSplitter(ABC):
 		# as we know which links to expect, we will track them 
 		next_link_idx = 0
 		# Masks will be of a form (c_l, c_r, c_m, l), where
-		#   * c_l is the left n-gram
-		#   * c_r is the right n-gram
-		#   * c_m is the middle n-gram
+		#   * c_l is the left N-gram
+		#   * c_r is the right N-gram
+		#   * c_m is the middle N-gram
 		#   * l is the link id (unknown id if none)
 		# Then this masks can be used differently dependent on the splitter
 
 		# Make sliding window; however, we want to start not directly with
-		# n-grams, but first come from 1-grams to n-grams at the left of the compound
-		# and then slide by n-grams; same with the end: not the last n-gram,
-		# but n-gram to 1-gram. To be more clear: having 'Bundestag' and 3-grams, we don't want contexts
+		# N-grams, but first come from 1-grams to N-grams at the left of the compound
+		# and then slide by N-grams; same with the end: not the last N-gram,
+		# but N-gram to 1-gram. To be more clear: having 'Bundestag' and 3-grams, we don't want contexts
 		# to be directly (("bun", "des"), ("und", "est"), ..., ("des", "tag")), 
 		# but we rather want (("b", "und"), ("bu", "nde"), ("bun", "des"), ..., ("des", "tag"), ("est", "ag"), ("sta", "g")).
 		# As we process compounds unidirectionally and move left to right,
-		# we want subtract max n-gram length to achieve this effect; thus, with a window of length
-		# max n-gram length, we will begin with 1-grams, ..., reach n-grams, ..., and end with ..., 1-grams
+		# we want subtract max N-gram length to achieve this effect; thus, with a window of length
+		# max N-gram length, we will begin with 1-grams, ..., reach N-grams, ..., and end with ..., 1-grams
 		for i in range(1 - n + 1, l - n):  # 1 from both sides because there can not be a link right after BOS
 			masks = []
 			# next expected link; we use empty link in case there are no links anymore to unify the workflow below
@@ -156,6 +156,30 @@ class BaseSplitter(ABC):
 		test: Optional[bool]=False,
 		**kwargs
 	):	# -> Self:	# won't work in python3.10 or older
+		
+		"""
+		Feed DECOW16 compounds to the model. That includes iterating through each compound
+		with a sliding window, collecting and encoding occurrences of links between N-gram contexts
+		and training the backbone NN on them to try to fit to the target distribution.
+
+		Parameters
+		----------
+		train_compounds : `Iterable[Compound]`
+			collection of `Compound` objects out of COW dataset to train on
+
+		dev_compounds : `Iterable[Compound]`, optional
+			collection of `Compound` objects out of COW dataset to validate the model
+			on during training / fine-tuning
+
+		test : `bool`, optional, defaults to `False`
+			will not load / save the model if `True` (e.g. for benchmarking)
+
+		Returns
+		-------
+		A subclass of `BaseSplitter`
+			fit model
+		"""
+
 		# we want to have different models depending on their parameters so we
 		# replace the path here
 		path, extension = os.path.splitext(self.path)
@@ -304,14 +328,43 @@ class BaseSplitter(ABC):
 
 	@abstractmethod
 	def predict(self, lemmas: List[str], *args, **kwargs) -> List[Compound]:
+
+		"""
+		Make prediction from lemmas to DECOW16-format `Compound`s
+
+		Parameters
+		----------
+		lemmas : `Iterable[str]`
+			lemmas to predict
+
+		Returns
+		-------
+		`List[Compound]`
+			preds in DECOW16 compound format
+		"""
+
 		pass
 
 	@abstractmethod
 	def save(self) -> None:
+
+		"""
+		Save the model.
+
+		The model will be saved into the path specified in the `path` attribute.
+		"""
+
 		pass
 
 	@abstractmethod
 	def load(self) -> None:
+
+		"""
+		Load the model.
+
+		The model will be loaded from the path specified in the `path` attribute.
+		"""
+
 		pass
 
 	def __repr__(self) -> str:

@@ -421,13 +421,20 @@ def parse_gecodb(
 	gecodb_path : `str`
 		path to the TSV DECOW16-format compounds dataset
 
+	version : `str`, optional, one of `["4", "5", "ds"]`, defaults to `"5"`
+		expects columns with raw DECOW16 entries if `version="4"`,
+		those plus first constituent count if `version="5"`,
+		and those plus compound type if `version="ds"`
+
 	Returns
 	-------
 	`pandas.DataFrame`
-		dataframe with three columns:
-		* "raws": `str`: DECOW16-format compound entry
-		* "counts": `int`: number of occurrences
-		* "compounds": `Compound`: processed compounds
+		dataframe with columns respectively to `version` plus compound column:
+		* "raw": `str`: DECOW16-format compound entry (`"4"`, `"5"`, and `"ds"`)
+		* "count": `int`: number of occurrences in DECOW16 (`"4"`, `"5"`, and `"ds"`)
+		* "fc_count": `int`: number of first constituent occurrences in the data (`"5"` and `"ds"`)
+		* "comp_type": `str`: compound type by first constituent frequency (`"ds"`)
+		* "compound": `Compound`: processed compounds (`"4"`, `"5"`, and `"ds"`)
 	"""
 
 	colnames = (

@@ -10,7 +10,7 @@ GENUS_MAPPING = {
 }
 
 
-async def parse_paradigm(paradigm_section: Tag) -> Union[Tuple[str, pd.DataFrame], None]:
+async def _parse_paradigm(paradigm_section: Tag) -> Union[Tuple[str, pd.DataFrame], None]:
 		
 	try:
 
@@ -79,7 +79,7 @@ async def parse_paradigm(paradigm_section: Tag) -> Union[Tuple[str, pd.DataFrame
 	except: return
 
 
-async def get_paradigms(lemma: str) -> List[Union[Tuple[str, pd.DataFrame], None]]:
+async def _get_paradigms(lemma: str) -> List[Union[Tuple[str, pd.DataFrame], None]]:
 	
 	# fetch the Wiktionary page for the word
 	url = f"https://de.wiktionary.org/wiki/{lemma}"
@@ -95,7 +95,7 @@ async def get_paradigms(lemma: str) -> List[Union[Tuple[str, pd.DataFrame], None
 	paradigm_sections = soup.find_all("table", {"class": "inflection-table"})
 	
 	infos = [
-		await parse_paradigm(paradigm_section)
+		await _parse_paradigm(paradigm_section)
 		for paradigm_section in paradigm_sections
 	]
 

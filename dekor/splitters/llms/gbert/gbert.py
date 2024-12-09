@@ -1,4 +1,7 @@
-import re
+"""
+GBERT-based model for splitting German compounds based on the DECOW16 compound data.
+"""
+
 from collections import OrderedDict
 import numpy as np
 import torch
@@ -21,6 +24,36 @@ BASE_MODEL_NAME = "deepset/gbert-base"
 
 
 class GBERTSplitter(BaseHFSplitter):
+
+
+	"""
+	GBERT-based model for splitting German compounds based on the DECOW16 compound data.
+	
+	Parameters
+	----------
+	context_window : `int`, optional, defaults to `2`
+		length of the contexts to encode on the left and on the right from
+		target position (which is either a link or significant absence of it)
+		for fitting and prediction
+
+	record_none_links : `bool`, optional, defaults to `True`
+		whether to record contexts between which no links occur;
+		hint: that could lead to a strong bias towards no link choice
+
+	learning_rate : `float`, optional, defaults to `0.0001`
+		learning rate for `transformers.Trainer`; note that
+		`transformers.Trainer` sets a scheduler so the LR
+		will be changing during fine-tuning
+
+	n_epochs : `int`, optional, defaults to `3`
+		number of training epochs with `transformers.Trainer`
+
+	batch_size : `int`, optional, defaults to `16`
+		batch size
+
+	verbose : `bool`, optional, defaults to `True`
+		whether to show progress bar when fitting and predicting compounds
+	"""
 
 	name = "gbert"
 	path = ".pretrained/llms/gbert/"
@@ -126,9 +159,9 @@ class GBERTSplitter(BaseHFSplitter):
 			for masks in self._get_positions(compound, self.context_window):
 				for (left, right, mid), link in masks:
 					# A mask has a form (c_l, c_r, c_m, l), where
-					#   * c_l is the left n-gram
-					#   * c_r is the right n-gram
-					#   * c_m is the mid n-gram
+					#   * c_l is the left N-gram
+					#   * c_r is the right N-gram
+					#   * c_m is the mid N-gram
 					#   * l is the link id (unknown link id if none)
 					# BERT makes an efficient use of the [SEP] token
 					# to separate sequences so in contrary to

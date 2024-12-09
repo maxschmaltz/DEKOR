@@ -93,6 +93,34 @@ class CNN(BaseNN):
 
 class CNNSplitter(BaseForwardNNSplitter):
 
+    """
+    CNN model for splitting German compounds based on the DECOW16 compound data.
+
+    Parameters
+    ----------
+    input_size : `int`
+        input size (number of input features)
+
+    convolution_size : `int`, optional, defaults to `5`
+        convolution window size
+
+    hidden_size : `int`, optional, defaults to `32`
+        size of the hidden layer
+
+    output_size : `int`
+        output size (number of output classes)
+
+    activation : `str`, one of `["relu", "tanh"]`, optional, defaults to `"relu"`
+        activation function after convolution
+
+    reduction : `str`, one of `["max", "conv"]`, optional, defaults to `"max"`
+        reduction of the channel matrix after the convolution is conducted;
+        max pooling if `reduction="max"`, convolution to one channel if `reduction="conv"`
+
+    dropout_rate : `float`, optional, defaults to `0.1`
+        dropout rate after activation
+    """
+
     name = "cnn"
     path = ".pretrained/nns/cnn.pt"
 

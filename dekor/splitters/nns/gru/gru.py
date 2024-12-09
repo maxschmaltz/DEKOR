@@ -52,6 +52,27 @@ class GRU(BaseRecurrentNN):
 
 class GRUSplitter(BaseRecurrentNNSplitter):
 
+    """
+    GRU model for splitting German compounds based on the DECOW16 compound data.
+
+    Parameters
+    ----------
+    input_size : `int`
+        input size (number of input features)
+
+    hidden_size : `int`, optional, defaults to 16
+        size of the hidden layer
+
+    output_size : `int`
+        output size (number of output classes)
+
+    dropout_rate : `float`, optional, defaults to `0.1`
+        dropout rate for `torch.nn.GRU`
+
+    num_layers : `int`, optional, defaults to `1`
+        number of layers in `torch.nn.GRU` 
+    """
+
     name = "gru"
     path = ".pretrained/nns/gru.pt"
 

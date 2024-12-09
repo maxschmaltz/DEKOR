@@ -1,3 +1,7 @@
+"""
+ByT5-based model for splitting German compounds based on the DECOW16 compound data.
+"""
+
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -20,6 +24,27 @@ BASE_MODEL_NAME = "google/byt5-base"
 
 
 class ByT5Splitter(BaseHFSplitter):
+	
+	"""
+	ByT5-based model for splitting German compounds based on the DECOW16 compound data.
+
+	Parameters
+	----------
+
+	learning_rate : `float`, optional, defaults to `0.001`
+		learning rate for `transformers.Trainer`; note that
+		`transformers.Trainer` sets a scheduler so the LR
+		will be changing during fine-tuning
+
+	n_epochs : `int`, optional, defaults to `10`
+		number of training epochs with `transformers.Trainer`
+
+	batch_size : `int`, optional, defaults to `16`
+		batch size
+
+	verbose : `bool`, optional, defaults to `True`
+		whether to show progress bar when fitting and predicting compounds
+	"""
 
 	name = "byt5"
 	path = ".pretrained/llms/byt5/"

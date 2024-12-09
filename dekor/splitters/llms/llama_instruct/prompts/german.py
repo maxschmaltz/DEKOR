@@ -1,3 +1,7 @@
+"""
+Prompts for Llama3.1-based pipelines for splitting German compounds, German version.
+"""
+
 import json
 from langchain_core.pydantic_v1 import BaseModel, Field
 from typing import Literal, Iterable, Optional

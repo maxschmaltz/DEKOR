@@ -1,3 +1,7 @@
+"""
+Tools for Llama3.1-based pipelines for splitting German compounds. German version.
+"""
+
 import re
 import asyncio
 import pandas as pd
@@ -5,7 +9,7 @@ from langchain.pydantic_v1 import BaseModel, Field
 from langchain_core.tools import StructuredTool
 from typing import Tuple, Union
 
-from dekor.splitters.llms.llama_instruct.tools.paradigm import get_paradigms
+from dekor.splitters.llms.llama_instruct.tools.paradigm import _get_paradigms
 from dekor.utils.gecodb_parser import Compound
 
 
@@ -103,7 +107,7 @@ async def aget_paradigm_german(lemma: str) -> str:
 
 	lemma = lemma.capitalize()
 
-	infos = await get_paradigms(lemma)
+	infos = await _get_paradigms(lemma)
 
 	if not infos:
 		return f"Das Nominativ Wort \"{lemma}\" wurde nicht gefunden und existiert vielleicht nicht."
@@ -117,6 +121,28 @@ async def aget_paradigm_german(lemma: str) -> str:
 	
 
 def get_paradigm_german(lemma: str) -> str:
+
+	"""
+	Get a textual description of the paradigm(s) of a German noun from Wiktionary. 
+	
+	That includes the type of declination (strong / weak) with a focus on genitive
+	and Plural form types. For that, the tool sends a request to https://de.wiktionary.org/wiki/{lemma}
+	and heuristically forms a description. If the paradigm is defect or the word is not found,
+	it is also returned as a string hint (e.g. "Das Nominativ Wort {lemma} wurde nicht
+	gefunden und existiert vielleicht nicht.").
+
+	Parameters
+	----------
+	lemma : `str`
+		the word to look up on Wiktionary; note: Wiktionary looks up the words
+		by their nominative form
+
+	Returns
+	-------
+	`str`
+		heuristic string description of the paradigm(s) 
+	"""
+
 	return asyncio.run(aget_paradigm_german(lemma))
 
 
