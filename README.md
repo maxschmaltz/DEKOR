@@ -47,7 +47,7 @@ print(preds[0])
 Output (in DECOW16 format):
 
 ```text
-"belichtung_+s_möglichkeit"
+belichtung_+s_möglichkeit
 ```
 
 
