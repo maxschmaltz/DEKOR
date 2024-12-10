@@ -1,3 +1,9 @@
+"""
+Copyright (C) 2024 Maksim Shmalts
+
+This program is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) file for details.
+"""
+
 import requests
 from bs4 import BeautifulSoup, Tag
 import pandas as pd

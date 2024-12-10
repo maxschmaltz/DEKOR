@@ -8,6 +8,7 @@ Contents:
 * [Cite](#cite)
 
 
+
 ## Abstract
 
 > Being an extremely productive word formation tool, compounding in German makes its natural language processing challenging due to the potentially unlimited vocabulary. Compound splitting as the most obvious solution is a non-trivial task since it requires analyzing unevenly and almost arbitrary distributed linking elements in compounds, and the ability to handle infrequent and unique compounds, which form the majority of compounds. In this thesis, I present LLM-based pipelines that address N+N compound splitting with an inventory of 12 links and are capable of handling rare and unknown compounds. The LLM based pipelines actively use reasoning, self-evaluation, and ad hoc referring to external sources to produce the best possible analyses and achieve a weighted accuracy of 0.677 and an absolute accuracy of 0.861.
@@ -76,3 +77,10 @@ The overall scores are given below. For more detailed evaluation as well as disc
 The official paper is yet to come.
 
 An [unpublished thesis paper](./papers/assessing_llm_based_pipelines_for_splitting_nominal_compounds_for_german.pdf) is however available in the repo.
+
+
+## License
+
+Copyright (C) 2024 Maksim Shmalts
+
+This program is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) file for details.

@@ -2,6 +2,12 @@
 Tools for Llama3.1-based pipelines for splitting German compounds. English version.
 """
 
+"""
+Copyright (C) 2024 Maksim Shmalts
+
+This program is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) file for details.
+"""
+
 import re
 import asyncio
 import pandas as pd

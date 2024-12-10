@@ -2,6 +2,12 @@
 Llama3.1-based pipelines for splitting German compounds based on the DECOW16 compound data.
 """
 
+"""
+Copyright (C) 2024 Maksim Shmalts
+
+This program is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) file for details.
+"""
+
 import os
 import asyncio
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
