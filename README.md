@@ -83,4 +83,6 @@ An [unpublished thesis paper](./papers/assessing_llm_based_pipelines_for_splitti
 
 Copyright (C) 2024 Maksim Shmalts
 
-This program is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) file for details.
+The code is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) for details.
+
+The datasets are licensed under CC BY-NC-SA 4.0. See [resouces/LICENSE.md](resouces/LICENSE.md) for details.
