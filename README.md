@@ -85,4 +85,4 @@ Copyright (C) 2024 Maksim Shmalts
 
 The code is licensed under GNU AGPL v3.0 with Commons Clause. See [LICENSE.md](./LICENSE.md) for details.
 
-The datasets are licensed under CC BY-NC-SA 4.0. See [resouces/LICENSE.md](resouces/LICENSE.md) for details.
+The datasets are licensed under CC BY-NC 4.0. See [resouces/LICENSE.md](resouces/LICENSE.md) for details.
